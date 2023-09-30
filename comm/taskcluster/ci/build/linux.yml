@@ -1,0 +1,405 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+---
+job-defaults:
+    worker-type: b-linux-gcp
+    run:
+        using: mozharness
+        comm-checkout: true
+        actions: [build]
+        config-paths:
+            - comm/testing/mozharness/configs
+        script: "mozharness/scripts/fx_desktop_build.py"
+    fetches:
+        toolchain:
+            - linux64-binutils
+            - linux64-cbindgen
+            - linux64-clang
+            - linux64-dump_syms
+            - linux64-nasm
+            - linux64-node
+            - linux64-pkgconf
+            - linux64-rust-size
+            - sysroot-wasm32-wasi
+
+
+linux64/opt:
+    description: "Linux64 Opt"
+    index:
+        product: thunderbird
+        job-name: linux64-opt
+    treeherder:
+        platform: linux64/opt
+        symbol: B
+    worker:
+        max-run-time: 7200
+        env:
+            MOZ_AUTOMATION_PACKAGE_TESTS: "1"
+    run:
+        config:
+            - builds/taskcluster_base_thunderbird.py
+            - builds/releng_base_linux_64_builds.py
+    use-sccache: true
+    optimization:
+        skip-suite-only: null
+    fetches:
+        toolchain:
+            - linux64-libotr
+            - linux64-rust
+            - linux64-sccache
+            - sysroot-x86_64-linux-gnu
+
+linux64-shippable/opt:
+    description: "Linux64 Shippable"
+    attributes:
+        shippable: true
+        enable-full-crashsymbols: true
+    shipping-phase: build
+    shipping-product: thunderbird
+    index:
+        product: thunderbird
+        job-name: linux64-opt
+        type: shippable
+    treeherder:
+        platform: linux64-shippable/opt
+        symbol: B
+    worker:
+        max-run-time: 7200
+        env:
+            MOZ_AUTOMATION_PACKAGE_TESTS: "1"
+    run:
+        config:
+            - builds/taskcluster_base_thunderbird.py
+            - builds/releng_base_linux_64_builds.py
+            - taskcluster_nightly.py
+    run-on-projects: ['release']
+    optimization:
+        skip-suite-only: null
+    fetches:
+        toolchain:
+            - linux64-libotr
+            - linux64-rust
+            - sysroot-x86_64-linux-gnu
+
+linux64/debug:
+    description: "Linux64 Debug"
+    index:
+        product: thunderbird
+        job-name: linux64-debug
+    treeherder:
+        platform: linux64/debug
+        symbol: B
+    worker:
+        max-run-time: 7200
+        env:
+            MOZ_AUTOMATION_PACKAGE_TESTS: "1"
+    run:
+        config:
+            - builds/taskcluster_base_thunderbird.py
+            - builds/releng_base_linux_64_builds.py
+        custom-build-variant-cfg: debug
+        mozconfig-variant: debug
+    use-sccache: true
+    optimization:
+        skip-suite-only: null
+    fetches:
+        toolchain:
+            - linux64-libotr
+            - linux64-rust
+            - linux64-sccache
+            - sysroot-x86_64-linux-gnu
+
+linux64-asan/opt:
+    description: "Linux64 Opt ASAN"
+    index:
+        product: thunderbird
+        job-name: linux64-asan-opt
+    treeherder:
+        platform: linux64/asan
+        symbol: Bo
+    worker:
+        env:
+            PERFHERDER_EXTRA_OPTIONS: "opt asan"
+            ASAN_OPTIONS: "detect_leaks=0"
+            MOZ_AUTOMATION_PACKAGE_TESTS: "1"
+        max-run-time: 5400
+    run:
+        config:
+            - builds/taskcluster_base_thunderbird.py
+            - builds/releng_base_linux_64_builds.py
+        custom-build-variant-cfg: asan-tc
+        mozconfig-variant: nightly-asan
+        tooltool-downloads: public
+    run-on-projects: ['comm-central']
+    use-sccache: true
+    optimization:
+        skip-unless-backstop-no-suite: null
+    fetches:
+        toolchain:
+            - linux64-libotr
+            - linux64-llvm-symbolizer
+            - linux64-rust-dev
+            - linux64-sccache
+            - sysroot-x86_64-linux-gnu
+
+linux64-asan-reporter-shippable/opt:
+    description: "Linux64 Opt ASAN Reporter (Shippable)"
+    attributes:
+        shippable: true
+    shipping-product:
+        by-release-type:
+            nightly: thunderbird
+            default: null
+    index:
+        product: thunderbird
+        job-name: linux64-asan-reporter-opt
+        type: shippable
+    treeherder:
+        platform: linux64-asan-reporter/opt
+        symbol: BoR
+    run-on-projects: ['comm-central']
+    worker:
+        env:
+            PERFHERDER_EXTRA_OPTIONS: asan-reporter
+            MOZ_AUTOMATION_PACKAGE_TESTS: "1"
+        max-run-time: 3600
+    run:
+        config:
+            - builds/taskcluster_base_thunderbird.py
+            - builds/releng_base_linux_64_builds.py
+            - taskcluster_nightly.py
+        custom-build-variant-cfg: asan-reporter-tc
+        mozconfig-variant: nightly-asan-reporter
+        mar-channel-id:
+            thunderbird-comm-central-asan
+        accepted-mar-channel-ids:
+            thunderbird-comm-central-asan
+    optimization:
+        skip-unless-backstop-no-suite: null
+    fetches:
+        toolchain:
+            - linux64-libotr
+            - linux64-llvm-symbolizer
+            - linux64-rust
+            - linux64-sccache
+            - sysroot-x86_64-linux-gnu
+
+linux64-tsan/opt:
+    description: "Linux64 Opt TSAN"
+    index:
+        product: thunderbird
+        job-name: linux64-tsan-opt
+    treeherder:
+        platform: linux64/tsan
+        symbol: Bo
+    worker:
+        env:
+            PERFHERDER_EXTRA_OPTIONS: "opt tsan"
+            LSAN_OPTIONS: "verbosity=1:log_threads=1"
+            MOZ_AUTOMATION_PACKAGE_TESTS: "1"
+        max-run-time: 5400
+    run:
+        config:
+            - builds/taskcluster_base_thunderbird.py
+            - builds/releng_base_linux_64_builds.py
+        custom-build-variant-cfg: tsan-tc
+        mozconfig-variant: tsan
+        tooltool-downloads: public
+    run-on-projects: ['comm-central']
+    use-sccache: true
+    optimization:
+        skip-unless-backstop-no-suite: null
+    fetches:
+        toolchain:
+            - linux64-libotr
+            - linux64-llvm-symbolizer
+            - linux64-rust-dev
+            - linux64-sccache
+            - sysroot-x86_64-linux-gnu
+
+linux64-aarch64/opt:
+    description: "Linux64 aarch64 Opt"
+    index:
+        product: thunderbird
+        job-name: linux64-aarch64-opt
+    attributes:
+        enable-full-crashsymbols: true
+    treeherder:
+        platform: linux64-aarch64/opt
+        symbol: B
+        tier: 2
+    worker:
+        max-run-time: 7200
+    run:
+        config:
+            - builds/taskcluster_base_thunderbird.py
+            - builds/releng_base_linux_64_builds.py
+        extra-config:
+            mozconfig_platform: linux64-aarch64
+        mozconfig-variant: opt
+        tooltool-downloads: public
+    run-on-projects: ['comm-central']
+    use-sccache: true
+    optimization:
+        skip-unless-backstop-no-suite: null
+    fetches:
+        toolchain:
+            - linux-aarch64-libotr
+            - linux64-llvm-symbolizer
+            - linux64-rust
+            - linux64-sccache
+            - sysroot-aarch64-linux-gnu
+            - sysroot-x86_64-linux-gnu
+
+linux64-ccov/opt:
+    description: "Linux64-CCov Opt"
+    index:
+        product: thunderbird
+        job-name: linux64-ccov-opt
+    treeherder:
+        platform: linux64-ccov/opt
+        symbol: B
+        tier: 2
+    run-on-projects: ['comm-central']
+    worker:
+        artifacts:
+            - name: public/code-coverage-grcov.zip
+              path: /builds/worker/workspace/obj-build/code-coverage-grcov.zip
+              type: file
+        max-run-time: 7200
+        env:
+            RUSTC_BOOTSTRAP: '1'
+            MOZ_AUTOMATION_PACKAGE_TESTS: "1"
+    run:
+        using: mozharness
+        comm-checkout: true
+        config:
+            - builds/taskcluster_base_thunderbird.py
+            - builds/releng_base_linux_64_builds.py
+        custom-build-variant-cfg: code-coverage-opt
+        mozconfig-variant: code-coverage-opt
+    use-sccache: false
+    optimization:
+        skip-suite-only: null
+    fetches:
+        toolchain:
+            - linux64-libotr
+            - linux64-grcov
+            - linux64-rust
+            - sysroot-x86_64-linux-gnu
+
+linux64-ccov/debug:
+    description: "Linux64-CCov Debug"
+    index:
+        product: thunderbird
+        job-name: linux64-ccov-debug
+    treeherder:
+        platform: linux64-ccov/debug
+        symbol: B
+        tier: 2
+    run-on-projects: []
+    worker:
+        max-run-time: 7200
+        env:
+            RUSTC_BOOTSTRAP: '1'
+    run:
+        config:
+            - builds/taskcluster_base_thunderbird.py
+            - builds/releng_base_linux_64_builds.py
+        custom-build-variant-cfg: code-coverage-debug
+        mozconfig-variant: code-coverage-debug
+    use-sccache: false
+    optimization:
+        skip-suite-only: null
+    fetches:
+        toolchain:
+            - linux64-libotr
+            - linux64-grcov
+            - linux64-rust
+            - sysroot-x86_64-linux-gnu
+
+linux/opt:
+    description: "Linux32 Opt"
+    index:
+        product: thunderbird
+        job-name: linux32-opt
+    treeherder:
+        platform: linux32/opt
+        symbol: B
+    worker:
+        max-run-time: 7200
+    run:
+        config:
+            - builds/taskcluster_base_thunderbird.py
+            - builds/releng_base_linux_32_builds.py
+    use-sccache: true
+    optimization:
+        skip-suite-only: null
+    fetches:
+        toolchain:
+            - linux32-libotr
+            - linux64-rust
+            - linux64-sccache
+            - sysroot-i686-linux-gnu
+            - sysroot-x86_64-linux-gnu
+
+linux-shippable/opt:
+    description: "Linux32 Shippable"
+    attributes:
+        shippable: true
+        enable-full-crashsymbols: true
+    shipping-phase: build
+    shipping-product: thunderbird
+    index:
+        product: thunderbird
+        job-name: linux32-opt
+        type: shippable
+    treeherder:
+        platform: linux32-shippable/opt
+        symbol: B
+    worker:
+        max-run-time: 7200
+        env:
+            MOZ_AUTOMATION_PACKAGE_TESTS: "1"
+    run:
+        config:
+            - builds/taskcluster_base_thunderbird.py
+            - builds/releng_base_linux_32_builds.py
+            - taskcluster_nightly.py
+    run-on-projects: ['release']
+    optimization:
+        skip-suite-only: null
+    fetches:
+        toolchain:
+            - linux32-libotr
+            - linux64-rust
+            - sysroot-i686-linux-gnu
+            - sysroot-x86_64-linux-gnu
+
+linux/debug:
+    description: "Linux32 Debug"
+    index:
+        product: thunderbird
+        job-name: linux32-debug
+    treeherder:
+        platform: linux32/debug
+        symbol: B
+    worker:
+        max-run-time: 7200
+    run:
+        config:
+            - builds/taskcluster_base_thunderbird.py
+            - builds/releng_base_linux_32_builds.py
+        custom-build-variant-cfg: debug
+        mozconfig-variant: debug
+    use-sccache: true
+    optimization:
+        skip-suite-only: null
+    fetches:
+        toolchain:
+            - linux32-libotr
+            - linux64-rust
+            - linux64-sccache
+            - sysroot-i686-linux-gnu
+            - sysroot-x86_64-linux-gnu

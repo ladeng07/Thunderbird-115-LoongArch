@@ -1,0 +1,81 @@
+# Known duplicate files
+# This file is ideally removed, but some existing files will be grandfathered in
+# See bug 1303184, bug 1313670
+#
+# PLEASE DO NOT ADD MORE EXCEPTIONS TO THIS LIST
+#
+
+# browser (see bug 1451050, bug 1476934, 1818999)
+defaults/settings/main/anti-tracking-url-decoration.json
+defaults/settings/thunderbird/anti-tracking-url-decoration.json
+
+# mail
+chrome/classic/skin/classic/messenger/icons/addon-install-confirm.svg
+chrome/classic/skin/classic/messenger/icons/new-mail-alert.png
+chrome/classic/skin/classic/messenger/icons/connection-insecure.svg
+chrome/classic/skin/classic/messenger/icons/message-encrypted-notok.svg
+chrome/classic/skin/classic/messenger/icons/new/compact/compress.svg
+chrome/classic/skin/classic/messenger/icons/new/compact/density-compact.svg
+chrome/messenger/content/branding/icon32.png
+chrome/messenger/content/branding/icon48.png
+chrome/messenger/content/branding/icon64.png
+chrome/messenger/content/branding/icon128.png
+chrome/messenger/content/branding/icon256.png
+chrome/messenger/content/messenger/extension.svg
+chrome/messenger/skin/classic/messenger/messages/simple/Variants/Normal.css
+chrome/messenger/skin/classic/messenger/messages/simple/Incoming/Context.html
+chrome/messenger/skin/classic/messenger/messages/simple/Incoming/NextContext.html
+chrome/messenger/skin/classic/messenger/messages/mail/Incoming/buddy_icon.svg
+chrome/messenger/skin/classic/messenger/messages/mail/Outgoing/buddy_icon.svg
+chrome/icons/default/default32.png
+chrome/icons/default/default48.png
+chrome/icons/default/default64.png
+chrome/icons/default/default128.png
+chrome/icons/default/default256.png
+
+#ifdef XP_MACOSX
+LaunchServices/org.mozilla.updater
+updater.app/Contents/MacOS/org.mozilla.updater
+
+plugin-container.app/Contents/PkgInfo
+updater.app/Contents/PkgInfo
+
+crashreporter.app/Contents/Resources/English.lproj/MainMenu.nib/classes.nib
+crashreporter.app/Contents/Resources/English.lproj/MainMenuRTL.nib/classes.nib
+#endif
+
+# Variants of paths in mozilla/browser/installer/allowed-dupes.mn:
+# bug 658850
+@MOZ_APP_NAME@
+@MOZ_APP_NAME@-bin
+
+# Row and column icons are duplicated
+res/table-remove-column-active.gif
+res/table-remove-row-active.gif
+res/table-remove-column-hover.gif
+res/table-remove-row-hover.gif
+res/table-remove-column.gif
+res/table-remove-row.gif
+
+res/multilocale.txt
+update.locale
+
+# Bug 1496075 - Switch searchplugins to Web Extensions
+chrome/messenger/search-extensions/amazon/favicon.ico
+chrome/messenger/search-extensions/amazondotcn/favicon.ico
+chrome/messenger/search-extensions/amazondotcom/favicon.ico
+chrome/messenger/search-extensions/mercadolibre/favicon.ico
+chrome/messenger/search-extensions/mercadolivre/favicon.ico
+
+# Windows artifact builds hack - bug 1714650
+chrome/remote/content/server/HTTPD.jsm
+components/httpd.js
+
+# Bug 1723628 - Empty files to stop the tests crashing
+chrome/messenger/skin/classic/messenger/messages/mail/Footer.html
+chrome/messenger/skin/classic/messenger/messages/mail/Header.html
+chrome/messenger/skin/classic/messenger/messages/mail/Incoming/NextContext.html
+chrome/messenger/skin/classic/messenger/messages/mail/Outgoing/Content.html
+chrome/messenger/skin/classic/messenger/messages/mail/Outgoing/Context.html
+chrome/messenger/skin/classic/messenger/messages/mail/Outgoing/NextContent.html
+chrome/messenger/skin/classic/messenger/messages/mail/Outgoing/NextContext.html

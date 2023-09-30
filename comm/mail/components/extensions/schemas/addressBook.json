@@ -1,0 +1,977 @@
+[
+  {
+    "namespace": "manifest",
+    "types": [
+      {
+        "$extend": "OptionalPermission",
+        "choices": [
+          {
+            "type": "string",
+            "enum": ["addressBooks", "sensitiveDataUpload"]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "namespace": "addressBooks",
+    "permissions": ["addressBooks"],
+    "types": [
+      {
+        "id": "NodeType",
+        "type": "string",
+        "enum": ["addressBook", "contact", "mailingList"],
+        "description": "Indicates the type of a Node."
+      },
+      {
+        "id": "AddressBookNode",
+        "type": "object",
+        "description": "A node representing an address book.",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The unique identifier for the node. IDs are unique within the current profile, and they remain valid even after the program is restarted."
+          },
+          "parentId": {
+            "type": "string",
+            "optional": true,
+            "description": "The ``id`` of the parent object."
+          },
+          "type": {
+            "$ref": "NodeType",
+            "description": "Always set to <value>addressBook</value>."
+          },
+          "readOnly": {
+            "type": "boolean",
+            "optional": true,
+            "description": "Indicates if the object is read-only."
+          },
+          "remote": {
+            "type": "boolean",
+            "optional": true,
+            "description": "Indicates if the address book is accessed via remote look-up."
+          },
+          "name": {
+            "type": "string"
+          },
+          "contacts": {
+            "type": "array",
+            "optional": true,
+            "items": {
+              "$ref": "contacts.ContactNode"
+            },
+            "description": "A list of contacts held by this node's address book or mailing list."
+          },
+          "mailingLists": {
+            "type": "array",
+            "optional": true,
+            "items": {
+              "$ref": "mailingLists.MailingListNode"
+            },
+            "description": "A list of mailingLists in this node's address book."
+          }
+        }
+      }
+    ],
+    "functions": [
+      {
+        "name": "openUI",
+        "type": "function",
+        "async": "callback",
+        "description": "Opens the address book user interface.",
+        "parameters": [
+          {
+            "type": "function",
+            "name": "callback",
+            "optional": true,
+            "parameters": [
+              {
+                "name": "return",
+                "$ref": "tabs.Tab"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "closeUI",
+        "type": "function",
+        "async": true,
+        "description": "Closes the address book user interface.",
+        "parameters": []
+      },
+      {
+        "name": "list",
+        "type": "function",
+        "async": "callback",
+        "parameters": [
+          {
+            "name": "complete",
+            "type": "boolean",
+            "optional": true,
+            "default": false,
+            "description": "If set to true, results will include contacts and mailing lists for each address book."
+          },
+          {
+            "type": "function",
+            "name": "callback",
+            "optional": true,
+            "parameters": [
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "AddressBookNode"
+                }
+              }
+            ]
+          }
+        ],
+        "description": "Gets a list of the user's address books, optionally including all contacts and mailing lists."
+      },
+      {
+        "name": "get",
+        "type": "function",
+        "async": "callback",
+        "parameters": [
+          {
+            "name": "id",
+            "type": "string"
+          },
+          {
+            "name": "complete",
+            "type": "boolean",
+            "optional": true,
+            "default": false,
+            "description": "If set to true, results will include contacts and mailing lists for this address book."
+          },
+          {
+            "type": "function",
+            "name": "callback",
+            "optional": true,
+            "parameters": [
+              {
+                "$ref": "AddressBookNode"
+              }
+            ]
+          }
+        ],
+        "description": "Gets a single address book, optionally including all contacts and mailing lists."
+      },
+      {
+        "name": "create",
+        "type": "function",
+        "async": "callback",
+        "parameters": [
+          {
+            "name": "properties",
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "type": "function",
+            "name": "callback",
+            "optional": true,
+            "parameters": [
+              {
+                "type": "string",
+                "description": "The id of the new address book."
+              }
+            ]
+          }
+        ],
+        "description": "Creates a new, empty address book."
+      },
+      {
+        "name": "update",
+        "type": "function",
+        "async": true,
+        "parameters": [
+          {
+            "name": "id",
+            "type": "string"
+          },
+          {
+            "name": "properties",
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              }
+            }
+          }
+        ],
+        "description": "Renames an address book."
+      },
+      {
+        "name": "delete",
+        "type": "function",
+        "async": true,
+        "parameters": [
+          {
+            "name": "id",
+            "type": "string"
+          }
+        ],
+        "description": "Removes an address book, and all associated contacts and mailing lists."
+      }
+    ],
+    "events": [
+      {
+        "name": "onCreated",
+        "type": "function",
+        "description": "Fired when an address book is created.",
+        "parameters": [
+          {
+            "name": "node",
+            "$ref": "AddressBookNode"
+          }
+        ]
+      },
+      {
+        "name": "onUpdated",
+        "type": "function",
+        "description": "Fired when an address book is renamed.",
+        "parameters": [
+          {
+            "name": "node",
+            "$ref": "AddressBookNode"
+          }
+        ]
+      },
+      {
+        "name": "onDeleted",
+        "type": "function",
+        "description": "Fired when an addressBook is deleted.",
+        "parameters": [
+          {
+            "name": "id",
+            "type": "string"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "namespace": "addressBooks.provider",
+    "permissions": ["addressBooks"],
+    "events": [
+      {
+        "name": "onSearchRequest",
+        "type": "function",
+        "description": "Registering this listener will create and list a read-only address book in Thunderbird's address book window, similar to LDAP address books. When selecting this address book, users will first see no contacts, but they can search for them, which will fire this event. Contacts returned by the listener callback will be displayed as contact cards in the address book. Several listeners can be registered, to create multiple address books.\n\nThe event also fires for each registered listener (for each created read-only address book), when users type something into the mail composer's <em>To:</em> field, or into similar fields like the calendar meeting attendees field. Contacts returned by the listener callback will be added to the autocomplete results in the dropdown of that field.\n\nExample: <literalinclude>includes/addressBooks/onSearchRequest.js<lang>JavaScript</lang></literalinclude>",
+        "parameters": [
+          {
+            "name": "node",
+            "$ref": "AddressBookNode"
+          },
+          {
+            "name": "searchString",
+            "description": "The search text that the user entered. Not available when invoked from the advanced address book search dialog.",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "query",
+            "type": "string",
+            "description": "The boolean query expression corresponding to the search. **Note:** This parameter may change in future releases of Thunderbird.",
+            "optional": true
+          }
+        ],
+        "extraParameters": [
+          {
+            "name": "parameters",
+            "description": "Descriptions for the address book created by registering this listener.",
+            "type": "object",
+            "properties": {
+              "addressBookName": {
+                "type": "string",
+                "optional": true,
+                "description": "The name of the created address book."
+              },
+              "isSecure": {
+                "type": "boolean",
+                "optional": true,
+                "description": "Whether the address book search queries are using encrypted protocols like HTTPS."
+              },
+              "id": {
+                "type": "string",
+                "optional": true,
+                "description": "The unique ID of the created address book. If several listeners have been added, the ``id`` allows to identify which address book initiated the search request. If not provided, a unique ID will be generated for you."
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "namespace": "contacts",
+    "permissions": ["addressBooks"],
+    "types": [
+      {
+        "id": "QueryInfo",
+        "description": "Object defining a query for :ref:`contacts.quickSearch`.",
+        "type": "object",
+        "properties": {
+          "searchString": {
+            "type": "string",
+            "optional": true,
+            "description": "One or more space-separated terms to search for."
+          },
+          "includeLocal": {
+            "type": "boolean",
+            "optional": true,
+            "default": true,
+            "description": "Whether to include results from local address books. Defaults to true."
+          },
+          "includeRemote": {
+            "type": "boolean",
+            "optional": true,
+            "default": true,
+            "description": "Whether to include results from remote address books. Defaults to true."
+          },
+          "includeReadOnly": {
+            "type": "boolean",
+            "optional": true,
+            "default": true,
+            "description": "Whether to include results from read-only address books. Defaults to true."
+          },
+          "includeReadWrite": {
+            "type": "boolean",
+            "optional": true,
+            "default": true,
+            "description": "Whether to include results from read-write address books. Defaults to true."
+          }
+        }
+      },
+      {
+        "id": "ContactNode",
+        "type": "object",
+        "description": "A node representing a contact in an address book.",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The unique identifier for the node. IDs are unique within the current profile, and they remain valid even after the program is restarted."
+          },
+          "parentId": {
+            "type": "string",
+            "optional": true,
+            "description": "The ``id`` of the parent object."
+          },
+          "type": {
+            "$ref": "addressBooks.NodeType",
+            "description": "Always set to <value>contact</value>."
+          },
+          "readOnly": {
+            "type": "boolean",
+            "optional": true,
+            "description": "Indicates if the object is read-only."
+          },
+          "remote": {
+            "type": "boolean",
+            "optional": true,
+            "description": "Indicates if the object came from a remote address book."
+          },
+          "properties": {
+            "$ref": "ContactProperties"
+          }
+        }
+      },
+      {
+        "id": "ContactProperties",
+        "type": "object",
+        "description": "A set of individual properties for a particular contact, and its vCard string. Further information can be found in :ref:`howto_contacts`.",
+        "patternProperties": {
+          "^\\w+$": {
+            "choices": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "PropertyChange",
+        "type": "object",
+        "description": "A dictionary of changed properties. Keys are the property name that changed, values are an object containing ``oldValue`` and ``newValue``. Values can be either a string or <value>null</value>.",
+        "patternProperties": {
+          "^\\w+$": {
+            "type": "object",
+            "properties": {
+              "oldValue": {
+                "choices": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "newValue": {
+                "choices": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    ],
+    "functions": [
+      {
+        "name": "list",
+        "type": "function",
+        "async": "callback",
+        "parameters": [
+          {
+            "name": "parentId",
+            "type": "string"
+          },
+          {
+            "type": "function",
+            "name": "callback",
+            "optional": true,
+            "parameters": [
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "ContactNode"
+                }
+              }
+            ]
+          }
+        ],
+        "description": "Gets all the contacts in the address book with the id ``parentId``."
+      },
+      {
+        "name": "quickSearch",
+        "type": "function",
+        "async": "callback",
+        "parameters": [
+          {
+            "name": "parentId",
+            "type": "string",
+            "optional": true,
+            "description": "The id of the address book to search. If not specified, all address books are searched."
+          },
+          {
+            "name": "queryInfo",
+            "description": "Either a <em>string</em> with one or more space-separated terms to search for, or a complex :ref:`contacts.QueryInfo` search query.",
+            "choices": [
+              {
+                "type": "string"
+              },
+              {
+                "$ref": "QueryInfo"
+              }
+            ]
+          },
+          {
+            "type": "function",
+            "name": "callback",
+            "optional": true,
+            "parameters": [
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "ContactNode"
+                }
+              }
+            ]
+          }
+        ],
+        "description": "Gets all contacts matching ``queryInfo`` in the address book with the id ``parentId``."
+      },
+      {
+        "name": "get",
+        "type": "function",
+        "async": "callback",
+        "parameters": [
+          {
+            "name": "id",
+            "type": "string"
+          },
+          {
+            "type": "function",
+            "name": "callback",
+            "optional": true,
+            "parameters": [
+              {
+                "$ref": "ContactNode"
+              }
+            ]
+          }
+        ],
+        "description": "Gets a single contact."
+      },
+      {
+        "name": "getPhoto",
+        "type": "function",
+        "async": "callback",
+        "parameters": [
+          {
+            "name": "id",
+            "type": "string"
+          },
+          {
+            "type": "function",
+            "name": "callback",
+            "optional": true,
+            "parameters": [
+              {
+                "type": "object",
+                "optional": true,
+                "isInstanceOf": "File",
+                "additionalProperties": true
+              }
+            ]
+          }
+        ],
+        "description": "Gets the photo associated with this contact, if any."
+      },
+      {
+        "name": "setPhoto",
+        "type": "function",
+        "async": true,
+        "parameters": [
+          {
+            "name": "id",
+            "type": "string"
+          },
+          {
+            "name": "file",
+            "type": "object",
+            "isInstanceOf": "File",
+            "additionalProperties": true
+          }
+        ],
+        "description": "Sets the photo associated with this contact."
+      },
+      {
+        "name": "create",
+        "type": "function",
+        "async": "callback",
+        "parameters": [
+          {
+            "name": "parentId",
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "description": "Assigns the contact an id. If an existing contact has this id, an exception is thrown. **Note:** Deprecated, the card's id should be specified in the vCard string instead.",
+            "optional": true
+          },
+          {
+            "name": "properties",
+            "$ref": "ContactProperties",
+            "description": "The properties object for the new contact. If it includes a ``vCard`` member, all specified `legacy properties <|link-legacy-properties|>`__ are ignored and the new contact will be based on the provided vCard string. If a UID is specified in the vCard string, which is already used by another contact, an exception is thrown. **Note:** Using individual properties is deprecated, use the ``vCard`` member instead."
+          },
+          {
+            "type": "function",
+            "name": "callback",
+            "optional": true,
+            "parameters": [
+              {
+                "type": "string",
+                "description": "The ID of the new contact."
+              }
+            ]
+          }
+        ],
+        "description": "Adds a new contact to the address book with the id ``parentId``."
+      },
+      {
+        "name": "update",
+        "type": "function",
+        "async": true,
+        "parameters": [
+          {
+            "name": "id",
+            "type": "string"
+          },
+          {
+            "name": "properties",
+            "$ref": "ContactProperties",
+            "description": "An object with properties to update the specified contact. Individual properties are removed, if they are set to <value>null</value>. If the provided object includes a ``vCard`` member, all specified `legacy properties <|link-legacy-properties|>`__ are ignored and the details of the contact will be replaced by the provided vCard. Changes to the UID will be ignored. **Note:** Using individual properties is deprecated, use the ``vCard`` member instead. "
+          }
+        ],
+        "description": "Updates a contact."
+      },
+      {
+        "name": "delete",
+        "type": "function",
+        "async": true,
+        "parameters": [
+          {
+            "name": "id",
+            "type": "string"
+          }
+        ],
+        "description": "Removes a contact from the address book. The contact is also removed from any mailing lists it is a member of."
+      }
+    ],
+    "events": [
+      {
+        "name": "onCreated",
+        "type": "function",
+        "description": "Fired when a contact is created.",
+        "parameters": [
+          {
+            "name": "node",
+            "$ref": "ContactNode"
+          }
+        ]
+      },
+      {
+        "name": "onUpdated",
+        "type": "function",
+        "description": "Fired when a contact is changed.",
+        "parameters": [
+          {
+            "name": "node",
+            "$ref": "ContactNode"
+          },
+          {
+            "name": "changedProperties",
+            "$ref": "PropertyChange"
+          }
+        ]
+      },
+      {
+        "name": "onDeleted",
+        "type": "function",
+        "description": "Fired when a contact is removed from an address book.",
+        "parameters": [
+          {
+            "name": "parentId",
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "type": "string"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "namespace": "mailingLists",
+    "permissions": ["addressBooks"],
+    "types": [
+      {
+        "id": "MailingListNode",
+        "type": "object",
+        "description": "A node representing a mailing list.",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The unique identifier for the node. IDs are unique within the current profile, and they remain valid even after the program is restarted."
+          },
+          "parentId": {
+            "type": "string",
+            "optional": true,
+            "description": "The ``id`` of the parent object."
+          },
+          "type": {
+            "$ref": "addressBooks.NodeType",
+            "description": "Always set to <value>mailingList</value>."
+          },
+          "readOnly": {
+            "type": "boolean",
+            "optional": true,
+            "description": "Indicates if the object is read-only."
+          },
+          "remote": {
+            "type": "boolean",
+            "optional": true,
+            "description": "Indicates if the object came from a remote address book."
+          },
+          "name": {
+            "type": "string"
+          },
+          "nickName": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "contacts": {
+            "type": "array",
+            "optional": true,
+            "items": {
+              "$ref": "contacts.ContactNode"
+            },
+            "description": "A list of contacts held by this node's address book or mailing list."
+          }
+        }
+      }
+    ],
+    "functions": [
+      {
+        "name": "list",
+        "type": "function",
+        "async": "callback",
+        "parameters": [
+          {
+            "name": "parentId",
+            "type": "string"
+          },
+          {
+            "type": "function",
+            "name": "callback",
+            "optional": true,
+            "parameters": [
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "MailingListNode"
+                }
+              }
+            ]
+          }
+        ],
+        "description": "Gets all the mailing lists in the address book with id ``parentId``."
+      },
+      {
+        "name": "get",
+        "type": "function",
+        "async": "callback",
+        "parameters": [
+          {
+            "name": "id",
+            "type": "string"
+          },
+          {
+            "type": "function",
+            "name": "callback",
+            "optional": true,
+            "parameters": [
+              {
+                "$ref": "MailingListNode"
+              }
+            ]
+          }
+        ],
+        "description": "Gets a single mailing list."
+      },
+      {
+        "name": "create",
+        "type": "function",
+        "async": "callback",
+        "parameters": [
+          {
+            "name": "parentId",
+            "type": "string"
+          },
+          {
+            "name": "properties",
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "nickName": {
+                "type": "string",
+                "optional": true
+              },
+              "description": {
+                "type": "string",
+                "optional": true
+              }
+            }
+          },
+          {
+            "type": "function",
+            "name": "callback",
+            "optional": true,
+            "parameters": [
+              {
+                "type": "string",
+                "description": "The ID of the new mailing list."
+              }
+            ]
+          }
+        ],
+        "description": "Creates a new mailing list in the address book with id ``parentId``."
+      },
+      {
+        "name": "update",
+        "type": "function",
+        "async": true,
+        "parameters": [
+          {
+            "name": "id",
+            "type": "string"
+          },
+          {
+            "name": "properties",
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "nickName": {
+                "type": "string",
+                "optional": true
+              },
+              "description": {
+                "type": "string",
+                "optional": true
+              }
+            }
+          }
+        ],
+        "description": "Edits the properties of a mailing list."
+      },
+      {
+        "name": "delete",
+        "type": "function",
+        "async": true,
+        "parameters": [
+          {
+            "name": "id",
+            "type": "string"
+          }
+        ],
+        "description": "Removes the mailing list."
+      },
+      {
+        "name": "addMember",
+        "type": "function",
+        "async": true,
+        "parameters": [
+          {
+            "name": "id",
+            "type": "string"
+          },
+          {
+            "name": "contactId",
+            "type": "string"
+          }
+        ],
+        "description": "Adds a contact to the mailing list with id ``id``. If the contact and mailing list are in different address books, the contact will also be copied to the list's address book."
+      },
+      {
+        "name": "listMembers",
+        "type": "function",
+        "async": "callback",
+        "parameters": [
+          {
+            "name": "id",
+            "type": "string"
+          },
+          {
+            "type": "function",
+            "name": "callback",
+            "optional": true,
+            "parameters": [
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "contacts.ContactNode"
+                }
+              }
+            ]
+          }
+        ],
+        "description": "Gets all contacts that are members of the mailing list with id ``id``."
+      },
+      {
+        "name": "removeMember",
+        "type": "function",
+        "async": true,
+        "parameters": [
+          {
+            "name": "id",
+            "type": "string"
+          },
+          {
+            "name": "contactId",
+            "type": "string"
+          }
+        ],
+        "description": "Removes a contact from the mailing list with id ``id``. This does not delete the contact from the address book."
+      }
+    ],
+    "events": [
+      {
+        "name": "onCreated",
+        "type": "function",
+        "description": "Fired when a mailing list is created.",
+        "parameters": [
+          {
+            "name": "node",
+            "$ref": "MailingListNode"
+          }
+        ]
+      },
+      {
+        "name": "onUpdated",
+        "type": "function",
+        "description": "Fired when a mailing list is changed.",
+        "parameters": [
+          {
+            "name": "node",
+            "$ref": "MailingListNode"
+          }
+        ]
+      },
+      {
+        "name": "onDeleted",
+        "type": "function",
+        "description": "Fired when a mailing list is deleted.",
+        "parameters": [
+          {
+            "name": "parentId",
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "type": "string"
+          }
+        ]
+      },
+      {
+        "name": "onMemberAdded",
+        "type": "function",
+        "description": "Fired when a contact is added to the mailing list.",
+        "parameters": [
+          {
+            "name": "node",
+            "$ref": "contacts.ContactNode"
+          }
+        ]
+      },
+      {
+        "name": "onMemberRemoved",
+        "type": "function",
+        "description": "Fired when a contact is removed from the mailing list.",
+        "parameters": [
+          {
+            "name": "parentId",
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "type": "string"
+          }
+        ]
+      }
+    ]
+  }
+]

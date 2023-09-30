@@ -1,0 +1,234 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+/**
+ * Line up the actions menu with action labels above and below it.
+ * Equalize the distance from the left side of the action box to the left side
+ * of the icon for both the menu and the non-menu versions of the action box.
+ * Also make sure the labels are the same distance away from the icons.
+ */
+
+.shortDetails {
+  text-align: end;
+  opacity: 0.5;
+}
+
+#filter {
+  width: 100%;
+}
+
+#handlersSortSelect {
+  padding-block: 0;
+}
+
+#handlersView {
+  height: 210px;
+  overflow-y: auto;
+  border: 1px solid var(--in-content-box-border-color);
+  border-radius: 4px;
+}
+
+#handlersTable {
+  width: 100%;
+  border-spacing: 0;
+}
+
+#handlersTable thead > tr {
+  position: sticky;
+  top: 0;
+  /* Background color is needed for sticky headers. */
+  background-color: var(--in-content-page-background);
+}
+
+#handlersTable thead > tr > th:not(:first-child) {
+  border-inline-start: 1px solid var(--in-content-box-border-color);
+}
+
+#handlersTable thead > tr > th {
+  border-block-end: 1px solid var(--in-content-box-border-color);
+}
+
+#handlersTable tbody > tr:hover .typeCell {
+  background-color: var(--in-content-item-hover);
+}
+
+#handlersTable tbody > tr:hover .actionCell menulist {
+  /* Get hover effect if anywhere in the row is hovered. */
+  background-color: var(--in-content-button-background-hover);
+}
+
+#handlersTable tbody > tr:focus-within .typeCell {
+  background-color: var(--in-content-item-selected);
+  color: var(--in-content-item-selected-text);
+}
+
+#handlersTable :is(th, td) {
+  padding: 0;
+  width: 50%;
+}
+
+.handlerHeaderButton {
+  /* Align with .typeIcon. */
+  padding-inline: 10px;
+  border: none;
+  border-radius: 0;
+  margin: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.handlerHeaderButton:focus-visible {
+  /* The focus outline is drawn on the inside of the element (it has width 2px),
+   * rather than on the outside as usual. This is needed because otherwise the
+   * outline is not visible on the sides that are cut off by the scroll
+   * container #handlersView's edges. */
+  outline-offset: -2px;
+}
+
+.handlerSortHeaderIcon {
+  display: inline-block;
+  width: 12px;
+  -moz-context-properties: stroke;
+  stroke: currentColor;
+}
+
+.handlerSortHeaderIcon[descending] {
+  transform: scaleY(-1);
+}
+
+.handlerSortHeaderIcon:not([src]) {
+  /* Still want to take up space. */
+  visibility: hidden;
+}
+
+.typeLabel {
+  display: flex;
+  align-items: center;
+}
+
+.typeLabel > .typeIcon {
+  flex: 0 0 auto;
+}
+
+.typeLabel > .typeDescription {
+  flex: 1 1 auto;
+}
+
+.typeIcon {
+  width: 16px;
+  height: 16px;
+  margin-inline: 10px 9px;
+}
+
+.typeIcon:not([src]) {
+  visibility: hidden;
+}
+
+.actionsMenu {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  border-radius: 0;
+  margin: 0;
+  padding-block: 0;
+}
+
+#handlersTable tbody > tr:not(:focus-within) .actionsMenu {
+  background-color: transparent;
+  --in-content-button-border-color: transparent;
+}
+
+#handlersTable tbody > tr:not(:is(:hover,:focus-within)) .actionsMenu::part(dropmarker) {
+  display: none;
+}
+
+.actionsMenu:focus-visible {
+  outline-offset: -2px;
+}
+
+.actionsMenu::part(icon) {
+  margin-inline: 5px !important;
+  height: 16px;
+  width: 16px;
+}
+
+.actionsMenu > menupopup > menuitem > .menu-iconic-left {
+  margin-inline-end: 8px !important;
+  /** Make the icons appear.
+    * Note: we display the icon box for every item whether or not it has an icon
+    * so the labels of all the items align vertically. */
+  display: flex;
+  min-width: 16px;
+}
+
+/**
+ * Used by the cloudFile manager
+ */
+
+#provider-listing {
+  width: 200px;
+}
+
+#cloudFileDefaultPanel {
+  text-align: center;
+  padding-top: 150px;
+}
+
+#addCloudFileAccountButtons button,
+#addCloudFileAccount,
+#removeCloudFileAccount,
+#moreProvidersLink {
+  margin: 4px 0 0;
+  text-align: center;
+}
+
+#addCloudFileAccountButtons button .button-icon {
+  width: 16px;
+  height: 16px;
+  margin-inline-end: 8px;
+}
+
+#addCloudFileAccountListItems {
+  text-align: start;
+}
+
+#addCloudFileAccountListItems > menuitem > .menu-iconic-left {
+  display: flex;
+}
+
+#moreProvidersLink {
+  padding: 4px;
+}
+
+#cloudFileView,
+#cloudFileBox {
+  flex: 1 auto;
+}
+
+#cloudFileView > richlistitem {
+  min-height: 35px;
+}
+
+.cloudfileAccount {
+  padding: 4px;
+}
+
+.cloudfileAccount > label {
+  flex: 1;
+}
+
+.cloudfileAccount > input {
+  min-width: 10ch !important;
+  width: 10ch;
+}
+
+.cloudfileAccount:not([selected]) > label {
+  pointer-events: none;
+}
+
+#cloudFileToggleAndThreshold {
+  padding-bottom: 6px;
+}

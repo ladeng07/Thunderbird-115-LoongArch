@@ -1,0 +1,93 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+/* ===== sidebarPanel.css ===============================================
+  == Styles for the Address Book sidebar panel.
+  ======================================================================= */
+
+@import url("chrome://messenger/skin/messenger.css");
+
+#abContactsPanel:not([lwt-tree]) {
+  --button-background: rgba(128, 128, 128, .15);
+  --button-background-hover: rgba(128, 128, 128, .25);
+  --button-background-active: rgba(128, 128, 128, .35);
+  --box-text-color: MenuText;
+  --box-background-color: Menu;
+  --box-border-color: ThreeDShadow;
+  --field-border-color: rgba(128, 128, 128, .6);
+}
+
+#abContactsPanel {
+  appearance: none;
+  background-color: -moz-Dialog;
+  background-image: none !important;
+  color: -moz-dialogText;
+  text-shadow: none;
+}
+
+#abContactsPanel[lwt-tree] {
+  background-color: var(--toolbar-bgcolor);
+  color: var(--lwt-text-color);
+}
+
+#abContextMenuButton {
+  min-width: 11px;
+  list-style-image: url("chrome://messenger/skin/addressbook/icons/menu.svg");
+  -moz-context-properties: fill;
+  fill: currentColor;
+}
+
+#abContextMenuButton:not(:hover) {
+  background: transparent;
+  border-color: transparent;
+}
+
+#abContextMenuButton:hover:focus-visible {
+  outline-style: none;
+}
+
+#abContextMenuButton > .toolbarbutton-icon {
+  width: 11px;
+  height: 11px;
+}
+
+#abContextMenuButton > .toolbarbutton-text {
+  display: none;
+}
+
+#sidebarAbContextMenu {
+  /* Compensate the arrow-scrollbox padding. */
+  margin: -4px;
+}
+
+#addressbookList:not(:-moz-focusring) {
+  border: 1px solid var(--field-border-color);
+}
+
+#addressbookList:not(:hover,[open="true"]) {
+  background: transparent;
+}
+
+#abResultsTree {
+  border-inline-end: none !important;
+}
+
+/* Hide the twisty gap. */
+treechildren::-moz-tree-twisty {
+  width: 0;
+  padding-inline: 2px;
+}
+
+treechildren::-moz-tree-image(GeneratedName) {
+  margin-inline-end: 2px;
+  list-style-image: var(--icon-contact);
+  -moz-context-properties: fill, stroke;
+  fill: color-mix(in srgb, currentColor 20%, transparent);
+  stroke: currentColor;
+  opacity: 0.85;
+}
+
+treechildren::-moz-tree-image(GeneratedName, MailList) {
+  list-style-image: var(--icon-user-list);
+}

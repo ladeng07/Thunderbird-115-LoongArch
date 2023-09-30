@@ -1,0 +1,56 @@
+{
+  "langpack_id": "ka",
+  "manifest_version": 2,
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "langpack-ka@thunderbird.mozilla.org",
+      "strict_min_version": "115.0",
+      "strict_max_version": "115.*"
+    }
+  },
+  "name": "Language: ქართული (Georgian)",
+  "description": "Thunderbird Language Pack for ქართული (ka) – Georgian",
+  "version": "115.3.20230928.194049",
+  "languages": {
+    "ka": {
+      "version": "20230928204844",
+      "chrome_resources": {
+        "alerts": "chrome/ka/locale/ka/alerts/",
+        "autoconfig": "chrome/ka/locale/ka/autoconfig/",
+        "branding": "chrome/ka/locale/branding/",
+        "calendar": "chrome/ka/locale/ka/calendar/",
+        "chat": "chrome/ka/locale/ka/chat/",
+        "communicator": "chrome/ka/locale/ka/communicator/",
+        "devtools": "chrome/ka/locale/ka/devtools/client/",
+        "devtools-shared": "chrome/ka/locale/ka/devtools/shared/",
+        "global": "chrome/ka/locale/ka/global/",
+        "global-platform": {
+          "macosx": "chrome/ka/locale/ka/global-platform/mac/",
+          "linux": "chrome/ka/locale/ka/global-platform/unix/",
+          "android": "chrome/ka/locale/ka/global-platform/unix/",
+          "win": "chrome/ka/locale/ka/global-platform/win/"
+        },
+        "lightning": "chrome/ka/locale/ka/lightning/",
+        "messenger": "chrome/ka/locale/ka/messenger/",
+        "messenger-mapi": "chrome/ka/locale/ka/messenger-mapi/",
+        "messenger-newsblog": "chrome/ka/locale/ka/messenger-newsblog/",
+        "messenger-region": "chrome/ka/locale/ka/messenger-region/",
+        "messenger-smime": "chrome/ka/locale/ka/messenger-smime/",
+        "mozapps": "chrome/ka/locale/ka/mozapps/",
+        "mozldap": "chrome/ka/locale/ka/mozldap/",
+        "necko": "chrome/ka/locale/ka/necko/",
+        "passwordmgr": "chrome/ka/locale/ka/passwordmgr/",
+        "pdf.js": "chrome/ka/locale/pdfviewer/",
+        "pipnss": "chrome/ka/locale/ka/pipnss/",
+        "pippki": "chrome/ka/locale/ka/pippki/",
+        "places": "chrome/ka/locale/ka/places/"
+      }
+    }
+  },
+  "sources": {
+    "browser": {
+      "base_path": "browser/"
+    }
+  },
+  "author": "giasher.com (contributors: გია შერვაშიძე (giasher.com), Alan (G12r))"
+}

@@ -1,0 +1,22 @@
+# vim: set filetype=python:
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+EXTRA_JS_MODULES += [
+    "AddrBookFileImporter.jsm",
+    "BaseProfileImporter.jsm",
+    "CalendarFileImporter.jsm",
+    "SeamonkeyProfileImporter.jsm",
+    "ThunderbirdProfileImporter.jsm",
+]
+
+if CONFIG["OS_ARCH"] == "WINNT":
+    EXTRA_JS_MODULES += [
+        "BeckyProfileImporter.jsm",
+        "OutlookProfileImporter.jsm",
+    ]
+elif CONFIG["MOZ_WIDGET_TOOLKIT"] == "cocoa":
+    EXTRA_JS_MODULES += [
+        "AppleMailProfileImporter.jsm",
+    ]

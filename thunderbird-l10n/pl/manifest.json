@@ -1,0 +1,56 @@
+{
+  "langpack_id": "pl",
+  "manifest_version": 2,
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "langpack-pl@thunderbird.mozilla.org",
+      "strict_min_version": "115.0",
+      "strict_max_version": "115.*"
+    }
+  },
+  "name": "Language: Polski (Polish)",
+  "description": "Thunderbird Language Pack for Polski (pl) – Polish",
+  "version": "115.3.20230928.194049",
+  "languages": {
+    "pl": {
+      "version": "20230928204339",
+      "chrome_resources": {
+        "alerts": "chrome/pl/locale/pl/alerts/",
+        "autoconfig": "chrome/pl/locale/pl/autoconfig/",
+        "branding": "chrome/pl/locale/branding/",
+        "calendar": "chrome/pl/locale/pl/calendar/",
+        "chat": "chrome/pl/locale/pl/chat/",
+        "communicator": "chrome/pl/locale/pl/communicator/",
+        "devtools": "chrome/pl/locale/pl/devtools/client/",
+        "devtools-shared": "chrome/pl/locale/pl/devtools/shared/",
+        "global": "chrome/pl/locale/pl/global/",
+        "global-platform": {
+          "macosx": "chrome/pl/locale/pl/global-platform/mac/",
+          "linux": "chrome/pl/locale/pl/global-platform/unix/",
+          "android": "chrome/pl/locale/pl/global-platform/unix/",
+          "win": "chrome/pl/locale/pl/global-platform/win/"
+        },
+        "lightning": "chrome/pl/locale/pl/lightning/",
+        "messenger": "chrome/pl/locale/pl/messenger/",
+        "messenger-mapi": "chrome/pl/locale/pl/messenger-mapi/",
+        "messenger-newsblog": "chrome/pl/locale/pl/messenger-newsblog/",
+        "messenger-region": "chrome/pl/locale/pl/messenger-region/",
+        "messenger-smime": "chrome/pl/locale/pl/messenger-smime/",
+        "mozapps": "chrome/pl/locale/pl/mozapps/",
+        "mozldap": "chrome/pl/locale/pl/mozldap/",
+        "necko": "chrome/pl/locale/pl/necko/",
+        "passwordmgr": "chrome/pl/locale/pl/passwordmgr/",
+        "pdf.js": "chrome/pl/locale/pdfviewer/",
+        "pipnss": "chrome/pl/locale/pl/pipnss/",
+        "pippki": "chrome/pl/locale/pl/pippki/",
+        "places": "chrome/pl/locale/pl/places/"
+      }
+    }
+  },
+  "sources": {
+    "browser": {
+      "base_path": "browser/"
+    }
+  },
+  "author": "Aviary.pl (contributors: Aviary.pl, Piotr Komoda, Zbigniew Braniecki, Marek Wawoczny, Piotr Bartecki, Stefan Plewako)"
+}

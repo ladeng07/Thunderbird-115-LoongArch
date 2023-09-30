@@ -1,0 +1,56 @@
+{
+  "langpack_id": "ast",
+  "manifest_version": 2,
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "langpack-ast@thunderbird.mozilla.org",
+      "strict_min_version": "115.0",
+      "strict_max_version": "115.*"
+    }
+  },
+  "name": "Language: Asturianu (Asturian)",
+  "description": "Thunderbird Language Pack for Asturianu (ast) – Asturian",
+  "version": "115.3.20230928.194049",
+  "languages": {
+    "ast": {
+      "version": "20230928204339",
+      "chrome_resources": {
+        "alerts": "chrome/ast/locale/ast/alerts/",
+        "autoconfig": "chrome/ast/locale/ast/autoconfig/",
+        "branding": "chrome/ast/locale/branding/",
+        "calendar": "chrome/ast/locale/ast/calendar/",
+        "chat": "chrome/ast/locale/ast/chat/",
+        "communicator": "chrome/ast/locale/ast/communicator/",
+        "devtools": "chrome/ast/locale/ast/devtools/client/",
+        "devtools-shared": "chrome/ast/locale/ast/devtools/shared/",
+        "global": "chrome/ast/locale/ast/global/",
+        "global-platform": {
+          "macosx": "chrome/ast/locale/ast/global-platform/mac/",
+          "linux": "chrome/ast/locale/ast/global-platform/unix/",
+          "android": "chrome/ast/locale/ast/global-platform/unix/",
+          "win": "chrome/ast/locale/ast/global-platform/win/"
+        },
+        "lightning": "chrome/ast/locale/ast/lightning/",
+        "messenger": "chrome/ast/locale/ast/messenger/",
+        "messenger-mapi": "chrome/ast/locale/ast/messenger-mapi/",
+        "messenger-newsblog": "chrome/ast/locale/ast/messenger-newsblog/",
+        "messenger-region": "chrome/ast/locale/ast/messenger-region/",
+        "messenger-smime": "chrome/ast/locale/ast/messenger-smime/",
+        "mozapps": "chrome/ast/locale/ast/mozapps/",
+        "mozldap": "chrome/ast/locale/ast/mozldap/",
+        "necko": "chrome/ast/locale/ast/necko/",
+        "passwordmgr": "chrome/ast/locale/ast/passwordmgr/",
+        "pdf.js": "chrome/ast/locale/pdfviewer/",
+        "pipnss": "chrome/ast/locale/ast/pipnss/",
+        "pippki": "chrome/ast/locale/ast/pippki/",
+        "places": "chrome/ast/locale/ast/places/"
+      }
+    }
+  },
+  "sources": {
+    "browser": {
+      "base_path": "browser/"
+    }
+  },
+  "author": "softastur.org (contributors: Softastur)"
+}

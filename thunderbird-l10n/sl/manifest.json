@@ -1,0 +1,56 @@
+{
+  "langpack_id": "sl",
+  "manifest_version": 2,
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "langpack-sl@thunderbird.mozilla.org",
+      "strict_min_version": "115.0",
+      "strict_max_version": "115.*"
+    }
+  },
+  "name": "Language: Slovenščina (Slovenian)",
+  "description": "Thunderbird Language Pack for Slovenščina (sl) – Slovenian",
+  "version": "115.3.20230928.194049",
+  "languages": {
+    "sl": {
+      "version": "20230928204510",
+      "chrome_resources": {
+        "alerts": "chrome/sl/locale/sl/alerts/",
+        "autoconfig": "chrome/sl/locale/sl/autoconfig/",
+        "branding": "chrome/sl/locale/branding/",
+        "calendar": "chrome/sl/locale/sl/calendar/",
+        "chat": "chrome/sl/locale/sl/chat/",
+        "communicator": "chrome/sl/locale/sl/communicator/",
+        "devtools": "chrome/sl/locale/sl/devtools/client/",
+        "devtools-shared": "chrome/sl/locale/sl/devtools/shared/",
+        "global": "chrome/sl/locale/sl/global/",
+        "global-platform": {
+          "macosx": "chrome/sl/locale/sl/global-platform/mac/",
+          "linux": "chrome/sl/locale/sl/global-platform/unix/",
+          "android": "chrome/sl/locale/sl/global-platform/unix/",
+          "win": "chrome/sl/locale/sl/global-platform/win/"
+        },
+        "lightning": "chrome/sl/locale/sl/lightning/",
+        "messenger": "chrome/sl/locale/sl/messenger/",
+        "messenger-mapi": "chrome/sl/locale/sl/messenger-mapi/",
+        "messenger-newsblog": "chrome/sl/locale/sl/messenger-newsblog/",
+        "messenger-region": "chrome/sl/locale/sl/messenger-region/",
+        "messenger-smime": "chrome/sl/locale/sl/messenger-smime/",
+        "mozapps": "chrome/sl/locale/sl/mozapps/",
+        "mozldap": "chrome/sl/locale/sl/mozldap/",
+        "necko": "chrome/sl/locale/sl/necko/",
+        "passwordmgr": "chrome/sl/locale/sl/passwordmgr/",
+        "pdf.js": "chrome/sl/locale/pdfviewer/",
+        "pipnss": "chrome/sl/locale/sl/pipnss/",
+        "pippki": "chrome/sl/locale/sl/pippki/",
+        "places": "chrome/sl/locale/sl/places/"
+      }
+    }
+  },
+  "sources": {
+    "browser": {
+      "base_path": "browser/"
+    }
+  },
+  "author": "mozilla.org (contributors: Lan Glad, Peter Klofutar, Rok Žerdin, Vito Smolej)"
+}

@@ -1,0 +1,56 @@
+{
+  "langpack_id": "ga-IE",
+  "manifest_version": 2,
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "langpack-ga-IE@thunderbird.mozilla.org",
+      "strict_min_version": "115.0",
+      "strict_max_version": "115.*"
+    }
+  },
+  "name": "Language: Gaeilge (Irish)",
+  "description": "Thunderbird Language Pack for Gaeilge (ga-IE) – Irish",
+  "version": "115.3.20230928.194049",
+  "languages": {
+    "ga-IE": {
+      "version": "20230928204557",
+      "chrome_resources": {
+        "alerts": "chrome/ga-IE/locale/ga-IE/alerts/",
+        "autoconfig": "chrome/ga-IE/locale/ga-IE/autoconfig/",
+        "branding": "chrome/ga-IE/locale/branding/",
+        "calendar": "chrome/ga-IE/locale/ga-IE/calendar/",
+        "chat": "chrome/ga-IE/locale/ga-IE/chat/",
+        "communicator": "chrome/ga-IE/locale/ga-IE/communicator/",
+        "devtools": "chrome/ga-IE/locale/ga-IE/devtools/client/",
+        "devtools-shared": "chrome/ga-IE/locale/ga-IE/devtools/shared/",
+        "global": "chrome/ga-IE/locale/ga-IE/global/",
+        "global-platform": {
+          "macosx": "chrome/ga-IE/locale/ga-IE/global-platform/mac/",
+          "linux": "chrome/ga-IE/locale/ga-IE/global-platform/unix/",
+          "android": "chrome/ga-IE/locale/ga-IE/global-platform/unix/",
+          "win": "chrome/ga-IE/locale/ga-IE/global-platform/win/"
+        },
+        "lightning": "chrome/ga-IE/locale/ga-IE/lightning/",
+        "messenger": "chrome/ga-IE/locale/ga-IE/messenger/",
+        "messenger-mapi": "chrome/ga-IE/locale/ga-IE/messenger-mapi/",
+        "messenger-newsblog": "chrome/ga-IE/locale/ga-IE/messenger-newsblog/",
+        "messenger-region": "chrome/ga-IE/locale/ga-IE/messenger-region/",
+        "messenger-smime": "chrome/ga-IE/locale/ga-IE/messenger-smime/",
+        "mozapps": "chrome/ga-IE/locale/ga-IE/mozapps/",
+        "mozldap": "chrome/ga-IE/locale/ga-IE/mozldap/",
+        "necko": "chrome/ga-IE/locale/ga-IE/necko/",
+        "passwordmgr": "chrome/ga-IE/locale/ga-IE/passwordmgr/",
+        "pdf.js": "chrome/ga-IE/locale/pdfviewer/",
+        "pipnss": "chrome/ga-IE/locale/ga-IE/pipnss/",
+        "pippki": "chrome/ga-IE/locale/ga-IE/pippki/",
+        "places": "chrome/ga-IE/locale/ga-IE/places/"
+      }
+    }
+  },
+  "sources": {
+    "browser": {
+      "base_path": "browser/"
+    }
+  },
+  "author": "mozilla.org (contributors: Séamus Ó Ciardhuáin, Kevin Scannell, Brian King)"
+}

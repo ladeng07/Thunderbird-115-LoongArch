@@ -1,0 +1,56 @@
+{
+  "langpack_id": "lt",
+  "manifest_version": 2,
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "langpack-lt@thunderbird.mozilla.org",
+      "strict_min_version": "115.0",
+      "strict_max_version": "115.*"
+    }
+  },
+  "name": "Language: Lietuvių (Lithuanian)",
+  "description": "Thunderbird Language Pack for Lietuvių (lt) – Lithuanian",
+  "version": "115.3.20230928.194049",
+  "languages": {
+    "lt": {
+      "version": "20230928204211",
+      "chrome_resources": {
+        "alerts": "chrome/lt/locale/lt/alerts/",
+        "autoconfig": "chrome/lt/locale/lt/autoconfig/",
+        "branding": "chrome/lt/locale/branding/",
+        "calendar": "chrome/lt/locale/lt/calendar/",
+        "chat": "chrome/lt/locale/lt/chat/",
+        "communicator": "chrome/lt/locale/lt/communicator/",
+        "devtools": "chrome/lt/locale/lt/devtools/client/",
+        "devtools-shared": "chrome/lt/locale/lt/devtools/shared/",
+        "global": "chrome/lt/locale/lt/global/",
+        "global-platform": {
+          "macosx": "chrome/lt/locale/lt/global-platform/mac/",
+          "linux": "chrome/lt/locale/lt/global-platform/unix/",
+          "android": "chrome/lt/locale/lt/global-platform/unix/",
+          "win": "chrome/lt/locale/lt/global-platform/win/"
+        },
+        "lightning": "chrome/lt/locale/lt/lightning/",
+        "messenger": "chrome/lt/locale/lt/messenger/",
+        "messenger-mapi": "chrome/lt/locale/lt/messenger-mapi/",
+        "messenger-newsblog": "chrome/lt/locale/lt/messenger-newsblog/",
+        "messenger-region": "chrome/lt/locale/lt/messenger-region/",
+        "messenger-smime": "chrome/lt/locale/lt/messenger-smime/",
+        "mozapps": "chrome/lt/locale/lt/mozapps/",
+        "mozldap": "chrome/lt/locale/lt/mozldap/",
+        "necko": "chrome/lt/locale/lt/necko/",
+        "passwordmgr": "chrome/lt/locale/lt/passwordmgr/",
+        "pdf.js": "chrome/lt/locale/pdfviewer/",
+        "pipnss": "chrome/lt/locale/lt/pipnss/",
+        "pippki": "chrome/lt/locale/lt/pippki/",
+        "places": "chrome/lt/locale/lt/places/"
+      }
+    }
+  },
+  "sources": {
+    "browser": {
+      "base_path": "browser/"
+    }
+  },
+  "author": "Mozilla Lietuvoje (contributors: Gintautas Grigas, Tatjana Jevsikova, Rimas Kudelis, Sigita Pedzevičienė)"
+}

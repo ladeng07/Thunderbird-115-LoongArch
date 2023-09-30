@@ -1,0 +1,56 @@
+{
+  "langpack_id": "en-GB",
+  "manifest_version": 2,
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "langpack-en-GB@thunderbird.mozilla.org",
+      "strict_min_version": "115.0",
+      "strict_max_version": "115.*"
+    }
+  },
+  "name": "Language: English (GB)",
+  "description": "Thunderbird Language Pack for English (GB) (en-GB)",
+  "version": "115.3.20230928.194049",
+  "languages": {
+    "en-GB": {
+      "version": "20230928204310",
+      "chrome_resources": {
+        "alerts": "chrome/en-GB/locale/en-GB/alerts/",
+        "autoconfig": "chrome/en-GB/locale/en-GB/autoconfig/",
+        "branding": "chrome/en-GB/locale/branding/",
+        "calendar": "chrome/en-GB/locale/en-GB/calendar/",
+        "chat": "chrome/en-GB/locale/en-GB/chat/",
+        "communicator": "chrome/en-GB/locale/en-GB/communicator/",
+        "devtools": "chrome/en-GB/locale/en-GB/devtools/client/",
+        "devtools-shared": "chrome/en-GB/locale/en-GB/devtools/shared/",
+        "global": "chrome/en-GB/locale/en-GB/global/",
+        "global-platform": {
+          "macosx": "chrome/en-GB/locale/en-GB/global-platform/mac/",
+          "linux": "chrome/en-GB/locale/en-GB/global-platform/unix/",
+          "android": "chrome/en-GB/locale/en-GB/global-platform/unix/",
+          "win": "chrome/en-GB/locale/en-GB/global-platform/win/"
+        },
+        "lightning": "chrome/en-GB/locale/en-GB/lightning/",
+        "messenger": "chrome/en-GB/locale/en-GB/messenger/",
+        "messenger-mapi": "chrome/en-GB/locale/en-GB/messenger-mapi/",
+        "messenger-newsblog": "chrome/en-GB/locale/en-GB/messenger-newsblog/",
+        "messenger-region": "chrome/en-GB/locale/en-GB/messenger-region/",
+        "messenger-smime": "chrome/en-GB/locale/en-GB/messenger-smime/",
+        "mozapps": "chrome/en-GB/locale/en-GB/mozapps/",
+        "mozldap": "chrome/en-GB/locale/en-GB/mozldap/",
+        "necko": "chrome/en-GB/locale/en-GB/necko/",
+        "passwordmgr": "chrome/en-GB/locale/en-GB/passwordmgr/",
+        "pdf.js": "chrome/en-GB/locale/pdfviewer/",
+        "pipnss": "chrome/en-GB/locale/en-GB/pipnss/",
+        "pippki": "chrome/en-GB/locale/en-GB/pippki/",
+        "places": "chrome/en-GB/locale/en-GB/places/"
+      }
+    }
+  },
+  "sources": {
+    "browser": {
+      "base_path": "browser/"
+    }
+  },
+  "author": "Mark Tyndall (contributors: Ian Neal)"
+}

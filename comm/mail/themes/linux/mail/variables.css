@@ -1,0 +1,18 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+@import url("chrome://messenger/skin/shared/variables.css");
+
+:root {
+  --tabline-color: var(--selected-item-color);
+  --toolbar-non-lwt-bgcolor: color-mix(in srgb, -moz-dialog 85%, white);
+  --toolbar-non-lwt-textcolor: -moz-dialogtext;
+  --toolbar-non-lwt-bgimage: linear-gradient(rgba(255, 255, 255, 0.15),
+                                             rgba(255, 255, 255, 0.15));
+  --chrome-content-separator-color: ThreeDShadow;
+  --row-grouped-header-bg-color: -moz-dialog;
+  --row-grouped-header-bg-color-selected: var(--selected-item-color);
+  --panel-separator-color: ThreeDShadow;
+  --autocomplete-popup-url-color: -moz-nativehyperlinktext;
+}

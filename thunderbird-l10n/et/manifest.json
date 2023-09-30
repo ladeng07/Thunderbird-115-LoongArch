@@ -1,0 +1,56 @@
+{
+  "langpack_id": "et",
+  "manifest_version": 2,
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "langpack-et@thunderbird.mozilla.org",
+      "strict_min_version": "115.0",
+      "strict_max_version": "115.*"
+    }
+  },
+  "name": "Language: Eesti (Estonian)",
+  "description": "Thunderbird Language Pack for Eesti (et) – Estonian",
+  "version": "115.3.20230928.194049",
+  "languages": {
+    "et": {
+      "version": "20230928204643",
+      "chrome_resources": {
+        "alerts": "chrome/et/locale/et/alerts/",
+        "autoconfig": "chrome/et/locale/et/autoconfig/",
+        "branding": "chrome/et/locale/branding/",
+        "calendar": "chrome/et/locale/et/calendar/",
+        "chat": "chrome/et/locale/et/chat/",
+        "communicator": "chrome/et/locale/et/communicator/",
+        "devtools": "chrome/et/locale/et/devtools/client/",
+        "devtools-shared": "chrome/et/locale/et/devtools/shared/",
+        "global": "chrome/et/locale/et/global/",
+        "global-platform": {
+          "macosx": "chrome/et/locale/et/global-platform/mac/",
+          "linux": "chrome/et/locale/et/global-platform/unix/",
+          "android": "chrome/et/locale/et/global-platform/unix/",
+          "win": "chrome/et/locale/et/global-platform/win/"
+        },
+        "lightning": "chrome/et/locale/et/lightning/",
+        "messenger": "chrome/et/locale/et/messenger/",
+        "messenger-mapi": "chrome/et/locale/et/messenger-mapi/",
+        "messenger-newsblog": "chrome/et/locale/et/messenger-newsblog/",
+        "messenger-region": "chrome/et/locale/et/messenger-region/",
+        "messenger-smime": "chrome/et/locale/et/messenger-smime/",
+        "mozapps": "chrome/et/locale/et/mozapps/",
+        "mozldap": "chrome/et/locale/et/mozldap/",
+        "necko": "chrome/et/locale/et/necko/",
+        "passwordmgr": "chrome/et/locale/et/passwordmgr/",
+        "pdf.js": "chrome/et/locale/pdfviewer/",
+        "pipnss": "chrome/et/locale/et/pipnss/",
+        "pippki": "chrome/et/locale/et/pippki/",
+        "places": "chrome/et/locale/et/places/"
+      }
+    }
+  },
+  "sources": {
+    "browser": {
+      "base_path": "browser/"
+    }
+  },
+  "author": "mozilla.org (contributors: Sander Lepik, Marek Laane, Ain Vagula)"
+}

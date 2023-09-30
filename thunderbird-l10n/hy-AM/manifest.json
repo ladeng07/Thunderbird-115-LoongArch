@@ -1,0 +1,56 @@
+{
+  "langpack_id": "hy-AM",
+  "manifest_version": 2,
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "langpack-hy-AM@thunderbird.mozilla.org",
+      "strict_min_version": "115.0",
+      "strict_max_version": "115.*"
+    }
+  },
+  "name": "Language: հայերեն (Armenian)",
+  "description": "Thunderbird Language Pack for հայերեն (hy-AM) – Armenian",
+  "version": "115.3.20230928.194049",
+  "languages": {
+    "hy-AM": {
+      "version": "20230928204245",
+      "chrome_resources": {
+        "alerts": "chrome/hy-AM/locale/hy-AM/alerts/",
+        "autoconfig": "chrome/hy-AM/locale/hy-AM/autoconfig/",
+        "branding": "chrome/hy-AM/locale/branding/",
+        "calendar": "chrome/hy-AM/locale/hy-AM/calendar/",
+        "chat": "chrome/hy-AM/locale/hy-AM/chat/",
+        "communicator": "chrome/hy-AM/locale/hy-AM/communicator/",
+        "devtools": "chrome/hy-AM/locale/hy-AM/devtools/client/",
+        "devtools-shared": "chrome/hy-AM/locale/hy-AM/devtools/shared/",
+        "global": "chrome/hy-AM/locale/hy-AM/global/",
+        "global-platform": {
+          "macosx": "chrome/hy-AM/locale/hy-AM/global-platform/mac/",
+          "linux": "chrome/hy-AM/locale/hy-AM/global-platform/unix/",
+          "android": "chrome/hy-AM/locale/hy-AM/global-platform/unix/",
+          "win": "chrome/hy-AM/locale/hy-AM/global-platform/win/"
+        },
+        "lightning": "chrome/hy-AM/locale/hy-AM/lightning/",
+        "messenger": "chrome/hy-AM/locale/hy-AM/messenger/",
+        "messenger-mapi": "chrome/hy-AM/locale/hy-AM/messenger-mapi/",
+        "messenger-newsblog": "chrome/hy-AM/locale/hy-AM/messenger-newsblog/",
+        "messenger-region": "chrome/hy-AM/locale/hy-AM/messenger-region/",
+        "messenger-smime": "chrome/hy-AM/locale/hy-AM/messenger-smime/",
+        "mozapps": "chrome/hy-AM/locale/hy-AM/mozapps/",
+        "mozldap": "chrome/hy-AM/locale/hy-AM/mozldap/",
+        "necko": "chrome/hy-AM/locale/hy-AM/necko/",
+        "passwordmgr": "chrome/hy-AM/locale/hy-AM/passwordmgr/",
+        "pdf.js": "chrome/hy-AM/locale/pdfviewer/",
+        "pipnss": "chrome/hy-AM/locale/hy-AM/pipnss/",
+        "pippki": "chrome/hy-AM/locale/hy-AM/pippki/",
+        "places": "chrome/hy-AM/locale/hy-AM/places/"
+      }
+    }
+  },
+  "sources": {
+    "browser": {
+      "base_path": "browser/"
+    }
+  },
+  "author": "haysoft.org (contributors: Hrant Ohanyan)"
+}

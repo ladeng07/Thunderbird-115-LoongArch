@@ -1,0 +1,56 @@
+{
+  "langpack_id": "he",
+  "manifest_version": 2,
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "langpack-he@thunderbird.mozilla.org",
+      "strict_min_version": "115.0",
+      "strict_max_version": "115.*"
+    }
+  },
+  "name": "Language: עברית (Hebrew)",
+  "description": "Thunderbird Language Pack for עברית (he) – Hebrew",
+  "version": "115.3.20230928.194049",
+  "languages": {
+    "he": {
+      "version": "20230928204357",
+      "chrome_resources": {
+        "alerts": "chrome/he/locale/he/alerts/",
+        "autoconfig": "chrome/he/locale/he/autoconfig/",
+        "branding": "chrome/he/locale/branding/",
+        "calendar": "chrome/he/locale/he/calendar/",
+        "chat": "chrome/he/locale/he/chat/",
+        "communicator": "chrome/he/locale/he/communicator/",
+        "devtools": "chrome/he/locale/he/devtools/client/",
+        "devtools-shared": "chrome/he/locale/he/devtools/shared/",
+        "global": "chrome/he/locale/he/global/",
+        "global-platform": {
+          "macosx": "chrome/he/locale/he/global-platform/mac/",
+          "linux": "chrome/he/locale/he/global-platform/unix/",
+          "android": "chrome/he/locale/he/global-platform/unix/",
+          "win": "chrome/he/locale/he/global-platform/win/"
+        },
+        "lightning": "chrome/he/locale/he/lightning/",
+        "messenger": "chrome/he/locale/he/messenger/",
+        "messenger-mapi": "chrome/he/locale/he/messenger-mapi/",
+        "messenger-newsblog": "chrome/he/locale/he/messenger-newsblog/",
+        "messenger-region": "chrome/he/locale/he/messenger-region/",
+        "messenger-smime": "chrome/he/locale/he/messenger-smime/",
+        "mozapps": "chrome/he/locale/he/mozapps/",
+        "mozldap": "chrome/he/locale/he/mozldap/",
+        "necko": "chrome/he/locale/he/necko/",
+        "passwordmgr": "chrome/he/locale/he/passwordmgr/",
+        "pdf.js": "chrome/he/locale/pdfviewer/",
+        "pipnss": "chrome/he/locale/he/pipnss/",
+        "pippki": "chrome/he/locale/he/pippki/",
+        "places": "chrome/he/locale/he/places/"
+      }
+    }
+  },
+  "sources": {
+    "browser": {
+      "base_path": "browser/"
+    }
+  },
+  "author": "mozilla.org (contributors: Reuven Gonen, Tsahi Asher, Tomer Cohen)"
+}

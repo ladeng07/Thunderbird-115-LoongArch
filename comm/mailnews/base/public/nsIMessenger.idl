@@ -1,0 +1,127 @@
+/* -*- Mode: IDL; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+#include "nsISupports.idl"
+#include "nsrootidl.idl"
+#include "nsIMsgWindow.idl"
+#include "nsIMsgIdentity.idl"
+
+interface nsIMsgDBHdr;
+interface mozIDOMWindowProxy;
+interface nsITransactionManager;
+interface nsIMsgMessageService;
+interface nsIFile;
+interface nsIUrlListener;
+
+[scriptable, uuid(01b967c8-b289-4e32-ad46-6eb7c89d4106)]
+interface nsIMessenger : nsISupports {
+
+    const long eUnknown = 0;
+    const long eDeleteMsg = 1;
+    const long eMoveMsg = 2;
+    const long eCopyMsg = 3;
+    const long eMarkAllMsg = 4;
+
+    readonly attribute nsITransactionManager transactionManager;
+
+    void setWindow(in mozIDOMWindowProxy ptr, in nsIMsgWindow msgWindow);
+
+    boolean canUndo();
+    boolean canRedo();
+    unsigned long getUndoTransactionType();
+    unsigned long getRedoTransactionType();
+    void undo(in nsIMsgWindow msgWindow);
+    void redo(in nsIMsgWindow msgWindow);
+
+    /**
+     * Saves a given message to a file or template.
+     *
+     * @param aURI         The URI of the message to save
+     * @param aAsFile      If true, save as file, otherwise save as a template
+     * @param aIdentity    When saving as a template, this is used to determine
+     *                     the location to save the template to.
+     * @param aMsgFilename When saving as a file, the filename to save the
+     *                     message as, or the default filename for the file
+     *                     picker.
+     * @param aBypassFilePicker
+     *                     If not specified or false, this function will show
+     *                     a file picker when saving as a file. If true, no
+     *                     file picker will be shown.
+     */
+    void saveAs(in AUTF8String aURI, in boolean aAsFile,
+                in nsIMsgIdentity aIdentity, in AString aMsgFilename,
+                [optional] in boolean aBypassFilePicker);
+
+    /**
+     * Save the given messages as files in a folder - the user will be prompted
+     * for which folder to use.
+     * @param count message count
+     * @param filenameArray the filenames to use
+     * @param messageUriArray uris of the messages to save
+     */
+    void saveMessages(in Array<AString> filenameArray,
+                      in Array<AUTF8String> messageUriArray);
+
+    void saveAttachment(in AUTF8String contentType,
+                        in AUTF8String url,
+                        in AUTF8String displayName,
+                        in AUTF8String messageUri,
+                        in boolean isExternalAttachment);
+    void saveAllAttachments(in Array<AUTF8String> contentTypeArray,
+                            in Array<AUTF8String> urlArray,
+                            in Array<AUTF8String> displayNameArray,
+                            in Array<AUTF8String> messageUriArray);
+
+    void saveAttachmentToFile(in nsIFile aFile,
+                              in AUTF8String aUrl,
+                              in AUTF8String aMessageUri,
+                              in AUTF8String aContentType,
+                              in nsIUrlListener aListener);
+
+    /**
+     * For a single message and attachments, save these attachments to a file, and
+     *  remove from the message. No warning windows will appear, so this is
+     *  suitable for use in test and filtering.
+     *
+     * @param aDestFolder       Folder to save files in
+     * @param aCount            Number of attachments to save
+     * @param aContentTypeArray Content types of the attachments
+     * @param aUrlArray         Urls for the attachments
+     * @param aDisplayNameArray Files names to save attachments to. Unique
+     *                           names will be created if needed.
+     * @param aMessageUriArray  Uri for the source message
+     * @param aListener         Listener to inform of start and stop of detach
+     */
+    void detachAttachmentsWOPrompts(in nsIFile aDestFolder,
+                                    in Array<AUTF8String> aContentTypeArray,
+                                    in Array<AUTF8String> aUrlArray,
+                                    in Array<AUTF8String> aDisplayNameArray,
+                                    in Array<AUTF8String> aMessageUriArray,
+                                    in nsIUrlListener aListener);
+
+    void detachAttachment(in AUTF8String contentType,
+                          in AUTF8String url,
+                          in AUTF8String displayName,
+                          in AUTF8String messageUri,
+                          in boolean saveFirst,
+                          [optional] in boolean withoutWarning);
+    void detachAllAttachments(in Array<AUTF8String> contentTypeArray,
+                              in Array<AUTF8String> urlArray,
+                              in Array<AUTF8String> displayNameArray,
+                              in Array<AUTF8String> messageUriArray,
+                              in boolean saveFirst,
+                              [optional] in boolean withoutWarning);
+    // saveAttachmentToFolder is used by the drag and drop code to drop an attachment to a destination folder
+    // We need to return the actual file path (including the filename).
+    nsIFile saveAttachmentToFolder(in AUTF8String contentType,
+                                   in AUTF8String url,
+                                   in AUTF8String displayName,
+                                   in AUTF8String messageUri,
+                                   in nsIFile aDestFolder);
+
+    nsIMsgDBHdr msgHdrFromURI(in AUTF8String aUri);
+
+    AString formatFileSize(in unsigned long long aPos, [optional] in boolean aUseKB);
+};

@@ -1,0 +1,56 @@
+{
+  "langpack_id": "dsb",
+  "manifest_version": 2,
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "langpack-dsb@thunderbird.mozilla.org",
+      "strict_min_version": "115.0",
+      "strict_max_version": "115.*"
+    }
+  },
+  "name": "Language: Dolnoserbšćina (Lower Sorbian)",
+  "description": "Thunderbird Language Pack for Dolnoserbšćina (dsb) – Lower Sorbian",
+  "version": "115.3.20230928.194049",
+  "languages": {
+    "dsb": {
+      "version": "20230928204341",
+      "chrome_resources": {
+        "alerts": "chrome/dsb/locale/dsb/alerts/",
+        "autoconfig": "chrome/dsb/locale/dsb/autoconfig/",
+        "branding": "chrome/dsb/locale/branding/",
+        "calendar": "chrome/dsb/locale/dsb/calendar/",
+        "chat": "chrome/dsb/locale/dsb/chat/",
+        "communicator": "chrome/dsb/locale/dsb/communicator/",
+        "devtools": "chrome/dsb/locale/dsb/devtools/client/",
+        "devtools-shared": "chrome/dsb/locale/dsb/devtools/shared/",
+        "global": "chrome/dsb/locale/dsb/global/",
+        "global-platform": {
+          "macosx": "chrome/dsb/locale/dsb/global-platform/mac/",
+          "linux": "chrome/dsb/locale/dsb/global-platform/unix/",
+          "android": "chrome/dsb/locale/dsb/global-platform/unix/",
+          "win": "chrome/dsb/locale/dsb/global-platform/win/"
+        },
+        "lightning": "chrome/dsb/locale/dsb/lightning/",
+        "messenger": "chrome/dsb/locale/dsb/messenger/",
+        "messenger-mapi": "chrome/dsb/locale/dsb/messenger-mapi/",
+        "messenger-newsblog": "chrome/dsb/locale/dsb/messenger-newsblog/",
+        "messenger-region": "chrome/dsb/locale/dsb/messenger-region/",
+        "messenger-smime": "chrome/dsb/locale/dsb/messenger-smime/",
+        "mozapps": "chrome/dsb/locale/dsb/mozapps/",
+        "mozldap": "chrome/dsb/locale/dsb/mozldap/",
+        "necko": "chrome/dsb/locale/dsb/necko/",
+        "passwordmgr": "chrome/dsb/locale/dsb/passwordmgr/",
+        "pdf.js": "chrome/dsb/locale/pdfviewer/",
+        "pipnss": "chrome/dsb/locale/dsb/pipnss/",
+        "pippki": "chrome/dsb/locale/dsb/pippki/",
+        "places": "chrome/dsb/locale/dsb/places/"
+      }
+    }
+  },
+  "sources": {
+    "browser": {
+      "base_path": "browser/"
+    }
+  },
+  "author": "Michael Wolf (contributors: Michael Wolf)"
+}

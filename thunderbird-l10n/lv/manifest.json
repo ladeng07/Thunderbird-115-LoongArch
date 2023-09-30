@@ -1,0 +1,56 @@
+{
+  "langpack_id": "lv",
+  "manifest_version": 2,
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "langpack-lv@thunderbird.mozilla.org",
+      "strict_min_version": "115.0",
+      "strict_max_version": "115.*"
+    }
+  },
+  "name": "Language: Latviešu (Latvian)",
+  "description": "Thunderbird Language Pack for Latviešu (lv) – Latvian",
+  "version": "115.3.20230928.194049",
+  "languages": {
+    "lv": {
+      "version": "20230928204300",
+      "chrome_resources": {
+        "alerts": "chrome/lv/locale/lv/alerts/",
+        "autoconfig": "chrome/lv/locale/lv/autoconfig/",
+        "branding": "chrome/lv/locale/branding/",
+        "calendar": "chrome/lv/locale/lv/calendar/",
+        "chat": "chrome/lv/locale/lv/chat/",
+        "communicator": "chrome/lv/locale/lv/communicator/",
+        "devtools": "chrome/lv/locale/lv/devtools/client/",
+        "devtools-shared": "chrome/lv/locale/lv/devtools/shared/",
+        "global": "chrome/lv/locale/lv/global/",
+        "global-platform": {
+          "macosx": "chrome/lv/locale/lv/global-platform/mac/",
+          "linux": "chrome/lv/locale/lv/global-platform/unix/",
+          "android": "chrome/lv/locale/lv/global-platform/unix/",
+          "win": "chrome/lv/locale/lv/global-platform/win/"
+        },
+        "lightning": "chrome/lv/locale/lv/lightning/",
+        "messenger": "chrome/lv/locale/lv/messenger/",
+        "messenger-mapi": "chrome/lv/locale/lv/messenger-mapi/",
+        "messenger-newsblog": "chrome/lv/locale/lv/messenger-newsblog/",
+        "messenger-region": "chrome/lv/locale/lv/messenger-region/",
+        "messenger-smime": "chrome/lv/locale/lv/messenger-smime/",
+        "mozapps": "chrome/lv/locale/lv/mozapps/",
+        "mozldap": "chrome/lv/locale/lv/mozldap/",
+        "necko": "chrome/lv/locale/lv/necko/",
+        "passwordmgr": "chrome/lv/locale/lv/passwordmgr/",
+        "pdf.js": "chrome/lv/locale/pdfviewer/",
+        "pipnss": "chrome/lv/locale/lv/pipnss/",
+        "pippki": "chrome/lv/locale/lv/pippki/",
+        "places": "chrome/lv/locale/lv/places/"
+      }
+    }
+  },
+  "sources": {
+    "browser": {
+      "base_path": "browser/"
+    }
+  },
+  "author": "mozilla.org (contributors: Joe Solon, Suzy Solon)"
+}

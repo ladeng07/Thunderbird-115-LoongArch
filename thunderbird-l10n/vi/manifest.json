@@ -1,0 +1,56 @@
+{
+  "langpack_id": "vi",
+  "manifest_version": 2,
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "langpack-vi@thunderbird.mozilla.org",
+      "strict_min_version": "115.0",
+      "strict_max_version": "115.*"
+    }
+  },
+  "name": "Language: Tiếng Việt (Vietnamese)",
+  "description": "Thunderbird Language Pack for Tiếng Việt (vi) – Vietnamese",
+  "version": "115.3.20230928.194049",
+  "languages": {
+    "vi": {
+      "version": "20230928204348",
+      "chrome_resources": {
+        "alerts": "chrome/vi/locale/vi/alerts/",
+        "autoconfig": "chrome/vi/locale/vi/autoconfig/",
+        "branding": "chrome/vi/locale/branding/",
+        "calendar": "chrome/vi/locale/vi/calendar/",
+        "chat": "chrome/vi/locale/vi/chat/",
+        "communicator": "chrome/vi/locale/vi/communicator/",
+        "devtools": "chrome/vi/locale/vi/devtools/client/",
+        "devtools-shared": "chrome/vi/locale/vi/devtools/shared/",
+        "global": "chrome/vi/locale/vi/global/",
+        "global-platform": {
+          "macosx": "chrome/vi/locale/vi/global-platform/mac/",
+          "linux": "chrome/vi/locale/vi/global-platform/unix/",
+          "android": "chrome/vi/locale/vi/global-platform/unix/",
+          "win": "chrome/vi/locale/vi/global-platform/win/"
+        },
+        "lightning": "chrome/vi/locale/vi/lightning/",
+        "messenger": "chrome/vi/locale/vi/messenger/",
+        "messenger-mapi": "chrome/vi/locale/vi/messenger-mapi/",
+        "messenger-newsblog": "chrome/vi/locale/vi/messenger-newsblog/",
+        "messenger-region": "chrome/vi/locale/vi/messenger-region/",
+        "messenger-smime": "chrome/vi/locale/vi/messenger-smime/",
+        "mozapps": "chrome/vi/locale/vi/mozapps/",
+        "mozldap": "chrome/vi/locale/vi/mozldap/",
+        "necko": "chrome/vi/locale/vi/necko/",
+        "passwordmgr": "chrome/vi/locale/vi/passwordmgr/",
+        "pdf.js": "chrome/vi/locale/pdfviewer/",
+        "pipnss": "chrome/vi/locale/vi/pipnss/",
+        "pippki": "chrome/vi/locale/vi/pippki/",
+        "places": "chrome/vi/locale/vi/places/"
+      }
+    }
+  },
+  "sources": {
+    "browser": {
+      "base_path": "browser/"
+    }
+  },
+  "author": "mozilla.org (contributors: Nguyễn Xuân Minh, Quế Tùng, Nguyễn Mạnh Hùng, Huỳnh Hải Đăng, Bùi Việt Khoa, Trần Nguyễn Sơn, Pierre Neter)"
+}

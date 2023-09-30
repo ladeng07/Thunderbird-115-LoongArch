@@ -1,0 +1,312 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+@import url("chrome://messenger/skin/folderColors.css");
+
+:root {
+  --new-focused-folder-color: var(--selected-item-text-color);
+
+  --primary-fill: color-mix(in srgb, var(--primary) 20%, transparent);
+  --primary-stroke: var(--primary);
+}
+
+/* ::::: Tabmail ::::: */
+#folderTree > treechildren::-moz-tree-image {
+  -moz-context-properties: fill, fill-opacity, stroke;
+}
+
+/* ::::: Folder Pane ::::: */
+
+#folderTree > treechildren::-moz-tree-image,
+#accounttree > treechildren::-moz-tree-image {
+  width: 16px;
+  height: 16px;
+}
+
+/* reduce the padding set from messenger.css */
+#folderTree > treechildren::-moz-tree-cell-text {
+  padding-inline-start: 3px;
+}
+
+treechildren::-moz-tree-image(folderNameCol) {
+  list-style-image: var(--folder-pane-folder);
+  margin-inline-end: 2px;
+  fill: color-mix(in srgb, var(--folder-color-folder) 20%, transparent);
+  stroke: var(--folder-color-folder);
+}
+
+treechildren::-moz-tree-twisty {
+  list-style-image: var(--icon-nav-right-sm);
+}
+
+treechildren:-moz-locale-dir(rtl)::-moz-tree-twisty {
+  list-style-image: var(--icon-nav-left-sm);
+}
+
+treechildren::-moz-tree-twisty(open) {
+  list-style-image: var(--icon-nav-down-sm);
+}
+
+/* ..... Inbox ..... */
+treechildren::-moz-tree-image(folderNameCol, specialFolder-Inbox) {
+  list-style-image: var(--folder-pane-inbox);
+  fill: color-mix(in srgb, var(--folder-color-inbox) 20%, transparent);
+  stroke: var(--folder-color-inbox);
+}
+
+/* ..... Sent ..... */
+treechildren::-moz-tree-image(folderNameCol, specialFolder-Sent) {
+  list-style-image: var(--folder-pane-sent);
+  fill: color-mix(in srgb, var(--folder-color-sent) 20%, transparent);
+  stroke: var(--folder-color-sent);
+}
+
+/* ..... Outbox ..... */
+treechildren::-moz-tree-image(folderNameCol, specialFolder-Outbox) {
+  list-style-image: var(--folder-pane-outbox);
+  fill: color-mix(in srgb, var(--folder-color-outbox) 20%, transparent);
+  stroke: var(--folder-color-outbox);
+}
+
+/* ..... Drafts ..... */
+treechildren::-moz-tree-image(folderNameCol, specialFolder-Drafts) {
+  list-style-image: var(--folder-pane-draft);
+  fill: color-mix(in srgb, var(--folder-color-draft) 20%, transparent);
+  stroke: var(--folder-color-draft);
+}
+
+/* ..... Trash ..... */
+treechildren::-moz-tree-image(folderNameCol, specialFolder-Trash) {
+  list-style-image: var(--folder-pane-trash);
+  fill: color-mix(in srgb, var(--folder-color-trash) 20%, transparent);
+  stroke: var(--folder-color-trash);
+}
+
+/* ..... Archives ..... */
+treechildren::-moz-tree-image(folderNameCol, specialFolder-Archive) {
+  list-style-image: var(--folder-pane-archive);
+  fill: color-mix(in srgb, var(--folder-color-archive) 20%, transparent);
+  stroke: var(--folder-color-archive);
+}
+
+/* ..... Templates ..... */
+treechildren::-moz-tree-image(folderNameCol, specialFolder-Templates) {
+  list-style-image: var(--folder-pane-template);
+  fill: color-mix(in srgb, var(--folder-color-template) 20%, transparent);
+  stroke: var(--folder-color-template);
+}
+
+/* ..... Junk ..... */
+treechildren::-moz-tree-image(folderNameCol, specialFolder-Junk) {
+  list-style-image: var(--folder-pane-spam);
+  fill: color-mix(in srgb, var(--folder-color-spam) 20%, transparent);
+  stroke: var(--folder-color-spam);
+}
+
+/* ..... Saved Search Folder ..... */
+treechildren::-moz-tree-image(folderNameCol, specialFolder-Virtual) {
+  list-style-image: var(--folder-pane-folder-filter);
+  fill: color-mix(in srgb, var(--folder-color-folder-filter) 20%, transparent);
+  stroke: var(--folder-color-folder-filter);
+}
+
+/* ..... Newsgroup ..... */
+treechildren::-moz-tree-image(folderNameCol, serverType-nntp) {
+  list-style-image: var(--folder-pane-newsletter);
+  fill: color-mix(in srgb, var(--folder-color-newsletter) 20%, transparent);
+  stroke: var(--folder-color-newsletter);
+}
+
+/* ..... Mail server  ..... */
+treechildren::-moz-tree-image(folderNameCol, isServer-true) {
+  list-style-image: var(--folder-pane-mail);
+  fill: var(--primary-fill);
+  stroke: var(--primary-stroke);
+}
+
+/* ..... Feed server/account ..... */
+treechildren::-moz-tree-image(folderNameCol, isServer-true, serverType-rss) {
+  list-style-image: var(--folder-pane-rss);
+  fill: var(--primary-fill);
+  stroke: var(--primary-stroke);
+}
+/* ..... Feed folder ..... */
+treechildren::-moz-tree-image(folderNameCol, isFeedFolder-true) {
+  list-style-image: var(--folder-pane-folder-rss);
+  fill: color-mix(in srgb, var(--folder-color-folder-rss) 20%, transparent);
+  stroke: var(--folder-color-folder-rss);
+}
+/* ..... Feed message or subscription item ..... */
+treechildren::-moz-tree-image(folderNameCol, isFeed-true) {
+  list-style-image: var(--folder-pane-rss);
+  fill: color-mix(in srgb, var(--folder-color-rss) 20%, transparent);
+  stroke: var(--folder-color-rss);
+}
+
+treechildren::-moz-tree-image(folderNameCol, serverIsPaused),
+treechildren::-moz-tree-cell-text(folderNameCol, serverIsPaused),
+treechildren::-moz-tree-image(folderNameCol, isPaused),
+treechildren::-moz-tree-cell-text(folderNameCol, isPaused) {
+  opacity: 0.6;
+}
+
+treechildren::-moz-tree-image(folderNameCol, isBusy) {
+  list-style-image: url("chrome://messenger/skin/icons/waiting.svg");
+}
+
+treechildren::-moz-tree-image(folderNameCol, hasError) {
+  list-style-image: url("chrome://global/skin/icons/warning.svg");
+  fill: #e62117;
+}
+
+/* ..... Local folders ..... */
+treechildren::-moz-tree-image(folderNameCol, isServer-true, serverType-none) {
+  list-style-image: var(--folder-pane-folder);
+  fill: var(--primary-fill);
+  stroke: var(--primary-stroke);
+}
+
+/* ..... Secure mail server ..... */
+treechildren::-moz-tree-image(folderNameCol, isServer-true, serverType-pop3, isSecure-true),
+treechildren::-moz-tree-image(folderNameCol, isServer-true, serverType-imap, isSecure-true) {
+  list-style-image: var(--folder-pane-mail-secure);
+  fill: var(--primary-fill);
+  stroke: var(--primary-stroke);
+}
+
+/* ..... News server ..... */
+treechildren::-moz-tree-image(folderNameCol, isServer-true, serverType-nntp) {
+  list-style-image: var(--folder-pane-globe);
+  fill: var(--primary-fill);
+  stroke: var(--primary-stroke);
+}
+
+treechildren::-moz-tree-image(folderNameCol, isServer-true, serverType-nntp, isSecure-true) {
+  list-style-image: var(--folder-pane-globe-secure);
+  fill: var(--primary-fill);
+  stroke: var(--primary-stroke);
+}
+
+/* ::::: All Servers ::::: */
+
+treechildren::-moz-tree-cell-text(hasUnreadMessages-true),
+treechildren::-moz-tree-cell-text(folderNameCol, isServer-true),
+treechildren::-moz-tree-cell-text(closed, subfoldersHaveUnreadMessages-true),
+treechildren::-moz-tree-cell-text(folderNameCol, newMessages-true),
+treechildren::-moz-tree-cell-text(folderNameCol, specialFolder-Inbox, newMessages-true) {
+  font-weight: bold !important;
+}
+
+treechildren::-moz-tree-image(folderNameCol, newMessages-true),
+treechildren::-moz-tree-image(folderNameCol, isServer-true, biffState-NewMail),
+treechildren::-moz-tree-cell-text(folderNameCol, isServer-true, biffState-NewMail),
+treechildren::-moz-tree-cell-text(folderNameCol, newMessages-true),
+treechildren::-moz-tree-cell-text(folderNameCol, specialFolder-Inbox, newMessages-true) {
+  color: var(--new-folder-color) !important;
+  fill: color-mix(in srgb, currentColor 20%, transparent);
+  stroke: currentColor;
+}
+
+/* Make the new mail indicator better visible on dark themes */
+@media (prefers-color-scheme: dark) {
+  #folderTree:-moz-lwtheme
+    treechildren::-moz-tree-cell-text(hasUnreadMessages-true),
+  #folderTree:-moz-lwtheme
+    treechildren::-moz-tree-cell-text(closed, subfoldersHaveUnreadMessages-true) {
+    --sidebar-text-color: var(--color-white);
+  }
+
+  #folderTree:-moz-lwtheme
+    treechildren::-moz-tree-cell-text(folderNameCol, isServer-true, biffState-NewMail),
+  #folderTree:-moz-lwtheme
+    treechildren::-moz-tree-cell-text(folderNameCol, newMessages-true),
+  #folderTree:-moz-lwtheme
+    treechildren::-moz-tree-cell-text(folderNameCol, specialFolder-Inbox, newMessages-true) {
+    --new-folder-color: var(--color-blue-40);
+  }
+}
+
+treechildren::-moz-tree-image(folderNameCol, newMessages-true),
+treechildren::-moz-tree-image(folderNameCol, isServer-true, biffState-NewMail) {
+  fill: color-mix(in srgb, var(--new-folder-color) 20%, transparent) !important;
+  stroke: var(--new-folder-color) !important;
+}
+
+treechildren::-moz-tree-cell-text(folderNameCol, isServer-true, biffState-NewMail, selected, focus),
+treechildren::-moz-tree-cell-text(folderNameCol, newMessages-true, selected, focus),
+treechildren::-moz-tree-cell-text(folderNameCol, specialFolder-Inbox, newMessages-true, selected, focus) {
+  color: var(--new-focused-folder-color) !important;
+}
+
+treechildren::-moz-tree-image(folderNameCol, selected, focus),
+treechildren::-moz-tree-image(folderNameCol, newMessages-true, selected, focus),
+treechildren::-moz-tree-image(folderNameCol, isServer-true, biffState-NewMail, selected, focus) {
+  opacity: 1 !important;
+  fill: color-mix(in srgb, var(--new-focused-folder-color) 20%, transparent) !important;
+  stroke: var(--new-focused-folder-color) !important;
+}
+
+treechildren::-moz-tree-cell-text(folderNameCol, noSelect-true) {
+  opacity: 0.6;
+  font-style: italic;
+}
+
+treechildren::-moz-tree-cell-text(imapdeleted) {
+  text-decoration: line-through;
+}
+
+@media not (prefers-contrast) {
+  treechildren::-moz-tree-cell-text(imapdeleted) {
+    opacity: 0.6;
+  }
+}
+
+.tree-folder-checkbox {
+  list-style-image: none;
+}
+
+/* ::::: Folder Summary Popup ::::: */
+
+.folderSummary-message-row {
+  /* This max width ends up dictating the overall width of the popup
+     because it controls how large the preview, subject and sender text can be
+     before cropping kicks in */
+  max-width: 450px;
+}
+
+.folderSummary-subject {
+  font-weight: bold;
+}
+
+.folderSummary-previewText {
+  opacity: 0.6;
+}
+
+#folderTree treechildren::-moz-tree-cell-text(folderNameCol, newMessages-true) {
+  margin-inline-start: -20px;
+  padding-inline-start: 23px;
+  background-image: var(--icon-new-indicator);
+  background-repeat: no-repeat;
+  background-position: left;
+}
+
+#folderTree:-moz-locale-dir(rtl)
+  treechildren::-moz-tree-cell-text(folderNameCol, newMessages-true) {
+  background-position: right;
+}
+
+/* UI Density customization */
+
+:root[uidensity="touch"] #folderTree
+  treechildren::-moz-tree-cell-text(folderNameCol, newMessages-true) {
+  margin-inline-start: -24px;
+  padding-inline-start: 29px;
+  margin-block-start: -6px;
+  padding-block-start: 6px;
+}
+
+:root[uidensity="touch"] #folderTree > treechildren::-moz-tree-image {
+  width: 20px;
+  height: 20px;
+}

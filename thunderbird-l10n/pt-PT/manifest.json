@@ -1,0 +1,56 @@
+{
+  "langpack_id": "pt-PT",
+  "manifest_version": 2,
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "langpack-pt-PT@thunderbird.mozilla.org",
+      "strict_min_version": "115.0",
+      "strict_max_version": "115.*"
+    }
+  },
+  "name": "Language: Português (PT) (Portuguese)",
+  "description": "Thunderbird Language Pack for Português (PT) (pt-PT) – Portuguese",
+  "version": "115.3.20230928.194049",
+  "languages": {
+    "pt-PT": {
+      "version": "20230928204512",
+      "chrome_resources": {
+        "alerts": "chrome/pt-PT/locale/pt-PT/alerts/",
+        "autoconfig": "chrome/pt-PT/locale/pt-PT/autoconfig/",
+        "branding": "chrome/pt-PT/locale/branding/",
+        "calendar": "chrome/pt-PT/locale/pt-PT/calendar/",
+        "chat": "chrome/pt-PT/locale/pt-PT/chat/",
+        "communicator": "chrome/pt-PT/locale/pt-PT/communicator/",
+        "devtools": "chrome/pt-PT/locale/pt-PT/devtools/client/",
+        "devtools-shared": "chrome/pt-PT/locale/pt-PT/devtools/shared/",
+        "global": "chrome/pt-PT/locale/pt-PT/global/",
+        "global-platform": {
+          "macosx": "chrome/pt-PT/locale/pt-PT/global-platform/mac/",
+          "linux": "chrome/pt-PT/locale/pt-PT/global-platform/unix/",
+          "android": "chrome/pt-PT/locale/pt-PT/global-platform/unix/",
+          "win": "chrome/pt-PT/locale/pt-PT/global-platform/win/"
+        },
+        "lightning": "chrome/pt-PT/locale/pt-PT/lightning/",
+        "messenger": "chrome/pt-PT/locale/pt-PT/messenger/",
+        "messenger-mapi": "chrome/pt-PT/locale/pt-PT/messenger-mapi/",
+        "messenger-newsblog": "chrome/pt-PT/locale/pt-PT/messenger-newsblog/",
+        "messenger-region": "chrome/pt-PT/locale/pt-PT/messenger-region/",
+        "messenger-smime": "chrome/pt-PT/locale/pt-PT/messenger-smime/",
+        "mozapps": "chrome/pt-PT/locale/pt-PT/mozapps/",
+        "mozldap": "chrome/pt-PT/locale/pt-PT/mozldap/",
+        "necko": "chrome/pt-PT/locale/pt-PT/necko/",
+        "passwordmgr": "chrome/pt-PT/locale/pt-PT/passwordmgr/",
+        "pdf.js": "chrome/pt-PT/locale/pdfviewer/",
+        "pipnss": "chrome/pt-PT/locale/pt-PT/pipnss/",
+        "pippki": "chrome/pt-PT/locale/pt-PT/pippki/",
+        "places": "chrome/pt-PT/locale/pt-PT/places/"
+      }
+    }
+  },
+  "sources": {
+    "browser": {
+      "base_path": "browser/"
+    }
+  },
+  "author": "mozilla.org (contributors: Joe Solon, Suzy Solon)"
+}

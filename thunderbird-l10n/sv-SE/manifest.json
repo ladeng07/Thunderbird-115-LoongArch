@@ -1,0 +1,56 @@
+{
+  "langpack_id": "sv-SE",
+  "manifest_version": 2,
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "langpack-sv-SE@thunderbird.mozilla.org",
+      "strict_min_version": "115.0",
+      "strict_max_version": "115.*"
+    }
+  },
+  "name": "Language: Svenska (Swedish)",
+  "description": "Thunderbird Language Pack for Svenska (sv-SE) – Swedish",
+  "version": "115.3.20230928.194049",
+  "languages": {
+    "sv-SE": {
+      "version": "20230928204338",
+      "chrome_resources": {
+        "alerts": "chrome/sv-SE/locale/sv-SE/alerts/",
+        "autoconfig": "chrome/sv-SE/locale/sv-SE/autoconfig/",
+        "branding": "chrome/sv-SE/locale/branding/",
+        "calendar": "chrome/sv-SE/locale/sv-SE/calendar/",
+        "chat": "chrome/sv-SE/locale/sv-SE/chat/",
+        "communicator": "chrome/sv-SE/locale/sv-SE/communicator/",
+        "devtools": "chrome/sv-SE/locale/sv-SE/devtools/client/",
+        "devtools-shared": "chrome/sv-SE/locale/sv-SE/devtools/shared/",
+        "global": "chrome/sv-SE/locale/sv-SE/global/",
+        "global-platform": {
+          "macosx": "chrome/sv-SE/locale/sv-SE/global-platform/mac/",
+          "linux": "chrome/sv-SE/locale/sv-SE/global-platform/unix/",
+          "android": "chrome/sv-SE/locale/sv-SE/global-platform/unix/",
+          "win": "chrome/sv-SE/locale/sv-SE/global-platform/win/"
+        },
+        "lightning": "chrome/sv-SE/locale/sv-SE/lightning/",
+        "messenger": "chrome/sv-SE/locale/sv-SE/messenger/",
+        "messenger-mapi": "chrome/sv-SE/locale/sv-SE/messenger-mapi/",
+        "messenger-newsblog": "chrome/sv-SE/locale/sv-SE/messenger-newsblog/",
+        "messenger-region": "chrome/sv-SE/locale/sv-SE/messenger-region/",
+        "messenger-smime": "chrome/sv-SE/locale/sv-SE/messenger-smime/",
+        "mozapps": "chrome/sv-SE/locale/sv-SE/mozapps/",
+        "mozldap": "chrome/sv-SE/locale/sv-SE/mozldap/",
+        "necko": "chrome/sv-SE/locale/sv-SE/necko/",
+        "passwordmgr": "chrome/sv-SE/locale/sv-SE/passwordmgr/",
+        "pdf.js": "chrome/sv-SE/locale/pdfviewer/",
+        "pipnss": "chrome/sv-SE/locale/sv-SE/pipnss/",
+        "pippki": "chrome/sv-SE/locale/sv-SE/pippki/",
+        "places": "chrome/sv-SE/locale/sv-SE/places/"
+      }
+    }
+  },
+  "sources": {
+    "browser": {
+      "base_path": "browser/"
+    }
+  },
+  "author": "Mozilla-sv (contributors: Andreas Pettersson)"
+}

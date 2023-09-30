@@ -1,0 +1,56 @@
+{
+  "langpack_id": "af",
+  "manifest_version": 2,
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "langpack-af@thunderbird.mozilla.org",
+      "strict_min_version": "115.0",
+      "strict_max_version": "115.*"
+    }
+  },
+  "name": "Language: Afrikaans",
+  "description": "Thunderbird Language Pack for Afrikaans (af)",
+  "version": "115.3.20230928.194049",
+  "languages": {
+    "af": {
+      "version": "20230928204205",
+      "chrome_resources": {
+        "alerts": "chrome/af/locale/af/alerts/",
+        "autoconfig": "chrome/af/locale/af/autoconfig/",
+        "branding": "chrome/af/locale/branding/",
+        "calendar": "chrome/af/locale/af/calendar/",
+        "chat": "chrome/af/locale/af/chat/",
+        "communicator": "chrome/af/locale/af/communicator/",
+        "devtools": "chrome/af/locale/af/devtools/client/",
+        "devtools-shared": "chrome/af/locale/af/devtools/shared/",
+        "global": "chrome/af/locale/af/global/",
+        "global-platform": {
+          "macosx": "chrome/af/locale/af/global-platform/mac/",
+          "linux": "chrome/af/locale/af/global-platform/unix/",
+          "android": "chrome/af/locale/af/global-platform/unix/",
+          "win": "chrome/af/locale/af/global-platform/win/"
+        },
+        "lightning": "chrome/af/locale/af/lightning/",
+        "messenger": "chrome/af/locale/af/messenger/",
+        "messenger-mapi": "chrome/af/locale/af/messenger-mapi/",
+        "messenger-newsblog": "chrome/af/locale/af/messenger-newsblog/",
+        "messenger-region": "chrome/af/locale/af/messenger-region/",
+        "messenger-smime": "chrome/af/locale/af/messenger-smime/",
+        "mozapps": "chrome/af/locale/af/mozapps/",
+        "mozldap": "chrome/af/locale/af/mozldap/",
+        "necko": "chrome/af/locale/af/necko/",
+        "passwordmgr": "chrome/af/locale/af/passwordmgr/",
+        "pdf.js": "chrome/af/locale/pdfviewer/",
+        "pipnss": "chrome/af/locale/af/pipnss/",
+        "pippki": "chrome/af/locale/af/pippki/",
+        "places": "chrome/af/locale/af/places/"
+      }
+    }
+  },
+  "sources": {
+    "browser": {
+      "base_path": "browser/"
+    }
+  },
+  "author": "Translate.org.za (contributors: Translate.org.za, Dwayne Bailey, Samuel Murray, Friedel Wolff)"
+}

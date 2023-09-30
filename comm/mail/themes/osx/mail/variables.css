@@ -1,0 +1,26 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+@import url("chrome://messenger/skin/shared/variables.css");
+
+:root {
+  --tabline-color: AccentColor;
+  --toolbar-non-lwt-bgcolor: #f9f9fa;
+  --toolbar-non-lwt-textcolor: #0c0c0d;
+  --toolbar-non-lwt-bgimage: none;
+  --chrome-content-separator-color: hsl(0, 0%, 60%);
+  --row-grouped-header-bg-color: #d5d5d5;
+  --row-grouped-header-bg-color-selected: #3874d1;
+  --panel-separator-color: hsla(210, 4%, 10%, 0.14);
+  --autocomplete-popup-url-color: hsl(210, 77%, 47%);
+}
+
+:root:not(:-moz-lwtheme) {
+  --chrome-content-separator-color: hsl(0, 0%, 68%);
+}
+
+:root:not(:-moz-lwtheme):-moz-window-inactive {
+  --toolbar-bgcolor: -moz-mac-chrome-inactive;
+  --chrome-content-separator-color: hsl(0, 0%, 85%);
+}

@@ -1,0 +1,56 @@
+{
+  "langpack_id": "fy-NL",
+  "manifest_version": 2,
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "langpack-fy-NL@thunderbird.mozilla.org",
+      "strict_min_version": "115.0",
+      "strict_max_version": "115.*"
+    }
+  },
+  "name": "Language: Frysk (Frisian)",
+  "description": "Thunderbird Language Pack for Frysk (fy-NL) – Frisian",
+  "version": "115.3.20230928.194049",
+  "languages": {
+    "fy-NL": {
+      "version": "20230928204511",
+      "chrome_resources": {
+        "alerts": "chrome/fy-NL/locale/fy-NL/alerts/",
+        "autoconfig": "chrome/fy-NL/locale/fy-NL/autoconfig/",
+        "branding": "chrome/fy-NL/locale/branding/",
+        "calendar": "chrome/fy-NL/locale/fy-NL/calendar/",
+        "chat": "chrome/fy-NL/locale/fy-NL/chat/",
+        "communicator": "chrome/fy-NL/locale/fy-NL/communicator/",
+        "devtools": "chrome/fy-NL/locale/fy-NL/devtools/client/",
+        "devtools-shared": "chrome/fy-NL/locale/fy-NL/devtools/shared/",
+        "global": "chrome/fy-NL/locale/fy-NL/global/",
+        "global-platform": {
+          "macosx": "chrome/fy-NL/locale/fy-NL/global-platform/mac/",
+          "linux": "chrome/fy-NL/locale/fy-NL/global-platform/unix/",
+          "android": "chrome/fy-NL/locale/fy-NL/global-platform/unix/",
+          "win": "chrome/fy-NL/locale/fy-NL/global-platform/win/"
+        },
+        "lightning": "chrome/fy-NL/locale/fy-NL/lightning/",
+        "messenger": "chrome/fy-NL/locale/fy-NL/messenger/",
+        "messenger-mapi": "chrome/fy-NL/locale/fy-NL/messenger-mapi/",
+        "messenger-newsblog": "chrome/fy-NL/locale/fy-NL/messenger-newsblog/",
+        "messenger-region": "chrome/fy-NL/locale/fy-NL/messenger-region/",
+        "messenger-smime": "chrome/fy-NL/locale/fy-NL/messenger-smime/",
+        "mozapps": "chrome/fy-NL/locale/fy-NL/mozapps/",
+        "mozldap": "chrome/fy-NL/locale/fy-NL/mozldap/",
+        "necko": "chrome/fy-NL/locale/fy-NL/necko/",
+        "passwordmgr": "chrome/fy-NL/locale/fy-NL/passwordmgr/",
+        "pdf.js": "chrome/fy-NL/locale/pdfviewer/",
+        "pipnss": "chrome/fy-NL/locale/fy-NL/pipnss/",
+        "pippki": "chrome/fy-NL/locale/fy-NL/pippki/",
+        "places": "chrome/fy-NL/locale/fy-NL/places/"
+      }
+    }
+  },
+  "sources": {
+    "browser": {
+      "base_path": "browser/"
+    }
+  },
+  "author": "mozilla.org (contributors: Wim Benes, Hindrik Sijens)"
+}

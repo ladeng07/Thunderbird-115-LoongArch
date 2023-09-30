@@ -1,0 +1,74 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, you can obtain one at http://mozilla.org/MPL/2.0/. */
+
+@import url("chrome://messenger/skin/shared/contextMenu.css");
+
+/* Disabled empty item looks too small otherwise, because it has no icon. */
+menuitem[disabled="true"]:not(.menuitem-iconic) {
+  /* This is 16px for an icon + 3px for its margins + 1px for its padding +
+   * 2px for its border. */
+  min-height: 22px;
+}
+
+menupopup:not([type="arrow"]) {
+  margin: -4px;
+}
+
+@media (prefers-contrast) {
+  menupopup:not(:-moz-lwtheme) > :is(menu, menuitem):not([disabled="true"])[_moz-menuactive] {
+    color: SelectedItemText;
+  }
+}
+
+@media (-moz-windows-non-native-menus) {
+  menupopup[needsgutter] menu:not([icon], .menu-iconic),
+  menupopup[needsgutter] menuitem:not([checked="true"], [icon], .menuitem-iconic) {
+    padding-inline-start: 32px;
+  }
+
+  menupopup > :is(menu, menuitem):not([needsgutter]) >
+    menuitem:not([icon], .menuitem-iconic) {
+    padding-inline-start: 1em;
+  }
+
+  menuitem[checked="true"] {
+    padding-inline-start: 8px;
+  }
+}
+
+@media (-moz-windows-non-native-menus: 0) {
+  menupopup {
+    appearance: none;
+    background-color: transparent;
+    border: none;
+    /* Somehow the double border radius is needed to look correct. */
+    border-radius: calc(2 * var(--arrowpanel-border-radius));
+  }
+
+  menupopup:not([type="arrow"])::part(content) {
+    --panel-shadow-margin: 4px;
+    --panel-shadow: 0 0 4px hsla(0, 0%, 0%, 0.2);
+  }
+
+  /* Override popup.css */
+  menulist > menupopup {
+    --panel-background: var(--arrowpanel-background);
+    --panel-border-color: var(--arrowpanel-border-color);
+  }
+
+  :is(.menuitem-iconic, .menu-iconic) > .menu-iconic-left,
+  menupopup > menuitem:is([type="checkbox"],[type="radio"]) > .menu-iconic-left,
+  menupopup > menuitem > .menu-text {
+    appearance: none;
+  }
+
+  menuitem[checked="true"] > .menu-iconic-left > .menu-iconic-icon {
+    display: block;
+  }
+
+  .menu-text, .menu-iconic-text,
+  menupopup > :is(menu, menuitem) > .menu-text {
+    margin-inline-start: 8px !important;
+  }
+}

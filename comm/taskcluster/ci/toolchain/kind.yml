@@ -1,0 +1,98 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+---
+loader: comm_taskgraph.loader.merge:loader
+reference-base-path: taskcluster/ci
+
+kind-dependencies:
+    - fetch
+    - packages
+
+reference-jobs:
+    - linux64-aarch64-compiler-rt-16
+    - linux64-binutils
+    - linux64-cbindgen
+    - linux64-cctools-port
+    - linux64-clang-16-profile
+    - linux64-clang-16-raw
+    - linux64-clang-16-stage1
+    - linux64-clang-mingw-x64
+    - linux64-clang-mingw-x86
+    - linux64-clang-tidy
+    - linux64-dump_syms
+    - linux64-fix-stacks
+    - linux64-grcov
+    - linux64-hfsplus
+    - linux64-libdmg
+    - linux64-llvm-symbolizer
+    - linux64-makecab
+    - linux64-mar-tools
+    - linux64-minidump-stackwalk
+    - linux64-mkbom
+    - linux64-msix-packaging
+    - linux64-nasm
+    - linux64-node
+    - linux64-pkgconf
+    - linux64-python
+    - linux64-rust
+    - linux64-rust-cross
+    - linux64-rust-dev
+    - linux64-rust-macos
+    - linux64-rust-macos-toolchain
+    - linux64-rust-size
+    - linux64-rust-toolchain
+    - linux64-rust-windows
+    - linux64-rust-windows-toolchain
+    - linux64-sccache
+    - linux64-toolchain-sysroot
+    - linux64-upx
+    - linux64-winchecksec
+    - linux64-wine
+    - linux64-x64-compiler-rt-16
+    - linux64-x86-compiler-rt-16
+    - linux64-xar
+    - macosx64-aarch64-compiler-rt-16
+    - macosx64-clang-16-raw
+    - macosx64-fix-stacks
+    - macosx64-minidump-stackwalk
+    - macosx64-node
+    - macosx64-sdk
+    - macosx64-sdk-toolchain
+    - macosx64-x64-compiler-rt-16
+    - mingw32-rust
+    - nsis
+    - sysroot-aarch64-linux-gnu
+    - sysroot-i686-linux-gnu
+    - sysroot-wasm32-wasi
+    - sysroot-x86_64-linux-gnu
+    - wasm32-wasi-compiler-rt
+    - win32-compiler-rt-16
+    - win32-fix-stacks
+    - win32-minidump-stackwalk
+    - win32-node
+    - win64-cbindgen
+    - win64-clang-16-raw
+    - win64-clang-16-stage1
+    - win64-compiler-rt-16
+    - win64-dump_syms
+    - win64-llvm-symbolizer
+    - win64-mozmake
+    - win64-nasm
+    - win64-node
+    - win64-python
+    - win64-rust
+    - win64-rust-size
+    - win64-sccache
+    - win64-vs2019
+    - win64-winchecksec
+
+transforms:
+    - gecko_taskgraph.transforms.try_job:transforms
+    - gecko_taskgraph.transforms.job:transforms
+    - gecko_taskgraph.transforms.cached_tasks:transforms
+    - gecko_taskgraph.transforms.task:transforms
+
+jobs-from:
+    - clang.yml
+    - libotr.yml

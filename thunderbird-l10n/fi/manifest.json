@@ -1,0 +1,56 @@
+{
+  "langpack_id": "fi",
+  "manifest_version": 2,
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "langpack-fi@thunderbird.mozilla.org",
+      "strict_min_version": "115.0",
+      "strict_max_version": "115.*"
+    }
+  },
+  "name": "Language: Suomi (Finnish)",
+  "description": "Thunderbird Language Pack for Suomi (fi) – Finnish",
+  "version": "115.3.20230928.194049",
+  "languages": {
+    "fi": {
+      "version": "20230928204339",
+      "chrome_resources": {
+        "alerts": "chrome/fi/locale/fi/alerts/",
+        "autoconfig": "chrome/fi/locale/fi/autoconfig/",
+        "branding": "chrome/fi/locale/branding/",
+        "calendar": "chrome/fi/locale/fi/calendar/",
+        "chat": "chrome/fi/locale/fi/chat/",
+        "communicator": "chrome/fi/locale/fi/communicator/",
+        "devtools": "chrome/fi/locale/fi/devtools/client/",
+        "devtools-shared": "chrome/fi/locale/fi/devtools/shared/",
+        "global": "chrome/fi/locale/fi/global/",
+        "global-platform": {
+          "macosx": "chrome/fi/locale/fi/global-platform/mac/",
+          "linux": "chrome/fi/locale/fi/global-platform/unix/",
+          "android": "chrome/fi/locale/fi/global-platform/unix/",
+          "win": "chrome/fi/locale/fi/global-platform/win/"
+        },
+        "lightning": "chrome/fi/locale/fi/lightning/",
+        "messenger": "chrome/fi/locale/fi/messenger/",
+        "messenger-mapi": "chrome/fi/locale/fi/messenger-mapi/",
+        "messenger-newsblog": "chrome/fi/locale/fi/messenger-newsblog/",
+        "messenger-region": "chrome/fi/locale/fi/messenger-region/",
+        "messenger-smime": "chrome/fi/locale/fi/messenger-smime/",
+        "mozapps": "chrome/fi/locale/fi/mozapps/",
+        "mozldap": "chrome/fi/locale/fi/mozldap/",
+        "necko": "chrome/fi/locale/fi/necko/",
+        "passwordmgr": "chrome/fi/locale/fi/passwordmgr/",
+        "pdf.js": "chrome/fi/locale/pdfviewer/",
+        "pipnss": "chrome/fi/locale/fi/pipnss/",
+        "pippki": "chrome/fi/locale/fi/pippki/",
+        "places": "chrome/fi/locale/fi/places/"
+      }
+    }
+  },
+  "sources": {
+    "browser": {
+      "base_path": "browser/"
+    }
+  },
+  "author": "mozilla org suomennosprojekti: (contributors: Lasse Liehu, Jarmo Juslin, Ville Pohjanheimo)"
+}

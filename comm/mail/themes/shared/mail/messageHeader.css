@@ -1,0 +1,995 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+@namespace html url("http://www.w3.org/1999/xhtml");
+
+:root {
+  /* This variable is used for both inline and block spacing in order to keep
+   a visual consistency for recipients and simple fields alignment. */
+  --message-header-field-offset: 2px;
+  --recipient-avatar-size: 26px;
+  --recipient-avatar-placeholder-size: 16px;
+  --recipient-avatar-margin-block-start: -1px;
+
+  --recipient-avatar-color: var(--color-gray-50);
+  --recipient-avatar-background-color: var(--color-gray-30);
+
+  --recipient-multi-line-gap: 2px;
+  --message-header-label-opacity: 0.7;
+}
+
+:root[uidensity="compact"] {
+  --recipient-avatar-size: 20px;
+  --recipient-avatar-placeholder-size: contain;
+  --recipient-avatar-margin-block-start: -2px;
+  --recipient-multi-line-gap: 0;
+}
+
+:root[uidensity="touch"] {
+  --recipient-avatar-size: 32px;
+  --recipient-avatar-placeholder-size: 16px;
+  --recipient-multi-line-gap: 3px;
+}
+
+:root .message-header-show-big-avatar {
+  --recipient-avatar-size: 40px;
+}
+
+:root[uidensity="compact"] .message-header-show-big-avatar {
+  --recipient-avatar-size: 36px;
+}
+
+:root[uidensity="touch"] .message-header-show-big-avatar {
+  --recipient-avatar-size: 44px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --recipient-avatar-color: var(--color-gray-40);
+    --recipient-avatar-background-color: var(--color-gray-60);
+  }
+}
+
+#messagepanebox {
+  color: var(--layout-color-1);
+  background-color: var(--layout-background-1);
+}
+
+.main-header-area {
+  border-bottom-style: none;
+  display: block;
+}
+
+.message-header-container,
+.message-header-extra-container {
+  display: grid;
+  row-gap: 6px;
+}
+
+.message-header-container {
+  padding: 3px;
+}
+
+.message-header-row:not([hidden]) {
+  display: flex;
+}
+
+#headerSubjectSecurityContainer {
+  align-items: center; /* Needed for when the encryption button is visible. */
+}
+
+.message-header-wrap {
+  flex-wrap: wrap;
+}
+
+.message-header-row.header-row-reverse {
+  flex-direction: row-reverse;
+}
+
+.message-header-row.items-center {
+  /* Variation for those rows that include buttons. */
+  align-items: center;
+}
+
+.header-buttons-container {
+  display: flex;
+  justify-content: end;
+  flex-wrap: wrap;
+  gap: 3px;
+}
+
+.message-header-buttons-only-icons .header-buttons-container {
+  gap: 5px;
+}
+
+.header-row-grow:not([hidden]) {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+}
+
+#mail-notification-top {
+  border-bottom: 1px solid var(--splitter-color);
+}
+
+#mail-notification-top > .notificationbox-stack[notificationside="top"] {
+  background-color: var(--layout-background-1);
+}
+
+/* ::::: msg header toolbars ::::: */
+
+#messageHeader[show_header_mode="all"],
+#messageHeader.scrollable {
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 14em;
+}
+
+#expandedBoxSpacer {
+  display: block;
+  height: 4px;
+}
+
+mail-tagfield[collapsed="true"] {
+  display: none;
+}
+
+/* ::::: msg header buttons ::::: */
+
+#otherActionsButton > .toolbarbutton-icon {
+  display: none;
+}
+
+.message-header-view-button {
+  flex-direction: row;
+  min-width: 1em;
+  margin: 0;
+  padding-inline: 3px !important;
+  fill: color-mix(in srgb, currentColor 20%, transparent);
+  stroke: currentColor;
+}
+
+.message-header-view-button[is="toolbarbutton-menu-button"] {
+  padding: 0 !important;
+}
+
+.message-header-view-button[is="toolbarbutton-menu-button"] > .toolbarbutton-menubutton-button {
+  flex-direction: row;
+  padding-inline: 3px !important;
+}
+
+#messageHeader:not(.message-header-buttons-only-icons)
+  .toolbarbutton-1.message-header-view-button:not([is="toolbarbutton-menu-button"]),
+#messageHeader:not(.message-header-buttons-only-icons)
+  .toolbarbutton-1.message-header-view-button > .toolbarbutton-menubutton-button,
+#messageHeader:not(.message-header-buttons-only-icons)
+  .toolbarbutton-1.message-header-view-button > .toolbarbutton-menubutton-dropmarker,
+#headingWrapper .toolbarbutton-1.message-header-view-button {
+  border-color: var(--toolbarbutton-header-bordercolor);
+}
+
+#messageHeader:not(.message-header-buttons-only-icons)
+  .toolbarbutton-1.message-header-view-button:not([disabled=true]):is(:hover,[open]) >
+  .toolbarbutton-menubutton-button,
+#messageHeader:not(.message-header-buttons-only-icons)
+  .toolbarbutton-1.message-header-view-button:not([disabled=true]):is(:hover,[open]) >
+  .toolbarbutton-menubutton-dropmarker,
+#messageHeader:not(.message-header-buttons-only-icons)
+  .toolbarbutton-1.message-header-view-button:not([is="toolbarbutton-menu-button"],[disabled=true],[checked=true],[open],:active):hover,
+#messageHeader:not(.message-header-buttons-only-icons)
+  .toolbarbutton-1.message-header-view-button:not([buttonover],[open],:active):hover >
+  .toolbarbutton-menubutton-dropmarker:not([disabled]),
+#headingWrapper .toolbarbutton-1.message-header-view-button:hover {
+  border-color: var(--toolbarbutton-active-bordercolor);
+}
+
+/* Separator between menu and split type buttons */
+#messageHeader:not(.message-header-buttons-only-icons)
+  .toolbarbutton-1.message-header-view-button:not(:hover,:active,[open],[checked]) >
+  .toolbarbutton-menubutton-dropmarker::before,
+#messageHeader:not(.message-header-buttons-only-icons)
+  .toolbarbutton-1.message-header-view-button[disabled="true"] >
+  .toolbarbutton-menubutton-dropmarker::before {
+  background-image: none;
+}
+
+.message-header-view-button .toolbarbutton-text {
+  padding-inline-start: 2px;
+}
+
+#msgHeaderView[shrink] .message-header-view-button .toolbarbutton-text {
+  display: none;
+}
+
+#msgHeaderView[shrink] .toolbarbutton-1 .toolbarbutton-menu-dropmarker {
+  margin-inline: 3px;
+}
+
+.hdrReplyToSenderButton,
+.hdrDummyReplyButton,
+.hdrReplyButton {
+  list-style-image: var(--icon-reply);
+}
+
+.hdrReplyAllButton {
+  list-style-image: var(--icon-reply-all);
+}
+
+.hdrReplyListButton,
+.hdrFollowupButton {
+  list-style-image: var(--icon-reply-list);
+}
+
+.hdrForwardButton {
+  list-style-image: var(--icon-forward);
+}
+
+.hdrArchiveButton {
+  list-style-image: var(--icon-archive);
+}
+
+.hdrJunkButton {
+  list-style-image: var(--icon-spam);
+}
+
+.hdrTrashButton {
+  list-style-image: var(--icon-trash);
+}
+
+.header-buttons-container *:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-outline-offset);
+}
+
+#attachmentSaveAllSingle,
+#attachmentSaveAllMultiple {
+  list-style-image: var(--icon-download);
+}
+
+/* ::::: msg header toolbars ::::: */
+
+#expandedHeadersTopBox {
+  /* Use the HTML layout model to allow the message header toolbar to float to
+     the right of the From field. */
+  display: block;
+}
+
+/* ::::: expanded header pane ::::: */
+
+#expandedsubjectBox {
+  font-weight: 700;
+  flex: 1;
+  margin-inline-start: calc(var(--message-header-field-offset) * -1);
+  padding-inline: var(--message-header-field-offset);
+  /* IMPORTANT! Keep these to avoid issues with very long subjects. Bug 77806 */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow-y: auto;
+}
+
+/* ::::: attachment view ::::: */
+
+#attachmentBar {
+  color: var(--layout-color-1);
+  background-color: var(--layout-background-1);
+  padding: 3px 0;
+}
+
+#attachmentToggle {
+  /* Override button appearance */
+  appearance: none;
+  min-width: 20px;
+  margin-block: 0;
+  margin-inline: 1px 0;
+  border: 0;
+  background-color: transparent;
+  color: inherit;
+  -moz-user-focus: normal;
+  list-style-image: var(--icon-nav-down-sm);
+  -moz-context-properties: stroke, fill-opacity;
+  stroke: currentColor;
+  fill-opacity: 1;
+}
+
+#attachmentToggle:not([checked="true"]) > .button-box > .button-icon {
+  transform: rotate(-90deg);
+}
+
+#attachmentToggle:not([checked="true"]):-moz-locale-dir(rtl) >
+  .button-box > .button-icon {
+  transform: rotate(90deg);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  #attachmentToggle > .button-box > .button-icon {
+    transition: transform 200ms ease;
+  }
+}
+
+#attachmentToggle > .button-box > .button-text {
+  display: none;
+}
+
+#attachmentToggle:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: -2px;
+}
+
+#attachmentName:hover,
+#attachmentName[selected="true"] {
+  cursor: pointer;
+  color: var(--selected-item-text-color);
+  background-color: var(--selected-item-color);
+}
+
+#attachmentSize {
+  margin: 0;
+  margin-inline-start: 8px;
+}
+
+#attachmentIcon {
+  margin-inline-start: 5px;
+  -moz-context-properties: fill, fill-opacity;
+  fill: currentColor;
+  fill-opacity: var(--toolbarbutton-icon-fill-opacity);
+}
+
+#attachmentCount {
+  margin: 0;
+  padding: 2px 0;
+  margin-inline: 2px 1px;
+}
+
+#attachmentName {
+  -moz-user-focus: normal;
+  margin: 0;
+  margin-inline-end: -3px;
+  padding: 2px 3px;
+  border-radius: 2px;
+}
+
+#attachmentName:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: -1px;
+}
+
+#attachment-splitter {
+  appearance: none;
+  background-color: transparent;
+  border-width: 0;
+  border-bottom: 1px solid var(--color-gray-30);
+  /* splitter grip area */
+  height: 5px;
+  /* make only the splitter border visible */
+  margin-top: -5px;
+  /* because of the negative margin needed to make the splitter visible */
+  position: relative;
+  z-index: 10;
+  transition: border-width .3s ease-in;
+}
+
+#attachment-splitter:not([state="collapsed"]) {
+  border-bottom: 1px solid transparent;
+}
+
+#attachment-splitter {
+  transition: border-color .3s;
+}
+
+#attachment-splitter[state="collapsed"]:hover {
+  border-bottom: 4px solid var(--selected-item-color);
+}
+
+/* ::::: msg header captions ::::: */
+
+.message-header-label {
+  padding: 0;
+  margin-block: 0;
+  margin-inline: 6px 8px;
+  text-align: end;
+  flex-shrink: 0;
+  align-self: baseline;
+}
+
+.message-header-label.header-pill-label {
+  padding-block-start: var(--message-header-field-offset);
+}
+
+.message-header-label,
+#attachmentSize {
+  opacity: var(--message-header-label-opacity);
+}
+
+.headerValue {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 0;
+}
+
+.header-row:focus-visible,
+.header-recipient:focus-visible,
+.header-newsgroup:focus-visible {
+  outline: var(--focus-outline);
+}
+
+.header-row[is="simple-header-row"],
+.header-row[is="url-header-row"] {
+  /* Match the visual alignment of the rows with clickable elements. */
+  margin-inline-start: calc(var(--message-header-field-offset) * -1);
+  padding-inline: var(--message-header-field-offset);
+}
+
+.tag {
+  padding: 1px 3px;
+  margin-inline-start: 0;
+  border-radius: var(--button-border-radius);
+  border: 1px solid transparent;
+}
+
+.tag:not([style]) {
+  border-color: color-mix(in srgb, currentColor 50%, transparent);
+}
+
+.message-header-datetime {
+  user-select: text;
+  -moz-user-focus: normal;
+  cursor: text;
+  margin: 0 6px;
+  white-space: nowrap;
+}
+
+#expandedtoRow .message-header-datetime {
+  align-self: flex-start;
+  margin-block: 2px;
+}
+
+/* ::::: msg header email addresses ::::: */
+
+button.email-action-button {
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+}
+
+button.email-action-button:hover,
+button.email-action-button:hover:active {
+  background-color: transparent;
+}
+
+button.email-action-button:focus-visible {
+  outline: var(--focus-outline);
+}
+
+.header-row {
+  -moz-user-focus: normal;
+  user-select: text;
+  word-wrap: anywhere;
+  display: inherit;
+  line-height: 1.3;
+}
+
+.screen-reader-only {
+  position: absolute;
+  clip-path: inset(50%);
+}
+
+#attachmentView {
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  /* Allow the area to shrink. */
+  min-width: 0;
+}
+
+#attachmentView,
+#attachmentList {
+  border-top: 1px solid var(--splitter-color); /* The same color as the splitters */
+}
+
+:root[lwt-tree] #singleMessage,
+:root[lwt-tree] #attachmentView {
+  background-color: var(--toolbar-bgcolor) !important;
+  background-image: none !important;
+  color: var(--lwt-text-color);
+}
+
+:root[lwt-tree] .headerValue {
+  color: inherit;
+}
+
+:root[lwt-tree] #attachmentBar {
+  background-color: hsla(0, 0%, 50%, .15);
+  color: inherit;
+}
+
+/* OpenPGP and S/MIME encryption and signature status icons */
+
+#cryptoBox:not([hidden]) {
+  display: contents;
+}
+
+.crypto-label {
+  font-weight: 600;
+}
+
+.crypto-button {
+  display: inline-block;
+  margin-block: 0;
+  margin-inline-end: 3px;
+  fill: currentColor;
+  background-color: transparent;
+}
+
+.crypto-button[hidden] {
+  display: none;
+}
+
+.crypto-button > * {
+  vertical-align: middle;
+}
+
+/* Encryption security pane */
+#messageSecurityPanel {
+  --panel-width: 37rem;
+}
+
+#messageSecurityPanel .security-panel-body {
+  overflow-x: hidden;
+  flex: 1;
+  padding-inline: 6px;
+}
+
+html|header.message-security-header {
+  display: flex;
+  flex-wrap: nowrap;
+  text-align: center;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+html|header.message-security-header html|h3 {
+  flex: 1;
+  margin-block: 0;
+}
+
+.message-security-body {
+  overflow-y: auto;
+  flex: 1;
+}
+
+.message-security-body > description {
+  margin-bottom: 18px;
+}
+
+.message-security-label {
+  font-weight: 600;
+  font-size: 1.1em;
+  padding-inline-start: 21px;
+  background-position: left center;
+  background-repeat: no-repeat;
+  background-size: 16px;
+  margin-bottom: 6px;
+  fill: currentColor;
+  -moz-context-properties: fill;
+}
+
+.message-security-label.none,
+#encryptionLabel.none,
+#signatureLabel.none {
+  padding-inline-start: 0;
+}
+
+#signatureLabel.ok {
+  background-image: url("chrome://messenger/skin/icons/message-signed-ok.svg");
+}
+
+#signatureLabel.verified {
+  background-image: url("chrome://messenger/skin/icons/message-signed-verified.svg");
+}
+
+#signatureLabel.unverified {
+  background-image: url("chrome://messenger/skin/icons/message-signed-unverified.svg");
+}
+
+#signatureLabel.unknown {
+  background-image: url("chrome://messenger/skin/icons/message-signed-unknown.svg");
+}
+
+#signatureLabel.mismatch,
+#signatureLabel.notok {
+  background-image: url("chrome://messenger/skin/icons/message-signed-mismatch.svg");
+}
+
+#encryptionLabel.ok {
+  background-image: url("chrome://messenger/skin/icons/message-encrypted-ok.svg");
+}
+
+#encryptionLabel.notok {
+  background-image: url("chrome://messenger/skin/icons/message-encrypted-notok.svg");
+}
+
+#openpgpImportButton {
+  list-style-image: url("chrome://messenger/skin/icons/encryption-key.svg");
+  -moz-context-properties: fill;
+  fill: currentColor;
+}
+
+#openpgpImportButton .button-icon {
+  margin-inline-end: 2px;
+}
+
+.message-security-container {
+  margin-bottom: 21px;
+}
+
+#signatureKeyId,
+#encryptionKeyId,
+.cert-label {
+  font-weight: 600;
+}
+
+#signatureKey {
+  flex-wrap: wrap;
+}
+
+#otherEncryptionKeysList {
+  margin: 9px 6px;
+}
+
+.other-key-row {
+  border-radius: 2px;
+  padding: 3px 2px;
+  border: 1px solid var(--button-border-color);
+  background-color: rgba(215, 215, 219, 0.2);
+  margin-bottom: 3px;
+}
+
+.openpgp-key-id {
+  font-weight: bold;
+}
+
+.openpgp-key-name {
+  font-size: 0.9em;
+}
+
+#signatureKeyId,
+#encryptionKeyId,
+.openpgp-key-id,
+.openpgp-key-name {
+  user-select: text;
+  cursor: text;
+}
+
+.button-focusable {
+  -moz-user-focus: normal;
+}
+
+.button-focusable:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-outline-offset);
+}
+
+.button-focusable:focus:not(:focus-visible) {
+  outline: none;
+}
+
+button.email-action-flagged {
+  margin-inline: 6px;
+  cursor: pointer;
+  -moz-context-properties: fill, stroke;
+  fill: color-mix(in srgb, currentColor 10%, transparent);
+  stroke: color-mix(in srgb, currentColor 30%, transparent);
+  align-self: center;
+  border-radius: var(--button-border-radius);
+}
+
+button.email-action-flagged.flagged {
+  fill: var(--color-orange-30) !important;
+  stroke: var(--color-orange-60);
+}
+
+.email-action-flagged:not(.flagged):hover {
+  fill: color-mix(in srgb, currentColor 20%, transparent);
+  stroke: currentColor;
+}
+
+/* Responsive style */
+@media (max-width: 768px) {
+  .message-header-row.items-center {
+    align-items: baseline;
+  }
+
+  .message-header-container {
+    padding: 6px;
+  }
+
+  .message-header-wrap:not([hidden]) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .header-buttons-container {
+    align-self: end;
+  }
+
+  .message-header-label {
+    min-width: 0 !important;
+    margin-inline-start: 0;
+    text-align: start;
+  }
+}
+
+
+/* Customization options */
+
+.message-header-hide-label-column {
+  padding-inline-start: 9px;
+}
+
+.message-header-hide-label-column .message-header-label {
+  display: none;
+}
+
+.message-header-hide-label-column .multi-recipient-row:not(#expandedfromBox),
+.message-header-hide-label-column .multi-message-ids-row,
+.message-header-hide-label-column .header-newsgroups-row {
+  display: flex;
+}
+
+.message-header-hide-label-column .multi-recipient-row:not(#expandedfromBox) ol,
+.message-header-hide-label-column .multi-message-ids-row ol,
+.message-header-hide-label-column .header-newsgroups-row ol {
+  flex: 1 1 auto;
+}
+
+.message-header-hide-label-column .row-heading:not(#subjectHeading, #fromHeading, #tagsHeading) {
+  display: flow-root;
+  margin-inline-end: 1ch;
+  font-weight: 600;
+  align-self: baseline;
+  word-break: keep-all;
+  white-space: nowrap;
+  opacity: var(--message-header-label-opacity);
+}
+
+.message-header-hide-label-column .multi-recipient-row
+  .row-heading:not(#fromHeading),
+.message-header-hide-label-column
+  .row-heading:is(#newsgroupsHeading, #message-idHeading, #referencesHeading, #in-reply-toHeading) {
+  padding-block: var(--message-header-field-offset);
+}
+
+.message-header-large-subject #expandedsubjectBox {
+  font-weight: 500;
+  font-size: 1.35em;
+  line-height: 1.35em;
+}
+
+.message-header-large-subject #expandedsubjectLabel {
+  margin-top: 5px;
+}
+
+.message-header-buttons-only-icons .toolbarbutton-text,
+.message-header-buttons-only-text .toolbarbutton-icon {
+  display: none !important;
+}
+
+.message-header-buttons-only-text .toolbarbutton-text {
+  margin: 0 !important;
+  padding-inline: 2px !important;
+}
+
+.message-header-buttons-only-icons .toolbarbutton-menu-dropmarker {
+  margin-inline: 3px;
+}
+
+/* Header row widgets */
+
+.multi-recipient-row {
+  flex: 1 1 auto;
+}
+
+.row-heading {
+  display: none;
+}
+
+.header-recipient:not(:last-child, .last-before-button):after,
+.header-message-id:not(:last-child, .last-before-button):after,
+.header-newsgroup:not(:last-child):after {
+  content: ",";
+}
+
+.header-recipient,
+.header-newsgroup,
+.header-message-id {
+  display: flow-root;
+  padding: var(--message-header-field-offset);
+  border-radius: var(--button-border-radius);
+}
+
+.header-recipient {
+  white-space: nowrap;
+}
+
+.header-recipient:hover,
+.header-newsgroup:hover {
+  color: var(--selected-item-text-color);
+  background-color: var(--selected-item-color);
+  cursor: pointer;
+}
+
+.header-recipient img {
+  pointer-events: none;
+}
+
+.header-recipient span,
+.header-message-id {
+  word-break: break-word;
+  white-space: break-spaces;
+}
+
+.recipients-list,
+.newsgroups-list,
+.tags-list,
+.ids-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  row-gap: 2px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  margin-inline-start: calc(var(--message-header-field-offset) * -1);
+  min-width: 100px;
+}
+
+.tags-list {
+  column-gap: 3px;
+  min-width: fit-content;
+}
+
+.recipient-address-book-button {
+  margin: 0;
+  margin-inline-start: 3px;
+  margin-block-start: -2px;
+  padding: 1px;
+  border-radius: var(--button-border-radius);
+  cursor: pointer;
+  vertical-align: middle;
+  background-color: transparent;
+}
+
+.recipient-address-book-button:not([disabled]):hover {
+  background-color: transparent;
+}
+
+.recipient-address-book-button img {
+  display: block;
+  -moz-context-properties: fill, stroke;
+  fill: color-mix(in srgb, currentColor 20%, transparent);
+  stroke: currentColor;
+}
+
+.recipient-address-book-button.in-address-book img {
+  fill: color-mix(in srgb, var(--toolbarbutton-icon-fill-attention) 20%, transparent);
+  stroke: var(--toolbarbutton-icon-fill-attention);
+}
+
+.header-recipient:hover .recipient-address-book-button.in-address-book img {
+  fill: var(--selected-item-text-color);
+  stroke: var(--selected-item-text-color);
+}
+
+.header-recipient:hover .recipient-address-book-button img {
+  opacity: var(--message-header-label-opacity);
+}
+
+.header-recipient:hover .recipient-address-book-button:not([disabled]):hover img {
+  opacity: 1;
+}
+
+.show-more-recipients,
+.show-more-ids {
+  min-height: auto;
+  min-width: auto;
+  border-radius: 12px;
+  line-height: 1;
+  text-transform: uppercase;
+  font-weight: 600;
+  background-color: var(--selected-item-color);
+  color: var(--selected-item-text-color);
+}
+
+.show-more-recipients {
+  padding: 3px 9px;
+  margin-inline-start: 6px !important;
+  font-size: 0.9rem;
+}
+
+.show-more-ids {
+  padding: 2px 6px;
+  font-size: 0.8rem;
+}
+
+button.show-more-recipients:hover,
+button.show-more-ids:hover {
+  background-color: var(--selected-item-text-color);
+  color: var(--selected-item-color);
+}
+
+.show-more-recipients:focus-visible,
+.show-more-ids:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-outline-offset);
+}
+
+/* Avatar */
+
+.recipient-avatar {
+  display: none;
+  height: var(--recipient-avatar-size);
+  width: var(--recipient-avatar-size);
+  border-radius: 50%;
+  margin-block-start: var(--recipient-avatar-margin-block-start);
+  margin-inline-end: 6px;
+  text-align: center;
+  overflow: hidden;
+  color: var(--recipient-avatar-color);
+  background-color: var(--recipient-avatar-background-color);
+  align-items: center;
+  justify-content: center;
+}
+
+.recipient-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.message-header-show-recipient-avatar #expandedfromBox .recipient-avatar {
+  display: inline-flex;
+}
+
+.message-header-show-recipient-avatar .recipient-avatar.has-avatar,
+.message-header-show-sender-full-address .recipient-avatar {
+  vertical-align: middle;
+}
+
+.message-header-show-sender-full-address #expandedfromLabel,
+.message-header-show-recipient-avatar #expandedfromLabel {
+  padding-block-start: var(--recipient-avatar-margin-block-start);
+  align-self: center;
+}
+
+.message-header-show-recipient-avatar:not(.message-header-show-sender-full-address ) #expandedfromLabel {
+  padding-block-start: 0;
+}
+
+.recipient-multi-line {
+  display: none;
+  flex-direction: column;
+  gap: var(--recipient-multi-line-gap);
+  vertical-align: middle;
+  margin-inline-end: 3px;
+}
+
+.recipient-multi-line-name {
+  font-weight: 500;
+  font-size: 105%;
+}
+
+.recipient-multi-line-address {
+  opacity: 0.9;
+}
+
+
+.message-header-show-sender-full-address #expandedfromBox .recipient-multi-line {
+  display: inline-flex;
+}
+
+.message-header-show-sender-full-address #expandedfromBox .recipient-single-line {
+  display: none;
+}

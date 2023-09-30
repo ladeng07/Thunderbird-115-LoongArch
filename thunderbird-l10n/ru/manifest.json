@@ -1,0 +1,56 @@
+{
+  "langpack_id": "ru",
+  "manifest_version": 2,
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "langpack-ru@thunderbird.mozilla.org",
+      "strict_min_version": "115.0",
+      "strict_max_version": "115.*"
+    }
+  },
+  "name": "Language: Русский (Russian)",
+  "description": "Thunderbird Language Pack for Русский (ru) – Russian",
+  "version": "115.3.20230928.194049",
+  "languages": {
+    "ru": {
+      "version": "20230928204335",
+      "chrome_resources": {
+        "alerts": "chrome/ru/locale/ru/alerts/",
+        "autoconfig": "chrome/ru/locale/ru/autoconfig/",
+        "branding": "chrome/ru/locale/branding/",
+        "calendar": "chrome/ru/locale/ru/calendar/",
+        "chat": "chrome/ru/locale/ru/chat/",
+        "communicator": "chrome/ru/locale/ru/communicator/",
+        "devtools": "chrome/ru/locale/ru/devtools/client/",
+        "devtools-shared": "chrome/ru/locale/ru/devtools/shared/",
+        "global": "chrome/ru/locale/ru/global/",
+        "global-platform": {
+          "macosx": "chrome/ru/locale/ru/global-platform/mac/",
+          "linux": "chrome/ru/locale/ru/global-platform/unix/",
+          "android": "chrome/ru/locale/ru/global-platform/unix/",
+          "win": "chrome/ru/locale/ru/global-platform/win/"
+        },
+        "lightning": "chrome/ru/locale/ru/lightning/",
+        "messenger": "chrome/ru/locale/ru/messenger/",
+        "messenger-mapi": "chrome/ru/locale/ru/messenger-mapi/",
+        "messenger-newsblog": "chrome/ru/locale/ru/messenger-newsblog/",
+        "messenger-region": "chrome/ru/locale/ru/messenger-region/",
+        "messenger-smime": "chrome/ru/locale/ru/messenger-smime/",
+        "mozapps": "chrome/ru/locale/ru/mozapps/",
+        "mozldap": "chrome/ru/locale/ru/mozldap/",
+        "necko": "chrome/ru/locale/ru/necko/",
+        "passwordmgr": "chrome/ru/locale/ru/passwordmgr/",
+        "pdf.js": "chrome/ru/locale/pdfviewer/",
+        "pipnss": "chrome/ru/locale/ru/pipnss/",
+        "pippki": "chrome/ru/locale/ru/pippki/",
+        "places": "chrome/ru/locale/ru/places/"
+      }
+    }
+  },
+  "sources": {
+    "browser": {
+      "base_path": "browser/"
+    }
+  },
+  "author": "Mozilla Russia (contributors: Александр Словесник)"
+}

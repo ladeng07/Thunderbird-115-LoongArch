@@ -1,0 +1,56 @@
+{
+  "langpack_id": "el",
+  "manifest_version": 2,
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "langpack-el@thunderbird.mozilla.org",
+      "strict_min_version": "115.0",
+      "strict_max_version": "115.*"
+    }
+  },
+  "name": "Language: Ελληνικά (Greek)",
+  "description": "Thunderbird Language Pack for Ελληνικά (el) – Greek",
+  "version": "115.3.20230928.194049",
+  "languages": {
+    "el": {
+      "version": "20230928204430",
+      "chrome_resources": {
+        "alerts": "chrome/el/locale/el/alerts/",
+        "autoconfig": "chrome/el/locale/el/autoconfig/",
+        "branding": "chrome/el/locale/branding/",
+        "calendar": "chrome/el/locale/el/calendar/",
+        "chat": "chrome/el/locale/el/chat/",
+        "communicator": "chrome/el/locale/el/communicator/",
+        "devtools": "chrome/el/locale/el/devtools/client/",
+        "devtools-shared": "chrome/el/locale/el/devtools/shared/",
+        "global": "chrome/el/locale/el/global/",
+        "global-platform": {
+          "macosx": "chrome/el/locale/el/global-platform/mac/",
+          "linux": "chrome/el/locale/el/global-platform/unix/",
+          "android": "chrome/el/locale/el/global-platform/unix/",
+          "win": "chrome/el/locale/el/global-platform/win/"
+        },
+        "lightning": "chrome/el/locale/el/lightning/",
+        "messenger": "chrome/el/locale/el/messenger/",
+        "messenger-mapi": "chrome/el/locale/el/messenger-mapi/",
+        "messenger-newsblog": "chrome/el/locale/el/messenger-newsblog/",
+        "messenger-region": "chrome/el/locale/el/messenger-region/",
+        "messenger-smime": "chrome/el/locale/el/messenger-smime/",
+        "mozapps": "chrome/el/locale/el/mozapps/",
+        "mozldap": "chrome/el/locale/el/mozldap/",
+        "necko": "chrome/el/locale/el/necko/",
+        "passwordmgr": "chrome/el/locale/el/passwordmgr/",
+        "pdf.js": "chrome/el/locale/pdfviewer/",
+        "pipnss": "chrome/el/locale/el/pipnss/",
+        "pippki": "chrome/el/locale/el/pippki/",
+        "places": "chrome/el/locale/el/places/"
+      }
+    }
+  },
+  "sources": {
+    "browser": {
+      "base_path": "browser/"
+    }
+  },
+  "author": "Kostas Papadimas (contributors: Βασίλης Λούρδας, Δημήτρης Σπέντζος)"
+}

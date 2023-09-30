@@ -1,0 +1,56 @@
+{
+  "langpack_id": "ro",
+  "manifest_version": 2,
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "langpack-ro@thunderbird.mozilla.org",
+      "strict_min_version": "115.0",
+      "strict_max_version": "115.*"
+    }
+  },
+  "name": "Language: Română (Romanian)",
+  "description": "Thunderbird Language Pack for Română (ro) – Romanian",
+  "version": "115.3.20230928.194049",
+  "languages": {
+    "ro": {
+      "version": "20230928204248",
+      "chrome_resources": {
+        "alerts": "chrome/ro/locale/ro/alerts/",
+        "autoconfig": "chrome/ro/locale/ro/autoconfig/",
+        "branding": "chrome/ro/locale/branding/",
+        "calendar": "chrome/ro/locale/ro/calendar/",
+        "chat": "chrome/ro/locale/ro/chat/",
+        "communicator": "chrome/ro/locale/ro/communicator/",
+        "devtools": "chrome/ro/locale/ro/devtools/client/",
+        "devtools-shared": "chrome/ro/locale/ro/devtools/shared/",
+        "global": "chrome/ro/locale/ro/global/",
+        "global-platform": {
+          "macosx": "chrome/ro/locale/ro/global-platform/mac/",
+          "linux": "chrome/ro/locale/ro/global-platform/unix/",
+          "android": "chrome/ro/locale/ro/global-platform/unix/",
+          "win": "chrome/ro/locale/ro/global-platform/win/"
+        },
+        "lightning": "chrome/ro/locale/ro/lightning/",
+        "messenger": "chrome/ro/locale/ro/messenger/",
+        "messenger-mapi": "chrome/ro/locale/ro/messenger-mapi/",
+        "messenger-newsblog": "chrome/ro/locale/ro/messenger-newsblog/",
+        "messenger-region": "chrome/ro/locale/ro/messenger-region/",
+        "messenger-smime": "chrome/ro/locale/ro/messenger-smime/",
+        "mozapps": "chrome/ro/locale/ro/mozapps/",
+        "mozldap": "chrome/ro/locale/ro/mozldap/",
+        "necko": "chrome/ro/locale/ro/necko/",
+        "passwordmgr": "chrome/ro/locale/ro/passwordmgr/",
+        "pdf.js": "chrome/ro/locale/pdfviewer/",
+        "pipnss": "chrome/ro/locale/ro/pipnss/",
+        "pippki": "chrome/ro/locale/ro/pippki/",
+        "places": "chrome/ro/locale/ro/places/"
+      }
+    }
+  },
+  "sources": {
+    "browser": {
+      "base_path": "browser/"
+    }
+  },
+  "author": "mozilla.org (contributors: Alexandru Szasz, Raul Nicolae Malea, Cristian Silaghi, Jobava)"
+}

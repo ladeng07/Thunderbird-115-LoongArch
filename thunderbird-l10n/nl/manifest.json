@@ -1,0 +1,56 @@
+{
+  "langpack_id": "nl",
+  "manifest_version": 2,
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "langpack-nl@thunderbird.mozilla.org",
+      "strict_min_version": "115.0",
+      "strict_max_version": "115.*"
+    }
+  },
+  "name": "Language: Nederlands (Dutch)",
+  "description": "Thunderbird Language Pack for Nederlands (nl) – Dutch",
+  "version": "115.3.20230928.194049",
+  "languages": {
+    "nl": {
+      "version": "20230928204528",
+      "chrome_resources": {
+        "alerts": "chrome/nl/locale/nl/alerts/",
+        "autoconfig": "chrome/nl/locale/nl/autoconfig/",
+        "branding": "chrome/nl/locale/branding/",
+        "calendar": "chrome/nl/locale/nl/calendar/",
+        "chat": "chrome/nl/locale/nl/chat/",
+        "communicator": "chrome/nl/locale/nl/communicator/",
+        "devtools": "chrome/nl/locale/nl/devtools/client/",
+        "devtools-shared": "chrome/nl/locale/nl/devtools/shared/",
+        "global": "chrome/nl/locale/nl/global/",
+        "global-platform": {
+          "macosx": "chrome/nl/locale/nl/global-platform/mac/",
+          "linux": "chrome/nl/locale/nl/global-platform/unix/",
+          "android": "chrome/nl/locale/nl/global-platform/unix/",
+          "win": "chrome/nl/locale/nl/global-platform/win/"
+        },
+        "lightning": "chrome/nl/locale/nl/lightning/",
+        "messenger": "chrome/nl/locale/nl/messenger/",
+        "messenger-mapi": "chrome/nl/locale/nl/messenger-mapi/",
+        "messenger-newsblog": "chrome/nl/locale/nl/messenger-newsblog/",
+        "messenger-region": "chrome/nl/locale/nl/messenger-region/",
+        "messenger-smime": "chrome/nl/locale/nl/messenger-smime/",
+        "mozapps": "chrome/nl/locale/nl/mozapps/",
+        "mozldap": "chrome/nl/locale/nl/mozldap/",
+        "necko": "chrome/nl/locale/nl/necko/",
+        "passwordmgr": "chrome/nl/locale/nl/passwordmgr/",
+        "pdf.js": "chrome/nl/locale/pdfviewer/",
+        "pipnss": "chrome/nl/locale/nl/pipnss/",
+        "pippki": "chrome/nl/locale/nl/pippki/",
+        "places": "chrome/nl/locale/nl/places/"
+      }
+    }
+  },
+  "sources": {
+    "browser": {
+      "base_path": "browser/"
+    }
+  },
+  "author": "mozilla.org (contributors: Gert-Paul van der Beek, Tim Maks van den Broek, Onno Ekker, Laurens Holst, Ton Kensen, Anne van Kesteren, Hendrik Maryns, Martijn Ras, leden MozBrowser-forum)"
+}

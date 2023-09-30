@@ -1,0 +1,3 @@
+20230928194049
+https://hg.mozilla.org/releases/comm-esr115/rev/42b3addbca70f64493bdbede7f3f66dc40641a0a
+https://hg.mozilla.org/releases/mozilla-esr115/rev/749617c4473c65f8aebb2e3254777ae99dc17cce

@@ -1,0 +1,56 @@
+{
+  "langpack_id": "da",
+  "manifest_version": 2,
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "langpack-da@thunderbird.mozilla.org",
+      "strict_min_version": "115.0",
+      "strict_max_version": "115.*"
+    }
+  },
+  "name": "Language: Dansk (Danish)",
+  "description": "Thunderbird Language Pack for Dansk (da) – Danish",
+  "version": "115.3.20230928.194049",
+  "languages": {
+    "da": {
+      "version": "20230928204208",
+      "chrome_resources": {
+        "alerts": "chrome/da/locale/da/alerts/",
+        "autoconfig": "chrome/da/locale/da/autoconfig/",
+        "branding": "chrome/da/locale/branding/",
+        "calendar": "chrome/da/locale/da/calendar/",
+        "chat": "chrome/da/locale/da/chat/",
+        "communicator": "chrome/da/locale/da/communicator/",
+        "devtools": "chrome/da/locale/da/devtools/client/",
+        "devtools-shared": "chrome/da/locale/da/devtools/shared/",
+        "global": "chrome/da/locale/da/global/",
+        "global-platform": {
+          "macosx": "chrome/da/locale/da/global-platform/mac/",
+          "linux": "chrome/da/locale/da/global-platform/unix/",
+          "android": "chrome/da/locale/da/global-platform/unix/",
+          "win": "chrome/da/locale/da/global-platform/win/"
+        },
+        "lightning": "chrome/da/locale/da/lightning/",
+        "messenger": "chrome/da/locale/da/messenger/",
+        "messenger-mapi": "chrome/da/locale/da/messenger-mapi/",
+        "messenger-newsblog": "chrome/da/locale/da/messenger-newsblog/",
+        "messenger-region": "chrome/da/locale/da/messenger-region/",
+        "messenger-smime": "chrome/da/locale/da/messenger-smime/",
+        "mozapps": "chrome/da/locale/da/mozapps/",
+        "mozldap": "chrome/da/locale/da/mozldap/",
+        "necko": "chrome/da/locale/da/necko/",
+        "passwordmgr": "chrome/da/locale/da/passwordmgr/",
+        "pdf.js": "chrome/da/locale/pdfviewer/",
+        "pipnss": "chrome/da/locale/da/pipnss/",
+        "pippki": "chrome/da/locale/da/pippki/",
+        "places": "chrome/da/locale/da/places/"
+      }
+    }
+  },
+  "sources": {
+    "browser": {
+      "base_path": "browser/"
+    }
+  },
+  "author": "mozilla.org (contributors: Kim Ludvigsen, Jørgen Rasmussen, Mikkel Herold)"
+}

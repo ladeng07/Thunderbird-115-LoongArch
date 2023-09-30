@@ -1,0 +1,26 @@
+# vim: set filetype=python:
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+XPCSHELL_TESTS_MANIFESTS += ["test/xpcshell.ini"]
+
+DIRS += [
+    "lib",
+]
+
+EXTRA_JS_MODULES += [
+    "sax.sys.mjs",
+    "xmpp-authmechs.sys.mjs",
+    "xmpp-base.sys.mjs",
+    "xmpp-commands.sys.mjs",
+    "xmpp-session.sys.mjs",
+    "xmpp-xml.sys.mjs",
+    "xmpp.sys.mjs",
+]
+
+JAR_MANIFESTS += ["jar.mn"]
+
+XPCOM_MANIFESTS += [
+    "components.conf",
+]

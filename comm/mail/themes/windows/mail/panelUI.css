@@ -1,0 +1,79 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+@import url("chrome://messenger/skin/shared/panelUI.css");
+
+#appMenu-popup {
+  margin-top: -1px;
+}
+
+#appMenu-popup {
+  margin-inline: 0 -14px;
+}
+
+/* Disabled empty item looks too small otherwise, because it has no icon. */
+menuitem.subviewbutton[disabled]:not(.menuitem-iconic) {
+  /* This is 16px for an icon + 3px for its margins + 1px for its padding +
+   * 2px for its border, see above */
+  min-height: 22px;
+}
+
+@media (prefers-contrast) {
+  panelview .toolbarbutton-1:not([disabled],[open],:active):is(:hover,:focus-visible),
+  toolbarbutton.subviewbutton:not([disabled],[open],:active):is(:hover,:focus-visible),
+  menu.subviewbutton:not([disabled],:active)[_moz-menuactive],
+  menuitem.subviewbutton:not([disabled],:active)[_moz-menuactive],
+  .widget-overflow-list .toolbarbutton-1:not([disabled],[open],:active):is(:hover,:focus-visible),
+  .toolbaritem-combined-buttons:is(:not([cui-areatype="toolbar"]),[overflowedItem=true]) >
+    toolbarbutton:not([disabled],[open],:active):is(:hover,:focus-visible) {
+    color: SelectedItemText;
+  }
+
+  panelview .toolbarbutton-1:not([disabled]):is([open],:hover:active),
+  toolbarbutton.subviewbutton:not([disabled]):is([open],:hover:active),
+  menu.subviewbutton:not([disabled])[_moz-menuactive]:active,
+  menuitem.subviewbutton:not([disabled])[_moz-menuactive]:active,
+  .widget-overflow-list .toolbarbutton-1:not([disabled]):is([open],:hover:active),
+  .toolbaritem-combined-buttons:is(:not([cui-areatype="toolbar"]),[overflowedItem=true]) >
+    toolbarbutton:not([disabled]):is([open],:hover:active) {
+    color: SelectedItemText;
+  }
+}
+
+@media (-moz-windows-non-native-menus) {
+  menu.subviewbutton > .menu-right {
+    margin-inline-end: 0;
+  }
+}
+
+@media (-moz-windows-non-native-menus: 0) {
+  menupopup[type="arrow"] {
+    appearance: none;
+    background-color: transparent;
+    border: none;
+    border-radius: 4px;
+  }
+
+  menuitem.subviewbutton[type="checkbox"] > .menu-iconic-left {
+    appearance: none;
+  }
+
+  menuitem.subviewbutton > .menu-text {
+    appearance: none;
+  }
+
+  menuitem.subviewbutton-iconic > .menu-iconic-left > .menu-iconic-icon {
+    display: block;
+  }
+
+  menupopup[type="arrow"]::part(content) {
+    /* Prevent contained items from drawing over the border-radius. */
+    overflow: clip;
+    padding: 8px 0;
+    color: var(--arrowpanel-color);
+    background: var(--arrowpanel-background);
+    border-radius: var(--arrowpanel-border-radius);
+    border: 1px solid var(--arrowpanel-border-color);
+  }
+}

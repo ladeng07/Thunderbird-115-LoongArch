@@ -1,0 +1,47 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+---
+loader: comm_taskgraph.loader.merge:loader
+reference-base-path: taskcluster/ci
+
+kind-dependencies:
+    - packages
+
+reference-jobs:
+    - android-build
+    - debian8-i386-packages
+    - debian8-i386-raw
+    - debian8-packages
+    - debian8-raw
+    - deb11-toolchain-build
+    - debian11-amd64-build
+    - debian11-base
+    - debian11-packages
+    - debian11-raw
+    - fetch
+    - funsize-update-generator
+    - image_builder
+    - index-task
+    - lint
+    - push-to-try
+    - static-analysis-build
+    - ubuntu1804-base
+    - ubuntu1804-i386-packages
+    - ubuntu1804-i386-raw
+    - ubuntu1804-packages
+    - ubuntu1804-raw
+    - ubuntu1804-test
+    - ubuntu1804-test-base
+    - ubuntu2004-base
+    - ubuntu2004-packages
+    - ubuntu2004-raw
+    - update-verify
+
+transforms:
+    - gecko_taskgraph.transforms.docker_image:transforms
+    - gecko_taskgraph.transforms.cached_tasks:transforms
+    - gecko_taskgraph.transforms.task:transforms
+
+jobs-from:
+    - docker-image.yml

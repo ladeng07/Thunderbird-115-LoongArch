@@ -1,0 +1,56 @@
+{
+  "langpack_id": "cy",
+  "manifest_version": 2,
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "langpack-cy@thunderbird.mozilla.org",
+      "strict_min_version": "115.0",
+      "strict_max_version": "115.*"
+    }
+  },
+  "name": "Language: Cymraeg (Welsh)",
+  "description": "Thunderbird Language Pack for Cymraeg (cy) – Welsh",
+  "version": "115.3.20230928.194049",
+  "languages": {
+    "cy": {
+      "version": "20230928204505",
+      "chrome_resources": {
+        "alerts": "chrome/cy/locale/cy/alerts/",
+        "autoconfig": "chrome/cy/locale/cy/autoconfig/",
+        "branding": "chrome/cy/locale/branding/",
+        "calendar": "chrome/cy/locale/cy/calendar/",
+        "chat": "chrome/cy/locale/cy/chat/",
+        "communicator": "chrome/cy/locale/cy/communicator/",
+        "devtools": "chrome/cy/locale/cy/devtools/client/",
+        "devtools-shared": "chrome/cy/locale/cy/devtools/shared/",
+        "global": "chrome/cy/locale/cy/global/",
+        "global-platform": {
+          "macosx": "chrome/cy/locale/cy/global-platform/mac/",
+          "linux": "chrome/cy/locale/cy/global-platform/unix/",
+          "android": "chrome/cy/locale/cy/global-platform/unix/",
+          "win": "chrome/cy/locale/cy/global-platform/win/"
+        },
+        "lightning": "chrome/cy/locale/cy/lightning/",
+        "messenger": "chrome/cy/locale/cy/messenger/",
+        "messenger-mapi": "chrome/cy/locale/cy/messenger-mapi/",
+        "messenger-newsblog": "chrome/cy/locale/cy/messenger-newsblog/",
+        "messenger-region": "chrome/cy/locale/cy/messenger-region/",
+        "messenger-smime": "chrome/cy/locale/cy/messenger-smime/",
+        "mozapps": "chrome/cy/locale/cy/mozapps/",
+        "mozldap": "chrome/cy/locale/cy/mozldap/",
+        "necko": "chrome/cy/locale/cy/necko/",
+        "passwordmgr": "chrome/cy/locale/cy/passwordmgr/",
+        "pdf.js": "chrome/cy/locale/pdfviewer/",
+        "pipnss": "chrome/cy/locale/cy/pipnss/",
+        "pippki": "chrome/cy/locale/cy/pippki/",
+        "places": "chrome/cy/locale/cy/places/"
+      }
+    }
+  },
+  "sources": {
+    "browser": {
+      "base_path": "browser/"
+    }
+  },
+  "author": "mozilla.org (contributors: Rhoslyn Prys)"
+}

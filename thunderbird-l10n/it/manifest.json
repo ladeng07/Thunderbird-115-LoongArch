@@ -1,0 +1,56 @@
+{
+  "langpack_id": "it",
+  "manifest_version": 2,
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "langpack-it@thunderbird.mozilla.org",
+      "strict_min_version": "115.0",
+      "strict_max_version": "115.*"
+    }
+  },
+  "name": "Language: Italiano (Italian)",
+  "description": "Thunderbird Language Pack for Italiano (it) – Italian",
+  "version": "115.3.20230928.194049",
+  "languages": {
+    "it": {
+      "version": "20230928204504",
+      "chrome_resources": {
+        "alerts": "chrome/it/locale/it/alerts/",
+        "autoconfig": "chrome/it/locale/it/autoconfig/",
+        "branding": "chrome/it/locale/branding/",
+        "calendar": "chrome/it/locale/it/calendar/",
+        "chat": "chrome/it/locale/it/chat/",
+        "communicator": "chrome/it/locale/it/communicator/",
+        "devtools": "chrome/it/locale/it/devtools/client/",
+        "devtools-shared": "chrome/it/locale/it/devtools/shared/",
+        "global": "chrome/it/locale/it/global/",
+        "global-platform": {
+          "macosx": "chrome/it/locale/it/global-platform/mac/",
+          "linux": "chrome/it/locale/it/global-platform/unix/",
+          "android": "chrome/it/locale/it/global-platform/unix/",
+          "win": "chrome/it/locale/it/global-platform/win/"
+        },
+        "lightning": "chrome/it/locale/it/lightning/",
+        "messenger": "chrome/it/locale/it/messenger/",
+        "messenger-mapi": "chrome/it/locale/it/messenger-mapi/",
+        "messenger-newsblog": "chrome/it/locale/it/messenger-newsblog/",
+        "messenger-region": "chrome/it/locale/it/messenger-region/",
+        "messenger-smime": "chrome/it/locale/it/messenger-smime/",
+        "mozapps": "chrome/it/locale/it/mozapps/",
+        "mozldap": "chrome/it/locale/it/mozldap/",
+        "necko": "chrome/it/locale/it/necko/",
+        "passwordmgr": "chrome/it/locale/it/passwordmgr/",
+        "pdf.js": "chrome/it/locale/pdfviewer/",
+        "pipnss": "chrome/it/locale/it/pipnss/",
+        "pippki": "chrome/it/locale/it/pippki/",
+        "places": "chrome/it/locale/it/places/"
+      }
+    }
+  },
+  "sources": {
+    "browser": {
+      "base_path": "browser/"
+    }
+  },
+  "author": "mozilla.org (contributors: Roberto Principiano)"
+}

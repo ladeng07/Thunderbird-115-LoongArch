@@ -1,0 +1,56 @@
+{
+  "langpack_id": "sk",
+  "manifest_version": 2,
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "langpack-sk@thunderbird.mozilla.org",
+      "strict_min_version": "115.0",
+      "strict_max_version": "115.*"
+    }
+  },
+  "name": "Language: Slovenčina (Slovak)",
+  "description": "Thunderbird Language Pack for Slovenčina (sk) – Slovak",
+  "version": "115.3.20230928.194049",
+  "languages": {
+    "sk": {
+      "version": "20230928204423",
+      "chrome_resources": {
+        "alerts": "chrome/sk/locale/sk/alerts/",
+        "autoconfig": "chrome/sk/locale/sk/autoconfig/",
+        "branding": "chrome/sk/locale/branding/",
+        "calendar": "chrome/sk/locale/sk/calendar/",
+        "chat": "chrome/sk/locale/sk/chat/",
+        "communicator": "chrome/sk/locale/sk/communicator/",
+        "devtools": "chrome/sk/locale/sk/devtools/client/",
+        "devtools-shared": "chrome/sk/locale/sk/devtools/shared/",
+        "global": "chrome/sk/locale/sk/global/",
+        "global-platform": {
+          "macosx": "chrome/sk/locale/sk/global-platform/mac/",
+          "linux": "chrome/sk/locale/sk/global-platform/unix/",
+          "android": "chrome/sk/locale/sk/global-platform/unix/",
+          "win": "chrome/sk/locale/sk/global-platform/win/"
+        },
+        "lightning": "chrome/sk/locale/sk/lightning/",
+        "messenger": "chrome/sk/locale/sk/messenger/",
+        "messenger-mapi": "chrome/sk/locale/sk/messenger-mapi/",
+        "messenger-newsblog": "chrome/sk/locale/sk/messenger-newsblog/",
+        "messenger-region": "chrome/sk/locale/sk/messenger-region/",
+        "messenger-smime": "chrome/sk/locale/sk/messenger-smime/",
+        "mozapps": "chrome/sk/locale/sk/mozapps/",
+        "mozldap": "chrome/sk/locale/sk/mozldap/",
+        "necko": "chrome/sk/locale/sk/necko/",
+        "passwordmgr": "chrome/sk/locale/sk/passwordmgr/",
+        "pdf.js": "chrome/sk/locale/pdfviewer/",
+        "pipnss": "chrome/sk/locale/sk/pipnss/",
+        "pippki": "chrome/sk/locale/sk/pippki/",
+        "places": "chrome/sk/locale/sk/places/"
+      }
+    }
+  },
+  "sources": {
+    "browser": {
+      "base_path": "browser/"
+    }
+  },
+  "author": "Mozilla.sk (contributors: Team Mozilla.sk)"
+}

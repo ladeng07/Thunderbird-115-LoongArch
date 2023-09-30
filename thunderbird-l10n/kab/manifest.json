@@ -1,0 +1,56 @@
+{
+  "langpack_id": "kab",
+  "manifest_version": 2,
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "langpack-kab@thunderbird.mozilla.org",
+      "strict_min_version": "115.0",
+      "strict_max_version": "115.*"
+    }
+  },
+  "name": "Language: Taqbaylit (Kabyle)",
+  "description": "Thunderbird Language Pack for Taqbaylit (kab) – Kabyle",
+  "version": "115.3.20230928.194049",
+  "languages": {
+    "kab": {
+      "version": "20230928204930",
+      "chrome_resources": {
+        "alerts": "chrome/kab/locale/kab/alerts/",
+        "autoconfig": "chrome/kab/locale/kab/autoconfig/",
+        "branding": "chrome/kab/locale/branding/",
+        "calendar": "chrome/kab/locale/kab/calendar/",
+        "chat": "chrome/kab/locale/kab/chat/",
+        "communicator": "chrome/kab/locale/kab/communicator/",
+        "devtools": "chrome/kab/locale/kab/devtools/client/",
+        "devtools-shared": "chrome/kab/locale/kab/devtools/shared/",
+        "global": "chrome/kab/locale/kab/global/",
+        "global-platform": {
+          "macosx": "chrome/kab/locale/kab/global-platform/mac/",
+          "linux": "chrome/kab/locale/kab/global-platform/unix/",
+          "android": "chrome/kab/locale/kab/global-platform/unix/",
+          "win": "chrome/kab/locale/kab/global-platform/win/"
+        },
+        "lightning": "chrome/kab/locale/kab/lightning/",
+        "messenger": "chrome/kab/locale/kab/messenger/",
+        "messenger-mapi": "chrome/kab/locale/kab/messenger-mapi/",
+        "messenger-newsblog": "chrome/kab/locale/kab/messenger-newsblog/",
+        "messenger-region": "chrome/kab/locale/kab/messenger-region/",
+        "messenger-smime": "chrome/kab/locale/kab/messenger-smime/",
+        "mozapps": "chrome/kab/locale/kab/mozapps/",
+        "mozldap": "chrome/kab/locale/kab/mozldap/",
+        "necko": "chrome/kab/locale/kab/necko/",
+        "passwordmgr": "chrome/kab/locale/kab/passwordmgr/",
+        "pdf.js": "chrome/kab/locale/pdfviewer/",
+        "pipnss": "chrome/kab/locale/kab/pipnss/",
+        "pippki": "chrome/kab/locale/kab/pippki/",
+        "places": "chrome/kab/locale/kab/places/"
+      }
+    }
+  },
+  "sources": {
+    "browser": {
+      "base_path": "browser/"
+    }
+  },
+  "author": "mozilla.org (contributors: Belkacem Mohammed)"
+}

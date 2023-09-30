@@ -1,0 +1,764 @@
+<?xml version="1.0"?>
+<!-- This Source Code Form is subject to the terms of the Mozilla Public
+   - License, v. 2.0. If a copy of the MPL was not distributed with this
+   - file, you can obtain one at http://mozilla.org/MPL/2.0/. -->
+
+#filter substitution
+
+<!DOCTYPE html [
+<!ENTITY % messengerDTD SYSTEM "chrome://messenger/locale/messenger.dtd" >
+%messengerDTD;
+<!ENTITY % calendarDTD SYSTEM "chrome://calendar/locale/calendar.dtd">
+%calendarDTD;
+]>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:xul="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+      lightweightthemes="true">
+<head>
+  <meta charset="utf-8" />
+  <title></title>
+
+  <link rel="icon" href="chrome://messenger/skin/icons/new/compact/folder.svg" />
+
+  <link rel="stylesheet" href="chrome://messenger/skin/messenger.css" />
+  <link rel="stylesheet" href="chrome://messenger/skin/contextMenu.css" />
+  <link rel="stylesheet" href="chrome://messenger/skin/icons.css" />
+  <link rel="stylesheet" href="chrome://messenger/skin/colors.css" />
+  <link rel="stylesheet" href="chrome://messenger/skin/folderColors.css" />
+  <link rel="stylesheet" href="chrome://messenger/skin/folderMenus.css" />
+  <link rel="stylesheet" href="chrome://messenger/skin/shared/quickFilterBar.css" />
+  <link rel="stylesheet" href="chrome://messenger/skin/shared/tree-listbox.css" />
+  <link rel="stylesheet" href="chrome://messenger/skin/searchBox.css" />
+  <link rel="stylesheet" href="chrome://messenger/skin/about3Pane.css" />
+
+  <link rel="localization" href="messenger/about3Pane.ftl" />
+  <link rel="localization" href="messenger/treeView.ftl" />
+  <link rel="localization" href="messenger/messenger.ftl" />
+  <link rel="localization" href="toolkit/global/textActions.ftl" />
+
+  <script defer="defer" src="chrome://messenger/content/globalOverlay.js"></script>
+  <script defer="defer" src="chrome://global/content/editMenuOverlay.js"></script>
+  <script defer="defer" src="chrome://communicator/content/utilityOverlay.js"></script>
+  <script defer="defer" src="chrome://messenger/content/junkCommands.js"></script>
+  <script defer="defer" src="chrome://messenger/content/mail-offline.js"></script>
+  <script defer="defer" src="chrome://messenger/content/msgViewNavigation.js"></script>
+  <script defer="defer" src="chrome://messenger/content/quickFilterBar.js"></script>
+  <script defer="defer" src="chrome://messenger/content/pane-splitter.js"></script>
+  <script defer="defer" src="chrome://messenger/content/tree-listbox.js"></script>
+  <script defer="defer" type="module" src="chrome://messenger/content/tree-view.mjs"></script>
+  <script defer="defer" src="chrome://messenger/content/jsTreeView.js"></script>
+  <script defer="defer" src="chrome://messenger/content/mailContext.js"></script>
+  <script defer="defer" src="chrome://messenger/content/mailCommon.js"></script>
+  <script defer="defer" src="chrome://messenger/content/about3Pane.js"></script>
+</head>
+<body class="layout-classic">
+  <div id="folderPane" class="collapsed-by-splitter no-overscroll" tabindex="-1">
+    <div id="folderPaneHeaderBar" hidden="hidden">
+# Force a reverse tabindex to work alongside the `flex-direction: row-reverse`
+# in order to guarantee a consistent end alignment of the `#folderPaneMoreButton`.
+      <button id="folderPaneMoreButton"
+              class="button button-flat icon-button icon-only"
+              data-l10n-id="folder-pane-more-menu-button"
+              type="button"
+              tabindex="3"></button>
+      <button id="folderPaneWriteMessage"
+              class="button button-primary icon-button"
+              data-l10n-id="folder-pane-write-message-button"
+              type="button"
+              tabindex="2"
+              disabled="disabled"></button>
+      <button id="folderPaneGetMessages"
+              class="button button-flat icon-button icon-only"
+              data-l10n-id="folder-pane-get-messages-button"
+              type="button"
+              tabindex="1"
+              disabled="disabled"></button>
+    </div>
+    <ul id="folderTree" is="tree-listbox" role="tree"></ul>
+    <template id="modeTemplate">
+      <li class="unselectable">
+        <div class="mode-container">
+          <div class="mode-name"></div>
+          <button class="mode-button button button-flat icon-button icon-only"
+                  type="button"
+                  data-l10n-id="folder-pane-mode-context-button"
+                  tabindex="-1"></button>
+        </div>
+        <ul></ul>
+      </li>
+    </template>
+    <template id="folderTemplate">
+      <div class="container">
+        <div class="twisty">
+          <img class="twisty-icon" src="chrome://global/skin/icons/arrow-down-12.svg" alt="" />
+        </div>
+        <div class="icon"></div>
+        <span class="name" tabindex="-1"></span>
+        <span class="folder-count-badge unread-count"></span>
+        <span class="folder-count-badge total-count" hidden="hidden"></span>
+        <span class="folder-size" hidden="hidden"></span>
+      </div>
+      <ul></ul>
+    </template>
+  </div>
+  <hr is="pane-splitter" id="folderPaneSplitter"
+      resize-direction="horizontal"
+      resize-id="folderPane"
+      collapse-width="100" />
+  <div id="threadPane">
+    <div id="threadPaneHeaderBar" class="list-header-bar">
+      <div class="list-header-bar-container-start"
+           role="region"
+           aria-live="off">
+        <h2 id="threadPaneFolderName" class="list-header-title"></h2>
+        <div id="threadPaneFolderCountContainer">
+          <span id="threadPaneFolderCount"
+                class="thread-pane-count-info"
+                hidden="hidden"></span>
+          <span id="threadPaneSelectedCount"
+                class="thread-pane-count-info"
+                hidden="hidden"></span>
+        </div>
+      </div>
+      <div class="list-header-bar-container-end">
+        <button id="threadPaneQuickFilterButton"
+                class="button icon-button check-button unified-toolbar-button"
+                data-l10n-id="quick-filter-button"
+                oncommand="cmd_toggleQuickFilterBar">
+          <span data-l10n-id="quick-filter-button-label"></span>
+        </button>
+        <button id="threadPaneDisplayButton"
+                class="button button-flat icon-button icon-only"
+                data-l10n-id="thread-pane-header-display-button"
+                type="button">
+        </button>
+      </div>
+    </div>
+#include quickFilterBar.inc.xhtml
+    <tree-view id="threadTree" data-label-id="threadPaneFolderName"/>
+    <!-- Thread pane templates -->
+    <template id="threadPaneApplyColumnMenu">
+      <xul:menu class="applyTo-menu"
+                data-l10n-id="apply-columns-to-menu"
+                xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+        <menupopup>
+          <menu class="applyToFolder-menu"
+                data-l10n-id="apply-current-view-to-folder"
+                oncommand="threadPane.confirmApplyColumns(event.target._folder);">
+            <menupopup is="folder-menupopup"
+                       class="applyToFolder"
+                       showFileHereLabel="false"
+                       position="start_before"></menupopup>
+          </menu>
+          <menu class="applyToFolderAndChildren-menu"
+                data-l10n-id="apply-current-view-to-folder-children"
+                oncommand="threadPane.confirmApplyColumns(event.target._folder, true);">
+            <menupopup is="folder-menupopup"
+                       class="applyToFolderAndChildren"
+                       showFileHereLabel="true"
+                       showAccountsFileHere="true"
+                       position="start_before"></menupopup>
+          </menu>
+        </menupopup>
+      </xul:menu>
+    </template>
+    <template id="threadPaneApplyViewMenu">
+      <xul:menu class="applyViewTo-menu"
+                data-l10n-id="apply-current-view-to-menu"
+                xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+        <menupopup>
+          <menu class="applyViewToFolder-menu"
+                data-l10n-id="apply-current-view-to-folder"
+                oncommand="threadPane.confirmApplyView(event.target._folder);">
+            <menupopup is="folder-menupopup"
+                       class="applyViewToFolder"
+                       showFileHereLabel="true"
+                       position="start_before"></menupopup>
+          </menu>
+          <menu class="applyViewToFolderAndChildren-menu"
+                data-l10n-id="apply-current-view-to-folder-children"
+                oncommand="threadPane.confirmApplyView(event.target._folder, true);">
+            <menupopup is="folder-menupopup"
+                       class="applyViewToFolderAndChildren"
+                       showFileHereLabel="true"
+                       showAccountsFileHere="true"
+                       position="start_before"></menupopup>
+          </menu>
+        </menupopup>
+      </xul:menu>
+    </template>
+    <template id="threadPaneRowTemplate">
+      <!-- This template must be kept in sync with thread-pane-columns.mjs. -->
+      <td class="selectcol-column"></td>
+      <td class="tree-view-row-thread threadcol-column button-column">
+        <button type="button"
+                class="button-flat tree-button-thread"
+                aria-hidden="true"
+                tabindex="-1">
+          <img src="" alt="" />
+        </button>
+      </td>
+      <td class="tree-view-row-flag flaggedcol-column button-column">
+        <button type="button"
+                class="button-flat tree-button-flag"
+                aria-hidden="true"
+                tabindex="-1">
+          <img src="" alt="" />
+        </button>
+      </td>
+      <td class="attachmentcol-column button-column">
+        <img src="" data-l10n-id="tree-list-view-row-attach" />
+      </td>
+      <td class="subjectcol-column">
+        <div class="thread-container">
+          <button type="button"
+                  class="button button-flat button-reset twisty"
+                  aria-hidden="true"
+                  tabindex="-1">
+            <img src="" alt="" class="twisty-icon" />
+          </button>
+          <div class="subject-line" tabindex="-1">
+            <img src="" alt="" /><span></span>
+          </div>
+        </div>
+      </td>
+      <td class="tree-view-row-unread unreadbuttoncolheader-column button-column">
+        <button type="button"
+                class="button-flat tree-button-unread"
+                aria-hidden="true"
+                tabindex="-1">
+          <img src="" alt="" />
+        </button>
+      </td>
+      <td class="sendercol-column"></td>
+      <td class="recipientcol-column"></td>
+      <td class="correspondentcol-column"></td>
+      <td class="tree-view-row-spam junkstatuscol-column button-column">
+        <button type="button"
+                class="button-flat tree-button-spam"
+                aria-hidden="true"
+                tabindex="-1">
+          <img src="" alt="" />
+        </button>
+      </td>
+      <td class="datecol-column"></td>
+      <td class="receivedcol-column"></td>
+      <td class="statuscol-column"></td>
+      <td class="sizecol-column"></td>
+      <td class="tagscol-column"></td>
+      <td class="accountcol-column"></td>
+      <td class="prioritycol-column"></td>
+      <td class="unreadcol-column"></td>
+      <td class="totalcol-column"></td>
+      <td class="locationcol-column"></td>
+      <td class="idcol-column"></td>
+      <td class="tree-view-row-delete deletecol-column button-column">
+        <button type="button"
+                class="button-flat tree-button-delete tree-button-request-delete"
+                tabindex="-1"
+                aria-hidden="true"
+                data-l10n-id="tree-list-view-row-delete">
+          <img src="" alt="" />
+        </button>
+        <button type="button"
+                class="button-flat tree-button-restore tree-button-request-delete"
+                tabindex="-1"
+                aria-hidden="true"
+                data-l10n-id="tree-list-view-row-restore">
+          <img src="" alt="" />
+        </button>
+      </td>
+    </template>
+    <template id="threadPaneCardTemplate">
+      <td>
+        <div class="thread-card-container">
+          <div class="thread-card-row">
+            <span class="sender"></span>
+            <img class="state replied" src="" data-l10n-id="threadpane-message-replied" />
+            <img class="state forwarded" src="" data-l10n-id="threadpane-message-forwarded" />
+            <img class="state redirected" src="" data-l10n-id="threadpane-message-redirected" />
+            <button class="button-spam tree-button-spam"
+                    data-l10n-id="tree-list-view-row-spam"
+                    aria-hidden="true"
+                    tabindex="-1">
+            </button>
+            <span class="date"></span>
+          </div>
+          <div class="thread-card-row">
+            <div class="thread-card-subject-container">
+              <button type="button"
+                      class="button button-flat button-reset twisty"
+                      aria-hidden="true"
+                      tabindex="-1">
+                <img src="" alt="" class="twisty-icon" />
+              </button>
+              <span class="subject"></span>
+            </div>
+            <img class="attachment-icon" src="" data-l10n-id="tree-list-view-row-attach" />
+            <img class="tag-icon" src="" alt="" hidden="hidden" />
+            <button class="button-star tree-button-flag"
+                    aria-hidden="true"
+                    tabindex="-1">
+            </button>
+          </div>
+        </div>
+      </td>
+    </template>
+    <div id="threadPaneNotificationBox">
+      <!-- notificationbox will be added here lazily. -->
+    </div>
+  </div>
+  <hr is="pane-splitter" id="messagePaneSplitter"
+      resize-id="messagePane"
+      collapse-width="300"
+      collapse-height="100" />
+  <div id="messagePane" class="collapsed-by-splitter">
+    <xul:browser id="webBrowser"
+                 type="content"
+                 hidden="true"
+                 nodefaultsrc="true"
+                 context="browserContext"
+                 autocompletepopup="PopupAutoComplete"
+                 forcemessagemanager="true"
+                 messagemanagergroup="single-page"
+                 maychangeremoteness="true" />
+    <xul:browser id="messageBrowser"
+                 hidden="true"
+                 src="about:message" />
+    <xul:browser id="multiMessageBrowser"
+                 type="content"
+                 hidden="true"
+                 context="aboutPagesContext"
+                 src="chrome://messenger/content/multimessageview.xhtml" />
+  </div>
+  <xul:browser id="accountCentralBrowser" hidden="true"/>
+</body>
+<popupset xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+  <menupopup id="folderPaneContext">
+    <menuitem id="folderPaneContext-getMessages"
+              class="menuitem-iconic"
+              label="&folderContextGetMessages.label;"
+              accesskey="&folderContextGetMessages.accesskey;"/>
+    <menuitem id="folderPaneContext-pauseAllUpdates"
+              type="checkbox"
+              label="&folderContextPauseAllUpdates.label;"
+              accesskey="&folderContextPauseUpdates.accesskey;"/>
+    <menuitem id="folderPaneContext-pauseUpdates"
+              type="checkbox"
+              label="&folderContextPauseUpdates.label;"
+              accesskey="&folderContextPauseUpdates.accesskey;"/>
+    <menuseparator/>
+    <menuitem id="folderPaneContext-openNewTab"
+              class="menuitem-iconic"
+              label="&folderContextOpenNewTab.label;"
+              accesskey="&folderContextOpenNewTab.accesskey;"/>
+    <menuitem id="folderPaneContext-openNewWindow"
+              class="menuitem-iconic"
+              label="&folderContextOpenInNewWindow.label;"
+              accesskey="&folderContextOpenInNewWindow.accesskey;"/>
+    <menuitem id="folderPaneContext-searchMessages"
+              class="menuitem-iconic"
+              label="&folderContextSearchForMessages.label;"
+              accesskey="&folderContextSearchForMessages.accesskey;"/>
+    <menuitem id="folderPaneContext-subscribe"
+              class="menuitem-iconic"
+              label="&folderContextSubscribe.label;"
+              accesskey="&folderContextSubscribe.accesskey;"/>
+    <menuitem id="folderPaneContext-newsUnsubscribe"
+              class="menuitem-iconic"
+              label="&folderContextUnsubscribe.label;"
+              accesskey="&folderContextUnsubscribe.accesskey;"/>
+    <menuseparator/>
+    <menuitem id="folderPaneContext-new"
+              class="menuitem-iconic"
+              label="&folderContextNew.label;"
+              accesskey="&folderContextNew.accesskey;"/>
+    <menuitem id="folderPaneContext-remove"
+              class="menuitem-iconic"
+              label="&folderContextRemove.label;"
+              accesskey="&folderContextRemove.accesskey;"/>
+    <menuitem id="folderPaneContext-rename"
+              class="menuitem-iconic"
+              label="&folderContextRename.label;"
+              accesskey="&folderContextRename.accesskey;"/>
+    <menuseparator/>
+    <menu id="folderPaneContext-moveMenu"
+              class="menu-iconic"
+              label="&moveMsgToMenu.label;"
+              accesskey="&moveMsgToMenu.accesskey;">
+      <menupopup is="folder-menupopup" id="folderContext-movePopup"
+                 mode="filing"
+                 showAccountsFileHere="true"
+                 showFileHereLabel="true"
+                 showRecent="true"
+                 recentLabel="&contextMoveCopyMsgRecentMenu.label;"
+                 recentAccessKey="&contextMoveCopyMsgRecentMenu.accesskey;"
+                 showFavorites="true"
+                 favoritesLabel="&contextMoveCopyMsgFavoritesMenu.label;"
+                 favoritesAccessKey="&contextMoveCopyMsgFavoritesMenu.accesskey;"/>
+    </menu>
+    <menu id="folderPaneContext-copyMenu"
+          class="menu-iconic"
+          label="&copyMsgToMenu.label;"
+          accesskey="&copyMsgToMenu.accesskey;">
+      <menupopup is="folder-menupopup" id="folderContext-copyPopup"
+                 mode="filing"
+                 showAccountsFileHere="true"
+                 showFileHereLabel="true"
+                 showRecent="true"
+                 recentLabel="&contextMoveCopyMsgRecentMenu.label;"
+                 recentAccessKey="&contextMoveCopyMsgRecentMenu.accesskey;"
+                 showFavorites="true"
+                 favoritesLabel="&contextMoveCopyMsgFavoritesMenu.label;"
+                 favoritesAccessKey="&contextMoveCopyMsgFavoritesMenu.accesskey;"/>
+    </menu>
+    <menuitem id="folderPaneContext-moveToFolderAgain"
+              class="menuitem-iconic"
+              label="&moveToFolderAgain.label;"
+              accesskey="&moveToFolderAgain.accesskey;"/>
+    <menuseparator/>
+    <menuitem id="folderPaneContext-compact"
+              class="menuitem-iconic"
+              label="&folderContextCompact.label;"
+              accesskey="&folderContextCompact.accesskey;"/>
+    <menuitem id="folderPaneContext-markMailFolderAllRead"
+              class="menuitem-iconic"
+              label="&folderContextMarkMailFolderRead.label;"
+              accesskey="&folderContextMarkMailFolderRead.accesskey;"/>
+    <menuitem id="folderPaneContext-markNewsgroupAllRead"
+              class="menuitem-iconic"
+              label="&folderContextMarkNewsgroupRead.label;"
+              accesskey="&folderContextMarkNewsgroupRead.accesskey;"/>
+    <menuitem id="folderPaneContext-emptyTrash"
+              class="menuitem-iconic"
+              label="&folderContextEmptyTrash.label;"
+              accesskey="&folderContextEmptyTrash.accesskey;"/>
+    <menuitem id="folderPaneContext-emptyJunk"
+              class="menuitem-iconic"
+              label="&folderContextEmptyJunk.label;"
+              accesskey="&folderContextEmptyJunk.accesskey;"/>
+    <menuitem id="folderPaneContext-sendUnsentMessages"
+              class="menuitem-iconic"
+              label="&folderContextSendUnsentMessages.label;"
+              accesskey="&folderContextSendUnsentMessages.accesskey;"/>
+    <menuseparator/>
+    <menuitem id="folderPaneContext-favoriteFolder"
+              type="checkbox"
+              label="&folderContextFavoriteFolder.label;"
+              accesskey="&folderContextFavoriteFolder.accesskey;"/>
+    <menuitem id="folderPaneContext-properties"
+              class="menuitem-iconic"
+              label="&folderContextProperties2.label;"
+              accesskey="&folderContextProperties2.accesskey;"/>
+    <menuitem id="folderPaneContext-markAllFoldersRead"
+              class="menuitem-iconic"
+              label="&folderContextMarkAllFoldersRead.label;"/>
+    <menuseparator/>
+    <menuitem id="folderPaneContext-settings"
+              class="menuitem-iconic"
+              label="&folderContextSettings2.label;"
+              accesskey="&folderContextSettings2.accesskey;"/>
+    <menuitem id="folderPaneContext-manageTags"
+              class="menuitem-iconic"
+              label="&manageTags.label;"
+              accesskey="&manageTags.accesskey;"/>
+    <menuseparator/>
+  </menupopup>
+  <tooltip id="qfb-text-search-upsell">
+    <div id="qfb-upsell-line-one"
+         data-l10n-id="quick-filter-bar-gloda-upsell-line1"></div>
+    <div id="qfb-upsell-line-two"></div>
+  </tooltip>
+  <menupopup id="folderPaneMoreContext"
+             class="no-accel-menupopup"
+             position="bottomleft topleft"
+             onpopupshowing="folderPane.updateContextMenuCheckedItems();">
+    <menu id="folderModesContextMenu"
+          data-l10n-id="folder-pane-header-folder-modes"
+          position="bottomleft topleft">
+      <menupopup id="folderModesContextMenuPopup"
+                 onpopupshowing="folderPane.updateContextCheckedFolderMode();">
+        <menuitem id="folderPaneMoreContextAllFolders"
+                  class="folder-pane-mode"
+                  value="all"
+                  type="checkbox"
+                  closemenu="none"
+                  data-l10n-id="show-all-folders-label"
+                  oncommand="folderPane.toggleFolderMode(event);"/>
+        <menuitem id="folderPaneMoreContextUnifiedFolders"
+                  class="folder-pane-mode"
+                  value="smart"
+                  type="checkbox"
+                  closemenu="none"
+                  data-l10n-id="show-smart-folders-label"
+                  oncommand="folderPane.toggleFolderMode(event);"/>
+        <menuitem id="folderPaneMoreContextUnreadFolders"
+                  class="folder-pane-mode"
+                  value="unread"
+                  type="checkbox" name="viewmessages"
+                  closemenu="none"
+                  data-l10n-id="show-unread-folders-label"
+                  oncommand="folderPane.toggleFolderMode(event);"/>
+        <menuitem id="folderPaneMoreContextFavoriteFolders"
+                  class="folder-pane-mode"
+                  value="favorite"
+                  type="checkbox"
+                  closemenu="none"
+                  data-l10n-id="show-favorite-folders-label"
+                  oncommand="folderPane.toggleFolderMode(event);"/>
+        <menuitem id="folderPaneMoreContextRecentFolders"
+                  class="folder-pane-mode"
+                  value="recent"
+                  type="checkbox"
+                  closemenu="none"
+                  data-l10n-id="show-recent-folders-label"
+                  oncommand="folderPane.toggleFolderMode(event);"/>
+        <menuseparator/>
+        <menuitem id="folderPaneMoreContextTags"
+                  class="folder-pane-mode"
+                  value="tags"
+                  type="checkbox"
+                  closemenu="none"
+                  data-l10n-id="show-tags-folders-label"
+                  oncommand="folderPane.toggleFolderMode(event);"/>
+        <menuseparator id="separatorAfterFolderModes"/>
+        <menuitem id="folderPaneMoreContextCompactToggle"
+                  class="compact-folder-button folder-pane-option"
+                  value="compact"
+                  type="checkbox"
+                  closemenu="none"
+                  data-l10n-id="folder-pane-mode-context-toggle-compact-mode"
+                  oncommand="folderPane.compactFolderToggle(event);"/>
+      </menupopup>
+    </menu>
+    <menuseparator id="separatorAfterFolderViewOptions"/>
+    <menuitem id="folderPaneHeaderToggleGetMessages"
+              class="folder-pane-option"
+              type="checkbox"
+              closemenu="none"
+              data-l10n-id="folder-pane-header-context-toggle-get-messages"
+              oncommand="folderPane.toggleGetMsgsBtn(event);"/>
+    <menuitem id="folderPaneHeaderToggleNewMessage"
+              class="folder-pane-option"
+              type="checkbox"
+              closemenu="none"
+              data-l10n-id="folder-pane-header-context-toggle-new-message"
+              oncommand="folderPane.toggleNewMsgBtn(event);"/>
+    <menuseparator id="separatorAfterToggleButtons"/>
+    <menuitem id="folderPaneHeaderToggleTotalCount"
+              class="folder-pane-option"
+              value="total"
+              type="checkbox"
+              closemenu="none"
+              data-l10n-id="folder-pane-show-total-toggle"
+              oncommand="folderPane.toggleTotal(event);"/>
+    <menuitem id="folderPaneHeaderToggleFolderSize"
+              class="folder-pane-option"
+              type="checkbox"
+              closemenu="none"
+              data-l10n-id="folder-pane-header-toggle-folder-size"
+              oncommand="folderPane.toggleFolderSize(event);"/>
+    <menuitem id="folderPaneHeaderToggleLocalFolders"
+              class="folder-pane-option"
+              type="checkbox"
+              closemenu="none"
+              data-l10n-id="folder-pane-header-hide-local-folders"
+              oncommand="folderPane.toggleLocalFolders(event);"/>
+    <menuseparator id="separatorBeforeHideFolderPaneHeaderOption"/>
+    <menuitem id="folderPaneHeaderHideMenuItem"
+              data-l10n-id="folder-pane-header-context-hide"
+              oncommand="folderPane.toggleHeader(false);"/>
+  </menupopup>
+  <menupopup id="folderPaneModeContext"
+             class="no-accel-menupopup"
+             position="bottomleft topleft">
+    <menuitem id="folderPaneModeMoveUp"
+             class="folder-pane-mode"
+             value="moveup"
+             data-l10n-id="folder-pane-mode-move-up"
+             oncommand="folderPane.moveFolderModeUp(event);"/>
+   <menuitem id="folderPaneModeMoveDown"
+             class="folder-pane-mode"
+             value="movedown"
+             data-l10n-id="folder-pane-mode-move-down"
+             oncommand="folderPane.moveFolderModeDown(event);"/>
+    <menuseparator id="separatorBeforeCompactFolderOption"/>
+    <menuitem id="compactFolderButton"
+              class="compact-folder-button folder-pane-mode"
+              value="compact"
+              type="checkbox"
+              data-l10n-id="folder-pane-mode-context-toggle-compact-mode"
+              oncommand="folderPane.compactFolderToggle(event);"/>
+  </menupopup>
+  <menupopup id="threadPaneDisplayContext"
+             class="no-accel-menupopup"
+             position="bottomleft topleft"
+             onpopupshowing="threadPaneHeader.updateDisplayContextMenu(event);">
+    <menuitem id="threadPaneTableView"
+              class="thread-view-option"
+              type="radio"
+              name="threadview"
+              value="table"
+              closemenu="none"
+              data-l10n-id="thread-pane-header-context-table-view"
+              oncommand="threadPaneHeader.changePaneView(event);"/>
+    <menuitem id="threadPaneCardsView"
+              class="thread-view-option"
+              type="radio"
+              name="threadview"
+              value="cards"
+              closemenu="none"
+              data-l10n-id="thread-pane-header-context-cards-view"
+              oncommand="threadPaneHeader.changePaneView(event);"/>
+    <menuseparator id="separatorBeforeHideThreadHeaderOption"/>
+    <menu id="threadPaneSortMenu"
+          accesskey="&sortMenu.accesskey;"
+          label="&sortMenu.label;">
+      <menupopup id="menu_threadPaneSortPopup"
+                 oncommand="goDoCommand('cmd_sort', event);"
+                 onpopupshowing="threadPaneHeader.updateThreadPaneSortMenu(event);">
+        <menuitem id="threadPaneSortByDateMenuitem"
+                  type="radio"
+                  name="sortby"
+                  value="byDate"
+                  label="&sortByDateCmd.label;"
+                  accesskey="&sortByDateCmd.accesskey;"/>
+        <menuitem id="threadPaneSortByReceivedMenuitem"
+                  type="radio"
+                  name="sortby"
+                  value="byReceived"
+                  label="&sortByReceivedCmd.label;"
+                  accesskey="&sortByReceivedCmd.accesskey;"/>
+        <menuitem id="threadPaneSortByFlagMenuitem"
+                  type="radio"
+                  name="sortby"
+                  value="byFlagged"
+                  label="&sortByStarCmd.label;"
+                  accesskey="&sortByStarCmd.accesskey;"/>
+        <menuitem id="threadPaneSortByOrderReceivedMenuitem"
+                  type="radio"
+                  name="sortby"
+                  value="byId"
+                  label="&sortByOrderReceivedCmd.label;"
+                  accesskey="&sortByOrderReceivedCmd.accesskey;"/>
+        <menuitem id="threadPaneSortByPriorityMenuitem"
+                  type="radio"
+                  name="sortby"
+                  value="byPriority"
+                  label="&sortByPriorityCmd.label;"
+                  accesskey="&sortByPriorityCmd.accesskey;"/>
+        <menuitem id="threadPaneSortByFromMenuitem"
+                  type="radio"
+                  name="sortby"
+                  value="byAuthor"
+                  label="&sortByFromCmd.label;"
+                  accesskey="&sortByFromCmd.accesskey;"/>
+        <menuitem id="threadPaneSortByRecipientMenuitem"
+                  type="radio"
+                  name="sortby"
+                  value="byRecipient"
+                  label="&sortByRecipientCmd.label;"
+                  accesskey="&sortByRecipientCmd.accesskey;"/>
+        <menuitem id="threadPaneSortByCorrespondentMenuitem"
+                  type="radio"
+                  name="sortby"
+                  value="byCorrespondent"
+                  label="&sortByCorrespondentCmd.label;"
+                  accesskey="&sortByCorrespondentCmd.accesskey;"/>
+        <menuitem id="threadPaneSortBySizeMenuitem"
+                  type="radio"
+                  name="sortby"
+                  value="bySize"
+                  label="&sortBySizeCmd.label;"
+                  accesskey="&sortBySizeCmd.accesskey;"/>
+        <menuitem id="threadPaneSortByStatusMenuitem"
+                  type="radio"
+                  name="sortby"
+                  value="byStatus"
+                  label="&sortByStatusCmd.label;"
+                  accesskey="&sortByStatusCmd.accesskey;"/>
+        <menuitem id="threadPaneSortBySubjectMenuitem"
+                  type="radio"
+                  name="sortby"
+                  value="bySubject"
+                  label="&sortBySubjectCmd.label;"
+                  accesskey="&sortBySubjectCmd.accesskey;"/>
+        <menuitem id="threadPaneSortByUnreadMenuitem"
+                  type="radio"
+                  name="sortby"
+                  value="byUnread"
+                  label="&sortByUnreadCmd.label;"
+                  accesskey="&sortByUnreadCmd.accesskey;"/>
+        <menuitem id="threadPaneSortByTagsMenuitem"
+                  type="radio"
+                  name="sortby"
+                  value="byTags"
+                  label="&sortByTagsCmd.label;"
+                  accesskey="&sortByTagsCmd.accesskey;"/>
+        <menuitem id="threadPaneSortByJunkStatusMenuitem"
+                  type="radio"
+                  name="sortby"
+                  value="byJunkStatus"
+                  label="&sortByJunkStatusCmd.label;"
+                  accesskey="&sortByJunkStatusCmd.accesskey;"/>
+        <menuitem id="threadPaneSortByAttachmentsMenuitem"
+                  type="radio"
+                  name="sortby"
+                  value="byAttachments"
+                  label="&sortByAttachmentsCmd.label;"
+                  accesskey="&sortByAttachmentsCmd.accesskey;"/>
+        <menuseparator id="threadPaneSortAfterAttachmentSeparator"/>
+        <menuitem id="threadPaneSortAscending"
+                  type="radio"
+                  name="sortdirection"
+                  value="ascending"
+                  label="&sortAscending.label;"
+                  accesskey="&sortAscending.accesskey;"/>
+        <menuitem id="threadPaneSortDescending"
+                  type="radio"
+                  name="sortdirection"
+                  value="descending"
+                  label="&sortDescending.label;"
+                  accesskey="&sortDescending.accesskey;"/>
+        <menuseparator id="threadPaneSortAfterDescendingSeparator"/>
+        <menuitem id="threadPaneSortThreaded"
+                  type="radio"
+                  name="threaded"
+                  value="threaded"
+                  label="&sortThreaded.label;"
+                  accesskey="&sortThreaded.accesskey;"/>
+        <menuitem id="threadPaneSortUnthreaded"
+                  type="radio"
+                  name="threaded"
+                  value="unthreaded"
+                  label="&sortUnthreaded.label;"
+                  accesskey="&sortUnthreaded.accesskey;"/>
+        <menuitem id="threadPaneGroupBySort"
+                  type="checkbox"
+                  name="group"
+                  value="group"
+                  label="&groupBySort.label;"
+                  accesskey="&groupBySort.accesskey;"/>
+      </menupopup>
+    </menu>
+    <menuseparator id="separatorAfterSortOptions"/>
+    <menuitem data-l10n-id="thread-pane-header-context-hide"
+              oncommand="threadPaneHeader.toggleThreadPaneHeader();"/>
+  </menupopup>
+  <menupopup id="folderPaneGetMessagesContext"
+             class="no-accel-menupopup"
+             position="bottomleft topleft"
+             onpopupshowing="folderPane.updateGetMessagesContextMenu();">
+    <menuitem id="itemGetAllNewMessages"
+              class="menuitem-iconic"
+              data-l10n-id="folder-pane-get-all-messages-menuitem"
+              oncommand="top.MsgGetMessagesForAllAuthenticatedAccounts();"/>
+    <menuseparator id="separatorAfterItemGetAllNewMessages"/>
+  </menupopup>
+#include mailContext.inc.xhtml
+  <panel is="autocomplete-richlistbox-popup" id="PopupAutoComplete"
+         type="autocomplete"
+         role="group"
+         noautofocus="true"/>
+</popupset>
+</html>

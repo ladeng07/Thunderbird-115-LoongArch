@@ -1,0 +1,217 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+/* ===== messengercompose.css ===========================================
+  == Styles for the main Messenger Compose window.
+  ======================================================================= */
+
+@import url("chrome://messenger/skin/messenger.css");
+@import url("chrome://messenger/skin/shared/messengercompose.css");
+
+@namespace html url("http://www.w3.org/1999/xhtml");
+
+#compose-toolbox:-moz-lwtheme::after {
+  top: 100%;
+  margin-top: -1px;
+  border-bottom: 1px solid var(--chrome-content-separator-color);
+  z-index: 1;
+}
+
+#compose-toolbox toolbarbutton[checked="true"] {
+  background-color: transparent;
+}
+
+/* Inactive window state */
+#compose-toolbox > toolbar:-moz-window-inactive {
+  border-top-color: rgba(255,255,255,0.45);
+  border-bottom-color: rgba(0,0,0,0.35);
+}
+
+#compose-toolbox > toolbar:not(:-moz-lwtheme) {
+  background-color: #cfcfcf;
+}
+
+#composeToolbar2 {
+  /* Cover the titlebar with the toolbox background */
+  margin-top: -22px;
+  padding: 22px 4px 0;
+}
+
+toolbar[nowindowdrag="true"] {
+  appearance: none;
+}
+
+/* Findbar */
+
+#findbar-replaceButton {
+  height: 18px;
+  margin-inline-start: 5px;
+  padding-block: 2px;
+}
+
+/* ::::: special toolbar colors ::::: */
+
+#composeContentBox {
+  color: -moz-DialogText;
+  text-shadow: none;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2) inset;
+}
+
+#composeContentBox:-moz-window-inactive {
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1) inset;
+}
+
+#MsgHeadersToolbar {
+  padding-block-start: 5px;
+}
+
+#identityLabel-box {
+  margin-top: 3px;
+}
+
+#msgIdentity {
+  margin-block: 2px 0;
+  padding-block: 3px;
+  color: inherit;
+}
+
+#msgIdentity::part(text-input) {
+  color: inherit;
+  padding-inline-start: 3px;
+}
+
+#msgIdentity[is="menulist-editable"][editable="true"] > menupopup {
+  appearance: auto;
+  -moz-default-appearance: menupopup;
+  margin-inline-start: 0;
+}
+
+#msgIdentity[is="menulist-editable"][editable="true"] > menupopup > menuitem {
+  appearance: auto;
+  -moz-default-appearance: menuitem;
+}
+
+#msgIdentityPopup {
+  margin-inline-start: initial;
+}
+
+/* ::::: attachment reminder ::::: */
+
+.notification-button[is="toolbarbutton-menu-button"] {
+  padding-top: 0;
+}
+
+.notification-button[is="toolbarbutton-menu-button"] > button {
+  appearance: none;
+  margin-bottom: -1px;
+  margin-inline-start: -3px;
+  margin-inline-end: 3px;
+  padding-inline-end: 5px;
+  border-inline-end: 1px solid #9b9b9b;
+}
+
+#subjectLabel {
+  margin-top: 3px;
+  margin-inline-end: 6px;
+}
+
+.address-label-container {
+  padding-top: 7px;
+}
+
+.address-container {
+  padding: 1px 4px;
+}
+
+.address-container > .address-input {
+  padding-block: 5px;
+  min-height: 14px;
+}
+
+#msgIdentity,
+.address-container,
+#msgSubject {
+  min-height: 26px;
+}
+
+.address-pill {
+  padding-block: 2px;
+}
+
+.address-pill label {
+  margin-block: 0;
+}
+
+.pill-indicator {
+  margin-top: -2px;
+}
+
+/* ::::: autocomplete icons ::::: */
+
+.ac-site-icon {
+  display: flex;
+  margin: 2px 5px;
+}
+
+/* ::::: format toolbar ::::: */
+
+#FormatToolbar {
+  padding-block: 4px;
+  margin-inline: 3px;
+  margin-block-end: 3px;
+}
+
+#FormatToolbar toolbarseparator {
+  background-image: none;
+}
+
+toolbarbutton.formatting-button {
+  margin-inline: 1px;
+  padding-inline: 4px;
+}
+
+.formatting-button > .toolbarbutton-menu-dropmarker {
+  margin-inline-start: 3px;
+}
+
+#FontFaceSelect {
+   max-width: 15em;
+}
+
+/* ::::: address book sidebar ::::: */
+
+#contactsBrowserTitle {
+  font: icon;
+}
+
+#titlebar {
+  z-index: 1;
+  height: 22px;
+}
+
+.titlebar-buttonbox-container {
+  margin-top: 3px;
+  margin-inline-start: 7px;
+}
+
+.titlebar-buttonbox {
+  margin-inline: 0;
+}
+
+#titlebar-title {
+  overflow: hidden;
+  /* Equalize  the titlebar-buttonbox width */
+  padding-inline-end: 60px;
+}
+
+#titlebar-title-label {
+  justify-content: center;
+}
+
+/* Styles for the default system dark theme */
+
+:root[lwt-tree] #FormatToolbar {
+  background-image: none;
+  background-color: transparent !important;
+}

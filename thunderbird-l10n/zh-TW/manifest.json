@@ -1,0 +1,56 @@
+{
+  "langpack_id": "zh-TW",
+  "manifest_version": 2,
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "langpack-zh-TW@thunderbird.mozilla.org",
+      "strict_min_version": "115.0",
+      "strict_max_version": "115.*"
+    }
+  },
+  "name": "Language: 正體中文 (Traditional Chinese)",
+  "description": "Thunderbird Language Pack for 正體中文 (zh-TW) – Traditional Chinese",
+  "version": "115.3.20230928.194049",
+  "languages": {
+    "zh-TW": {
+      "version": "20230928204530",
+      "chrome_resources": {
+        "alerts": "chrome/zh-TW/locale/zh-TW/alerts/",
+        "autoconfig": "chrome/zh-TW/locale/zh-TW/autoconfig/",
+        "branding": "chrome/zh-TW/locale/branding/",
+        "calendar": "chrome/zh-TW/locale/zh-TW/calendar/",
+        "chat": "chrome/zh-TW/locale/zh-TW/chat/",
+        "communicator": "chrome/zh-TW/locale/zh-TW/communicator/",
+        "devtools": "chrome/zh-TW/locale/zh-TW/devtools/client/",
+        "devtools-shared": "chrome/zh-TW/locale/zh-TW/devtools/shared/",
+        "global": "chrome/zh-TW/locale/zh-TW/global/",
+        "global-platform": {
+          "macosx": "chrome/zh-TW/locale/zh-TW/global-platform/mac/",
+          "linux": "chrome/zh-TW/locale/zh-TW/global-platform/unix/",
+          "android": "chrome/zh-TW/locale/zh-TW/global-platform/unix/",
+          "win": "chrome/zh-TW/locale/zh-TW/global-platform/win/"
+        },
+        "lightning": "chrome/zh-TW/locale/zh-TW/lightning/",
+        "messenger": "chrome/zh-TW/locale/zh-TW/messenger/",
+        "messenger-mapi": "chrome/zh-TW/locale/zh-TW/messenger-mapi/",
+        "messenger-newsblog": "chrome/zh-TW/locale/zh-TW/messenger-newsblog/",
+        "messenger-region": "chrome/zh-TW/locale/zh-TW/messenger-region/",
+        "messenger-smime": "chrome/zh-TW/locale/zh-TW/messenger-smime/",
+        "mozapps": "chrome/zh-TW/locale/zh-TW/mozapps/",
+        "mozldap": "chrome/zh-TW/locale/zh-TW/mozldap/",
+        "necko": "chrome/zh-TW/locale/zh-TW/necko/",
+        "passwordmgr": "chrome/zh-TW/locale/zh-TW/passwordmgr/",
+        "pdf.js": "chrome/zh-TW/locale/pdfviewer/",
+        "pipnss": "chrome/zh-TW/locale/zh-TW/pipnss/",
+        "pippki": "chrome/zh-TW/locale/zh-TW/pippki/",
+        "places": "chrome/zh-TW/locale/zh-TW/places/"
+      }
+    }
+  },
+  "sources": {
+    "browser": {
+      "base_path": "browser/"
+    }
+  },
+  "author": "Mozilla Taiwan Community (MozTW) (contributors: Hung-Te Lin(piaip), Wei-Lun Sun(josesun), Wei-Chen Lai(abev66), Tim Guan-Tin Chien(timdream), Peter Pin-Guang Chen(petercpg))"
+}

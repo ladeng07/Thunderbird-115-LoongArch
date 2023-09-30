@@ -1,0 +1,34 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+/* ===== searchDialog.css ===============================================
+  == Styles for the Mail Search dialog.
+  ======================================================================= */
+
+@import url("chrome://messenger/skin/shared/searchDialog.css");
+
+:root:not([lwt-tree]) #threadTree,
+:root:not([lwt-tree]) #abResultsTree {
+  appearance: auto;
+  -moz-default-appearance: listbox;
+}
+
+.search-menulist,
+.search-value-menulist {
+  width: 11em;
+}
+
+.input-inline.search-value-input {
+  padding-block: 3px;
+}
+
+.small-button {
+  min-width: 3em;
+  margin: 2px;
+}
+
+.small-button + .small-button {
+  margin-inline-start: 0;
+  margin-inline-end: 4px;
+}

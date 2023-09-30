@@ -1,0 +1,56 @@
+{
+  "langpack_id": "zh-CN",
+  "manifest_version": 2,
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "langpack-zh-CN@thunderbird.mozilla.org",
+      "strict_min_version": "115.0",
+      "strict_max_version": "115.*"
+    }
+  },
+  "name": "Language: 简体中文 (Simplified Chinese)",
+  "description": "Thunderbird Language Pack for 简体中文 (zh-CN) – Simplified Chinese",
+  "version": "115.3.20230928.194049",
+  "languages": {
+    "zh-CN": {
+      "version": "20230928204439",
+      "chrome_resources": {
+        "alerts": "chrome/zh-CN/locale/zh-CN/alerts/",
+        "autoconfig": "chrome/zh-CN/locale/zh-CN/autoconfig/",
+        "branding": "chrome/zh-CN/locale/branding/",
+        "calendar": "chrome/zh-CN/locale/zh-CN/calendar/",
+        "chat": "chrome/zh-CN/locale/zh-CN/chat/",
+        "communicator": "chrome/zh-CN/locale/zh-CN/communicator/",
+        "devtools": "chrome/zh-CN/locale/zh-CN/devtools/client/",
+        "devtools-shared": "chrome/zh-CN/locale/zh-CN/devtools/shared/",
+        "global": "chrome/zh-CN/locale/zh-CN/global/",
+        "global-platform": {
+          "macosx": "chrome/zh-CN/locale/zh-CN/global-platform/mac/",
+          "linux": "chrome/zh-CN/locale/zh-CN/global-platform/unix/",
+          "android": "chrome/zh-CN/locale/zh-CN/global-platform/unix/",
+          "win": "chrome/zh-CN/locale/zh-CN/global-platform/win/"
+        },
+        "lightning": "chrome/zh-CN/locale/zh-CN/lightning/",
+        "messenger": "chrome/zh-CN/locale/zh-CN/messenger/",
+        "messenger-mapi": "chrome/zh-CN/locale/zh-CN/messenger-mapi/",
+        "messenger-newsblog": "chrome/zh-CN/locale/zh-CN/messenger-newsblog/",
+        "messenger-region": "chrome/zh-CN/locale/zh-CN/messenger-region/",
+        "messenger-smime": "chrome/zh-CN/locale/zh-CN/messenger-smime/",
+        "mozapps": "chrome/zh-CN/locale/zh-CN/mozapps/",
+        "mozldap": "chrome/zh-CN/locale/zh-CN/mozldap/",
+        "necko": "chrome/zh-CN/locale/zh-CN/necko/",
+        "passwordmgr": "chrome/zh-CN/locale/zh-CN/passwordmgr/",
+        "pdf.js": "chrome/zh-CN/locale/pdfviewer/",
+        "pipnss": "chrome/zh-CN/locale/zh-CN/pipnss/",
+        "pippki": "chrome/zh-CN/locale/zh-CN/pippki/",
+        "places": "chrome/zh-CN/locale/zh-CN/places/"
+      }
+    }
+  },
+  "sources": {
+    "browser": {
+      "base_path": "browser/"
+    }
+  },
+  "author": "mozilla.org (contributors: Wen Shaohua)"
+}

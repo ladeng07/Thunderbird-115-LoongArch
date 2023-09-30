@@ -1,0 +1,56 @@
+{
+  "langpack_id": "gl",
+  "manifest_version": 2,
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "langpack-gl@thunderbird.mozilla.org",
+      "strict_min_version": "115.0",
+      "strict_max_version": "115.*"
+    }
+  },
+  "name": "Language: Galego (Galician)",
+  "description": "Thunderbird Language Pack for Galego (gl) – Galician",
+  "version": "115.3.20230928.194049",
+  "languages": {
+    "gl": {
+      "version": "20230928204305",
+      "chrome_resources": {
+        "alerts": "chrome/gl/locale/gl/alerts/",
+        "autoconfig": "chrome/gl/locale/gl/autoconfig/",
+        "branding": "chrome/gl/locale/branding/",
+        "calendar": "chrome/gl/locale/gl/calendar/",
+        "chat": "chrome/gl/locale/gl/chat/",
+        "communicator": "chrome/gl/locale/gl/communicator/",
+        "devtools": "chrome/gl/locale/gl/devtools/client/",
+        "devtools-shared": "chrome/gl/locale/gl/devtools/shared/",
+        "global": "chrome/gl/locale/gl/global/",
+        "global-platform": {
+          "macosx": "chrome/gl/locale/gl/global-platform/mac/",
+          "linux": "chrome/gl/locale/gl/global-platform/unix/",
+          "android": "chrome/gl/locale/gl/global-platform/unix/",
+          "win": "chrome/gl/locale/gl/global-platform/win/"
+        },
+        "lightning": "chrome/gl/locale/gl/lightning/",
+        "messenger": "chrome/gl/locale/gl/messenger/",
+        "messenger-mapi": "chrome/gl/locale/gl/messenger-mapi/",
+        "messenger-newsblog": "chrome/gl/locale/gl/messenger-newsblog/",
+        "messenger-region": "chrome/gl/locale/gl/messenger-region/",
+        "messenger-smime": "chrome/gl/locale/gl/messenger-smime/",
+        "mozapps": "chrome/gl/locale/gl/mozapps/",
+        "mozldap": "chrome/gl/locale/gl/mozldap/",
+        "necko": "chrome/gl/locale/gl/necko/",
+        "passwordmgr": "chrome/gl/locale/gl/passwordmgr/",
+        "pdf.js": "chrome/gl/locale/pdfviewer/",
+        "pipnss": "chrome/gl/locale/gl/pipnss/",
+        "pippki": "chrome/gl/locale/gl/pippki/",
+        "places": "chrome/gl/locale/gl/places/"
+      }
+    }
+  },
+  "sources": {
+    "browser": {
+      "base_path": "browser/"
+    }
+  },
+  "author": "mozilla.org (contributors: Grupo de tradución ao galego dos aplicativos de Mozilla (http://galician.mozdev.org/))"
+}

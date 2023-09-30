@@ -1,0 +1,91 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+@import url("chrome://messenger/skin/shared/tabmail.css");
+
+/**
+ * Tabmail Tabs
+ */
+
+:root:not([tabsintitlebar]) #navigation-toolbox:not(:-moz-lwtheme) {
+  appearance: auto;
+  -moz-default-appearance: menubar;
+}
+
+#tabs-toolbar {
+  -moz-window-dragging: drag;
+  padding-block-end: 0;
+}
+
+#tabs-toolbar:not(:-moz-lwtheme) {
+  color: -moz-menubartext;
+}
+
+#tabpanelcontainer:-moz-lwtheme {
+  color: inherit;
+}
+
+tabpanels {
+  appearance: none;
+  background-color: transparent;
+}
+
+/**
+ * Tab
+ */
+
+.tabmail-tab .tab-label-container {
+  /* tabmail-tab focus ring */
+  border: 1px dotted transparent;
+  margin: -1px !important; /* let the border not consume any space, like outline */
+}
+
+.tabmail-tab[selected]:focus .tab-label-container {
+  border-color: -moz-DialogText;
+}
+
+/**
+ * Tab Scrollbox Arrow Buttons
+ */
+
+#tabmail-arrowscrollbox::part(scrollbutton-up),
+#tabmail-arrowscrollbox::part(scrollbutton-down) {
+  padding: 3px !important;
+  border-style: none !important;
+}
+
+#tabmail-arrowscrollbox:not([scrolledtostart=true])::part(scrollbutton-up):hover,
+#tabmail-arrowscrollbox:not([scrolledtoend=true])::part(scrollbutton-down):hover {
+  background: var(--toolbarbutton-active-background);
+}
+
+#tabmail-arrowscrollbox[scrolledtostart=true]::part(scrollbutton-up),
+#tabmail-arrowscrollbox[scrolledtoend=true]::part(scrollbutton-down) {
+  --toolbarbutton-icon-fill-opacity: .4;
+}
+
+/**
+ * All Tabs Menupopup
+ */
+
+.tabs-alltabs-button {
+  min-width: 24px;
+  padding-right: 1px;
+  padding-left: 1px;
+}
+
+.tabs-alltabs-button > .toolbarbutton-icon {
+  margin-inline-end: 0;
+}
+
+.alltabs-item > .menu-iconic-left {
+  visibility: visible !important;
+}
+
+/* Content Tabs */
+.contentTabAddress {
+  height: 32px;
+  padding-left: 10px;
+  padding-right: 10px;
+}

@@ -1,0 +1,591 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, you can obtain one at http://mozilla.org/MPL/2.0/.
+
+# This file contains Thunderbird-specific telemetry Scalar definitions, which
+# are added on top of the Firefox ones (in /toolkit/components/telemetry).
+# To avoid name clashes, all the TB scalars will be under a "tb" section.
+# They are submitted with the "main" pings and can be inspected in about:telemetry.
+
+# The following section is for probes testing the Telemetry system.
+# Under normal operation, these won't be invoked.
+tb.test:
+  unsigned_int_kind:
+    bug_numbers:
+      - 1427877
+    description: >
+      This is a test uint type with a really long description, maybe spanning even multiple
+      lines, to just prove a point: everything works just fine.
+    expires: never
+    products:
+      - 'thunderbird'
+    kind: uint
+    notification_emails:
+      - "telemetry-client-dev@thunderbird.net"
+    record_in_processes:
+      - 'main'
+
+  string_kind:
+    bug_numbers:
+      - 1427877
+    description: A string test type with a one line comment that works just fine!
+    expires: never
+    products:
+      - 'thunderbird'
+    kind: string
+    notification_emails:
+      - "telemetry-client-dev@thunderbird.net"
+    record_in_processes:
+      - 'main'
+
+  boolean_kind:
+    bug_numbers:
+      - 1427877
+    description: A boolean test type with a one line comment that works just fine!
+    expires: never
+    products:
+      - 'thunderbird'
+    kind: boolean
+    notification_emails:
+      - "telemetry-client-dev@thunderbird.net"
+    record_in_processes:
+      - 'main'
+
+tb.account:
+  count:
+    bug_numbers:
+      - 1615981
+    description: Count of how many accounts were set up, keyed by account type.
+    release_channel_collection: opt-out
+    expires: never
+    products:
+      - 'thunderbird'
+    keyed: true
+    kind: uint
+    notification_emails:
+      - "telemetry-client-dev@thunderbird.net"
+    record_in_processes:
+      - 'main'
+
+  successful_email_account_setup:
+    bug_numbers:
+      - 1615987
+      - 1644311
+    description: How many times email accounts setup succeeded, keyed by account config source.
+    release_channel_collection: opt-out
+    expires: never
+    products:
+      - 'thunderbird'
+    keyed: true
+    kind: uint
+    notification_emails:
+      - "telemetry-client-dev@thunderbird.net"
+    record_in_processes:
+      - 'main'
+
+  failed_email_account_setup:
+    bug_numbers:
+      - 1615987
+      - 1644311
+    description: How many times email accounts setup failed, keyed by account config source.
+    release_channel_collection: opt-out
+    expires: never
+    products:
+      - 'thunderbird'
+    keyed: true
+    kind: uint
+    notification_emails:
+      - "telemetry-client-dev@thunderbird.net"
+    record_in_processes:
+      - 'main'
+
+  size_on_disk:
+    bug_numbers:
+      - 1615983
+    description: How many bytes does each type of folder take on disk.
+    release_channel_collection: opt-out
+    expires: never
+    products:
+      - 'thunderbird'
+    keyed: true
+    kind: uint
+    notification_emails:
+      - "telemetry-client-dev@thunderbird.net"
+    record_in_processes:
+      - 'main'
+
+  total_messages:
+    bug_numbers:
+      - 1615983
+    description: How many messages does each type of folder have.
+    release_channel_collection: opt-out
+    expires: never
+    products:
+      - 'thunderbird'
+    keyed: true
+    kind: uint
+    notification_emails:
+      - "telemetry-client-dev@thunderbird.net"
+    record_in_processes:
+      - 'main'
+
+  opened_account_provisioner:
+    bug_numbers:
+      - 1734484
+    description: How many times the user access the account provisioner tab.
+    release_channel_collection: opt-out
+    expires: never
+    products:
+      - 'thunderbird'
+    kind: uint
+    notification_emails:
+      - "telemetry-client-dev@thunderbird.net"
+    record_in_processes:
+      - 'main'
+
+  selected_account_from_provisioner:
+    bug_numbers:
+      - 1734484
+    description:
+      How many times the user clicks on a suggested email address from the
+      account provisioner tab, keyed by the provider hostname.
+    release_channel_collection: opt-out
+    expires: never
+    products:
+      - 'thunderbird'
+    keyed: true
+    kind: uint
+    notification_emails:
+      - "telemetry-client-dev@thunderbird.net"
+    record_in_processes:
+      - 'main'
+
+  new_account_from_provisioner:
+    bug_numbers:
+      - 1734484
+    description:
+      How many times a new email address was successfully created from the
+      account provisioner tab, keyed by the provider hostname.
+    release_channel_collection: opt-out
+    expires: never
+    products:
+      - 'thunderbird'
+    keyed: true
+    kind: uint
+    notification_emails:
+      - "telemetry-client-dev@thunderbird.net"
+    record_in_processes:
+      - 'main'
+
+  oauth2_provider_count:
+    bug_numbers:
+      - 1799726
+    description:
+      A count of incoming mail accounts using OAuth2 for authentication, keyed
+      broadly by account provider.
+    release_channel_collection: opt-out
+    expires: never
+    products:
+      - 'thunderbird'
+    keyed: true
+    kind: uint
+    notification_emails:
+      - "telemetry-client-dev@thunderbird.net"
+    record_in_processes:
+      - 'main'
+
+tb.compose:
+  format_html:
+    bug_numbers:
+      - 1584889
+    description: How many times messages were written in HTML composition mode.
+    release_channel_collection: opt-out
+    expires: never
+    products:
+      - 'thunderbird'
+    kind: uint
+    notification_emails:
+      - "telemetry-client-dev@thunderbird.net"
+    record_in_processes:
+      - 'main'
+
+  format_plain_text:
+    bug_numbers:
+      - 1584889
+    description: How many times messages were written in plain text composition mode.
+    release_channel_collection: opt-out
+    expires: never
+    products:
+      - 'thunderbird'
+    kind: uint
+    notification_emails:
+      - "telemetry-client-dev@thunderbird.net"
+    record_in_processes:
+      - 'main'
+
+tb.filelink:
+  uploaded_size:
+    bug_numbers:
+      - 1615984
+    description: Accumulated file size (bytes) uploaded to filelink services, keyed by filelink provider type.
+    release_channel_collection: opt-out
+    expires: never
+    products:
+      - 'thunderbird'
+    keyed: true
+    kind: uint
+    notification_emails:
+      - "telemetry-client-dev@thunderbird.net"
+    record_in_processes:
+      - 'main'
+
+  ignored:
+    bug_numbers:
+      - 1615984
+    description: How many times filelink suggestion are ignored.
+    release_channel_collection: opt-out
+    expires: never
+    products:
+      - 'thunderbird'
+    kind: uint
+    notification_emails:
+      - "telemetry-client-dev@thunderbird.net"
+    record_in_processes:
+      - 'main'
+
+tb.mails:
+  sent:
+    bug_numbers:
+      - 1615989
+    description: How many emails are sent.
+    release_channel_collection: opt-out
+    expires: never
+    products:
+      - 'thunderbird'
+    kind: uint
+    notification_emails:
+      - "telemetry-client-dev@thunderbird.net"
+    record_in_processes:
+      - 'main'
+
+  read:
+    bug_numbers:
+      - 1615990
+    description: How many emails are read.
+    release_channel_collection: opt-out
+    expires: never
+    products:
+      - 'thunderbird'
+    kind: uint
+    notification_emails:
+      - "telemetry-client-dev@thunderbird.net"
+    record_in_processes:
+      - 'main'
+
+  read_secure:
+    bug_numbers:
+      - 1615994
+    description: How many times different kinds of secure emails are read (for the first time).
+    release_channel_collection: opt-out
+    expires: never
+    products:
+      - 'thunderbird'
+    keyed: true
+    keys:
+      - 'signed-smime'
+      - 'signed-openpgp'
+      - 'encrypted-smime'
+      - 'encrypted-openpgp'
+    kind: uint
+    notification_emails:
+      - "telemetry-client-dev@thunderbird.net"
+    record_in_processes:
+      - 'main'
+
+  folder_opened:
+    bug_numbers:
+      - 1800775
+    description: How many times folders of each type are opened.
+    release_channel_collection: opt-out
+    expires: never
+    products:
+      - 'thunderbird'
+    kind: uint
+    keyed: true
+    keys:
+      - Inbox
+      - Drafts
+      - Trash
+      - SentMail
+      - Templates
+      - Junk
+      - Archive
+      - Queue
+      - Virtual
+      - Other
+    notification_emails:
+      - "telemetry-client-dev@thunderbird.net"
+    record_in_processes:
+      - 'main'
+
+tb.preferences:
+  boolean:
+    bug_numbers:
+      - 1757993
+    description: Values of boolean preferences.
+    release_channel_collection: opt-out
+    expires: never
+    products:
+      - 'thunderbird'
+    keyed: true
+    kind: boolean
+    notification_emails:
+      - "telemetry-client-dev@thunderbird.net"
+    record_in_processes:
+      - 'main'
+
+  integer:
+    bug_numbers:
+      - 1800775
+    description: Values of integer preferences.
+    release_channel_collection: opt-out
+    expires: never
+    products:
+      - 'thunderbird'
+    keyed: true
+    kind: uint
+    notification_emails:
+      - "telemetry-client-dev@thunderbird.net"
+    record_in_processes:
+      - 'main'
+
+tb.websearch:
+  usage:
+    bug_numbers:
+      - 1641773
+    description: How many times search the web was used, keyed by search engine name.
+    release_channel_collection: opt-out
+    expires: never
+    products:
+      - 'thunderbird'
+    keyed: true
+    kind: uint
+    notification_emails:
+      - "telemetry-client-dev@thunderbird.net"
+    record_in_processes:
+      - 'main'
+
+tb.addressbook:
+  addressbook_count:
+    bug_numbers:
+      - 1615986
+    description: How many addressbooks were set up, keyed by addressbook directory URI scheme.
+    release_channel_collection: opt-out
+    expires: never
+    products:
+      - 'thunderbird'
+    keyed: true
+    kind: uint
+    notification_emails:
+      - "telemetry-client-dev@thunderbird.net"
+    record_in_processes:
+      - 'main'
+
+  contact_count:
+    bug_numbers:
+      - 1615986
+    description: Count of contacts in all addressbooks, keyed by addressbook directory URI scheme.
+    release_channel_collection: opt-out
+    expires: never
+    products:
+      - 'thunderbird'
+    keyed: true
+    kind: uint
+    notification_emails:
+      - "telemetry-client-dev@thunderbird.net"
+    record_in_processes:
+      - 'main'
+
+tb.calendar:
+  calendar_count:
+    bug_numbers:
+      - 1615985
+    description: How many calendars were set up, keyed by calendar type.
+    release_channel_collection: opt-out
+    expires: never
+    products:
+      - 'thunderbird'
+    keyed: true
+    kind: uint
+    notification_emails:
+      - "telemetry-client-dev@thunderbird.net"
+    record_in_processes:
+      - 'main'
+
+  read_only_calendar_count:
+    bug_numbers:
+      - 1615985
+    description: How many read only calendars were set up, keyed by calendar type.
+    release_channel_collection: opt-out
+    expires: never
+    products:
+      - 'thunderbird'
+    keyed: true
+    kind: uint
+    notification_emails:
+      - "telemetry-client-dev@thunderbird.net"
+    record_in_processes:
+      - 'main'
+
+tb.ui.configuration:
+  folder_tree_modes:
+    bug_numbers:
+      - 1800775
+    description: Configuration of the folder tree.
+    release_channel_collection: opt-out
+    expires: never
+    products:
+      - 'thunderbird'
+    kind: string
+    notification_emails:
+      - "telemetry-client-dev@thunderbird.net"
+    record_in_processes:
+      - 'main'
+
+  pane_visibility:
+    bug_numbers:
+      - 1800775
+    description: Configuration of the folder and message panes.
+    release_channel_collection: opt-out
+    expires: never
+    products:
+      - 'thunderbird'
+    kind: boolean
+    keyed: true
+    keys:
+      - folderPane
+      - messagePane
+    notification_emails:
+      - "telemetry-client-dev@thunderbird.net"
+    record_in_processes:
+      - 'main'
+
+  message_header:
+    bug_numbers:
+      - 1800775
+    description: Configuration of the message header display.
+    release_channel_collection: opt-out
+    expires: never
+    products:
+      - 'thunderbird'
+    kind: uint
+    keyed: true
+    keys:
+      - showAvatar
+      - showBigAvatar
+      - showFullAddress
+      - hideLabels
+      - subjectLarge
+      - buttonStyle
+    notification_emails:
+      - "telemetry-client-dev@thunderbird.net"
+    record_in_processes:
+      - 'main'
+
+tb.ui.interaction:
+  calendar:
+    bug_numbers:
+      - 1736739
+    description: >
+      Records a count of interactions with items in the calendar.
+    expires: never
+    kind: uint
+    keyed: true
+    notification_emails:
+      - "telemetry-client-dev@thunderbird.net"
+    products:
+      - "thunderbird"
+    release_channel_collection: opt-out
+    record_in_processes:
+      - "main"
+
+  chat:
+    bug_numbers:
+      - 1736739
+    description: >
+      Records a count of interactions with items in chat.
+    expires: never
+    kind: uint
+    keyed: true
+    notification_emails:
+      - "telemetry-client-dev@thunderbird.net"
+    products:
+      - "thunderbird"
+    release_channel_collection: opt-out
+    record_in_processes:
+      - "main"
+
+  keyboard:
+    bug_numbers:
+      - 1736739
+    description: >
+      Records a count of interactions with keyboard shortcuts.
+    expires: never
+    kind: uint
+    keyed: true
+    notification_emails:
+      - "telemetry-client-dev@thunderbird.net"
+    products:
+      - "thunderbird"
+    release_channel_collection: opt-out
+    record_in_processes:
+      - "main"
+
+  message_display:
+    bug_numbers:
+      - 1736739
+    description: >
+      Records a count of interactions with items in the message display.
+    expires: never
+    kind: uint
+    keyed: true
+    notification_emails:
+      - "telemetry-client-dev@thunderbird.net"
+    products:
+      - "thunderbird"
+    release_channel_collection: opt-out
+    record_in_processes:
+      - "main"
+
+  toolbox:
+    bug_numbers:
+      - 1736739
+    description: >
+      Records a count of interactions with items in the main window toolbox.
+    expires: never
+    kind: uint
+    keyed: true
+    notification_emails:
+      - "telemetry-client-dev@thunderbird.net"
+    products:
+      - "thunderbird"
+    release_channel_collection: opt-out
+    record_in_processes:
+      - "main"
+
+tb.chat:
+  active_message_theme:
+    bug_numbers:
+      - 1767004
+    description: >
+      Records the currently active chat message theme and variant.
+    expires: "117"
+    kind: string
+    keyed: false
+    notification_emails:
+      - "telemetry-client-dev@thunderbird.net"
+    products:
+      - "thunderbird"
+    release_channel_collection: opt-out
+    record_in_processes:
+      - "main"

@@ -1,0 +1,56 @@
+{
+  "langpack_id": "be",
+  "manifest_version": 2,
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "langpack-be@thunderbird.mozilla.org",
+      "strict_min_version": "115.0",
+      "strict_max_version": "115.*"
+    }
+  },
+  "name": "Language: Беларуская (Belarusian)",
+  "description": "Thunderbird Language Pack for Беларуская (be) – Belarusian",
+  "version": "115.3.20230928.194049",
+  "languages": {
+    "be": {
+      "version": "20230928204428",
+      "chrome_resources": {
+        "alerts": "chrome/be/locale/be/alerts/",
+        "autoconfig": "chrome/be/locale/be/autoconfig/",
+        "branding": "chrome/be/locale/branding/",
+        "calendar": "chrome/be/locale/be/calendar/",
+        "chat": "chrome/be/locale/be/chat/",
+        "communicator": "chrome/be/locale/be/communicator/",
+        "devtools": "chrome/be/locale/be/devtools/client/",
+        "devtools-shared": "chrome/be/locale/be/devtools/shared/",
+        "global": "chrome/be/locale/be/global/",
+        "global-platform": {
+          "macosx": "chrome/be/locale/be/global-platform/mac/",
+          "linux": "chrome/be/locale/be/global-platform/unix/",
+          "android": "chrome/be/locale/be/global-platform/unix/",
+          "win": "chrome/be/locale/be/global-platform/win/"
+        },
+        "lightning": "chrome/be/locale/be/lightning/",
+        "messenger": "chrome/be/locale/be/messenger/",
+        "messenger-mapi": "chrome/be/locale/be/messenger-mapi/",
+        "messenger-newsblog": "chrome/be/locale/be/messenger-newsblog/",
+        "messenger-region": "chrome/be/locale/be/messenger-region/",
+        "messenger-smime": "chrome/be/locale/be/messenger-smime/",
+        "mozapps": "chrome/be/locale/be/mozapps/",
+        "mozldap": "chrome/be/locale/be/mozldap/",
+        "necko": "chrome/be/locale/be/necko/",
+        "passwordmgr": "chrome/be/locale/be/passwordmgr/",
+        "pdf.js": "chrome/be/locale/pdfviewer/",
+        "pipnss": "chrome/be/locale/be/pipnss/",
+        "pippki": "chrome/be/locale/be/pippki/",
+        "places": "chrome/be/locale/be/places/"
+      }
+    }
+  },
+  "sources": {
+    "browser": {
+      "base_path": "browser/"
+    }
+  },
+  "author": "mozilla.org (contributors: mozilla by)"
+}

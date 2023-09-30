@@ -1,0 +1,56 @@
+{
+  "langpack_id": "es-ES",
+  "manifest_version": 2,
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "langpack-es-ES@thunderbird.mozilla.org",
+      "strict_min_version": "115.0",
+      "strict_max_version": "115.*"
+    }
+  },
+  "name": "Language: Español (ES) (Spanish, Spain)",
+  "description": "Thunderbird Language Pack for Español (ES) (es-ES) – Spanish, Spain",
+  "version": "115.3.20230928.194049",
+  "languages": {
+    "es-ES": {
+      "version": "20230928204456",
+      "chrome_resources": {
+        "alerts": "chrome/es-ES/locale/es-ES/alerts/",
+        "autoconfig": "chrome/es-ES/locale/es-ES/autoconfig/",
+        "branding": "chrome/es-ES/locale/branding/",
+        "calendar": "chrome/es-ES/locale/es-ES/calendar/",
+        "chat": "chrome/es-ES/locale/es-ES/chat/",
+        "communicator": "chrome/es-ES/locale/es-ES/communicator/",
+        "devtools": "chrome/es-ES/locale/es-ES/devtools/client/",
+        "devtools-shared": "chrome/es-ES/locale/es-ES/devtools/shared/",
+        "global": "chrome/es-ES/locale/es-ES/global/",
+        "global-platform": {
+          "macosx": "chrome/es-ES/locale/es-ES/global-platform/mac/",
+          "linux": "chrome/es-ES/locale/es-ES/global-platform/unix/",
+          "android": "chrome/es-ES/locale/es-ES/global-platform/unix/",
+          "win": "chrome/es-ES/locale/es-ES/global-platform/win/"
+        },
+        "lightning": "chrome/es-ES/locale/es-ES/lightning/",
+        "messenger": "chrome/es-ES/locale/es-ES/messenger/",
+        "messenger-mapi": "chrome/es-ES/locale/es-ES/messenger-mapi/",
+        "messenger-newsblog": "chrome/es-ES/locale/es-ES/messenger-newsblog/",
+        "messenger-region": "chrome/es-ES/locale/es-ES/messenger-region/",
+        "messenger-smime": "chrome/es-ES/locale/es-ES/messenger-smime/",
+        "mozapps": "chrome/es-ES/locale/es-ES/mozapps/",
+        "mozldap": "chrome/es-ES/locale/es-ES/mozldap/",
+        "necko": "chrome/es-ES/locale/es-ES/necko/",
+        "passwordmgr": "chrome/es-ES/locale/es-ES/passwordmgr/",
+        "pdf.js": "chrome/es-ES/locale/pdfviewer/",
+        "pipnss": "chrome/es-ES/locale/es-ES/pipnss/",
+        "pippki": "chrome/es-ES/locale/es-ES/pippki/",
+        "places": "chrome/es-ES/locale/es-ES/places/"
+      }
+    }
+  },
+  "sources": {
+    "browser": {
+      "base_path": "browser/"
+    }
+  },
+  "author": "mozilla.org (contributors: Proyecto NAVE (http://www.proyectonave.es/))"
+}

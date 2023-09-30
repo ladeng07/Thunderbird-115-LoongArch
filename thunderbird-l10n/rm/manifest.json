@@ -1,0 +1,56 @@
+{
+  "langpack_id": "rm",
+  "manifest_version": 2,
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "langpack-rm@thunderbird.mozilla.org",
+      "strict_min_version": "115.0",
+      "strict_max_version": "115.*"
+    }
+  },
+  "name": "Language: Rumantsch (Romansh)",
+  "description": "Thunderbird Language Pack for Rumantsch (rm) – Romansh",
+  "version": "115.3.20230928.194049",
+  "languages": {
+    "rm": {
+      "version": "20230928204203",
+      "chrome_resources": {
+        "alerts": "chrome/rm/locale/rm/alerts/",
+        "autoconfig": "chrome/rm/locale/rm/autoconfig/",
+        "branding": "chrome/rm/locale/branding/",
+        "calendar": "chrome/rm/locale/rm/calendar/",
+        "chat": "chrome/rm/locale/rm/chat/",
+        "communicator": "chrome/rm/locale/rm/communicator/",
+        "devtools": "chrome/rm/locale/rm/devtools/client/",
+        "devtools-shared": "chrome/rm/locale/rm/devtools/shared/",
+        "global": "chrome/rm/locale/rm/global/",
+        "global-platform": {
+          "macosx": "chrome/rm/locale/rm/global-platform/mac/",
+          "linux": "chrome/rm/locale/rm/global-platform/unix/",
+          "android": "chrome/rm/locale/rm/global-platform/unix/",
+          "win": "chrome/rm/locale/rm/global-platform/win/"
+        },
+        "lightning": "chrome/rm/locale/rm/lightning/",
+        "messenger": "chrome/rm/locale/rm/messenger/",
+        "messenger-mapi": "chrome/rm/locale/rm/messenger-mapi/",
+        "messenger-newsblog": "chrome/rm/locale/rm/messenger-newsblog/",
+        "messenger-region": "chrome/rm/locale/rm/messenger-region/",
+        "messenger-smime": "chrome/rm/locale/rm/messenger-smime/",
+        "mozapps": "chrome/rm/locale/rm/mozapps/",
+        "mozldap": "chrome/rm/locale/rm/mozldap/",
+        "necko": "chrome/rm/locale/rm/necko/",
+        "passwordmgr": "chrome/rm/locale/rm/passwordmgr/",
+        "pdf.js": "chrome/rm/locale/pdfviewer/",
+        "pipnss": "chrome/rm/locale/rm/pipnss/",
+        "pippki": "chrome/rm/locale/rm/pippki/",
+        "places": "chrome/rm/locale/rm/places/"
+      }
+    }
+  },
+  "sources": {
+    "browser": {
+      "base_path": "browser/"
+    }
+  },
+  "author": "mozilla.org (contributors: Joe Solon, Suzy Solon)"
+}

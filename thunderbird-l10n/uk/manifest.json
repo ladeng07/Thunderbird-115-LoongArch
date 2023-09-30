@@ -1,0 +1,56 @@
+{
+  "langpack_id": "uk",
+  "manifest_version": 2,
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "langpack-uk@thunderbird.mozilla.org",
+      "strict_min_version": "115.0",
+      "strict_max_version": "115.*"
+    }
+  },
+  "name": "Language: Українська (Ukrainian)",
+  "description": "Thunderbird Language Pack for Українська (uk) – Ukrainian",
+  "version": "115.3.20230928.194049",
+  "languages": {
+    "uk": {
+      "version": "20230928204208",
+      "chrome_resources": {
+        "alerts": "chrome/uk/locale/uk/alerts/",
+        "autoconfig": "chrome/uk/locale/uk/autoconfig/",
+        "branding": "chrome/uk/locale/branding/",
+        "calendar": "chrome/uk/locale/uk/calendar/",
+        "chat": "chrome/uk/locale/uk/chat/",
+        "communicator": "chrome/uk/locale/uk/communicator/",
+        "devtools": "chrome/uk/locale/uk/devtools/client/",
+        "devtools-shared": "chrome/uk/locale/uk/devtools/shared/",
+        "global": "chrome/uk/locale/uk/global/",
+        "global-platform": {
+          "macosx": "chrome/uk/locale/uk/global-platform/mac/",
+          "linux": "chrome/uk/locale/uk/global-platform/unix/",
+          "android": "chrome/uk/locale/uk/global-platform/unix/",
+          "win": "chrome/uk/locale/uk/global-platform/win/"
+        },
+        "lightning": "chrome/uk/locale/uk/lightning/",
+        "messenger": "chrome/uk/locale/uk/messenger/",
+        "messenger-mapi": "chrome/uk/locale/uk/messenger-mapi/",
+        "messenger-newsblog": "chrome/uk/locale/uk/messenger-newsblog/",
+        "messenger-region": "chrome/uk/locale/uk/messenger-region/",
+        "messenger-smime": "chrome/uk/locale/uk/messenger-smime/",
+        "mozapps": "chrome/uk/locale/uk/mozapps/",
+        "mozldap": "chrome/uk/locale/uk/mozldap/",
+        "necko": "chrome/uk/locale/uk/necko/",
+        "passwordmgr": "chrome/uk/locale/uk/passwordmgr/",
+        "pdf.js": "chrome/uk/locale/pdfviewer/",
+        "pipnss": "chrome/uk/locale/uk/pipnss/",
+        "pippki": "chrome/uk/locale/uk/pippki/",
+        "places": "chrome/uk/locale/uk/places/"
+      }
+    }
+  },
+  "sources": {
+    "browser": {
+      "base_path": "browser/"
+    }
+  },
+  "author": "mozilla.org (contributors: Артем Поліванчук, Сергій Хоружин, Тимофій Бабич, Тимур Фараджев)"
+}

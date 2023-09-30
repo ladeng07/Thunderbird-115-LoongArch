@@ -1,0 +1,51 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this file,
+ * You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+@import url(chrome://calendar/skin/shared/today-pane.css);
+
+#today-pane-panel > .sidebar-header {
+  height: 32px;
+}
+
+#today-pane-panel:-moz-lwtheme > .sidebar-header {
+  text-shadow: none;
+}
+
+.today-closebutton > .toolbarbutton-text {
+   display: none;
+}
+
+.monthlabel {
+  margin-bottom: 1px;
+}
+
+#today-pane-panel:not(:-moz-lwtheme):-moz-window-inactive {
+  background-color: hsl(0, 0%, 97%);
+}
+
+@media not (prefers-color-scheme: dark) {
+  #mini-day-image:-moz-window-inactive {
+    background-color: -moz-mac-chrome-inactive;
+  }
+}
+
+:root[lwt-tree] #mini-day-image:-moz-window-inactive {
+  background-color: transparent;
+}
+
+#todaypane-new-event-button[disabled="true"] > .toolbarbutton-icon {
+  opacity: .5;
+}
+
+#todaypane-new-event-button > .toolbarbutton-text {
+  margin-inline-start: 0;
+}
+
+#today-pane-splitter {
+  min-height: 5px;
+}
+
+#miniday-dropdown-button > .toolbarbutton-menu-dropmarker {
+  appearance: none;
+}

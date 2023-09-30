@@ -1,0 +1,56 @@
+{
+  "langpack_id": "is",
+  "manifest_version": 2,
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "langpack-is@thunderbird.mozilla.org",
+      "strict_min_version": "115.0",
+      "strict_max_version": "115.*"
+    }
+  },
+  "name": "Language: Islenska (Icelandic)",
+  "description": "Thunderbird Language Pack for Islenska (is) – Icelandic",
+  "version": "115.3.20230928.194049",
+  "languages": {
+    "is": {
+      "version": "20230928204417",
+      "chrome_resources": {
+        "alerts": "chrome/is/locale/is/alerts/",
+        "autoconfig": "chrome/is/locale/is/autoconfig/",
+        "branding": "chrome/is/locale/branding/",
+        "calendar": "chrome/is/locale/is/calendar/",
+        "chat": "chrome/is/locale/is/chat/",
+        "communicator": "chrome/is/locale/is/communicator/",
+        "devtools": "chrome/is/locale/is/devtools/client/",
+        "devtools-shared": "chrome/is/locale/is/devtools/shared/",
+        "global": "chrome/is/locale/is/global/",
+        "global-platform": {
+          "macosx": "chrome/is/locale/is/global-platform/mac/",
+          "linux": "chrome/is/locale/is/global-platform/unix/",
+          "android": "chrome/is/locale/is/global-platform/unix/",
+          "win": "chrome/is/locale/is/global-platform/win/"
+        },
+        "lightning": "chrome/is/locale/is/lightning/",
+        "messenger": "chrome/is/locale/is/messenger/",
+        "messenger-mapi": "chrome/is/locale/is/messenger-mapi/",
+        "messenger-newsblog": "chrome/is/locale/is/messenger-newsblog/",
+        "messenger-region": "chrome/is/locale/is/messenger-region/",
+        "messenger-smime": "chrome/is/locale/is/messenger-smime/",
+        "mozapps": "chrome/is/locale/is/mozapps/",
+        "mozldap": "chrome/is/locale/is/mozldap/",
+        "necko": "chrome/is/locale/is/necko/",
+        "passwordmgr": "chrome/is/locale/is/passwordmgr/",
+        "pdf.js": "chrome/is/locale/pdfviewer/",
+        "pipnss": "chrome/is/locale/is/pipnss/",
+        "pippki": "chrome/is/locale/is/pippki/",
+        "places": "chrome/is/locale/is/places/"
+      }
+    }
+  },
+  "sources": {
+    "browser": {
+      "base_path": "browser/"
+    }
+  },
+  "author": "mozilla.org (contributors: Kristján Bjarni Guðmundsson, Sveinn í Felli)"
+}

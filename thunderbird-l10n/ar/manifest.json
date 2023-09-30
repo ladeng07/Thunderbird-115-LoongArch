@@ -1,0 +1,56 @@
+{
+  "langpack_id": "ar",
+  "manifest_version": 2,
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "langpack-ar@thunderbird.mozilla.org",
+      "strict_min_version": "115.0",
+      "strict_max_version": "115.*"
+    }
+  },
+  "name": "Language: العربية (Arabic)",
+  "description": "Thunderbird Language Pack for العربية (ar) – Arabic",
+  "version": "115.3.20230928.194049",
+  "languages": {
+    "ar": {
+      "version": "20230928204252",
+      "chrome_resources": {
+        "alerts": "chrome/ar/locale/ar/alerts/",
+        "autoconfig": "chrome/ar/locale/ar/autoconfig/",
+        "branding": "chrome/ar/locale/branding/",
+        "calendar": "chrome/ar/locale/ar/calendar/",
+        "chat": "chrome/ar/locale/ar/chat/",
+        "communicator": "chrome/ar/locale/ar/communicator/",
+        "devtools": "chrome/ar/locale/ar/devtools/client/",
+        "devtools-shared": "chrome/ar/locale/ar/devtools/shared/",
+        "global": "chrome/ar/locale/ar/global/",
+        "global-platform": {
+          "macosx": "chrome/ar/locale/ar/global-platform/mac/",
+          "linux": "chrome/ar/locale/ar/global-platform/unix/",
+          "android": "chrome/ar/locale/ar/global-platform/unix/",
+          "win": "chrome/ar/locale/ar/global-platform/win/"
+        },
+        "lightning": "chrome/ar/locale/ar/lightning/",
+        "messenger": "chrome/ar/locale/ar/messenger/",
+        "messenger-mapi": "chrome/ar/locale/ar/messenger-mapi/",
+        "messenger-newsblog": "chrome/ar/locale/ar/messenger-newsblog/",
+        "messenger-region": "chrome/ar/locale/ar/messenger-region/",
+        "messenger-smime": "chrome/ar/locale/ar/messenger-smime/",
+        "mozapps": "chrome/ar/locale/ar/mozapps/",
+        "mozldap": "chrome/ar/locale/ar/mozldap/",
+        "necko": "chrome/ar/locale/ar/necko/",
+        "passwordmgr": "chrome/ar/locale/ar/passwordmgr/",
+        "pdf.js": "chrome/ar/locale/pdfviewer/",
+        "pipnss": "chrome/ar/locale/ar/pipnss/",
+        "pippki": "chrome/ar/locale/ar/pippki/",
+        "places": "chrome/ar/locale/ar/places/"
+      }
+    }
+  },
+  "sources": {
+    "browser": {
+      "base_path": "browser/"
+    }
+  },
+  "author": "arabeyes.org (contributors: Ayman Hourieh, Khaled Hosny, Anas Husseini)"
+}

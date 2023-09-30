@@ -1,0 +1,56 @@
+{
+  "langpack_id": "pa-IN",
+  "manifest_version": 2,
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "langpack-pa-IN@thunderbird.mozilla.org",
+      "strict_min_version": "115.0",
+      "strict_max_version": "115.*"
+    }
+  },
+  "name": "Language: ਪੰਜਾਬੀ (Punjabi)",
+  "description": "Thunderbird Language Pack for ਪੰਜਾਬੀ (pa-IN) – Punjabi",
+  "version": "115.3.20230928.194049",
+  "languages": {
+    "pa-IN": {
+      "version": "20230928204252",
+      "chrome_resources": {
+        "alerts": "chrome/pa-IN/locale/pa-IN/alerts/",
+        "autoconfig": "chrome/pa-IN/locale/pa-IN/autoconfig/",
+        "branding": "chrome/pa-IN/locale/branding/",
+        "calendar": "chrome/pa-IN/locale/pa-IN/calendar/",
+        "chat": "chrome/pa-IN/locale/pa-IN/chat/",
+        "communicator": "chrome/pa-IN/locale/pa-IN/communicator/",
+        "devtools": "chrome/pa-IN/locale/pa-IN/devtools/client/",
+        "devtools-shared": "chrome/pa-IN/locale/pa-IN/devtools/shared/",
+        "global": "chrome/pa-IN/locale/pa-IN/global/",
+        "global-platform": {
+          "macosx": "chrome/pa-IN/locale/pa-IN/global-platform/mac/",
+          "linux": "chrome/pa-IN/locale/pa-IN/global-platform/unix/",
+          "android": "chrome/pa-IN/locale/pa-IN/global-platform/unix/",
+          "win": "chrome/pa-IN/locale/pa-IN/global-platform/win/"
+        },
+        "lightning": "chrome/pa-IN/locale/pa-IN/lightning/",
+        "messenger": "chrome/pa-IN/locale/pa-IN/messenger/",
+        "messenger-mapi": "chrome/pa-IN/locale/pa-IN/messenger-mapi/",
+        "messenger-newsblog": "chrome/pa-IN/locale/pa-IN/messenger-newsblog/",
+        "messenger-region": "chrome/pa-IN/locale/pa-IN/messenger-region/",
+        "messenger-smime": "chrome/pa-IN/locale/pa-IN/messenger-smime/",
+        "mozapps": "chrome/pa-IN/locale/pa-IN/mozapps/",
+        "mozldap": "chrome/pa-IN/locale/pa-IN/mozldap/",
+        "necko": "chrome/pa-IN/locale/pa-IN/necko/",
+        "passwordmgr": "chrome/pa-IN/locale/pa-IN/passwordmgr/",
+        "pdf.js": "chrome/pa-IN/locale/pdfviewer/",
+        "pipnss": "chrome/pa-IN/locale/pa-IN/pipnss/",
+        "pippki": "chrome/pa-IN/locale/pa-IN/pippki/",
+        "places": "chrome/pa-IN/locale/pa-IN/places/"
+      }
+    }
+  },
+  "sources": {
+    "browser": {
+      "base_path": "browser/"
+    }
+  },
+  "author": "mozilla.org"
+}

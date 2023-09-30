@@ -1,0 +1,129 @@
+/* - This Source Code Form is subject to the terms of the Mozilla Public
+   - License, v. 2.0. If a copy of the MPL was not distributed with this file,
+   - You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+@import url("chrome://global/skin/in-content/common-shared.css");
+@import url("chrome://messenger/skin/layout.css");
+
+:host,
+:root {
+  --in-content-button-height: 2.2em;
+  --in-content-button-border-radius: 3px;
+  --in-content-button-border-color: color-mix(in srgb, currentColor 9%, transparent);
+  --in-content-button-border-color-hover: color-mix(in srgb, currentColor 17%, transparent);
+  --in-content-sidebar-width: auto;
+  --menu-item-margin: 0 3px;
+}
+
+:root:not(.system-font-size) {
+  font: message-box;
+}
+
+@media not (prefers-contrast) {
+  :host,
+  :root {
+    --in-content-box-info-background: var(--layout-background-1);
+    --in-content-box-info-border: var(--layout-border-0);
+    --in-content-button-background: var(--grey-90-a10);
+    --in-content-button-background-hover: var(--grey-90-a20);
+    --in-content-button-background-active: var(--grey-90-a30);
+    --in-content-categories-background: var(--layout-background-2);
+    --in-content-item-selected-unfocused: var(--color-gray-20);
+    --in-content-item-hover: color-mix(in srgb, currentColor 12%, transparent);
+    --in-content-item-selected: color-mix(in srgb, currentColor 20%, transparent);
+    --in-content-item-selected-text: var(--in-content-page-color);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :host,
+    :root {
+      --in-content-box-info-background: var(--layout-background-2);
+      --in-content-box-info-border: transparent;
+      --in-content-categories-background: var(--layout-background-2);
+      --in-content-item-selected-unfocused: rgba(249, 249, 250, 0.05);
+      --in-content-button-background: rgba(249, 249, 250, 0.1);
+      --in-content-button-background-hover: rgba(249, 249, 250, 0.15);
+      --in-content-button-background-active: rgba(249, 249, 250, 0.2);
+      --in-content-primary-button-background: #45a1ff;
+      --in-content-primary-button-background-hover: #65c1ff;
+      --in-content-primary-button-background-active: #85e1ff;
+      --in-content-focus-outline-color: #45a1ff;
+    }
+  }
+}
+
+@media (prefers-contrast) {
+  :root {
+    --in-content-box-info-background: transparent;
+    --in-content-box-info-border: currentColor;
+    --in-content-categories-background: transparent;
+  }
+}
+
+.sidebar-footer-link,
+#categories > .category {
+  border-color: transparent !important;
+}
+
+#categories > .category {
+  margin-inline: 6px;
+}
+
+#categories > .category[selected] {
+  font-weight: 500;
+}
+
+@media not (prefers-contrast) {
+  #categories > .category[selected] {
+    background-color: var(--in-content-button-background) !important;
+    color: unset;
+  }
+
+  #categories[keyboard-navigation="true"]:focus-visible > .category[current],
+  #categories > .category:focus-visible {
+    background-color: var(--in-content-item-selected) !important;
+    color: var(--in-content-item-selected-text);
+    outline: none;
+  }
+}
+
+.category-name {
+  font-size: 1.1rem;
+}
+
+.sidebar-footer-list {
+  margin-inline: 0;
+}
+
+.sidebar-footer-icon {
+  margin: 10px;
+}
+
+.sidebar-footer-label {
+  margin: 0;
+}
+
+menupopup {
+  --panel-border-color: var(--in-content-box-border-color);
+  --panel-background: var(--in-content-box-background);
+  --panel-color: var(--in-content-text-color);
+}
+
+menupopup::part(content) {
+  border-radius: var(--arrowpanel-border-radius);
+}
+
+menulist > menupopup {
+  --panel-padding: 3px 0;
+}
+
+menupopup > :is(menu, menuitem) {
+  margin: var(--menu-item-margin);
+  min-height: 24px;
+  padding-block: var(--menu-item-padding);
+  border-radius: 3px;
+}
+
+menulist > menupopup menuseparator {
+  margin: 4px 8px;
+}

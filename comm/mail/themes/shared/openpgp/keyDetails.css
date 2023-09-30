@@ -1,0 +1,72 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+html {
+  width: 840px;
+  height: 650px;
+  min-width: 840px;
+  min-height: 650px;
+}
+
+body {
+  overflow: auto;
+}
+
+body > dialog,
+button {
+  font-size: 1rem;  /* accountManage.css pulls in preferences.css that sets font-size ... */
+}
+
+.key-details-container {
+  display: grid;
+  grid-template-columns: auto max-content;
+  align-items: end;
+  padding-inline: 6px;
+}
+
+.key-details-grid {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  grid-row-gap: 3px;
+  align-items: baseline;
+}
+
+.key-detail-label {
+  font-weight: 600;
+  margin-inline-end: 6px;
+  line-height: unset; /* accountManage.css pulls in preferences.css that sets line-height ... */
+}
+
+.backup-container {
+  padding-inline: 9px;
+}
+
+.input-padding {
+  margin: 2px 4px;
+}
+
+#alsoknown {
+  margin-top: 9px;
+  margin-inline: 6px;
+}
+
+.additional-key-identity {
+  border-radius: 0;
+  padding-inline: 8px;
+}
+
+#addressesListContainer {
+  overflow-y: auto;
+}
+
+.tail-with-learn-more {
+  margin-inline-end: 10px;
+  font-weight: bold;
+}
+
+#key-detail-has-insecure {
+  max-width: 50em;
+  margin-inline: 2em;
+  margin-top: 1em;
+}

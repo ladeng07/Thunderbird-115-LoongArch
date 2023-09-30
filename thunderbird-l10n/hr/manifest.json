@@ -1,0 +1,56 @@
+{
+  "langpack_id": "hr",
+  "manifest_version": 2,
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "langpack-hr@thunderbird.mozilla.org",
+      "strict_min_version": "115.0",
+      "strict_max_version": "115.*"
+    }
+  },
+  "name": "Language: Hrvatski (Croatian)",
+  "description": "Thunderbird Language Pack for Hrvatski (hr) – Croatian",
+  "version": "115.3.20230928.194049",
+  "languages": {
+    "hr": {
+      "version": "20230928204447",
+      "chrome_resources": {
+        "alerts": "chrome/hr/locale/hr/alerts/",
+        "autoconfig": "chrome/hr/locale/hr/autoconfig/",
+        "branding": "chrome/hr/locale/branding/",
+        "calendar": "chrome/hr/locale/hr/calendar/",
+        "chat": "chrome/hr/locale/hr/chat/",
+        "communicator": "chrome/hr/locale/hr/communicator/",
+        "devtools": "chrome/hr/locale/hr/devtools/client/",
+        "devtools-shared": "chrome/hr/locale/hr/devtools/shared/",
+        "global": "chrome/hr/locale/hr/global/",
+        "global-platform": {
+          "macosx": "chrome/hr/locale/hr/global-platform/mac/",
+          "linux": "chrome/hr/locale/hr/global-platform/unix/",
+          "android": "chrome/hr/locale/hr/global-platform/unix/",
+          "win": "chrome/hr/locale/hr/global-platform/win/"
+        },
+        "lightning": "chrome/hr/locale/hr/lightning/",
+        "messenger": "chrome/hr/locale/hr/messenger/",
+        "messenger-mapi": "chrome/hr/locale/hr/messenger-mapi/",
+        "messenger-newsblog": "chrome/hr/locale/hr/messenger-newsblog/",
+        "messenger-region": "chrome/hr/locale/hr/messenger-region/",
+        "messenger-smime": "chrome/hr/locale/hr/messenger-smime/",
+        "mozapps": "chrome/hr/locale/hr/mozapps/",
+        "mozldap": "chrome/hr/locale/hr/mozldap/",
+        "necko": "chrome/hr/locale/hr/necko/",
+        "passwordmgr": "chrome/hr/locale/hr/passwordmgr/",
+        "pdf.js": "chrome/hr/locale/pdfviewer/",
+        "pipnss": "chrome/hr/locale/hr/pipnss/",
+        "pippki": "chrome/hr/locale/hr/pippki/",
+        "places": "chrome/hr/locale/hr/places/"
+      }
+    }
+  },
+  "sources": {
+    "browser": {
+      "base_path": "browser/"
+    }
+  },
+  "author": "mozilla.org (contributors: Mihovil Stanić, Saša Teković)"
+}

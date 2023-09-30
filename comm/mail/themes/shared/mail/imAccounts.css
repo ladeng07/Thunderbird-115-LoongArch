@@ -1,0 +1,203 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+/* large parts copied from the addon manager */
+
+#accountManager {
+  padding: 0;
+  margin: 0;
+}
+
+#accountsNotificationBox {
+  margin: 0;
+  appearance: none;
+}
+
+#noAccountScreen {
+  color: FieldText;
+  background-color: Field;
+  overflow: auto;
+  border-block: 1px solid var(--splitter-color);
+}
+
+:root[lwt-tree] #noAccountScreen {
+  color: var(--sidebar-text-color);
+  background-color: var(--sidebar-background-color);
+}
+
+#noAccountBox {
+  max-width: 30em;
+  background: url("chrome://global/skin/icons/info.svg") left 5px no-repeat;
+  background-size: 2.5em;
+  -moz-context-properties: fill;
+  fill: currentColor;
+  margin-inline: 1.5em;
+  padding-inline: 3.5em;
+}
+
+#noAccountInnerBox {
+  opacity: 0.9;
+}
+
+#noAccountTitle {
+  font-size: 2em;
+  font-weight: lighter;
+  line-height: 1.2;
+  margin: 0 0 .3em;
+  padding-bottom: .2em;
+  border-bottom: 1px solid var(--splitter-color);
+}
+
+#noAccountDesc {
+  font-size: 110%;
+  margin-inline: 0;
+}
+
+#accountlist {
+  margin: 0;
+  appearance: none;
+  border-block: 1px solid var(--splitter-color);
+  border-inline-style: none;
+  text-shadow: none;
+}
+
+#bottombuttons {
+  padding: 4px;
+}
+
+/* List Items */
+richlistitem:not([selected="true"]) .account-buttons {
+  display: none;
+}
+
+richlistitem:not([state="connected"]) .connected,
+richlistitem:not([state="connecting"]) .connecting,
+richlistitem:not([state="disconnected"]) .disconnected,
+richlistitem:not([state="disconnecting"]) .disconnecting,
+richlistitem:not([error="true"]) .error,
+richlistitem:not([state="disconnected"]) .error,
+richlistitem[error="true"] .disconnected,
+richlistitem[selected="true"]:not([state="disconnected"]) .connectButton,
+richlistitem[selected="true"][state="disconnected"] .disconnectButton,
+richlistitem[selected="true"][state="disconnecting"] .disconnectButton,
+richlistitem:not([selected="true"]) .addException,
+richlistitem:not([selected="true"]) .autoSignOn,
+richlistitem:not([reconnectPending="true"]) description[anonid="reconnect"]
+{
+  display: none;
+}
+
+richlistitem[state="disconnected"] .accountIcon {
+  opacity: 0.3;
+}
+richlistitem[state="connecting"] .accountIcon,
+richlistitem[state="disconnected"][selected="true"] .accountIcon {
+  opacity: 0.7;
+}
+richlistitem[state="disconnected"]:not([selected="true"]) {
+  color: #999;
+}
+
+richlistitem[error="true"] .accountName {
+  color: rgb(150, 0, 0);
+}
+
+/* When the error message was too long, the buttons were too small */
+richlistitem .account-buttons button {
+  min-height: 1.8em;
+  color: var(--lwt-text-color) !important;
+}
+
+richlistitem .account-buttons {
+  margin-top: 2px;
+}
+
+richlistitem[dragover="down"] {
+  border-bottom: 3px solid var(--selected-item-color);
+}
+
+richlistitem[dragover="up"] {
+  border-top: 3px solid var(--selected-item-color);
+}
+
+:root:not([lwt-tree]) #bottombuttons button,
+:root:not([lwt-tree]) richlistbox > richlistitem button {
+  border: 1px solid var(--toolbarbutton-hover-bordercolor);
+}
+
+:root:not([lwt-tree]) #bottombuttons button:hover,
+:root:not([lwt-tree]) richlistbox > richlistitem button:hover {
+  border: 1px solid var(--toolbarbutton-active-bordercolor);
+}
+
+:root:not([lwt-tree]) #bottombuttons button:hover:active,
+:root:not([lwt-tree]) richlistbox > richlistitem button:hover:active {
+  box-shadow: var(--toolbarbutton-active-boxshadow);
+}
+
+.error {
+  color: #c80000;
+  margin-inline-start: 6px;
+}
+
+.accountName {
+  font-weight: bold;
+}
+
+.accountIcon {
+  width: 32px;
+  height: 32px;
+}
+
+#displayNameAndstatusMessageGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4px;
+  flex: 1 1 auto;
+}
+
+#displayNameAndstatusMessageGrid > * {
+  margin: 0;
+}
+
+#displayNameAndstatusMessageGrid > hr {
+  height: 0;
+  border-block-start: 1px solid hsla(0, 0%, 50%, 0.5);
+  border-block-end: none;
+  border-inline: none;
+}
+
+#displayName[usingDefault]:not([editing]) {
+  color: #999;
+}
+
+/* Add styling same as #statusMessageLabel in chat.css */
+#displayName,
+#statusMessageLabel:not([statusType="offline"]) {
+  cursor: text;
+}
+
+#userIcon {
+  border-color: hsla(0, 0%, 50%, 0.3);
+}
+
+#userIcon:hover {
+  border-color: hsla(0, 0%, 50%, 0.5);
+  background-color: hsla(0, 0%, 50%, 0.3);
+  opacity: .4;
+}
+
+#statusImageStack > #statusTypeIcon {
+  /* Need min-width since #statusTypeIcon overlaps with rule in chat.css. */
+  min-width: 16px;
+  padding-inline: 0;
+  appearance: none;
+  background: transparent;
+  box-shadow: none;
+  border: none;
+}
+
+#statusTypeIcon dropmarker {
+  display: none;
+}

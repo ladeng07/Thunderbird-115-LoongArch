@@ -1,0 +1,56 @@
+{
+  "langpack_id": "cak",
+  "manifest_version": 2,
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "langpack-cak@thunderbird.mozilla.org",
+      "strict_min_version": "115.0",
+      "strict_max_version": "115.*"
+    }
+  },
+  "name": "Language: Kaqchikel",
+  "description": "Thunderbird Language Pack for Kaqchikel (cak)",
+  "version": "115.3.20230928.194049",
+  "languages": {
+    "cak": {
+      "version": "20230928204334",
+      "chrome_resources": {
+        "alerts": "chrome/cak/locale/cak/alerts/",
+        "autoconfig": "chrome/cak/locale/cak/autoconfig/",
+        "branding": "chrome/cak/locale/branding/",
+        "calendar": "chrome/cak/locale/cak/calendar/",
+        "chat": "chrome/cak/locale/cak/chat/",
+        "communicator": "chrome/cak/locale/cak/communicator/",
+        "devtools": "chrome/cak/locale/cak/devtools/client/",
+        "devtools-shared": "chrome/cak/locale/cak/devtools/shared/",
+        "global": "chrome/cak/locale/cak/global/",
+        "global-platform": {
+          "macosx": "chrome/cak/locale/cak/global-platform/mac/",
+          "linux": "chrome/cak/locale/cak/global-platform/unix/",
+          "android": "chrome/cak/locale/cak/global-platform/unix/",
+          "win": "chrome/cak/locale/cak/global-platform/win/"
+        },
+        "lightning": "chrome/cak/locale/cak/lightning/",
+        "messenger": "chrome/cak/locale/cak/messenger/",
+        "messenger-mapi": "chrome/cak/locale/cak/messenger-mapi/",
+        "messenger-newsblog": "chrome/cak/locale/cak/messenger-newsblog/",
+        "messenger-region": "chrome/cak/locale/cak/messenger-region/",
+        "messenger-smime": "chrome/cak/locale/cak/messenger-smime/",
+        "mozapps": "chrome/cak/locale/cak/mozapps/",
+        "mozldap": "chrome/cak/locale/cak/mozldap/",
+        "necko": "chrome/cak/locale/cak/necko/",
+        "passwordmgr": "chrome/cak/locale/cak/passwordmgr/",
+        "pdf.js": "chrome/cak/locale/pdfviewer/",
+        "pipnss": "chrome/cak/locale/cak/pipnss/",
+        "pippki": "chrome/cak/locale/cak/pippki/",
+        "places": "chrome/cak/locale/cak/places/"
+      }
+    }
+  },
+  "sources": {
+    "browser": {
+      "base_path": "browser/"
+    }
+  },
+  "author": "mozilla.org (contributors: Mozilla Kaq&#233;chikel &#40;Responsable: Juan Sián&#41;)"
+}

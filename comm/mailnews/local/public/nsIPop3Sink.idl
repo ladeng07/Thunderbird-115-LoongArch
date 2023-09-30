@@ -1,0 +1,42 @@
+/* -*- Mode: C++; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- */
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+#include "nsISupports.idl"
+#include "nsIPop3IncomingServer.idl"
+#include "nsIMsgFolder.idl"
+
+interface nsIURI;
+
+[scriptable, uuid(ceabfc6b-f139-4c25-890f-efb7c3069d40)]
+interface nsIPop3Sink : nsISupports {
+
+  attribute boolean buildMessageUri;
+  attribute AUTF8String messageUri;
+  attribute AUTF8String baseMessageUri;
+
+  /// message uri for header-only message version
+  attribute AUTF8String origMessageUri;
+
+  boolean beginMailDelivery(in boolean uidlDownload, in nsIMsgWindow msgWindow);
+  void endMailDelivery(in nsIPop3Protocol protocol);
+  void abortMailDelivery(in nsIPop3Protocol protocol);
+
+  void incorporateBegin(in string uidlString, in unsigned long flags);
+  void incorporateWrite(in string block, in long length);
+  void incorporateComplete(in nsIMsgWindow aMsgWindow, in int32_t aSize);
+  void incorporateAbort(in boolean uidlDownload);
+
+  /**
+   * Tell the pop3sink how many messages we're going to download.
+   *
+   * @param aNumMessages how many messages we're going to download.
+   */
+  void setMsgsToDownload(in unsigned long aNumMessages);
+
+  void setBiffStateAndUpdateFE(in unsigned long biffState, in long numNewMessages, in boolean notify);
+
+  attribute nsIPop3IncomingServer popServer;
+  attribute nsIMsgFolder folder;
+};

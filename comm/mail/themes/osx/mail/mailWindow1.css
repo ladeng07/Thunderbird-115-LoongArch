@@ -1,0 +1,76 @@
+/*
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+*/
+
+/* ===== mailWindow1.css ================================================
+  == Styles for the main Mail window in the default layout scheme.
+  ======================================================================= */
+
+@import url("chrome://messenger/skin/messenger.css");
+@import url("chrome://messenger/skin/primaryToolbar.css");
+@import url("chrome://messenger/skin/folderPane.css");
+@import url("chrome://messenger/skin/messageIcons.css");
+@import url("chrome://messenger/skin/shared/mailWindow1.css");
+
+:root:not([lwt-tree]) #folderTree {
+  background-color: -moz-OddTreeRow;
+}
+
+@media (prefers-contrast) {
+  :root:not([lwt-tree]) #folderTree {
+    background-color: Field;
+  }
+}
+
+#folderTree treechildren::-moz-tree-indentation {
+ background-color: black !important;
+}
+
+#folderTree treechildren::-moz-tree-row {
+  padding-inline-start: 2px !important;
+  padding-bottom: 2px;
+  background: transparent;
+}
+
+#folderTree treechildren::-moz-tree-row(hover) {
+  background-color: hsla(0, 0%, 50%, 0.15);
+}
+
+#folderTree treechildren::-moz-tree-row(selected) {
+  color: -moz-cellhighlighttext;
+  background-color: -moz-cellhighlight;
+}
+
+#folderTree treechildren::-moz-tree-row(selected, focus) {
+  background-color: var(--selected-item-color);
+}
+
+#folderTree treechildren::-moz-tree-cell-text {
+  font-family: -apple-system, sans-serif;
+  font-weight: 400;
+}
+
+/* ::::: thread decoration ::::: */
+
+/* ::::: group rows ::::: */
+treechildren::-moz-tree-row(dummy) {
+  padding-inline-start: 0;
+}
+
+.telemetry-text-link {
+  color: #fff;
+}
+
+/* Global notification popup */
+
+#notification-popup {
+  appearance: none;
+  background: transparent;
+  margin-top: 4px;
+}
+
+#notification-popup::part(content) {
+  margin: 1px;
+}

@@ -1,0 +1,290 @@
+[
+  {
+    "namespace": "spaces",
+    "types": [
+      {
+        "id": "SpaceButtonProperties",
+        "type": "object",
+        "properties": {
+          "badgeBackgroundColor": {
+            "choices": [
+              {
+                "type": "string"
+              },
+              {
+                "$ref": "ColorArray"
+              }
+            ],
+            "optional": true,
+            "description": "Sets the background color of the badge. Can be specified as an array of four integers in the range [0,255] that make up the RGBA color of the badge. For example, opaque red is <value>[255, 0, 0, 255]</value>. Can also be a string with an HTML color name (<value>red</value>) or a HEX color value (<value>#FF0000</value> or <value>#F00</value>). Reset when set to an empty string."
+          },
+          "badgeText": {
+            "type": "string",
+            "optional": true,
+            "description": "Sets the badge text for the button in the spaces toolbar. The badge is displayed on top of the icon. Any number of characters can be set, but only about four can fit in the space. Removed when set to an empty string."
+          },
+          "defaultIcons": {
+            "choices": [
+              {
+                "type": "string"
+              },
+              {
+                "$ref": "manifest.IconPath"
+              }
+            ],
+            "optional": true,
+            "description": "The paths to one or more icons for the button in the spaces toolbar. Defaults to the extension icon, if set to an empty string."
+          },
+          "themeIcons": {
+            "type": "array",
+            "optional": true,
+            "items": {
+              "$ref": "manifest.ThemeIcons"
+            },
+            "description": "Specifies dark and light icons for the button in the spaces toolbar to be used with themes: The ``light`` icons will be used on dark backgrounds and vice versa. At least the set for <em>16px</em> icons should be specified. The set for <em>32px</em> icons will be used on screens with a very high pixel density, if specified."
+          },
+          "title": {
+            "type": "string",
+            "optional": true,
+            "description": "The title for the button in the spaces toolbar, used in the tooltip of the button and as the displayed name in the overflow menu. Defaults to the name of the extension, if set to an empty string."
+          }
+        }
+      },
+      {
+        "id": "ColorArray",
+        "description": "An array of four integers in the range [0,255] that make up the RGBA color. For example, opaque red is <value>[255, 0, 0, 255]</value>.",
+        "type": "array",
+        "items": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        },
+        "minItems": 4,
+        "maxItems": 4
+      },
+      {
+        "id": "Space",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "The id of the space.",
+            "minimum": 1
+          },
+          "name": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9_]+$",
+            "description": "The name of the space. Names are unique for a single extension, but different extensions may use the same name."
+          },
+          "isBuiltIn": {
+            "type": "boolean",
+            "description": "Whether this space is one of the default Thunderbird spaces, or an extension space."
+          },
+          "isSelfOwned": {
+            "type": "boolean",
+            "description": "Whether this space was created by this extension."
+          },
+          "extensionId": {
+            "type": "string",
+            "optional": true,
+            "description": "The id of the extension which owns the space. The <permission>management</permission> permission is required to include this property."
+          }
+        }
+      }
+    ],
+    "functions": [
+      {
+        "name": "create",
+        "type": "function",
+        "description": "Creates a new space and adds its button to the spaces toolbar.",
+        "async": "callback",
+        "parameters": [
+          {
+            "name": "name",
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9_]+$",
+            "description": "The name to assign to this space. May only contain alphanumeric characters and underscores. Must be unique for this extension."
+          },
+          {
+            "name": "defaultUrl",
+            "type": "string",
+            "description": "The default space url, loaded into a tab when the button in the spaces toolbar is clicked. Supported are <value>https://</value> and <value>http://</value> links, as well as links to WebExtension pages."
+          },
+          {
+            "name": "buttonProperties",
+            "description": "Properties of the button for the new space.",
+            "$ref": "spaces.SpaceButtonProperties",
+            "optional": true,
+            "default": {}
+          },
+          {
+            "type": "function",
+            "name": "callback",
+            "optional": true,
+            "parameters": [
+              {
+                "name": "space",
+                "$ref": "spaces.Space"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "get",
+        "type": "function",
+        "description": "Retrieves details about the specified space.",
+        "async": "callback",
+        "parameters": [
+          {
+            "name": "spaceId",
+            "type": "integer",
+            "description": "The id of the space.",
+            "minimum": 1
+          },
+          {
+            "type": "function",
+            "name": "callback",
+            "optional": true,
+            "parameters": [
+              {
+                "name": "space",
+                "$ref": "spaces.Space"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "query",
+        "type": "function",
+        "description": "Gets all spaces that have the specified properties, or all spaces if no properties are specified.",
+        "async": "callback",
+        "parameters": [
+          {
+            "type": "object",
+            "name": "queryInfo",
+            "optional": true,
+            "default": {},
+            "properties": {
+              "id": {
+                "type": "integer",
+                "description": "The id of the space.",
+                "optional": true,
+                "minimum": 1
+              },
+              "name": {
+                "type": "string",
+                "pattern": "^[a-zA-Z0-9_]+$",
+                "optional": true,
+                "description": "The name of the spaces (names are not unique)."
+              },
+              "isBuiltIn": {
+                "type": "boolean",
+                "optional": true,
+                "description": "Spaces should be default Thunderbird spaces."
+              },
+              "isSelfOwned": {
+                "type": "boolean",
+                "optional": true,
+                "description": "Spaces should have been created by this extension."
+              },
+              "extensionId": {
+                "type": "string",
+                "optional": true,
+                "description": "Id of the extension which should own the spaces. The <permission>management</permission> permission is required to be able to match against extension ids."
+              }
+            }
+          },
+          {
+            "type": "function",
+            "name": "callback",
+            "parameters": [
+              {
+                "name": "result",
+                "type": "array",
+                "items": {
+                  "$ref": "spaces.Space"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "remove",
+        "type": "function",
+        "description": "Removes the specified space, closes all its tabs and removes its button from the spaces toolbar. Throws an exception if the requested space does not exist or was not created by this extension.",
+        "async": true,
+        "parameters": [
+          {
+            "name": "spaceId",
+            "type": "integer",
+            "description": "The id of the space.",
+            "minimum": 1
+          }
+        ]
+      },
+      {
+        "name": "update",
+        "type": "function",
+        "description": "Updates the specified space. Throws an exception if the requested space does not exist or was not created by this extension.",
+        "async": true,
+        "parameters": [
+          {
+            "name": "spaceId",
+            "type": "integer",
+            "description": "The id of the space.",
+            "minimum": 1
+          },
+          {
+            "name": "defaultUrl",
+            "type": "string",
+            "description": "The default space url, loaded into a tab when the button in the spaces toolbar is clicked. Supported are <value>https://</value> and <value>http://</value> links, as well as links to WebExtension pages.",
+            "optional": true
+          },
+          {
+            "name": "buttonProperties",
+            "description": "Only specified button properties will be updated.",
+            "$ref": "spaces.SpaceButtonProperties",
+            "optional": true
+          }
+        ]
+      },
+      {
+        "name": "open",
+        "type": "function",
+        "description": "Opens or switches to the specified space. Throws an exception if the requested space does not exist or was not created by this extension.",
+        "async": "callback",
+        "parameters": [
+          {
+            "name": "spaceId",
+            "type": "integer",
+            "description": "The id of the space.",
+            "minimum": 1
+          },
+          {
+            "name": "windowId",
+            "type": "integer",
+            "minimum": -2,
+            "optional": true,
+            "description": "The id of the normal window, where the space should be opened. Defaults to the most recent normal window."
+          },
+          {
+            "type": "function",
+            "name": "callback",
+            "optional": true,
+            "parameters": [
+              {
+                "name": "tab",
+                "$ref": "tabs.Tab",
+                "optional": true,
+                "description": "Details about the opened or activated space tab."
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

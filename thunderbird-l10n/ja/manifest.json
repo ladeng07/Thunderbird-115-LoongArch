@@ -1,0 +1,56 @@
+{
+  "langpack_id": "ja",
+  "manifest_version": 2,
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "langpack-ja@thunderbird.mozilla.org",
+      "strict_min_version": "115.0",
+      "strict_max_version": "115.*"
+    }
+  },
+  "name": "Language: 日本語 (Japanese)",
+  "description": "Thunderbird Language Pack for 日本語 (ja) – Japanese",
+  "version": "115.3.20230928.194049",
+  "languages": {
+    "ja": {
+      "version": "20230928204758",
+      "chrome_resources": {
+        "alerts": "chrome/ja/locale/ja/alerts/",
+        "autoconfig": "chrome/ja/locale/ja/autoconfig/",
+        "branding": "chrome/ja/locale/branding/",
+        "calendar": "chrome/ja/locale/ja/calendar/",
+        "chat": "chrome/ja/locale/ja/chat/",
+        "communicator": "chrome/ja/locale/ja/communicator/",
+        "devtools": "chrome/ja/locale/ja/devtools/client/",
+        "devtools-shared": "chrome/ja/locale/ja/devtools/shared/",
+        "global": "chrome/ja/locale/ja/global/",
+        "global-platform": {
+          "macosx": "chrome/ja/locale/ja/global-platform/mac/",
+          "linux": "chrome/ja/locale/ja/global-platform/unix/",
+          "android": "chrome/ja/locale/ja/global-platform/unix/",
+          "win": "chrome/ja/locale/ja/global-platform/win/"
+        },
+        "lightning": "chrome/ja/locale/ja/lightning/",
+        "messenger": "chrome/ja/locale/ja/messenger/",
+        "messenger-mapi": "chrome/ja/locale/ja/messenger-mapi/",
+        "messenger-newsblog": "chrome/ja/locale/ja/messenger-newsblog/",
+        "messenger-region": "chrome/ja/locale/ja/messenger-region/",
+        "messenger-smime": "chrome/ja/locale/ja/messenger-smime/",
+        "mozapps": "chrome/ja/locale/ja/mozapps/",
+        "mozldap": "chrome/ja/locale/ja/mozldap/",
+        "necko": "chrome/ja/locale/ja/necko/",
+        "passwordmgr": "chrome/ja/locale/ja/passwordmgr/",
+        "pdf.js": "chrome/ja/locale/pdfviewer/",
+        "pipnss": "chrome/ja/locale/ja/pipnss/",
+        "pippki": "chrome/ja/locale/ja/pippki/",
+        "places": "chrome/ja/locale/ja/places/"
+      }
+    }
+  },
+  "sources": {
+    "browser": {
+      "base_path": "browser/"
+    }
+  },
+  "author": "Mozilla Japanese L10N Community (contributors: Makoto Arai, Tomoya Asai, Hideyuki EMURA, Shaw Hosaka, Joji Ikeda, Masahiko Imanaka, Kosuke Kaizuka, Hidehiro Kozawa, Teiji Matsuba, Shigeki Narisawa, Takeshi Nishimura, Atsushi Sakai, Hiroshi Sekiya, Youhei Tooyama, Satoru Yamaguchi)"
+}

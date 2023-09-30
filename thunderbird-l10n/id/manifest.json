@@ -1,0 +1,56 @@
+{
+  "langpack_id": "id",
+  "manifest_version": 2,
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "langpack-id@thunderbird.mozilla.org",
+      "strict_min_version": "115.0",
+      "strict_max_version": "115.*"
+    }
+  },
+  "name": "Language: Indonesia (Indonesian)",
+  "description": "Thunderbird Language Pack for Indonesia (id) – Indonesian",
+  "version": "115.3.20230928.194049",
+  "languages": {
+    "id": {
+      "version": "20230928204331",
+      "chrome_resources": {
+        "alerts": "chrome/id/locale/id/alerts/",
+        "autoconfig": "chrome/id/locale/id/autoconfig/",
+        "branding": "chrome/id/locale/branding/",
+        "calendar": "chrome/id/locale/id/calendar/",
+        "chat": "chrome/id/locale/id/chat/",
+        "communicator": "chrome/id/locale/id/communicator/",
+        "devtools": "chrome/id/locale/id/devtools/client/",
+        "devtools-shared": "chrome/id/locale/id/devtools/shared/",
+        "global": "chrome/id/locale/id/global/",
+        "global-platform": {
+          "macosx": "chrome/id/locale/id/global-platform/mac/",
+          "linux": "chrome/id/locale/id/global-platform/unix/",
+          "android": "chrome/id/locale/id/global-platform/unix/",
+          "win": "chrome/id/locale/id/global-platform/win/"
+        },
+        "lightning": "chrome/id/locale/id/lightning/",
+        "messenger": "chrome/id/locale/id/messenger/",
+        "messenger-mapi": "chrome/id/locale/id/messenger-mapi/",
+        "messenger-newsblog": "chrome/id/locale/id/messenger-newsblog/",
+        "messenger-region": "chrome/id/locale/id/messenger-region/",
+        "messenger-smime": "chrome/id/locale/id/messenger-smime/",
+        "mozapps": "chrome/id/locale/id/mozapps/",
+        "mozldap": "chrome/id/locale/id/mozldap/",
+        "necko": "chrome/id/locale/id/necko/",
+        "passwordmgr": "chrome/id/locale/id/passwordmgr/",
+        "pdf.js": "chrome/id/locale/pdfviewer/",
+        "pipnss": "chrome/id/locale/id/pipnss/",
+        "pippki": "chrome/id/locale/id/pippki/",
+        "places": "chrome/id/locale/id/places/"
+      }
+    }
+  },
+  "sources": {
+    "browser": {
+      "base_path": "browser/"
+    }
+  },
+  "author": "id-Mozilla - Komunitas Mozilla Indonesia (contributors: Dody Suria Wijaya, Milda Irhamni, Romi Hardiyanto)"
+}

@@ -1,0 +1,32 @@
+---
+avoid-blacklist-and-whitelist:
+    description: "Use words like 'skip', 'select', 'allow' or 'deny' instead"
+    level: error
+    include: ['comm/']
+    exclude:
+        - comm/tools/lint/rejected-words.yml
+    type: external
+    wrappedType: regex
+    payload: commlint:lint_wrapper
+    wraps: (black|white)[-_]?list
+    ignore-case: true
+    # same as codespell
+    extensions:
+        - c
+        - configure
+        - cpp
+        - ftl
+        - h
+        - html
+        - idl
+        - js
+        - jsm
+        - jxs
+        - md
+        - mjs
+        - properties
+        - py
+        - rst
+        - xhtml
+        - xml
+        - yml

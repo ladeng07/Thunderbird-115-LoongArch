@@ -1,0 +1,56 @@
+{
+  "langpack_id": "fr",
+  "manifest_version": 2,
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "langpack-fr@thunderbird.mozilla.org",
+      "strict_min_version": "115.0",
+      "strict_max_version": "115.*"
+    }
+  },
+  "name": "Language: Français (French)",
+  "description": "Thunderbird Language Pack for Français (fr) – French",
+  "version": "115.3.20230928.194049",
+  "languages": {
+    "fr": {
+      "version": "20230928204425",
+      "chrome_resources": {
+        "alerts": "chrome/fr/locale/fr/alerts/",
+        "autoconfig": "chrome/fr/locale/fr/autoconfig/",
+        "branding": "chrome/fr/locale/branding/",
+        "calendar": "chrome/fr/locale/fr/calendar/",
+        "chat": "chrome/fr/locale/fr/chat/",
+        "communicator": "chrome/fr/locale/fr/communicator/",
+        "devtools": "chrome/fr/locale/fr/devtools/client/",
+        "devtools-shared": "chrome/fr/locale/fr/devtools/shared/",
+        "global": "chrome/fr/locale/fr/global/",
+        "global-platform": {
+          "macosx": "chrome/fr/locale/fr/global-platform/mac/",
+          "linux": "chrome/fr/locale/fr/global-platform/unix/",
+          "android": "chrome/fr/locale/fr/global-platform/unix/",
+          "win": "chrome/fr/locale/fr/global-platform/win/"
+        },
+        "lightning": "chrome/fr/locale/fr/lightning/",
+        "messenger": "chrome/fr/locale/fr/messenger/",
+        "messenger-mapi": "chrome/fr/locale/fr/messenger-mapi/",
+        "messenger-newsblog": "chrome/fr/locale/fr/messenger-newsblog/",
+        "messenger-region": "chrome/fr/locale/fr/messenger-region/",
+        "messenger-smime": "chrome/fr/locale/fr/messenger-smime/",
+        "mozapps": "chrome/fr/locale/fr/mozapps/",
+        "mozldap": "chrome/fr/locale/fr/mozldap/",
+        "necko": "chrome/fr/locale/fr/necko/",
+        "passwordmgr": "chrome/fr/locale/fr/passwordmgr/",
+        "pdf.js": "chrome/fr/locale/pdfviewer/",
+        "pipnss": "chrome/fr/locale/fr/pipnss/",
+        "pippki": "chrome/fr/locale/fr/pippki/",
+        "places": "chrome/fr/locale/fr/places/"
+      }
+    }
+  },
+  "sources": {
+    "browser": {
+      "base_path": "browser/"
+    }
+  },
+  "author": "mozfr.org (contributors: L’équipe francophone)"
+}

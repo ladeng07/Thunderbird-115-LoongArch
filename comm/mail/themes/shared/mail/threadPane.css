@@ -1,0 +1,791 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, you can obtain one at http://mozilla.org/MPL/2.0/. */
+
+:root {
+  --thread-pane-container-gap: 3px;
+  --thread-pane-header-padding: 3px 6px;
+}
+
+:root[uidensity="compact"] {
+  --thread-pane-container-gap: 0;
+}
+
+:root[uidensity="touch"] {
+  --thread-pane-header-padding: 6px 9px;
+}
+
+@media not (prefers-contrast) {
+  :root {
+    --thread-pane-flag-fill: var(--color-orange-30);
+    --thread-pane-flag-stroke: var(--color-orange-60);
+    --thread-pane-unread-fill: var(--color-green-60);
+    --thread-pane-unread-stroke: var(--color-green-60);
+    --thread-pane-spam-fill: var(--color-red-50);
+    --thread-pane-spam-stroke: var(--color-red-70);
+    --thread-pane-unread-color: currentColor;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --thread-pane-flag-fill: var(--color-orange-40);
+      --thread-pane-flag-stroke: var(--color-orange-50);
+      --thread-pane-unread-fill: var(--color-green-50);
+      --thread-pane-unread-stroke: var(--color-green-50);
+      --thread-pane-spam-fill: var(--color-red-40);
+      --thread-pane-spam-stroke: var(--color-red-50);
+      --thread-pane-unread-color: var(--color-white);
+    }
+  }
+}
+
+@media (prefers-contrast) {
+  :root {
+    --thread-pane-unread-color: currentColor;
+  }
+}
+
+#threadPane > tree-view {
+  -moz-context-properties: fill;
+  fill: currentColor;
+  background-color: var(--tree-view-bg);
+  color: var(--tree-view-color);
+}
+
+#threadTree tbody [data-properties~="dummy"]:not(:hover, .selected) {
+  background-color: var(--layout-background-2);
+}
+
+#threadTree tbody [data-properties~="dummy"] .subject-line {
+  margin-inline-start: 6px;
+}
+
+#threadTree tbody [data-properties~="dummy"] :is(button:not(.twisty), .subject-line > img) {
+  display: none;
+}
+
+#threadTree tbody [data-properties~="unread"] {
+  font-weight: bold;
+}
+
+#threadTree tbody [data-properties~="imapdeleted"] :is(td, .subject-line) {
+  text-decoration: line-through;
+}
+
+.tree-button-delete img {
+  content: var(--icon-trash-sm);
+}
+
+.tree-button-restore img {
+  content: var(--icon-restore);
+}
+
+#threadTree tbody button.tree-button-restore {
+  display: none;
+}
+
+#threadTree tbody [data-properties~="imapdeleted"] .tree-button-delete {
+  display: none;
+}
+
+#threadTree tbody [data-properties~="imapdeleted"] .tree-button-restore {
+  display: block;
+}
+
+#threadTree tbody .children.collapsed[data-properties~="hasUnread"][data-properties~="read"]
+  :where(td, .subject-line) {
+  text-decoration: underline;
+}
+
+#threadTree thead[is="tree-view-table-header"] th::before {
+  display: none;
+}
+
+#threadTree tbody button {
+  min-height: auto;
+  min-width: auto;
+  padding: 0;
+  margin: 0;
+  background-color: transparent;
+  border: none;
+}
+
+#sizeCol,
+#unreadCol,
+#totalCol {
+  min-width: 4ch;
+}
+
+#sizeColButton,
+.sizecol-column,
+#unreadColButton,
+.unreadcol-column,
+#totalColButton,
+.totalcol-column {
+  text-align: end;
+}
+
+/* Add on the end aligned columns a padding when they are at the end of the row. */
+.sizecol-column[colspan="2"],
+.unreadcol-column[colspan="2"],
+.totalcol-column[colspan="2"] {
+  /* 25px is the width of the column picker. */
+  padding-inline-end: 25px;
+}
+
+@media (-moz-overlay-scrollbars) {
+  .sizecol-column[colspan="2"],
+  .unreadcol-column[colspan="2"],
+  .totalcol-column[colspan="2"] {
+    padding-inline-end: calc(25px + env(scrollbar-inline-size));
+  }
+}
+
+[is="tree-view-table-body"]:focus > .selected button,
+[is="tree-view-table-body"]:focus-within > .selected button,
+[is="tree-view-table-body"] > .selected:focus-within button {
+  color: currentColor;
+}
+
+#threadTree button:not(.twisty, .button-column-picker),
+#threadTree button:not(.button-column-picker) img {
+  display: block;
+  margin-inline: auto;
+}
+
+#threadTree[rows="thread-card"] button {
+  min-height: 16px;
+  min-width: 16px;
+  opacity: 0.7;
+}
+
+#threadTree[rows="thread-card"] button:hover {
+  opacity: 1;
+  color: currentColor;
+}
+
+tr[data-properties~="untagged"][data-properties~="unread"] {
+  color: var(--thread-pane-unread-color);
+}
+
+tr[is="thread-row"],
+tr[is="thread-card"] .subject {
+  color: var(--tag-color, currentColor);
+}
+
+.tag-icon {
+  content: var(--icon-tag-sm);
+}
+
+tr[data-properties~="tagged"] .tag-icon {
+  display: unset;
+  color: var(--tag-color, currentColor);
+}
+
+[is="tree-view-table-body"]:focus > .selected[data-properties~="tagged"] :is(.tag-icon, .subject),
+[is="tree-view-table-body"]:focus-within > .selected[data-properties~="tagged"] :is(.tag-icon, .subject),
+[is="tree-view-table-body"] > .selected[data-properties~="tagged"]:focus-within :is(.tag-icon, .subject) {
+  color: currentColor;
+}
+
+[is="tree-view-table-body"]:focus tr[is="thread-row"].selected,
+[is="tree-view-table-body"]:focus-within tr[is="thread-row"].selected,
+[is="tree-view-table-body"] tr[is="thread-row"].selected:focus-within {
+  background-color: var(--tag-color, var(--listbox-focused-selected-bg));
+  color: var(--tag-contrast-color, var(--listbox-selected-color));
+}
+
+[is="tree-view-table-body"] tr.context-menu-target {
+  background-color: color-mix(in srgb, var(--treeitem-background-active) 10%, transparent);
+  outline: 1px var(--listbox-border-type) var(--listbox-focused-selected-bg);
+  outline-offset: -1px;
+}
+
+/* Thread column */
+
+.tree-view-header-thread img {
+  content: var(--icon-thread-sm);
+  pointer-events: none;
+}
+
+.tree-view-row-thread img {
+  content: var(--icon-thread-sm);
+  color: var(--tree-view-color);
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+#threadTree tbody [data-properties~="ignore"] .tree-view-row-thread img {
+  content: var(--icon-thread-ignored);
+}
+
+#threadTree tbody [data-properties~="ignoreSubthread"] .tree-view-row-thread img {
+  content: var(--icon-subthread-ignored);
+}
+
+#threadTree tbody [data-properties~="watch"] .tree-view-row-thread img {
+  content: var(--icon-eye);
+}
+
+[is="tree-view-table-body"]:focus > .selected .tree-view-row-thread img,
+[is="tree-view-table-body"]:focus-within > .selected .tree-view-row-thread img,
+[is="tree-view-table-body"] > .selected:focus-within .tree-view-row-thread img {
+  color: currentColor;
+}
+
+#threadTree tr:not(.children, [data-properties~="ignoreSubthread"]) .tree-view-row-thread > button {
+  display: none;
+}
+
+/* Starred column */
+
+#flaggedColButton img {
+  content: var(--icon-star-sm);
+}
+
+.tree-view-row-flag button {
+  color: var(--tree-view-color);
+  opacity: 0.8;
+}
+
+.tree-view-row-flag img {
+  content: var(--icon-star);
+  pointer-events: none;
+  fill: color-mix(in srgb, currentColor 10%, transparent);
+  stroke: color-mix(in srgb, currentColor 30%, transparent);
+}
+
+@media (prefers-color-scheme: dark) {
+  .tree-view-row-flag img {
+    stroke: color-mix(in srgb, currentColor 40%, transparent);
+  }
+}
+
+.button-star {
+  -moz-context-properties: fill, stroke;
+  background-image: var(--icon-star);
+  fill: color-mix(in srgb, currentColor 10%, transparent);
+  stroke: color-mix(in srgb, currentColor 30%, transparent);
+}
+
+[is="tree-view-table-body"]:focus > .selected:not([data-properties~="flagged"]) .button-star,
+[is="tree-view-table-body"]:focus-within > .selected:not([data-properties~="flagged"]) .button-star {
+  fill: color-mix(in srgb, currentColor 20%, transparent);
+  stroke: color-mix(in srgb, currentColor 70%, transparent);
+}
+
+tr[data-properties~="flagged"] .tree-view-row-flag > .tree-button-flag > img,
+tr[data-properties~="flagged"] .button-star {
+  fill: var(--thread-pane-flag-fill);
+  stroke: var(--thread-pane-flag-stroke);
+}
+
+.tree-view-row-flag button:hover {
+  opacity: 1;
+}
+
+/* Attachment column variations */
+
+#attachmentColButton img {
+  content: var(--icon-attachment-sm);
+}
+
+:is(.attachmentcol-column img, .attachment-icon) {
+  content: var(--icon-attachment-sm);
+  color: var(--tree-view-color);
+  margin-top: 1px;
+  opacity: 0.7;
+}
+
+[is="tree-view-table-body"]:focus >
+  .selected :is(.attachmentcol-column img, .attachment-icon),
+[is="tree-view-table-body"]:focus-within >
+  .selected :is(.attachmentcol-column img, .attachment-icon),
+[is="tree-view-table-body"] >
+  .selected:focus-within :is(.attachmentcol-column img, .attachment-icon) {
+  color: currentColor;
+}
+
+tr:not([data-properties~="attach"]) :is(.attachmentcol-column img, .attachment-icon) {
+  display: none;
+}
+
+/* Unread column variations */
+
+#unreadButtonColHeader img {
+  content: var(--icon-unread-sm);
+}
+
+.tree-view-row-unread button {
+  color: var(--tree-view-color);
+  opacity: 0.8;
+}
+
+.tree-view-row-unread img {
+  content: var(--icon-unread-dot);
+  pointer-events: none;
+  fill: color-mix(in srgb, currentColor 10%, transparent);
+  stroke: color-mix(in srgb, currentColor 30%, transparent);
+}
+
+tr[data-properties~="unread"] .tree-view-row-unread > .tree-button-unread > img {
+  fill: color-mix(in srgb, var(--thread-pane-unread-fill) 50%, transparent);
+  stroke: var(--thread-pane-unread-stroke);
+}
+
+[is="tree-view-table-body"]:focus > .selected > .tree-view-row-unread > .tree-button-unread > img,
+[is="tree-view-table-body"]:focus-within > .selected > .tree-view-row-unread > .tree-button-unread > img,
+[is="tree-view-table-body"] > .selected:focus-within > .tree-view-row-unread > .tree-button-unread > img {
+  fill: transparent;
+  stroke: currentColor;
+}
+
+[is="tree-view-table-body"]:focus > tr[data-properties~="unread"].selected >
+  .tree-view-row-unread > .tree-button-unread > img,
+[is="tree-view-table-body"]:focus-within > tr[data-properties~="unread"].selected >
+  .tree-view-row-unread > .tree-button-unread > img,
+[is="tree-view-table-body"] > tr[data-properties~="unread"].selected:focus-within >
+ .tree-view-row-unread > .tree-button-unread > img {
+  fill: currentColor;
+}
+
+tr[data-properties~="unread"].selected .tree-view-row-unread button {
+  opacity: 1;
+}
+
+.tree-view-row-unread button:hover {
+  opacity: 1;
+}
+
+/* Subject column variations */
+
+#subjectColButton {
+  /* TODO: make this density aware. */
+  padding-inline-start: 19px;
+  text-indent: 0;
+}
+
+.threaded #subjectColButton {
+  /* TODO: make this density aware. */
+  padding-inline-start: 41px;
+}
+
+tr[is="thread-row"] td > .thread-container {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  max-height: inherit;
+  box-sizing: border-box;
+}
+
+tr[is="thread-row"] .subject-line {
+  margin-inline-start: calc(16px * var(--thread-level));
+  pointer-events: none;
+  /* Line height px exception to avoid vertical cut off of characters. This
+     should follow and match the density variation height of the row. */
+  line-height: 22px;
+}
+
+[is="tree-view-table-body"][role="tree"] tr[is="thread-row"]:not(.children) .subject-line {
+  padding-inline-start: 22px;
+}
+
+tr[is="thread-row"] .subject-line img {
+  visibility: hidden;
+  width: 16px;
+  height: 16px;
+  vertical-align: sub;
+  margin-inline-end: 3px;
+}
+
+tr[is="thread-card"] .state {
+  display: none;
+}
+
+/* Icons variations for message state in subject column */
+
+tr[data-properties~="new"] .subject-line img {
+  visibility: initial;
+  content: var(--icon-notify);
+  fill: var(--color-yellow-40) !important; /* override the selected, focus rule */
+  stroke: var(--color-orange-50) !important; /* override the selected, focus rule */
+}
+
+tr[data-properties~="replied"] :is(.subject-line img, .replied) {
+  visibility: initial;
+  display: initial;
+  content: var(--icon-reply-col);
+  fill: var(--color-purple-50);
+}
+
+tr[data-properties~="redirected"] :is(.subject-line img, .redirected) {
+  visibility: initial;
+  display: initial;
+  content: var(--icon-redirect-col);
+  fill: var(--color-orange-50);
+}
+
+tr[data-properties~="forwarded"] :is(.subject-line img, .forwarded) {
+  visibility: initial;
+  display: initial;
+  content: var(--icon-forward-col);
+  fill: var(--color-blue-50);
+}
+
+tr[data-properties~="replied"][data-properties~="forwarded"] .subject-line img {
+  visibility: initial;
+  content: var(--icon-reply-forward-col);
+  fill: var(--color-blue-50);
+  stroke: var(--color-purple-50);
+}
+
+tr[data-properties~="replied"][data-properties~="redirected"] .subject-line img {
+  visibility: initial;
+  content: var(--icon-reply-redirect-col);
+  fill: var(--color-orange-50);
+  stroke: var(--color-purple-50);
+}
+
+tr[data-properties~="forwarded"][data-properties~="redirected"] .subject-line img {
+  visibility: initial;
+  content: var(--icon-forward-redirect-col);
+  fill: var(--color-blue-50);
+  stroke: var(--color-orange-50);
+}
+
+tr[data-properties~="replied"][data-properties~="forwarded"][data-properties~="redirected"]
+  .subject-line img {
+  visibility: initial;
+  content: var(--icon-reply-forward-redirect-col);
+  fill: var(--color-blue-50);
+  stroke: var(--color-purple-50);
+}
+
+[is="tree-view-table-body"]:focus > .selected :is(.subject-line img, .state),
+[is="tree-view-table-body"]:focus-within > .selected :is(.subject-line img, .state),
+[is="tree-view-table-body"] > .selected:focus-within :is(.subject-line img, .state) {
+  fill: currentColor !important;
+  stroke: currentColor !important;
+}
+
+tr:is([is="thread-row"], [is="thread-card"]) .twisty {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  color: var(--tree-view-color);
+}
+
+#threadTree tr[is="thread-card"] button.twisty {
+  width: 12px;
+  height: 13px;
+  min-width: 12px;
+  min-height: 13px;
+}
+
+tr:is([is="thread-row"], [is="thread-card"]):not(.children) .twisty {
+  display: none;
+}
+
+tr:is([is="thread-row"], [is="thread-card"]) .twisty-icon {
+  width: 12px;
+  height: 12px;
+  content: var(--icon-nav-down-sm);
+  margin: 1px;
+}
+
+tr:is([is="thread-row"], [is="thread-card"]).children.collapsed .twisty-icon {
+  transform: rotate(-90deg);
+}
+
+tr:is([is="thread-row"], [is="thread-card"]).children.collapsed:dir(rtl) .twisty-icon {
+  transform: rotate(90deg);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  tr:is([is="thread-row"], [is="thread-card"]) .twisty-icon {
+    transition: transform 200ms ease;
+  }
+}
+
+/* Spam column variations */
+
+#junkStatusCol img {
+  content: var(--icon-spam-sm);
+}
+
+:is(.tree-view-row-spam button, .button-spam) {
+  color: var(--tree-view-color);
+  opacity: 0.8;
+}
+
+.tree-view-row-spam img {
+  content: var(--icon-spam);
+  pointer-events: none;
+}
+
+.button-spam {
+  background-image: var(--icon-spam);
+  -moz-context-properties: fill, stroke;
+}
+
+#threadTree tr:is(:not([data-properties~="junk"]), [data-properties~="notjunk"]) .button-spam {
+  display: none;
+}
+
+:is(.tree-view-row-spam img, .button-spam) {
+  fill: color-mix(in srgb, currentColor 10%, transparent);
+  stroke: color-mix(in srgb, currentColor 30%, transparent);
+}
+
+@media (prefers-color-scheme: dark) {
+  :is(.tree-view-row-spam img, .button-spam) {
+    stroke: color-mix(in srgb, currentColor 40%, transparent);
+  }
+}
+
+tr[data-properties~="junk"] :is(.tree-view-row-spam > .tree-button-spam > img, .button-spam) {
+  fill: var(--thread-pane-spam-fill);
+  stroke: var(--thread-pane-spam-stroke);
+}
+
+:is(.tree-view-row-spam button, .button-spam):hover {
+  opacity: 1;
+}
+
+/* Vertical view variations */
+#threadTree tr[data-properties~="junk"] :is(.state, .attachment-icon, .button-star) {
+  display: none;
+}
+
+#threadTree tr[data-properties~="junk"] :is(.date, .subject) {
+  color: var(--color-red-60);
+  font-weight: 600;
+}
+
+@media (prefers-color-scheme: dark) {
+  #threadTree tr[data-properties~="junk"] :is(.date, .subject) {
+    color: var(--color-red-40);
+  }
+}
+
+#threadTree [is="tree-view-table-body"]:focus >
+  .selected[data-properties~="junk"] :is(.date, .subject),
+#threadTree [is="tree-view-table-body"]:focus-within >
+  .selected[data-properties~="junk"] :is(.date, .subject),
+#threadTree [is="tree-view-table-body"] >
+  .selected[data-properties~="junk"]:focus-within :is(.date, .subject) {
+  color: inherit;
+}
+
+/* Delete column variations */
+/* TODO: Handle delete button color variations for tagged messages */
+
+/* Correspondent column variations */
+
+#correspondentColButton,
+.correspondentcol-column {
+  text-indent: 18px;
+}
+
+.correspondentcol-column {
+  background-repeat: no-repeat;
+  background-position-x: 1px;
+  background-position-y: center;
+  padding-inline-start: var(--tree-header-cell-padding) !important;
+  -moz-context-properties: stroke, fill-opacity;
+  stroke: currentColor;
+  fill-opacity: 0.3;
+}
+
+.correspondentcol-column:dir(rtl) {
+  background-position-x: right 1px;
+}
+
+tr[data-properties~="outgoing"] .correspondentcol-column {
+  background-image: var(--icon-nav-forward);
+}
+
+tr[data-properties~="outgoing"] .correspondentcol-column:dir(rtl) {
+  background-image: var(--icon-nav-back);
+}
+
+tr[data-properties~="outgoing"].selected .correspondentcol-column {
+  fill-opacity: 0.6;
+}
+
+/* Vertical layout cards */
+
+#threadTree[rows="thread-card"] {
+  background-color: var(--layout-background-1);
+}
+
+tr[is="thread-card"] td {
+  padding: 0;
+}
+
+tr[is="thread-card"][data-properties~="unread"]:not(.selected, :hover) {
+  background-color: var(--tree-view-bg);
+}
+
+tr[is="thread-card"][data-properties~="new"] {
+  position: relative;
+  box-shadow: 0 6px 5px -5px rgba(0, 0, 0, 0.1);
+}
+
+.thread-card-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--thread-pane-container-gap);
+  height: 100%;
+  padding-inline: 12px;
+  box-sizing: border-box;
+}
+
+tr[is="thread-card"] + tr[is="thread-card"]:not(.context-menu-target) .thread-card-container::before {
+  display: block;
+  content: "";
+  position: absolute;
+  height: 1px;
+  background-color: var(--layout-background-3);
+  inset: 0;
+}
+
+@media (-moz-overlay-scrollbars) {
+  .thread-card-container {
+    padding-inline-end: env(scrollbar-inline-size);
+  }
+}
+
+tr[data-properties~="new"] .thread-card-container::after {
+  position: absolute;
+  content: var(--icon-new-indicator);
+  inset-inline-start: 3px;
+  inset-block-start: 3px;
+}
+
+tr[data-properties~="thread-children"] .thread-card-container {
+  margin-inline-start: 24px;
+  border-bottom: none;
+}
+
+tr[data-properties~="thread-children"] + tr[data-properties~="thread-children"] .thread-card-container {
+  border-top: 1px solid var(--layout-background-3);
+}
+
+tr[data-properties~="thread-children"] + tr:not([data-properties~="thread-children"]) .thread-card-container {
+  border-top: 1px solid var(--layout-background-3);
+}
+
+.thread-card-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  padding: 0;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.thread-card-row > :is(.sender, .subject) {
+  flex: 1 1 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+[data-properties~="dummy"] > td > .thread-card-container > .thread-card-row:first-child {
+  display: none;
+}
+
+.thread-card-subject-container .sender {
+  font-weight: 400;
+}
+
+.thread-card-subject-container {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  flex: 1 1 0;
+}
+
+.thread-card-subject-container .subject {
+  font-size: 1.1rem;
+  font-weight: 500;
+  flex: 1 1 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+[data-properties~="dummy"] .thread-card-subject-container .subject {
+  padding-inline-start: 9px;
+}
+
+.thread-card-container .date {
+  flex: 0 0 auto;
+  white-space: nowrap;
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+
+#threadTree [data-properties~="unread"] .thread-card-container :is(.sender, .subject) {
+  font-weight: bold;
+}
+
+#threadTree [data-properties~="new"]:not(.selected) .thread-card-container :is(.subject, .date) {
+  color: var(--new-folder-color);
+}
+
+/* Header bar */
+
+.list-header-bar:not([hidden]) {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  color: var(--layout-color-1);
+  padding: var(--thread-pane-header-padding);
+  background-color: var(--layout-background-1);
+  border-bottom: 1px solid var(--layout-border-0);
+}
+
+:root[lwt-tree] .list-header-bar:-moz-lwtheme {
+  background-color: color-mix(in srgb, var(--toolbar-bgcolor) 50%, transparent);
+  color: var(--toolbar-color, inherit);
+}
+
+#threadPaneFolderCountContainer {
+  flex-wrap: wrap;
+}
+
+.list-header-bar-container-start,
+.list-header-bar-container-end {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.list-header-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-block: 0;
+}
+
+.thread-pane-count-info {
+  white-space: nowrap;
+  font-size: 1rem;
+  font-weight: normal;
+  padding-inline-start: 9px;
+}
+
+#threadPaneQuickFilterButton {
+  background-image: var(--icon-filter);
+  margin: 0;
+}
+
+#threadPaneDisplayButton {
+  background-image: var(--icon-display-options);
+  margin: 0;
+}

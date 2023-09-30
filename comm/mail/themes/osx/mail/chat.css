@@ -1,0 +1,117 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+@import url("chrome://messenger/skin/shared/chat.css");
+
+.convUnreadTargetedCount {
+  padding: 2px 7px;
+}
+
+.conv-counter[value^="-"] {
+  margin-bottom: 1px;
+  /* The 6px padding-end from .conv-counter is split into a 1px margin-end
+     (to avoid the border) and 5px padding-end (as regular padding). */
+  margin-inline-end: 1px;
+  padding-top: 1px;
+  padding-bottom: 0;
+  padding-inline-end: 5px;
+}
+
+.conv-nicklist > richlistitem > label {
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+.conv-nicklist-header {
+  appearance: auto;
+  -moz-default-appearance: treeheadercell;
+  margin-right: -1px;
+}
+
+.conv-nicklist-header-label {
+  margin-inline: 3px 2px !important;
+  margin-block: 1px 0 !important;
+}
+
+.conv-nicklist, #logTree {
+  appearance: none;
+  width: 250px;
+  border: 0;
+}
+
+#nicklist > richlistitem[inactive][selected] > label {
+  color: -moz-DialogText !important;
+}
+
+richlistitem[is="chat-group-richlistitem"] .twisty {
+  margin-inline-end: 3px;
+}
+
+#chatPanel:-moz-lwtheme {
+  color: -moz-DialogText;
+  text-shadow: none;
+}
+
+/* Adaptation from #folderTree */
+:root:not([lwt-tree]) #chatPanel {
+  background-color: -moz-OddTreeRow;
+}
+
+@media (prefers-contrast) {
+  :root:not([lwt-tree]) #chatPanel {
+    background-color: Field;
+  }
+}
+
+#contactlistbox {
+  background: transparent;
+  appearance: none;
+}
+
+.convUnreadCount,
+.contactDisplayName,
+.convDisplayName,
+.contactStatusText,
+.convStatusText {
+  margin-top: 3px;
+}
+
+#statusTypeIcon:-moz-locale-dir(ltr) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+#statusTypeIcon:-moz-locale-dir(rtl) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+#statusTypeIcon > .toolbarbutton-text {
+  display: none;
+}
+
+.statusMessageToolbarItem {
+  margin-inline-start: -3px;
+  margin-bottom: 2px;
+  padding-bottom: 3px;
+}
+
+/* Adaptation of #folderpane_splitter */
+#listSplitter,
+#contextSplitter {
+  min-width: 5px;
+}
+
+.conv-status-container {
+  border-bottom-color: #8B8B8B;
+}
+
+.startChatBubble > .button-box > .button-icon,
+.closeConversationButton > .button-box > .button-icon {
+  margin-inline-start: 0;
+}
+
+/* Set a background color to avoid lightweight theme backgrounds */
+#contextPane {
+  background-color: Field;
+}

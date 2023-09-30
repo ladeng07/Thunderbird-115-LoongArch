@@ -1,0 +1,349 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+@import url("chrome://messenger/skin/colors.css");
+@import url("chrome://messenger/skin/widgets.css");
+@import url("chrome://global/skin/in-content/common.css");
+@import url("chrome://messenger/skin/inContentDialog.css");
+@import url("chrome://messenger/skin/accountHubForms.css");
+
+dialog {
+  --hub-button-color: var(--color-gray-90);
+  --hub-button-background: var(--color-white);
+  --hub-account-button-background: transparent;
+  --hub-account-button-background-hover: var(--color-ink-10);
+  --hub-account-button-background-hover-active: var(--color-gray-10);
+  --hub-account-button-border-color: var(--color-gray-30);
+
+  --hub-input-height: 33px;
+  --hub-input-border-radius: 3px;
+}
+
+@media not (prefers-contrast) {
+  @media (prefers-color-scheme: dark) {
+    dialog {
+      --hub-button-color: var(--color-gray-05);
+      --hub-button-background: var(--color-gray-90);
+      --hub-account-button-background: var(--color-gray-70);
+      --hub-account-button-background-hover: var(--color-gray-80);
+      --hub-account-button-background-hover-active: var(--color-gray-90);
+      --hub-account-button-border-color: var(--color-gray-60);
+    }
+  }
+}
+
+@media (prefers-contrast) {
+  dialog {
+    --hub-button-color: currentColor;
+    --hub-button-background: transparent;
+    --hub-account-button-background: transparent;
+    --hub-account-button-background-hover: transparent;
+    --hub-account-button-background-hover-active: transparent;
+    --hub-account-button-border-color: AccentColor;
+  }
+}
+
+/* Dialog container */
+
+.account-hub-dialog {
+  display: grid;
+  min-width: 660px;
+  min-height: 360px;
+  max-width: 680px;
+  max-height: 70vh;
+}
+
+.account-hub-view:not([hidden]),
+.account-hub-form {
+  display: grid;
+  grid-template: "header" min-content
+                 "body" minmax(auto, 1fr)
+                 "footer" min-content;
+  gap: 21px;
+  text-align: center;
+}
+
+/* Typography */
+
+dialog h1 {
+  font-weight: 300;
+  font-size: 1.8rem;
+  line-height: 1em;
+  margin-block: 0;
+}
+
+dialog h1.sub-view-title {
+  font-size: 1.7rem;
+  font-weight: 400;
+  margin-block-start: 9px;
+}
+
+/* Header */
+
+.start-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.start-header h1 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+#closeButton:not([hidden]) {
+  min-width: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  background-color: transparent;
+  --in-content-button-border-color: transparent;
+}
+
+#closeButton:hover {
+  background-color: var(--in-content-button-background);
+}
+
+#closeButton:hover:active {
+  background-color: var(--in-content-button-background-active);
+}
+
+#closeButton {
+  position: absolute;
+  inset-inline-end: 15px;
+  inset-block-start: 15px;
+  appearance: none;
+  border: none;
+  border-radius: 50%;
+  width: 21px;
+  height: 21px;
+}
+
+#closeButton:hover {
+  background-color: var(--button-hover-background-color);
+}
+#closeButton:hover:active {
+  background-color: var(--button-active-background-color);
+}
+
+#closeButton img {
+  -moz-context-properties: stroke;
+  stroke: currentColor;
+  content: var(--icon-close);
+}
+
+#welcomeHeader > img {
+  width: 90px;
+  height: 90px;
+}
+
+#defaultHeader > img {
+  width: 60px;
+  height: 60px;
+}
+
+#defaultHeader .start-header-brand-name {
+  font-size: 1.3rem;
+}
+
+#defaultHeader .start-header-title {
+  font-size: 2rem;
+}
+
+#welcomeHeader h1 {
+  font-size: 1.4rem;
+  gap: 12px;
+}
+
+#welcomeHeader h1 > span {
+  font-size: 2.5rem;
+}
+
+#welcomeHeader h1 > span > small {
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.hub-header {
+  grid-area: header;
+}
+
+/* Body */
+
+.hub-body {
+  grid-area: body;
+  display: flex;
+  gap: 30px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin-inline: 30px;
+}
+
+.hub-body-grid {
+  display: flex;
+  gap: 21px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.button-account {
+  width: 170px;
+  min-height: 93px;
+  font-size: 1.2rem;
+  font-weight: normal;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  margin: 0;
+  padding: 12px;
+  color: var(--hub-button-color);
+  background-color: var(--hub-account-button-background);
+  border: 1px solid var(--hub-account-button-border-color);
+  box-shadow: 0 4px 6px -6px rgba(0, 0, 0, 0.3), inset 0 0 0 transparent;
+}
+
+.button-account:hover {
+  color: var(--hub-button-color) !important;
+  background-color: var(--hub-account-button-background-hover) !important;
+  box-shadow: 0 8px 12px -8px rgba(0, 0, 0, 0.3), inset 0 0 0 transparent;
+}
+
+.button-account:hover:active {
+  color: var(--hub-button-color) !important;
+  background-color: var(--hub-account-button-background-hover-active) !important;
+  box-shadow: 0 0 0 transparent, inset 0 4px 6px -2px rgba(0, 0, 0, 0.4);
+}
+
+.button-account::before {
+  display: block;
+  content: '';
+  width: 24px;
+  height: 24px;
+  -moz-context-properties: fill, stroke;
+  fill: color-mix(in srgb, var(--primary) 10%, transparent);
+  stroke: var(--primary);
+  background-size: 24px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#emailButton::before {
+  background-image: var(--icon-mail-lg);
+}
+
+#newEmailButton::before {
+  background-image: var(--icon-new-mail);
+}
+
+#calendarButton::before {
+  background-image: var(--icon-calendar-lg);
+}
+
+#addressBookButton::before {
+  background-image: var(--icon-address-book-lg);
+}
+
+#chatButton::before {
+  background-image: var(--icon-chat-lg);
+}
+
+#feedButton::before {
+  background-image: var(--icon-rss);
+}
+
+#newsgroupButton::before {
+  background-image: var(--icon-newsletter);
+}
+
+#importButton::before {
+  background-image: var(--icon-import-lg);
+}
+
+#hubSyncButton {
+  align-self: center;
+  position: relative;
+  padding: 9px 12px;
+  font-weight: normal;
+  font-size: 1.2rem;
+  line-height: 1;
+  border: none;
+  color: var(--hub-button-color);
+  background-color: var(--hub-button-background);
+}
+
+#hubSyncButton:hover {
+  color: var(--hub-button-color);
+  background-color: var(--hub-account-button-background-hover);
+}
+
+#hubSyncButton::before {
+  content: var(--icon-account-sync);
+  display: inline-block;
+  margin-inline-end: 12px;
+  vertical-align: middle;
+}
+
+#hubSyncButton::after {
+  content: '';
+  position: absolute;
+  background: var(--color-blue-50);
+  background-image: linear-gradient(127deg, var(--color-teal-50), var(--color-magenta-50));
+  inset: -2px;
+  border-radius: 8px;
+  filter: blur(10px);
+  opacity: 0.6;
+  z-index: -1;
+  transform: scale(0.95) translateY(5px);
+}
+
+#hubSyncButton:hover::after {
+  transform: scale(0.85) translateY(8px);
+  filter: blur(15px);
+}
+
+#hubSyncButton:hover:active::after {
+  transform: scale(1) translateY(0px);
+  filter: blur(3px);
+}
+
+/* Footer */
+
+.hub-footer {
+  grid-area: footer;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px 6px;
+  justify-content: center;
+}
+
+.footer-links li:not([hidden]) ~ li:not([hidden])::before {
+  content: "·";
+  margin-inline-end: 6px;
+}
+
+/* Animations */
+
+@media (prefers-reduced-motion: no-preference) {
+  .button-account {
+    transition: background 220ms ease, box-shadow 200ms ease;
+  }
+
+  #hubSyncButton {
+    transition: background 220ms ease;
+  }
+
+  #hubSyncButton::after {
+    transition: transform 200ms ease, filter 200ms ease;
+  }
+}

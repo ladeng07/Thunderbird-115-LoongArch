@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<!--# This Source Code Form is subject to the terms of the Mozilla Public
+    # License, v. 2.0. If a copy of the MPL was not distributed with this file,
+    # You can obtain one at http://mozilla.org/MPL/2.0/.
+ -->
+
+<?xml-stylesheet href="chrome://global/skin/global.css" type="text/css"?>
+<?xml-stylesheet href="chrome://messenger/skin/messenger.css" type="text/css"?>
+<?xml-stylesheet href="chrome://messenger/skin/tabmail.css" type="text/css"?>
+<?xml-stylesheet href="chrome://messenger/skin/searchBox.css" type="text/css"?>
+<?xml-stylesheet href="chrome://messenger/skin/browserRequest.css" type="text/css"?>
+
+<!DOCTYPE window [
+<!ENTITY % brandDTD SYSTEM "chrome://branding/locale/brand.dtd">
+%brandDTD;
+<!ENTITY % messengerDTD SYSTEM "chrome://messenger/locale/messenger.dtd">
+%messengerDTD;
+]>
+<window id="browserRequest"
+        xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" xmlns:html="http://www.w3.org/1999/xhtml"
+        buttons=","
+        onload="loadRequestedUrl()"
+        onclose="reportUserClosed()"
+        title=""
+        width="800"
+        height="500"
+        orient="vertical">
+  <popupset id="mainPopupSet">
+#define NO_BROWSERCONTEXT
+#include widgets/browserPopups.inc.xhtml
+  </popupset>
+
+  <script src="chrome://messenger/content/globalOverlay.js"/>
+  <script src="chrome://global/content/editMenuOverlay.js"/>
+  <script src="chrome://messenger/content/viewZoomOverlay.js"/>
+  <script src="chrome://messenger/content/browserRequest.js"/>
+
+  <html:link rel="localization" href="messenger/messenger.ftl"/>
+
+  <keyset id="mainKeyset">
+    <key id="key_close" key="w" modifiers="accel" oncommand="cancelRequest()"/>
+    <key id="key_close2"  keycode="VK_ESCAPE" oncommand="cancelRequest()"/>
+  </keyset>
+
+  <!-- Use the same styling and semantics as content tabs. -->
+  <html:div id="header" class="contentTabAddress">
+    <html:img id="security-icon" class="contentTabSecurity" />
+    <html:input id="headerMessage" class="contentTabUrlInput themeableSearchBox"
+                readonly="readonly">
+    </html:input>
+  </html:div>
+  <browser id="requestFrame"
+           type="content"
+           nodefaultsrc="true"
+           maychangeremoteness="true"
+           flex="1"
+           autocompletepopup="PopupAutoComplete"/>
+</window>

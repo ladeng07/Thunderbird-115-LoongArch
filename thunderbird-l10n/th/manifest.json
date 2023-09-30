@@ -1,0 +1,56 @@
+{
+  "langpack_id": "th",
+  "manifest_version": 2,
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "langpack-th@thunderbird.mozilla.org",
+      "strict_min_version": "115.0",
+      "strict_max_version": "115.*"
+    }
+  },
+  "name": "Language: ไทย (Thai)",
+  "description": "Thunderbird Language Pack for ไทย (th) – Thai",
+  "version": "115.3.20230928.194049",
+  "languages": {
+    "th": {
+      "version": "20230928204425",
+      "chrome_resources": {
+        "alerts": "chrome/th/locale/th/alerts/",
+        "autoconfig": "chrome/th/locale/th/autoconfig/",
+        "branding": "chrome/th/locale/branding/",
+        "calendar": "chrome/th/locale/th/calendar/",
+        "chat": "chrome/th/locale/th/chat/",
+        "communicator": "chrome/th/locale/th/communicator/",
+        "devtools": "chrome/th/locale/th/devtools/client/",
+        "devtools-shared": "chrome/th/locale/th/devtools/shared/",
+        "global": "chrome/th/locale/th/global/",
+        "global-platform": {
+          "macosx": "chrome/th/locale/th/global-platform/mac/",
+          "linux": "chrome/th/locale/th/global-platform/unix/",
+          "android": "chrome/th/locale/th/global-platform/unix/",
+          "win": "chrome/th/locale/th/global-platform/win/"
+        },
+        "lightning": "chrome/th/locale/th/lightning/",
+        "messenger": "chrome/th/locale/th/messenger/",
+        "messenger-mapi": "chrome/th/locale/th/messenger-mapi/",
+        "messenger-newsblog": "chrome/th/locale/th/messenger-newsblog/",
+        "messenger-region": "chrome/th/locale/th/messenger-region/",
+        "messenger-smime": "chrome/th/locale/th/messenger-smime/",
+        "mozapps": "chrome/th/locale/th/mozapps/",
+        "mozldap": "chrome/th/locale/th/mozldap/",
+        "necko": "chrome/th/locale/th/necko/",
+        "passwordmgr": "chrome/th/locale/th/passwordmgr/",
+        "pdf.js": "chrome/th/locale/pdfviewer/",
+        "pipnss": "chrome/th/locale/th/pipnss/",
+        "pippki": "chrome/th/locale/th/pippki/",
+        "places": "chrome/th/locale/th/places/"
+      }
+    }
+  },
+  "sources": {
+    "browser": {
+      "base_path": "browser/"
+    }
+  },
+  "author": "mozilla.org"
+}

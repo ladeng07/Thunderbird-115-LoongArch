@@ -1,0 +1,131 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this file,
+ * You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+@namespace html url("http://www.w3.org/1999/xhtml");
+
+@media not (prefers-contrast) {
+  :root {
+    --in-content-button-background: var(--grey-90-a10);
+    --in-content-button-background-hover: var(--grey-90-a20);
+    --in-content-button-background-active: var(--grey-90-a30);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --in-content-button-background: rgba(249, 249, 250, 0.1);
+      --in-content-button-background-hover: rgba(249, 249, 250, 0.15);
+      --in-content-button-background-active: rgba(249, 249, 250, 0.2);
+      --in-content-primary-button-background: #45a1ff;
+      --in-content-focus-outline-color: #45a1ff;
+    }
+  }
+}
+
+body {
+  color: var(--in-content-page-color);
+  background: var(--in-content-page-background);
+  text-shadow: none;
+}
+
+#downloadTopBox {
+  background-color: var(--toolbar-bgcolor);
+  padding: 10px 18px;
+  border-bottom: 1px solid var(--chrome-content-separator-color);
+}
+
+#downloadBottomBox {
+  padding: 15px 18px;
+}
+
+#downloadBottomBox:-moz-lwtheme {
+  text-shadow: none;
+}
+
+#msgDownloadsRichListBox {
+  margin-block: 0;
+}
+
+#msgDownloadsRichListBox > .download {
+  min-height: 5em;
+  border-bottom: 1px solid hsla(0, 0%, 50%, .3);
+  border-radius: 3px;
+}
+
+#msgDownloadsRichListBox > .download > vbox {
+  display: flex;
+  flex-direction: column;
+}
+
+#clearDownloads {
+  margin-inline-start: 0;
+  padding: 0 12px;
+  border-radius: 3px;
+  font-weight: 400;
+}
+
+#searchBox {
+  width: 22em;
+  margin-inline-end: 0;
+}
+
+.fileTypeIcon {
+  margin-inline: 8px;
+  /* explicitly size the icon, so size doesn't vary on hidpi systems */
+  height: 32px;
+  width: 32px;
+}
+
+.sender,
+.fileName {
+  margin-block: 3px;
+  font-weight: 600;
+}
+
+.sender[value=""] {
+  display: none;
+}
+
+.size,
+.startDate {
+  opacity: 0.7;
+  margin-block: 3px;
+}
+
+.downloadButton {
+  align-items: center;
+  background: transparent !important;
+  min-width: 0;
+  height: unset;
+  margin: 0;
+  border: none !important;
+  outline: none !important;
+  color: inherit;
+  padding: 0 12px;
+}
+
+.downloadButton > .button-box {
+  appearance: none;
+  padding: 8px;
+}
+
+.downloadButton > .button-box > .button-icon {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  -moz-context-properties: fill;
+  fill: currentColor;
+}
+
+.downloadButton > .button-box > .button-text {
+  display: none;
+}
+
+.downloadButton:hover > .button-box {
+  background-color: var(--in-content-button-background-hover);
+  border-radius: 50%;
+}
+
+.downloadButton:hover:active > .button-box {
+  background-color: var(--in-content-button-background-active);
+}

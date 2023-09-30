@@ -1,0 +1,56 @@
+{
+  "langpack_id": "kk",
+  "manifest_version": 2,
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "langpack-kk@thunderbird.mozilla.org",
+      "strict_min_version": "115.0",
+      "strict_max_version": "115.*"
+    }
+  },
+  "name": "Language: қазақ тілі (Kazakh)",
+  "description": "Thunderbird Language Pack for қазақ тілі (kk) – Kazakh",
+  "version": "115.3.20230928.194049",
+  "languages": {
+    "kk": {
+      "version": "20230928205016",
+      "chrome_resources": {
+        "alerts": "chrome/kk/locale/kk/alerts/",
+        "autoconfig": "chrome/kk/locale/kk/autoconfig/",
+        "branding": "chrome/kk/locale/branding/",
+        "calendar": "chrome/kk/locale/kk/calendar/",
+        "chat": "chrome/kk/locale/kk/chat/",
+        "communicator": "chrome/kk/locale/kk/communicator/",
+        "devtools": "chrome/kk/locale/kk/devtools/client/",
+        "devtools-shared": "chrome/kk/locale/kk/devtools/shared/",
+        "global": "chrome/kk/locale/kk/global/",
+        "global-platform": {
+          "macosx": "chrome/kk/locale/kk/global-platform/mac/",
+          "linux": "chrome/kk/locale/kk/global-platform/unix/",
+          "android": "chrome/kk/locale/kk/global-platform/unix/",
+          "win": "chrome/kk/locale/kk/global-platform/win/"
+        },
+        "lightning": "chrome/kk/locale/kk/lightning/",
+        "messenger": "chrome/kk/locale/kk/messenger/",
+        "messenger-mapi": "chrome/kk/locale/kk/messenger-mapi/",
+        "messenger-newsblog": "chrome/kk/locale/kk/messenger-newsblog/",
+        "messenger-region": "chrome/kk/locale/kk/messenger-region/",
+        "messenger-smime": "chrome/kk/locale/kk/messenger-smime/",
+        "mozapps": "chrome/kk/locale/kk/mozapps/",
+        "mozldap": "chrome/kk/locale/kk/mozldap/",
+        "necko": "chrome/kk/locale/kk/necko/",
+        "passwordmgr": "chrome/kk/locale/kk/passwordmgr/",
+        "pdf.js": "chrome/kk/locale/pdfviewer/",
+        "pipnss": "chrome/kk/locale/kk/pipnss/",
+        "pippki": "chrome/kk/locale/kk/pippki/",
+        "places": "chrome/kk/locale/kk/places/"
+      }
+    }
+  },
+  "sources": {
+    "browser": {
+      "base_path": "browser/"
+    }
+  },
+  "author": "mozilla.org (contributors: Baurzhan Muftakhidinov, Timur Timirkhanov, Zhanbolat Satybaldinov)"
+}

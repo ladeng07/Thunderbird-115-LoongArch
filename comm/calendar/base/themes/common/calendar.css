@@ -1,0 +1,255 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+/* For deactivating calendar, see calCalendarDeactivator.jsm. */
+:root[calendar-deactivated] .hide-when-calendar-deactivated {
+  display: none;
+}
+
+/* ::: new tab buttons ::: */
+#calendar-tab-button,
+#newMsgButton-calendar-menuitem {
+  list-style-image: var(--icon-calander);
+}
+
+#task-tab-button,
+#newMsgButton-task-menuitem {
+  list-style-image: var(--icon-tasks);
+}
+
+:root[lwt-tree] #calSidebar {
+  background-color: var(--sidebar-background-color);
+  color: var(--sidebar-text-color);
+}
+
+#calSidebar {
+  background-color: var(--layout-background-2);
+  overflow: hidden;
+  flex-shrink: 0;
+  min-width: 175px;
+}
+
+#calendarContent {
+  background-color: var(--layout-background-0);
+}
+
+/* Avoids contributing to the min width when Calendar is not selected. */
+#calendarTabPanel:not([selected]) {
+  visibility: collapse;
+}
+
+#calendarDisplayBox {
+  overflow: auto;
+}
+
+/* Invitations link in status bar */
+#calendar-invitations-label {
+  margin-block: 3px;
+}
+
+/* Today pane button in status bar */
+#calendar-status-todaypane-button,
+#calendar-status-todaypane-button[checked="true"] {
+  min-width: 0;
+  min-height: 0;
+  margin: 1px 0 0;
+  appearance: none;
+  border-radius: var(--button-border-radius);
+  border: 1px solid transparent;
+}
+
+#calendar-status-todaypane-button:hover {
+  background: var(--toolbarbutton-hover-background);
+  border-color: var(--toolbarbutton-hover-bordercolor);
+  box-shadow: var(--toolbarbutton-hover-boxshadow);
+}
+
+#calendar-status-todaypane-button:hover:active {
+  background: var(--toolbarbutton-active-background);
+  border-color: var(--toolbarbutton-active-bordercolor);
+  box-shadow: var(--toolbarbutton-active-boxshadow);
+  transition-duration: 10ms;
+}
+
+#calendar-status-todaypane-button > stack > .toolbarbutton-icon-begin {
+  width: 16px;
+  height: 16px;
+  -moz-context-properties: fill, stroke, fill-opacity;
+  fill: color-mix(in srgb, currentColor 20%, transparent);
+  stroke: currentColor;
+  fill-opacity: var(--toolbarbutton-icon-fill-opacity);
+}
+
+#calendar-status-todaypane-button > stack > .toolbarbutton-day-text {
+  text-align: center;
+  margin-inline-start: 0;
+  margin-bottom: 0;
+  font-size: 7pt;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  text-shadow: none;
+  background-color: transparent;
+}
+
+#calendar-status-todaypane-button[hideLabel] > .toolbarbutton-text,
+#calendar-status-todaypane-button[hideLabel] > .toolbarbutton-icon-end {
+  display: none;
+}
+
+#calendar-status-todaypane-button > .toolbarbutton-icon-end {
+  -moz-context-properties: stroke;
+  stroke: currentColor;
+}
+
+#calendar-status-todaypane-button[checked="true"] > .toolbarbutton-icon-end {
+  transform: scaleY(-1);
+}
+
+/* iMIP notification bar */
+.calendar-notification-bar {
+  background-color: var(--color-blue-10);
+  padding: 3px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .calendar-notification-bar {
+    background-color: var(--color-purple-40);
+  }
+}
+
+@media (prefers-contrast) {
+  .calendar-notification-bar:not(:-moz-lwtheme) {
+    background-color: var(--selected-item-color);
+  }
+
+  .calendar-notification-bar:not(:-moz-lwtheme) > *:not(#imip-view-toolbox) {
+    color: var(--selected-item-text-color);
+  }
+}
+
+.calendar-notification-bar {
+  margin: 0 4px 4px;
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(58, 57, 68, 0.3);
+}
+
+#imip-view-toolbar {
+  --imip-button-background: var(--layout-background-1);
+}
+
+#imip-bar > img {
+  -moz-context-properties: fill, stroke;
+  fill: color-mix(in srgb, currentColor 20%, transparent);
+  stroke: currentColor;
+  width: 20px;
+}
+
+#imip-view-toolbar > .toolbarbutton-1[is="toolbarbutton-menu-button"] {
+  border-radius: var(--button-border-radius);
+}
+
+#imip-view-toolbar > .toolbarbutton-1.message-header-view-button {
+  -moz-context-properties: fill, stroke;
+  fill: color-mix(in srgb, currentColor 20%, transparent);
+  stroke: currentColor;
+  margin-inline-start: 6px;
+}
+
+#imip-view-toolbar > .toolbarbutton-1.message-header-view-button,
+#imip-view-toolbar > .toolbarbutton-1.message-header-view-button > .toolbarbutton-menubutton-button,
+#imip-view-toolbar > .toolbarbutton-1.message-header-view-button > .toolbarbutton-menubutton-dropmarker {
+  border-color: var(--toolbarbutton-header-bordercolor);
+  background-image: linear-gradient(var(--imip-button-background), var(--imip-button-background));
+}
+
+#imip-view-toolbar > .toolbarbutton-1.message-header-view-button:not(:active):hover,
+#imip-view-toolbar > .toolbarbutton-1.message-header-view-button:is(:hover,[open="true"]) >
+  .toolbarbutton-menubutton-button,
+#imip-view-toolbar > .toolbarbutton-1.message-header-view-button:hover >
+  .toolbarbutton-menubutton-dropmarker {
+  background-image: linear-gradient(var(--toolbarbutton-hover-background),
+                                    var(--toolbarbutton-hover-background)),
+                    linear-gradient(var(--imip-button-background), var(--imip-button-background));
+}
+
+#imip-view-toolbar > .toolbarbutton-1.message-header-view-button:not([is="toolbarbutton-menu-button"]):hover:active,
+#imip-view-toolbar > .toolbarbutton-1.message-header-view-button[is="toolbarbutton-menu-button"] >
+  .toolbarbutton-menubutton-button:hover:active,
+#imip-view-toolbar > .toolbarbutton-1.message-header-view-button[open="true"] >
+  .toolbarbutton-menubutton-dropmarker {
+  background-image: linear-gradient(var(--toolbarbutton-active-background),
+                                    var(--toolbarbutton-active-background)),
+                    linear-gradient(var(--imip-button-background), var(--imip-button-background));
+}
+
+.imipMoreButton > .toolbarbutton-icon {
+  display: none;
+}
+
+.imipAcceptRecurrencesButton,
+.imipAcceptButton {
+  list-style-image: var(--icon-check);
+}
+
+.imipDeclineCounterButton,
+.imipDeclineRecurrencesButton,
+.imipDeclineButton {
+  list-style-image: var(--icon-close);
+}
+
+.imipTentativeRecurrencesButton,
+.imipTentativeButton {
+  list-style-image: var(--icon-tentative);
+}
+
+.imipDetailsButton {
+  list-style-image: var(--icon-search);
+}
+
+.imipAddButton {
+  list-style-image: var(--icon-new-event);
+}
+
+.imipRescheduleButton,
+.imipUpdateButton {
+  list-style-image: var(--icon-sync);
+}
+
+.imipDeleteButton {
+  list-style-image: var(--icon-trash);
+}
+
+.imipReconfirmButton {
+  list-style-image: var(--icon-priority);
+}
+
+.imipGoToCalendarButton {
+  list-style-image: var(--icon-calendar-imip);
+}
+
+.imipAcceptLabel {
+  font-weight: bold;
+  font-style: italic;
+}
+
+#calsidebar_splitter,
+#today-splitter {
+  /* splitter grip area */
+  width: 5px;
+  border-width: 0;
+  min-width: 0;
+  margin-top: 0;
+  /* because of the negative margin needed to make the splitter visible */
+  position: relative;
+  z-index: 10;
+  transition: border-width .3s ease-in;
+}
+
+#calsidebar_splitter[state="collapsed"] {
+  border-inline-start: 1px solid transparent;
+}
+
+#calsidebar_splitter[state="collapsed"]:hover {
+  border-inline-start: 4px solid var(--selected-item-color);
+}

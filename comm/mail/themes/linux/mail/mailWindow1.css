@@ -1,0 +1,67 @@
+/*
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+*/
+
+/* ===== mailWindow1.css ================================================
+  == Styles for the main Mail window in the default layout scheme.
+  ======================================================================= */
+
+@import url("chrome://messenger/skin/messenger.css");
+@import url("chrome://messenger/skin/primaryToolbar.css");
+@import url("chrome://messenger/skin/folderPane.css");
+@import url("chrome://messenger/skin/messageIcons.css");
+@import url("chrome://messenger/skin/shared/mailWindow1.css");
+
+#messengerBox {
+  background-color: -moz-Dialog;
+}
+
+:root:not([lwt-tree]) #folderTree {
+  background-color: -moz-OddTreeRow;
+}
+
+#mailContent {
+  appearance: auto;
+  -moz-default-appearance: toolbox;
+  background-color: -moz-Dialog;
+}
+
+/* ..... status bar adjustments ..... */
+
+#threadTree > treechildren::-moz-tree-row(odd) {
+  background-color: transparent;
+}
+
+#threadTree > treechildren::-moz-tree-row(dummy, odd) {
+  background-color: var(--row-grouped-header-bg-color);
+}
+
+#threadTree > treechildren::-moz-tree-row(odd, hover),
+#threadTree > treechildren::-moz-tree-row(dummy, odd, hover) {
+  background-color: hsla(0, 0%, 50%, 0.15);
+}
+
+#threadTree > treechildren::-moz-tree-row(selected) {
+  color: -moz-cellhighlighttext;
+  background-color: -moz-cellhighlight;
+}
+
+#threadTree > treechildren::-moz-tree-row(selected, focus) {
+  color: var(--selected-item-text-color);
+  background-color: var(--selected-item-color);
+}
+
+/* ..... tabs ..... */
+
+#tabpanelcontainer {
+  appearance: none;
+}
+
+/* Global notification popup */
+
+#notification-popup {
+  background-color: transparent;
+  border: none;
+}

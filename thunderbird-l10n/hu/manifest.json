@@ -1,0 +1,56 @@
+{
+  "langpack_id": "hu",
+  "manifest_version": 2,
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "langpack-hu@thunderbird.mozilla.org",
+      "strict_min_version": "115.0",
+      "strict_max_version": "115.*"
+    }
+  },
+  "name": "Language: Magyar (Hungarian)",
+  "description": "Thunderbird Language Pack for Magyar (hu) – Hungarian",
+  "version": "115.3.20230928.194049",
+  "languages": {
+    "hu": {
+      "version": "20230928204200",
+      "chrome_resources": {
+        "alerts": "chrome/hu/locale/hu/alerts/",
+        "autoconfig": "chrome/hu/locale/hu/autoconfig/",
+        "branding": "chrome/hu/locale/branding/",
+        "calendar": "chrome/hu/locale/hu/calendar/",
+        "chat": "chrome/hu/locale/hu/chat/",
+        "communicator": "chrome/hu/locale/hu/communicator/",
+        "devtools": "chrome/hu/locale/hu/devtools/client/",
+        "devtools-shared": "chrome/hu/locale/hu/devtools/shared/",
+        "global": "chrome/hu/locale/hu/global/",
+        "global-platform": {
+          "macosx": "chrome/hu/locale/hu/global-platform/mac/",
+          "linux": "chrome/hu/locale/hu/global-platform/unix/",
+          "android": "chrome/hu/locale/hu/global-platform/unix/",
+          "win": "chrome/hu/locale/hu/global-platform/win/"
+        },
+        "lightning": "chrome/hu/locale/hu/lightning/",
+        "messenger": "chrome/hu/locale/hu/messenger/",
+        "messenger-mapi": "chrome/hu/locale/hu/messenger-mapi/",
+        "messenger-newsblog": "chrome/hu/locale/hu/messenger-newsblog/",
+        "messenger-region": "chrome/hu/locale/hu/messenger-region/",
+        "messenger-smime": "chrome/hu/locale/hu/messenger-smime/",
+        "mozapps": "chrome/hu/locale/hu/mozapps/",
+        "mozldap": "chrome/hu/locale/hu/mozldap/",
+        "necko": "chrome/hu/locale/hu/necko/",
+        "passwordmgr": "chrome/hu/locale/hu/passwordmgr/",
+        "pdf.js": "chrome/hu/locale/pdfviewer/",
+        "pipnss": "chrome/hu/locale/hu/pipnss/",
+        "pippki": "chrome/hu/locale/hu/pippki/",
+        "places": "chrome/hu/locale/hu/places/"
+      }
+    }
+  },
+  "sources": {
+    "browser": {
+      "base_path": "browser/"
+    }
+  },
+  "author": "FSF.hu (contributors: Tímár András)"
+}

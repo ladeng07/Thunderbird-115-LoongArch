@@ -1,0 +1,24 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+@import url("chrome://messenger/skin/shared/searchBox.css");
+
+.search-icon {
+  margin-inline-start: 7px;
+}
+
+.remote-gloda-search-container {
+  padding-block: 3px 2px;
+}
+
+.searchBox,
+.themeableSearchBox {
+  padding-block: 3px;
+  padding-inline: 4px 2px;
+  margin: 0 3px;
+}
+
+.autocomplete-richlistitem[type^="gloda-"] {
+  padding-inline-start: 10px;
+}

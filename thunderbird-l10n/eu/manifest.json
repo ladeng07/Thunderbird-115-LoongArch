@@ -1,0 +1,56 @@
+{
+  "langpack_id": "eu",
+  "manifest_version": 2,
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "langpack-eu@thunderbird.mozilla.org",
+      "strict_min_version": "115.0",
+      "strict_max_version": "115.*"
+    }
+  },
+  "name": "Language: Euskara (Basque)",
+  "description": "Thunderbird Language Pack for Euskara (eu) – Basque",
+  "version": "115.3.20230928.194049",
+  "languages": {
+    "eu": {
+      "version": "20230928204254",
+      "chrome_resources": {
+        "alerts": "chrome/eu/locale/eu/alerts/",
+        "autoconfig": "chrome/eu/locale/eu/autoconfig/",
+        "branding": "chrome/eu/locale/branding/",
+        "calendar": "chrome/eu/locale/eu/calendar/",
+        "chat": "chrome/eu/locale/eu/chat/",
+        "communicator": "chrome/eu/locale/eu/communicator/",
+        "devtools": "chrome/eu/locale/eu/devtools/client/",
+        "devtools-shared": "chrome/eu/locale/eu/devtools/shared/",
+        "global": "chrome/eu/locale/eu/global/",
+        "global-platform": {
+          "macosx": "chrome/eu/locale/eu/global-platform/mac/",
+          "linux": "chrome/eu/locale/eu/global-platform/unix/",
+          "android": "chrome/eu/locale/eu/global-platform/unix/",
+          "win": "chrome/eu/locale/eu/global-platform/win/"
+        },
+        "lightning": "chrome/eu/locale/eu/lightning/",
+        "messenger": "chrome/eu/locale/eu/messenger/",
+        "messenger-mapi": "chrome/eu/locale/eu/messenger-mapi/",
+        "messenger-newsblog": "chrome/eu/locale/eu/messenger-newsblog/",
+        "messenger-region": "chrome/eu/locale/eu/messenger-region/",
+        "messenger-smime": "chrome/eu/locale/eu/messenger-smime/",
+        "mozapps": "chrome/eu/locale/eu/mozapps/",
+        "mozldap": "chrome/eu/locale/eu/mozldap/",
+        "necko": "chrome/eu/locale/eu/necko/",
+        "passwordmgr": "chrome/eu/locale/eu/passwordmgr/",
+        "pdf.js": "chrome/eu/locale/pdfviewer/",
+        "pipnss": "chrome/eu/locale/eu/pipnss/",
+        "pippki": "chrome/eu/locale/eu/pippki/",
+        "places": "chrome/eu/locale/eu/places/"
+      }
+    }
+  },
+  "sources": {
+    "browser": {
+      "base_path": "browser/"
+    }
+  },
+  "author": "librezale.org (contributors: Librezale.eus)"
+}

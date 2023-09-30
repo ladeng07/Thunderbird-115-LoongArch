@@ -1,0 +1,56 @@
+{
+  "langpack_id": "ko",
+  "manifest_version": 2,
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "langpack-ko@thunderbird.mozilla.org",
+      "strict_min_version": "115.0",
+      "strict_max_version": "115.*"
+    }
+  },
+  "name": "Language: 한국어 (Korean)",
+  "description": "Thunderbird Language Pack for 한국어 (ko) – Korean",
+  "version": "115.3.20230928.194049",
+  "languages": {
+    "ko": {
+      "version": "20230928205102",
+      "chrome_resources": {
+        "alerts": "chrome/ko/locale/ko/alerts/",
+        "autoconfig": "chrome/ko/locale/ko/autoconfig/",
+        "branding": "chrome/ko/locale/branding/",
+        "calendar": "chrome/ko/locale/ko/calendar/",
+        "chat": "chrome/ko/locale/ko/chat/",
+        "communicator": "chrome/ko/locale/ko/communicator/",
+        "devtools": "chrome/ko/locale/ko/devtools/client/",
+        "devtools-shared": "chrome/ko/locale/ko/devtools/shared/",
+        "global": "chrome/ko/locale/ko/global/",
+        "global-platform": {
+          "macosx": "chrome/ko/locale/ko/global-platform/mac/",
+          "linux": "chrome/ko/locale/ko/global-platform/unix/",
+          "android": "chrome/ko/locale/ko/global-platform/unix/",
+          "win": "chrome/ko/locale/ko/global-platform/win/"
+        },
+        "lightning": "chrome/ko/locale/ko/lightning/",
+        "messenger": "chrome/ko/locale/ko/messenger/",
+        "messenger-mapi": "chrome/ko/locale/ko/messenger-mapi/",
+        "messenger-newsblog": "chrome/ko/locale/ko/messenger-newsblog/",
+        "messenger-region": "chrome/ko/locale/ko/messenger-region/",
+        "messenger-smime": "chrome/ko/locale/ko/messenger-smime/",
+        "mozapps": "chrome/ko/locale/ko/mozapps/",
+        "mozldap": "chrome/ko/locale/ko/mozldap/",
+        "necko": "chrome/ko/locale/ko/necko/",
+        "passwordmgr": "chrome/ko/locale/ko/passwordmgr/",
+        "pdf.js": "chrome/ko/locale/pdfviewer/",
+        "pipnss": "chrome/ko/locale/ko/pipnss/",
+        "pippki": "chrome/ko/locale/ko/pippki/",
+        "places": "chrome/ko/locale/ko/places/"
+      }
+    }
+  },
+  "sources": {
+    "browser": {
+      "base_path": "browser/"
+    }
+  },
+  "author": "한글 Mozilla 프로젝트(mozilla.or.kr) (contributors: Seokchan Yun, JoungKyun Kim)"
+}

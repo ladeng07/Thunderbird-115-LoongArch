@@ -1,0 +1,56 @@
+{
+  "langpack_id": "gd",
+  "manifest_version": 2,
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "langpack-gd@thunderbird.mozilla.org",
+      "strict_min_version": "115.0",
+      "strict_max_version": "115.*"
+    }
+  },
+  "name": "Language: Gàidhlig (Scottish Gaelic)",
+  "description": "Thunderbird Language Pack for Gàidhlig (gd) – Scottish Gaelic",
+  "version": "115.3.20230928.194049",
+  "languages": {
+    "gd": {
+      "version": "20230928204215",
+      "chrome_resources": {
+        "alerts": "chrome/gd/locale/gd/alerts/",
+        "autoconfig": "chrome/gd/locale/gd/autoconfig/",
+        "branding": "chrome/gd/locale/branding/",
+        "calendar": "chrome/gd/locale/gd/calendar/",
+        "chat": "chrome/gd/locale/gd/chat/",
+        "communicator": "chrome/gd/locale/gd/communicator/",
+        "devtools": "chrome/gd/locale/gd/devtools/client/",
+        "devtools-shared": "chrome/gd/locale/gd/devtools/shared/",
+        "global": "chrome/gd/locale/gd/global/",
+        "global-platform": {
+          "macosx": "chrome/gd/locale/gd/global-platform/mac/",
+          "linux": "chrome/gd/locale/gd/global-platform/unix/",
+          "android": "chrome/gd/locale/gd/global-platform/unix/",
+          "win": "chrome/gd/locale/gd/global-platform/win/"
+        },
+        "lightning": "chrome/gd/locale/gd/lightning/",
+        "messenger": "chrome/gd/locale/gd/messenger/",
+        "messenger-mapi": "chrome/gd/locale/gd/messenger-mapi/",
+        "messenger-newsblog": "chrome/gd/locale/gd/messenger-newsblog/",
+        "messenger-region": "chrome/gd/locale/gd/messenger-region/",
+        "messenger-smime": "chrome/gd/locale/gd/messenger-smime/",
+        "mozapps": "chrome/gd/locale/gd/mozapps/",
+        "mozldap": "chrome/gd/locale/gd/mozldap/",
+        "necko": "chrome/gd/locale/gd/necko/",
+        "passwordmgr": "chrome/gd/locale/gd/passwordmgr/",
+        "pdf.js": "chrome/gd/locale/pdfviewer/",
+        "pipnss": "chrome/gd/locale/gd/pipnss/",
+        "pippki": "chrome/gd/locale/gd/pippki/",
+        "places": "chrome/gd/locale/gd/places/"
+      }
+    }
+  },
+  "sources": {
+    "browser": {
+      "base_path": "browser/"
+    }
+  },
+  "author": "Sgioba Ionadaileadh Mozilla na Gàidhlig (contributors: Michael &apos;Akerbeltz&apos; Bauer, Kevin Scannell)"
+}

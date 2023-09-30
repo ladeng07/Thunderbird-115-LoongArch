@@ -1,0 +1,56 @@
+{
+  "langpack_id": "es-AR",
+  "manifest_version": 2,
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "langpack-es-AR@thunderbird.mozilla.org",
+      "strict_min_version": "115.0",
+      "strict_max_version": "115.*"
+    }
+  },
+  "name": "Language: Español (AR) (Spanish, Argentina)",
+  "description": "Thunderbird Language Pack for Español (AR) (es-AR) – Spanish, Argentina",
+  "version": "115.3.20230928.194049",
+  "languages": {
+    "es-AR": {
+      "version": "20230928204403",
+      "chrome_resources": {
+        "alerts": "chrome/es-AR/locale/es-AR/alerts/",
+        "autoconfig": "chrome/es-AR/locale/es-AR/autoconfig/",
+        "branding": "chrome/es-AR/locale/branding/",
+        "calendar": "chrome/es-AR/locale/es-AR/calendar/",
+        "chat": "chrome/es-AR/locale/es-AR/chat/",
+        "communicator": "chrome/es-AR/locale/es-AR/communicator/",
+        "devtools": "chrome/es-AR/locale/es-AR/devtools/client/",
+        "devtools-shared": "chrome/es-AR/locale/es-AR/devtools/shared/",
+        "global": "chrome/es-AR/locale/es-AR/global/",
+        "global-platform": {
+          "macosx": "chrome/es-AR/locale/es-AR/global-platform/mac/",
+          "linux": "chrome/es-AR/locale/es-AR/global-platform/unix/",
+          "android": "chrome/es-AR/locale/es-AR/global-platform/unix/",
+          "win": "chrome/es-AR/locale/es-AR/global-platform/win/"
+        },
+        "lightning": "chrome/es-AR/locale/es-AR/lightning/",
+        "messenger": "chrome/es-AR/locale/es-AR/messenger/",
+        "messenger-mapi": "chrome/es-AR/locale/es-AR/messenger-mapi/",
+        "messenger-newsblog": "chrome/es-AR/locale/es-AR/messenger-newsblog/",
+        "messenger-region": "chrome/es-AR/locale/es-AR/messenger-region/",
+        "messenger-smime": "chrome/es-AR/locale/es-AR/messenger-smime/",
+        "mozapps": "chrome/es-AR/locale/es-AR/mozapps/",
+        "mozldap": "chrome/es-AR/locale/es-AR/mozldap/",
+        "necko": "chrome/es-AR/locale/es-AR/necko/",
+        "passwordmgr": "chrome/es-AR/locale/es-AR/passwordmgr/",
+        "pdf.js": "chrome/es-AR/locale/pdfviewer/",
+        "pipnss": "chrome/es-AR/locale/es-AR/pipnss/",
+        "pippki": "chrome/es-AR/locale/es-AR/pippki/",
+        "places": "chrome/es-AR/locale/es-AR/places/"
+      }
+    }
+  },
+  "sources": {
+    "browser": {
+      "base_path": "browser/"
+    }
+  },
+  "author": "mozilla.org (contributors: Marcelo Poli)"
+}

@@ -1,0 +1,56 @@
+{
+  "langpack_id": "sr",
+  "manifest_version": 2,
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "langpack-sr@thunderbird.mozilla.org",
+      "strict_min_version": "115.0",
+      "strict_max_version": "115.*"
+    }
+  },
+  "name": "Language: Cрпски (Serbian)",
+  "description": "Thunderbird Language Pack for Cрпски (sr) – Serbian",
+  "version": "115.3.20230928.194049",
+  "languages": {
+    "sr": {
+      "version": "20230928204250",
+      "chrome_resources": {
+        "alerts": "chrome/sr/locale/sr/alerts/",
+        "autoconfig": "chrome/sr/locale/sr/autoconfig/",
+        "branding": "chrome/sr/locale/branding/",
+        "calendar": "chrome/sr/locale/sr/calendar/",
+        "chat": "chrome/sr/locale/sr/chat/",
+        "communicator": "chrome/sr/locale/sr/communicator/",
+        "devtools": "chrome/sr/locale/sr/devtools/client/",
+        "devtools-shared": "chrome/sr/locale/sr/devtools/shared/",
+        "global": "chrome/sr/locale/sr/global/",
+        "global-platform": {
+          "macosx": "chrome/sr/locale/sr/global-platform/mac/",
+          "linux": "chrome/sr/locale/sr/global-platform/unix/",
+          "android": "chrome/sr/locale/sr/global-platform/unix/",
+          "win": "chrome/sr/locale/sr/global-platform/win/"
+        },
+        "lightning": "chrome/sr/locale/sr/lightning/",
+        "messenger": "chrome/sr/locale/sr/messenger/",
+        "messenger-mapi": "chrome/sr/locale/sr/messenger-mapi/",
+        "messenger-newsblog": "chrome/sr/locale/sr/messenger-newsblog/",
+        "messenger-region": "chrome/sr/locale/sr/messenger-region/",
+        "messenger-smime": "chrome/sr/locale/sr/messenger-smime/",
+        "mozapps": "chrome/sr/locale/sr/mozapps/",
+        "mozldap": "chrome/sr/locale/sr/mozldap/",
+        "necko": "chrome/sr/locale/sr/necko/",
+        "passwordmgr": "chrome/sr/locale/sr/passwordmgr/",
+        "pdf.js": "chrome/sr/locale/pdfviewer/",
+        "pipnss": "chrome/sr/locale/sr/pipnss/",
+        "pippki": "chrome/sr/locale/sr/pippki/",
+        "places": "chrome/sr/locale/sr/places/"
+      }
+    }
+  },
+  "sources": {
+    "browser": {
+      "base_path": "browser/"
+    }
+  },
+  "author": "mozilla.rs (contributors: Марко Костић, Марко Андрејић, Александра Узелац, Вања Тумбас)"
+}

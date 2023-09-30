@@ -1,0 +1,27 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+EXTRA_COMPONENTS += [
+    "extensions-mail.manifest",
+]
+
+EXTRA_JS_MODULES += [
+    "ExtensionBrowsingData.sys.mjs",
+    "ExtensionPopups.sys.mjs",
+    "ExtensionToolbarButtons.jsm",
+    "MailExtensionShortcuts.jsm",
+]
+
+JAR_MANIFESTS += ["jar.mn"]
+
+TESTING_JS_MODULES += [
+    "test/AppUiTestDelegate.sys.mjs",
+]
+
+BROWSER_CHROME_MANIFESTS += ["test/browser/browser.ini"]
+XPCSHELL_TESTS_MANIFESTS += [
+    "test/xpcshell/xpcshell-imap.ini",
+    "test/xpcshell/xpcshell-local.ini",
+    "test/xpcshell/xpcshell-nntp.ini",
+]

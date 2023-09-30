@@ -1,0 +1,56 @@
+{
+  "langpack_id": "uz",
+  "manifest_version": 2,
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "langpack-uz@thunderbird.mozilla.org",
+      "strict_min_version": "115.0",
+      "strict_max_version": "115.*"
+    }
+  },
+  "name": "Language: O‘zbek (Uzbek)",
+  "description": "Thunderbird Language Pack for O‘zbek (uz) – Uzbek",
+  "version": "115.3.20230928.194049",
+  "languages": {
+    "uz": {
+      "version": "20230928204258",
+      "chrome_resources": {
+        "alerts": "chrome/uz/locale/uz/alerts/",
+        "autoconfig": "chrome/uz/locale/uz/autoconfig/",
+        "branding": "chrome/uz/locale/branding/",
+        "calendar": "chrome/uz/locale/uz/calendar/",
+        "chat": "chrome/uz/locale/uz/chat/",
+        "communicator": "chrome/uz/locale/uz/communicator/",
+        "devtools": "chrome/uz/locale/uz/devtools/client/",
+        "devtools-shared": "chrome/uz/locale/uz/devtools/shared/",
+        "global": "chrome/uz/locale/uz/global/",
+        "global-platform": {
+          "macosx": "chrome/uz/locale/uz/global-platform/mac/",
+          "linux": "chrome/uz/locale/uz/global-platform/unix/",
+          "android": "chrome/uz/locale/uz/global-platform/unix/",
+          "win": "chrome/uz/locale/uz/global-platform/win/"
+        },
+        "lightning": "chrome/uz/locale/uz/lightning/",
+        "messenger": "chrome/uz/locale/uz/messenger/",
+        "messenger-mapi": "chrome/uz/locale/uz/messenger-mapi/",
+        "messenger-newsblog": "chrome/uz/locale/uz/messenger-newsblog/",
+        "messenger-region": "chrome/uz/locale/uz/messenger-region/",
+        "messenger-smime": "chrome/uz/locale/uz/messenger-smime/",
+        "mozapps": "chrome/uz/locale/uz/mozapps/",
+        "mozldap": "chrome/uz/locale/uz/mozldap/",
+        "necko": "chrome/uz/locale/uz/necko/",
+        "passwordmgr": "chrome/uz/locale/uz/passwordmgr/",
+        "pdf.js": "chrome/uz/locale/pdfviewer/",
+        "pipnss": "chrome/uz/locale/uz/pipnss/",
+        "pippki": "chrome/uz/locale/uz/pippki/",
+        "places": "chrome/uz/locale/uz/places/"
+      }
+    }
+  },
+  "sources": {
+    "browser": {
+      "base_path": "browser/"
+    }
+  },
+  "author": "mozilla.org (contributors: Akmal Xushvaqov, Akmal Xushvaqov)"
+}

@@ -1,0 +1,71 @@
+# vim: set filetype=python:
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+XPIDL_SOURCES += [
+    "calInternalInterfaces.idl",
+]
+
+XPIDL_MODULE = "calbaseinternal"
+
+EXTRA_JS_MODULES += [
+    "CalAlarm.jsm",
+    "CalAlarmMonitor.jsm",
+    "CalAlarmService.jsm",
+    "CalAttachment.jsm",
+    "CalAttendee.jsm",
+    "CalCalendarManager.jsm",
+    "CalDateTime.jsm",
+    "CalDefaultACLManager.jsm",
+    "CalDeletedItems.jsm",
+    "CalDuration.jsm",
+    "CalEvent.jsm",
+    "CalFreeBusyService.jsm",
+    "CalIcsParser.jsm",
+    "CalIcsSerializer.jsm",
+    "CalICSService.jsm",
+    "CalItipItem.jsm",
+    "CalMetronome.jsm",
+    "CalMimeConverter.jsm",
+    "CalPeriod.jsm",
+    "CalProtocolHandler.jsm",
+    "CalReadableStreamFactory.jsm",
+    "CalRecurrenceDate.jsm",
+    "CalRecurrenceInfo.jsm",
+    "CalRecurrenceRule.jsm",
+    "CalRelation.jsm",
+    "CalStartupService.jsm",
+    "CalTimezone.jsm",
+    "CalTimezoneService.jsm",
+    "CalTodo.jsm",
+    "CalTransactionManager.jsm",
+    "CalWeekInfoService.jsm",
+]
+
+EXPORTS += [
+    "TimezoneDatabase.h",
+]
+
+UNIFIED_SOURCES += [
+    "TimezoneDatabase.cpp",
+]
+
+XPCOM_MANIFESTS += [
+    "components.conf",
+]
+
+# These files go in components so they can be packaged correctly.
+FINAL_TARGET_FILES.components += [
+    "calCachedCalendar.js",
+    "calICSService-worker.js",
+    "calItemBase.js",
+]
+
+with Files("**"):
+    BUG_COMPONENT = ("Calendar", "Internal Components")
+
+with Files("calAlarm*"):
+    BUG_COMPONENT = ("Calendar", "Alarms")
+
+FINAL_LIBRARY = "xul"

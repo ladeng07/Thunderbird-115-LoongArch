@@ -1,0 +1,56 @@
+{
+  "langpack_id": "es-MX",
+  "manifest_version": 2,
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "langpack-es-MX@thunderbird.mozilla.org",
+      "strict_min_version": "115.0",
+      "strict_max_version": "115.*"
+    }
+  },
+  "name": "Language: Español (MX) (Spanish, Mexico)",
+  "description": "Thunderbird Language Pack for Español (MX) (es-MX) – Spanish, Mexico",
+  "version": "115.3.20230928.194049",
+  "languages": {
+    "es-MX": {
+      "version": "20230928204550",
+      "chrome_resources": {
+        "alerts": "chrome/es-MX/locale/es-MX/alerts/",
+        "autoconfig": "chrome/es-MX/locale/es-MX/autoconfig/",
+        "branding": "chrome/es-MX/locale/branding/",
+        "calendar": "chrome/es-MX/locale/es-MX/calendar/",
+        "chat": "chrome/es-MX/locale/es-MX/chat/",
+        "communicator": "chrome/es-MX/locale/es-MX/communicator/",
+        "devtools": "chrome/es-MX/locale/es-MX/devtools/client/",
+        "devtools-shared": "chrome/es-MX/locale/es-MX/devtools/shared/",
+        "global": "chrome/es-MX/locale/es-MX/global/",
+        "global-platform": {
+          "macosx": "chrome/es-MX/locale/es-MX/global-platform/mac/",
+          "linux": "chrome/es-MX/locale/es-MX/global-platform/unix/",
+          "android": "chrome/es-MX/locale/es-MX/global-platform/unix/",
+          "win": "chrome/es-MX/locale/es-MX/global-platform/win/"
+        },
+        "lightning": "chrome/es-MX/locale/es-MX/lightning/",
+        "messenger": "chrome/es-MX/locale/es-MX/messenger/",
+        "messenger-mapi": "chrome/es-MX/locale/es-MX/messenger-mapi/",
+        "messenger-newsblog": "chrome/es-MX/locale/es-MX/messenger-newsblog/",
+        "messenger-region": "chrome/es-MX/locale/es-MX/messenger-region/",
+        "messenger-smime": "chrome/es-MX/locale/es-MX/messenger-smime/",
+        "mozapps": "chrome/es-MX/locale/es-MX/mozapps/",
+        "mozldap": "chrome/es-MX/locale/es-MX/mozldap/",
+        "necko": "chrome/es-MX/locale/es-MX/necko/",
+        "passwordmgr": "chrome/es-MX/locale/es-MX/passwordmgr/",
+        "pdf.js": "chrome/es-MX/locale/pdfviewer/",
+        "pipnss": "chrome/es-MX/locale/es-MX/pipnss/",
+        "pippki": "chrome/es-MX/locale/es-MX/pippki/",
+        "places": "chrome/es-MX/locale/es-MX/places/"
+      }
+    }
+  },
+  "sources": {
+    "browser": {
+      "base_path": "browser/"
+    }
+  },
+  "author": "mozilla.org (contributors: Joe Solon, Suzy Solon)"
+}

@@ -1,0 +1,56 @@
+{
+  "langpack_id": "bg",
+  "manifest_version": 2,
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "langpack-bg@thunderbird.mozilla.org",
+      "strict_min_version": "115.0",
+      "strict_max_version": "115.*"
+    }
+  },
+  "name": "Language: Български (Bulgarian)",
+  "description": "Thunderbird Language Pack for Български (bg) – Bulgarian",
+  "version": "115.3.20230928.194049",
+  "languages": {
+    "bg": {
+      "version": "20230928204517",
+      "chrome_resources": {
+        "alerts": "chrome/bg/locale/bg/alerts/",
+        "autoconfig": "chrome/bg/locale/bg/autoconfig/",
+        "branding": "chrome/bg/locale/branding/",
+        "calendar": "chrome/bg/locale/bg/calendar/",
+        "chat": "chrome/bg/locale/bg/chat/",
+        "communicator": "chrome/bg/locale/bg/communicator/",
+        "devtools": "chrome/bg/locale/bg/devtools/client/",
+        "devtools-shared": "chrome/bg/locale/bg/devtools/shared/",
+        "global": "chrome/bg/locale/bg/global/",
+        "global-platform": {
+          "macosx": "chrome/bg/locale/bg/global-platform/mac/",
+          "linux": "chrome/bg/locale/bg/global-platform/unix/",
+          "android": "chrome/bg/locale/bg/global-platform/unix/",
+          "win": "chrome/bg/locale/bg/global-platform/win/"
+        },
+        "lightning": "chrome/bg/locale/bg/lightning/",
+        "messenger": "chrome/bg/locale/bg/messenger/",
+        "messenger-mapi": "chrome/bg/locale/bg/messenger-mapi/",
+        "messenger-newsblog": "chrome/bg/locale/bg/messenger-newsblog/",
+        "messenger-region": "chrome/bg/locale/bg/messenger-region/",
+        "messenger-smime": "chrome/bg/locale/bg/messenger-smime/",
+        "mozapps": "chrome/bg/locale/bg/mozapps/",
+        "mozldap": "chrome/bg/locale/bg/mozldap/",
+        "necko": "chrome/bg/locale/bg/necko/",
+        "passwordmgr": "chrome/bg/locale/bg/passwordmgr/",
+        "pdf.js": "chrome/bg/locale/pdfviewer/",
+        "pipnss": "chrome/bg/locale/bg/pipnss/",
+        "pippki": "chrome/bg/locale/bg/pippki/",
+        "places": "chrome/bg/locale/bg/places/"
+      }
+    }
+  },
+  "sources": {
+    "browser": {
+      "base_path": "browser/"
+    }
+  },
+  "author": "mozilla.org (contributors: Огнян Кулев, Митко Митев, Златко Попов, Милен Иванов, Стоян Димитров)"
+}

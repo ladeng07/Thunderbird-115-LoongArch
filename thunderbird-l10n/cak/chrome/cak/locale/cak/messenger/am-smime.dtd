@@ -1,0 +1,47 @@
+<!-- This Source Code Form is subject to the terms of the Mozilla Public
+   - License, v. 2.0. If a copy of the MPL was not distributed with this
+   - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
+
+<!ENTITY e2eLearnMore.label "Tetamäx ch'aqa' chik">
+
+
+
+<!ENTITY digitalSign.certificate.button "Ticha'…">
+<!ENTITY digitalSign.certificate.accesskey "c">
+<!ENTITY digitalSign.certificate_clear.button "Tijosq'ïx">
+<!ENTITY digitalSign.certificate_clear.accesskey "j">
+<!ENTITY encryption.certificate.button "Ticha'…">
+<!ENTITY encryption.certificate.accesskey "c">
+<!ENTITY encryption.certificate_clear.button "Tijosq'ïx">
+<!ENTITY encryption.certificate_clear.accesskey "o">
+<!ENTITY signingGroupTitle.label "Kematz'ib'il Juch'un B'i'aj">
+
+
+
+<!ENTITY certificates2.label "S/MIME">
+<!ENTITY manageCerts3.label "Kenuk'samajïx S/MIME taq Iqitzijib'äl">
+<!ENTITY manageCerts3.accesskey "M">
+<!ENTITY manageDevices2.label "S/MIME taq Rokisab'al Jikomal…">
+<!ENTITY manageDevices2.accesskey "y">
+
+
+<!ENTITY openpgpKeys.label "OpenPGP">
+
+<!-- Strings for the cert picker dialog -->
+<!ENTITY certPicker.title "Ticha' Ruwujil B'i'aj">
+<!ENTITY certPicker.info  "Ruwujil rub'i':">
+<!ENTITY certPicker.detailsLabel "Cha'on kib'anikil ruwujil b'i'aj:">
+
+
+<!ENTITY e2eTitle.label "End-To-End Encryption">
+<!ENTITY e2eEnc.description "Without end-to-end encryption the contents of messages are easily exposed to your email provider and to mass surveillance.">
+<!ENTITY e2eTechPref.description "Preferred encryption technology:">
+<!ENTITY encryptionCert2.message "Personal certificate for encryption:">
+<!ENTITY signingCert2.message "Personal certificate for digital signing:">
+<!ENTITY sendingDefaults.label "Default settings for sending messages">
+<!ENTITY technologyAutomatic.label "Select automatically based on available keys or certificates">
+<!ENTITY technologySMIME.label "Prefer S/MIME">
+<!ENTITY technologyOpenPGP.label "Prefer OpenPGP">
+<!ENTITY openpgpKey.message "Personal key for encryption and digital signing:">
+<!ENTITY openpgpKey.button "Set Personal Key…">
+<!ENTITY openpgpKey.accesskey "o">

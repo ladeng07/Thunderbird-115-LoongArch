@@ -1,0 +1,77 @@
+# -*- Mode: python; c-basic-offset: 4; indent-tabs-mode: nil; tab-width: 40 -*-
+# vim: set filetype=python:
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+set_config("MOZ_THUNDERBIRD", True)
+set_define("MOZ_THUNDERBIRD", True)
+
+imply_option("MOZ_APP_BASENAME", "Thunderbird")
+set_config("MOZ_APPUPDATE_HOST", "aus.thunderbird.net")
+
+imply_option("--enable-default-browser-agent", False)
+imply_option("MOZ_REQUIRE_SIGNING", False)
+imply_option("MOZ_SERVICES_SYNC", True)
+
+
+@depends(target_is_windows, target_has_linux_kernel)
+def bundled_fonts(is_windows, is_linux):
+    if is_windows or is_linux:
+        return True
+
+
+set_config("MOZ_BUNDLED_FONTS", bundled_fonts)
+add_old_configure_assignment("MOZ_BUNDLED_FONTS", bundled_fonts)
+
+
+@depends(build_environment, "--help")
+@imports(_from="os.path", _import="join")
+def commtopsrcdir(build_env, _):
+    topsrcdir = build_env.topsrcdir
+    return join(topsrcdir, "comm")
+
+
+add_old_configure_assignment("commtopsrcdir", commtopsrcdir)
+set_config("commtopsrcdir", commtopsrcdir)
+
+
+imply_option("MOZ_PLACES", True)
+imply_option("MOZ_SERVICES_HEALTHREPORT", True)
+imply_option("MOZ_DEDICATED_PROFILES", True)
+imply_option("MOZ_BLOCK_PROFILE_DOWNGRADE", True)
+
+with only_when(target_has_linux_kernel & compile_environment):
+    option(env="MOZ_NO_PIE_COMPAT", help="Enable non-PIE wrapper")
+
+    set_config("MOZ_NO_PIE_COMPAT", depends_if("MOZ_NO_PIE_COMPAT")(lambda _: True))
+
+
+@depends("MOZ_AUTOMATION")
+@imports(_from="os", _import="environ")
+def pkg_libotr(automation):
+    if automation:
+        fetch_dir = environ.get("MOZ_FETCHES_DIR", None)
+        if fetch_dir:
+            log.info("Including libotr from {}".format(fetch_dir))
+            return fetch_dir
+
+        log.info("TB_LIBOTR_PREBUILT is set, but MOZ_FETCHES_DIR is invalid.")
+
+
+set_config("TB_LIBOTR_PREBUILT", pkg_libotr)
+
+
+set_config(
+    "MOZ_TELEMETRY_EXTRA_HISTOGRAM_FILES",
+    ["/comm/mail/components/telemetry/Histograms.json"],
+)
+set_config("MOZ_TELEMETRY_EXTRA_SCALAR_FILES", ["/comm/mail/components/telemetry/Scalars.yaml"])
+set_config("MOZ_TELEMETRY_EXTRA_EVENT_FILES", ["/comm/mail/components/telemetry/Events.yaml"])
+
+include("../build/moz.configure/gecko_source.configure")
+
+include("../mailnews/moz.configure")
+
+imply_option("--enable-app-system-headers", True)
+include("../../toolkit/moz.configure")
