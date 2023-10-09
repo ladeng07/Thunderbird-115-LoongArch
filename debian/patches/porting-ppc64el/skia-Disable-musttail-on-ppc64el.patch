@@ -1,0 +1,22 @@
+From: Carsten Schoenert <c.schoenert@t-online.de>
+Date: Tue, 18 Jul 2023 16:20:51 +0200
+Subject: skia: Disable musttail on ppc64el
+
+Based on https://cgit.freebsd.org/ports/commit/?id=8efc1c41f45d0d7c7fe2b9c05128bd00db9c397d
+---
+ gfx/skia/skia/src/core/SkRasterPipeline.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/gfx/skia/skia/src/core/SkRasterPipeline.h b/gfx/skia/skia/src/core/SkRasterPipeline.h
+index 766bb0c..88c6cb2 100644
+--- a/gfx/skia/skia/src/core/SkRasterPipeline.h
++++ b/gfx/skia/skia/src/core/SkRasterPipeline.h
+@@ -24,7 +24,7 @@ enum SkColorType : int;
+ struct SkImageInfo;
+ struct skcms_TransferFunction;
+ 
+-#if __has_cpp_attribute(clang::musttail) && !defined(__EMSCRIPTEN__) && !defined(SK_CPU_ARM32)
++#if __has_cpp_attribute(clang::musttail) && !defined(__EMSCRIPTEN__) && !defined(SK_CPU_ARM32) && !defined(__powerpc__)
+     #define SK_HAS_MUSTTAIL 1
+ #else
+     #define SK_HAS_MUSTTAIL 0

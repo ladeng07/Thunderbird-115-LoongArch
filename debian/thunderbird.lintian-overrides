@@ -1,0 +1,17 @@
+# We use the embedded avutil library.
+thunderbird: embedded-library libavutil [usr/lib/thunderbird/libmozavutil.so]
+# The embedded libjpeg is libjpeg-turbo, not libjpeg.
+thunderbird: embedded-library libjpeg [usr/lib/thunderbird/libxul.so]
+# Upstream code is not ready to use system library.
+#thunderbird: embedded-library srtp usr/lib/thunderbird/libxul.so
+thunderbird: embedded-library libtheora [usr/lib/thunderbird/libxul.so]
+# The embedded libpng is patched for APNG support.
+thunderbird: embedded-library libpng [usr/lib/thunderbird/libxul.so]
+# We currently need to use the embedded libjsoncpp library.
+thunderbird: embedded-library libjsoncpp [usr/lib/thunderbird/libxul.so]
+
+## Uncomment entries if NSPR4 and/or NSS3 are not available in the archive
+# NSPR isn't packaged in the required version yet
+#thunderbird: embedded-library usr/lib/thunderbird/libnspr4.so: nspr
+# NSS isn't packaged in the required version yet
+#thunderbird: embedded-library usr/lib/thunderbird/libnss3.so: nss

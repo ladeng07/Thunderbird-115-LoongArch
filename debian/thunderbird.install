@@ -1,0 +1,37 @@
+#!/usr/bin/dh-exec
+comm/mail/branding/thunderbird/default16.png => usr/share/icons/hicolor/16x16/apps/thunderbird.png
+comm/mail/branding/thunderbird/default22.png => usr/share/icons/hicolor/22x22/apps/thunderbird.png
+comm/mail/branding/thunderbird/default24.png => usr/share/icons/hicolor/24x24/apps/thunderbird.png
+comm/mail/branding/thunderbird/default32.png => usr/share/icons/hicolor/32x32/apps/thunderbird.png
+comm/mail/branding/thunderbird/default48.png => usr/share/icons/hicolor/48x48/apps/thunderbird.png
+comm/mail/branding/thunderbird/default64.png => usr/share/icons/hicolor/64x64/apps/thunderbird.png
+comm/mail/branding/thunderbird/default128.png => usr/share/icons/hicolor/128x128/apps/thunderbird.png
+comm/mail/branding/thunderbird/default256.png => usr/share/icons/hicolor/256x256/apps/thunderbird.png
+debian/thunderbird-wrapper.sh => usr/bin/thunderbird
+
+comm/mail/branding/thunderbird/net.thunderbird.Thunderbird.appdata.xml usr/share/metainfo
+debian/account-autoconfig/*                       usr/share/thunderbird/isp
+debian/logo/thunderbird/thunderbird.svg           usr/share/icons/hicolor/scalable/apps
+debian/thunderbird.desktop                        usr/share/applications
+debian/thunderbird.js                             etc/thunderbird/pref
+debian/thunderbird-wrapper-helper.sh              usr/lib/thunderbird
+debian/apparmor/usr.bin.thunderbird               etc/apparmor.d
+debian/tmp/usr/lib/thunderbird/fonts
+debian/tmp/usr/lib/thunderbird/*.ini
+debian/tmp/usr/lib/thunderbird/chrome             usr/share/thunderbird
+debian/tmp/usr/lib/thunderbird/defaults/messenger usr/share/thunderbird/defaults
+debian/tmp/usr/lib/thunderbird/defaults/pref      usr/share/thunderbird/defaults
+debian/tmp/usr/lib/thunderbird/dependentlibs.list
+debian/tmp/usr/lib/thunderbird/glxtest
+debian/tmp/usr/lib/thunderbird/thunderbird*
+debian/tmp/usr/lib/thunderbird/isp                usr/share/thunderbird
+debian/tmp/usr/lib/thunderbird/lib*
+debian/tmp/usr/lib/thunderbird/omni.ja            usr/share/thunderbird
+debian/tmp/usr/lib/thunderbird/plugin-container
+debian/tmp/usr/lib/thunderbird/removed-files
+debian/tmp/usr/lib/thunderbird/rnp-cli
+debian/tmp/usr/lib/thunderbird/rnpkeys
+#[amd64 armel armhf i386] debian/tmp/usr/lib/thunderbird/Throbber-small.gif
+#[amd64 armel armhf i386] debian/tmp/usr/lib/thunderbird/crashreporter
+debian/tmp/usr/lib/thunderbird/vaapitest
+debian/vendor.js                                  usr/share/thunderbird/defaults/pref

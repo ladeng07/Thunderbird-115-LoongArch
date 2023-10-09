@@ -1,0 +1,21 @@
+From: Christoph Goehre <chris@sigxcpu.org>
+Date: Sat, 24 Mar 2012 11:54:43 +0100
+Subject: Don't auto-disable extensions in system directories
+
+---
+ comm/mail/app/profile/all-thunderbird.js | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/comm/mail/app/profile/all-thunderbird.js b/comm/mail/app/profile/all-thunderbird.js
+index f80a70f..008018d 100644
+--- a/comm/mail/app/profile/all-thunderbird.js
++++ b/comm/mail/app/profile/all-thunderbird.js
+@@ -189,7 +189,7 @@ pref("extensions.systemAddon.update.enabled", true);  // See bug 1462160.
+ // Disable add-ons installed into the shared user and shared system areas by
+ // default. This does not include the application directory. See the SCOPE
+ // constants in AddonManager.jsm for values to use here
+-pref("extensions.autoDisableScopes", 15);
++pref("extensions.autoDisableScopes", 3);
+ 
+ // Enable add-ons installed and owned by the application, like the default theme.
+ pref("extensions.startupScanScopes", 4);

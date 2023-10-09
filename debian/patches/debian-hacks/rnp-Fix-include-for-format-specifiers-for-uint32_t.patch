@@ -1,0 +1,24 @@
+From: Carsten Schoenert <c.schoenert@t-online.de>
+Date: Tue, 18 Jul 2023 19:55:09 +0200
+Subject: rnp: Fix include for format specifiers for uint32_t
+
+The internal rnp library need the header file cinttypes so the format
+definitions in sexp-error.h knows the format of uint32_t.
+
+Forwarded: not-needed
+---
+ comm/third_party/rnp/src/libsexp/include/sexp/sexp-error.h | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/comm/third_party/rnp/src/libsexp/include/sexp/sexp-error.h b/comm/third_party/rnp/src/libsexp/include/sexp/sexp-error.h
+index 332a63b..6e9dacc 100644
+--- a/comm/third_party/rnp/src/libsexp/include/sexp/sexp-error.h
++++ b/comm/third_party/rnp/src/libsexp/include/sexp/sexp-error.h
+@@ -29,6 +29,7 @@
+ 
+ #pragma once
+ 
++#include <cinttypes>
+ #include <cstdint>
+ #include <exception>
+ #include <iostream>

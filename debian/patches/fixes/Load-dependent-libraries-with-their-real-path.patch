@@ -1,0 +1,22 @@
+From: Christoph Goehre <chris@sigxcpu.org>
+Date: Mon, 16 Sep 2013 20:40:57 +0200
+Subject: Load dependent libraries with their real path
+
+---
+ xpcom/glue/standalone/nsXPCOMGlue.cpp | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/xpcom/glue/standalone/nsXPCOMGlue.cpp b/xpcom/glue/standalone/nsXPCOMGlue.cpp
+index 09edef1..6930417 100644
+--- a/xpcom/glue/standalone/nsXPCOMGlue.cpp
++++ b/xpcom/glue/standalone/nsXPCOMGlue.cpp
+@@ -140,6 +140,9 @@ static ReadDependentCBResult ReadDependentCB(
+     ReadAheadLib(aDependentLib);
+   }
+ #endif
++  char lib[MAXPATHLEN];
++  if (realpath(aDependentLib, lib))
++      aDependentLib = lib;
+   LibHandleType libHandle;
+   MOZ_TRY_VAR(libHandle, GetLibHandle(aDependentLib));
+ 

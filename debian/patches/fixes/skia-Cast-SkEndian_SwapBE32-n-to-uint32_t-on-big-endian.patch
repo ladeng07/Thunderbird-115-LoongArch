@@ -1,0 +1,25 @@
+From: Carsten Schoenert <c.schoenert@t-online.de>
+Date: Tue, 18 Jul 2023 16:02:48 +0200
+Subject: skia: Cast SkEndian_SwapBE32(n) to uint32_t on big-endian
+
+On BE the byte-swapping needs to be unint32_t so cast that to that.
+We have ppc64 and s390x which are Big Endian platforms.
+
+Based on https://cgit.freebsd.org/ports/commit/?id=3110f3a0dcfdf1d5be165bbbb1ff08d720c63c48
+---
+ gfx/skia/skia/src/base/SkEndian.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/gfx/skia/skia/src/base/SkEndian.h b/gfx/skia/skia/src/base/SkEndian.h
+index 732c248..ea35557 100644
+--- a/gfx/skia/skia/src/base/SkEndian.h
++++ b/gfx/skia/skia/src/base/SkEndian.h
+@@ -131,7 +131,7 @@ static inline void SkEndianSwap64s(uint64_t array[], int count) {
+     #define SkTEndian_SwapLE64(n)    (n)
+ #else   // SK_CPU_BENDIAN
+     #define SkEndian_SwapBE16(n)    (n)
+-    #define SkEndian_SwapBE32(n)    (n)
++    #define SkEndian_SwapBE32(n)    uint32_t(n)
+     #define SkEndian_SwapBE64(n)    (n)
+     #define SkEndian_SwapLE16(n)    SkEndianSwap16(n)
+     #define SkEndian_SwapLE32(n)    SkEndianSwap32(n)

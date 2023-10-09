@@ -1,0 +1,58 @@
+# ignoring files within the test cases
+source: source-is-missing [devtools/*]
+source: source-is-missing [*/tests/*]
+source: source-is-missing [*/test/*]
+
+# TexZilla isn't packaged yet too
+source: source-is-missing [comm/suite/editor/components/texzilla/content/TeXZilla.js]
+
+# files are under MPL-2 license with some long lines
+source: source-is-missing [comm/mail/components/compose/content/cloudAttachmentLinkManager.js]
+
+# needed by TB, some various long lines
+source: source-is-missing [*/crashtests/*]
+source: source-is-missing [browser/base/content/default-bookmarks.html]
+source: source-is-missing browser/base/content/swipe-navigation.inc.xhtml
+source: source-is-missing [browser/components/newtab/data/content/activity-stream.bundle.js]
+source: source-is-missing [browser/components/newtab/vendor/*.js]
+source: source-is-missing [browser/components/pocket/content/panels/js/*]
+source: source-is-missing [browser/components/pocket/content/pktUI.js]
+source: source-is-missing [browser/extensions/screenshots/build/*.js]
+source: source-is-missing [browser/tools/mozscreenshots/mozscreenshots/extension/lib/mozscreenshots.html]
+source: source-is-missing [comm/chat/protocols/matrix/lib/*]
+source: source-is-missing [comm/mail/components/compose/texzilla/TeXZilla.js]
+source: source-is-missing [gfx/wr/wrench/script/reftest-analyzer.xhtml]
+source: source-is-missing [js/src/devtools/rootAnalysis/computeGCTypes.js]
+source: source-is-missing [js/src/octane/*.js]
+source: source-is-missing [layout/reftests/*]
+source: source-is-missing [modules/libpref/init/all.js]
+source: source-is-missing [security/nss/doc/html/*.html]
+source: source-is-missing [services/common/kinto-http-client.js]
+source: source-is-missing [third_party/js/cfworker/json-schema.js]
+source: source-is-missing [third_party/js/d3/d3.js]
+source: source-is-missing [third_party/webkit/PerformanceTests/*]
+source: source-is-missing [toolkit/components/certviewer/content/vendor/*]
+source: source-is-missing [toolkit/components/pdfjs/content/build/pdf.js]
+source: source-is-missing [toolkit/components/pdfjs/content/build/pdf.worker.js]
+source: source-is-missing [toolkit/components/pdfjs/content/web/viewer-geckoview.js]
+source: source-is-missing [toolkit/components/pdfjs/content/web/viewer.js]
+source: source-is-missing [toolkit/components/translation/cld2/cld-worker.js]
+source: source-is-missing [toolkit/components/translations/fasttext/fasttext_wasm.js]
+source: source-is-missing [toolkit/components/utils/mozjexl.js]
+
+# not problem as we don't build any Python packages
+source: uses-python-distutils [build/pgo/genpgocert.py:16]
+source: uses-python-distutils [python/mozboot/setup.py:5]
+source: uses-python-distutils [python/mozbuild/mozbuild/nodeutil.py:8]
+source: uses-python-distutils [python/mozlint/test/test_cli.py:8]
+source: uses-python-distutils [python/mozperftest/*]
+source: uses-python-distutils [python/mozrelease/mozrelease/versions.py:6]
+source: uses-python-distutils [security/manager/tools/pypkcs12.py:22]
+source: uses-python-distutils [taskcluster/docker/funsize-update-generator/scripts/funsize.py:16]
+source: uses-python-distutils [testing/*]
+source: uses-python-distutils [third_party/*]
+source: uses-python-distutils [tools/*]
+
+# unfortunaly these Windows libraries are used somehow at built time
+source: source-contains-prebuilt-windows-binary [third_party/rust/libloading/tests/nagisa32.dll]
+source: source-contains-prebuilt-windows-binary [third_party/rust/libloading/tests/nagisa64.dll]
