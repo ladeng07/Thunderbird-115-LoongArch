@@ -189,7 +189,7 @@ pref("extensions.systemAddon.update.enabled", true);  // See bug 1462160.
 // Disable add-ons installed into the shared user and shared system areas by
 // default. This does not include the application directory. See the SCOPE
 // constants in AddonManager.jsm for values to use here
-pref("extensions.autoDisableScopes", 15);
+pref("extensions.autoDisableScopes", 3);
 
 // Enable add-ons installed and owned by the application, like the default theme.
 pref("extensions.startupScanScopes", 4);

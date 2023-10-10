@@ -140,6 +140,9 @@ static ReadDependentCBResult ReadDependentCB(
     ReadAheadLib(aDependentLib);
   }
 #endif
+  char lib[MAXPATHLEN];
+  if (realpath(aDependentLib, lib))
+      aDependentLib = lib;
   LibHandleType libHandle;
   MOZ_TRY_VAR(libHandle, GetLibHandle(aDependentLib));
 

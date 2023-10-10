@@ -11,7 +11,7 @@ from mozboot.util import get_tools_dir
 from mozfile import which
 from six import PY3
 
-NODE_MIN_VERSION = StrictVersion("12.22.12")
+NODE_MIN_VERSION = StrictVersion("10.0")
 NPM_MIN_VERSION = StrictVersion("6.14.16")
 
 

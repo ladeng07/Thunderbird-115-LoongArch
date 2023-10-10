@@ -522,7 +522,7 @@ where
 
     fn match_pseudo(
         &mut self,
-        originating_element_style: &ComputedValues,
+        originating_element_style: &Arc<ComputedValues>,
         pseudo_element: &PseudoElement,
         visited_handling: VisitedHandlingMode,
     ) -> Option<MatchingResults> {
@@ -558,7 +558,8 @@ where
             self.context.shared.quirks_mode(),
             NeedsSelectorFlags::Yes,
         );
-        matching_context.extra_data.originating_element_style = Some(originating_element_style);
+        matching_context.extra_data.originating_element_style =
+            Some(originating_element_style.clone());
 
         // NB: We handle animation rules for ::before and ::after when
         // traversing them.

@@ -142,7 +142,7 @@ where
     pub pseudo_element_matching_fn: Option<&'a dyn Fn(&Impl::PseudoElement) -> bool>,
 
     /// Extra implementation-dependent matching data.
-    pub extra_data: Impl::ExtraMatchingData<'a>,
+    pub extra_data: Impl::ExtraMatchingData,
 
     /// The current element we're anchoring on for evaluating the relative selector.
     current_relative_selector_anchor: Option<OpaqueElement>,

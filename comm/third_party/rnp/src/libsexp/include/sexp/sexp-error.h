@@ -29,6 +29,7 @@
 
 #pragma once
 
+#include <cinttypes>
 #include <cstdint>
 #include <exception>
 #include <iostream>

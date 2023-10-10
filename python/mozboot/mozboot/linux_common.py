@@ -82,7 +82,7 @@ class LinuxBootstrapper(MobileAndroidBootstrapper):
                 "perl",
                 "tar",
                 "unzip",
-                "watchman",
+                #"watchman",
             ]
         )
 

@@ -4624,8 +4624,11 @@ int XREMain::XRE_mainStartup(bool* aExitFlag) {
   // consistently.
 
   // Set program name to the one defined in application.ini.
-  g_set_prgname(gAppData->remotingName);
-
+  {
+    nsAutoCString program(gAppData->remotingName);
+    ToLowerCase(program);
+    g_set_prgname(program.get());
+  }
   // Initialize GTK here for splash.
 
 #  if defined(MOZ_WIDGET_GTK) && defined(MOZ_X11)

@@ -359,7 +359,15 @@ UNIFIED_SOURCES += [
     'skia/src/sksl/SkSLConstantFolder.cpp',
     'skia/src/sksl/SkSLContext.cpp',
     'skia/src/sksl/SkSLErrorReporter.cpp',
-    'skia/src/sksl/SkSLInliner.cpp',
+]
+
+# Work around https://gcc.gnu.org/bugzilla/show_bug.cgi?id=110606
+if CONFIG['CC_TYPE'] == 'gcc' and CONFIG['CPU_ARCH'] == 'ppc64':
+    SOURCES += ['skia/src/sksl/SkSLInliner.cpp']
+else:
+    UNIFIED_SOURCES += ['skia/src/sksl/SkSLInliner.cpp']
+
+UNIFIED_SOURCES += [
     'skia/src/sksl/SkSLIntrinsicList.cpp',
     'skia/src/sksl/SkSLMangler.cpp',
     'skia/src/sksl/SkSLModuleLoader.cpp',
