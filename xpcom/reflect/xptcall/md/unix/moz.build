@@ -135,6 +135,13 @@ if CONFIG["OS_ARCH"] in ("Linux", "FreeBSD", "NetBSD", "OpenBSD"):
             ASFLAGS += [
                 "-fno-integrated-as",
             ]
+    if CONFIG['CPU_ARCH'] == 'loongarch64':
+        SOURCES += [
+            'xptcinvoke_asm_loongarch64.S',
+            'xptcinvoke_loongarch64.cpp',
+            'xptcstubs_asm_loongarch64.S',
+            'xptcstubs_loongarch64.cpp',
+        ]
     if CONFIG["CPU_ARCH"] == "mips32":
         SOURCES += [
             "xptcinvoke_asm_mips.S",
