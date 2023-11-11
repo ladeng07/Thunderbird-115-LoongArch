@@ -210,6 +210,10 @@
 #define ARCH_CPU_SPARC 1
 #define ARCH_CPU_32_BITS 1
 #define ARCH_CPU_BIG_ENDIAN 1
+#elif defined(__loongarch64)
+#define ARCH_CPU_LOONGARCH 1
+#define ARCH_CPU_64_BITS 1
+#define ARCH_CPU_LITTLE_ENDIAN 1
 #else
 #error Please add support for your architecture in build/build_config.h
 #endif
